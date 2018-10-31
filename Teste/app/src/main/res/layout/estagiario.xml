@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/Estagiario"
+    android:background="@color/azul"
+    >
+
+    <TextView
+        android:id="@+id/txtnome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TRAINEE - ESTAGIÁRIO"
+        android:textColor="@color/branco"
+        android:textSize="25dp"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="1dp" />
+
+    <EditText
+        android:id="@+id/nome"
+        android:layout_width="355dp"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textPersonName"
+        android:textColor="@color/branco"
+        android:textColorHint="@color/branco"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="70dp" />
+
+    <EditText
+        android:id="@+id/senha"
+        android:layout_width="355dp"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:textColorHint="@color/branco"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="170dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENTRAR"
+        android:textColor="@color/azul"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="336dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Esqueci minha senha!"
+        android:textColor="@color/branco"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="422dp" />
+</android.support.constraint.ConstraintLayout>
