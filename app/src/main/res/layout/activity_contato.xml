@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Contato"
+    android:orientation="vertical"
+    android:background="#00A6FF">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+    />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/presentation4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:text="@string/contato" />
+
+    <EditText
+        android:id="@+id/editEmail3"
+        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+        android:layout_width="350dp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextstyle"
+        android:backgroundTint="@color/colorPrimary"
+        android:hint="Email"
+        android:layout_marginTop="40dp"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/message"
+        style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+        android:layout_width="350dp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextstyle"
+        android:backgroundTint="@color/colorPrimary"
+        android:hint="Digite sua mensagem."
+        android:layout_marginTop="20dp"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cancel"
+            android:background="@drawable/roundbutton"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:text="Cancelar"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/send"
+            android:background="@drawable/roundbutton"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            android:text="Enviar"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+
+</LinearLayout>

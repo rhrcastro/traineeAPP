@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#00A6FF"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        />
+    />
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="208dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="logo"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/pesentation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="Bem vindo! Escolha uma opção"
+        android:textColor="#FFFFFF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/butest"
+            android:background="@drawable/roundbutton"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:text="Estagiário"
+            android:textColor="#00A6FF" />
+
+        <Button
+            android:id="@+id/butemp"
+            android:background="@drawable/roundbutton"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:text="Empregador"
+            android:textColor="#00A6FF" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:text="Deseja falar conosco?"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

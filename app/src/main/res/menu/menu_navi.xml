@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Vagas em aberto"
+        android:icon="@drawable/ic_aberto"
+        />
+
+    <item
+        android:title="Novas Vagas"
+        android:icon="@drawable/ic_novas"
+        />
+
+    <item
+        android:title="Recomendadas"
+        android:icon="@drawable/ic_book_black_24dp"
+        />
+
+
+</menu>
