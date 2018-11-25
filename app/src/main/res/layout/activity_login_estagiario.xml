@@ -84,7 +84,7 @@
         android:clickable="true"
         android:tint="@color/colorPrimary"
         app:backgroundTint="#fff"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@drawable/round_person_add_white_24" />
 
 
 </LinearLayout>

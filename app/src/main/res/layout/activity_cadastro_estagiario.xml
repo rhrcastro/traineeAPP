@@ -201,14 +201,14 @@
 
             <Button
                 android:id="@+id/cadastrar"
-                android:background="@drawable/roundbutton"
                 android:layout_width="200dp"
                 android:layout_height="40dp"
-                android:text="Cadastrar-se"
-                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
-                android:layout_gravity="center"/>
+                android:background="@drawable/roundbutton"
+                android:text="Cadastrar"
+                android:textColor="@color/colorPrimary" />
 
         </LinearLayout>
 
