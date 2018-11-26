@@ -1,4 +1,4 @@
-package com.example.thal3.myapplication;
+package com.example.thal3.myapplication.dominio;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import com.example.thal3.myapplication.R;
+import com.example.thal3.myapplication.TelaPrincipalEstagiario;
 
 public class Curriculo extends AppCompatActivity {
 

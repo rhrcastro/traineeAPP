@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#00A6FF"
-    tools:context=".Curriculo">
+    tools:context=".dominio.Curriculo">
 
     <include
         android:id="@+id/toolbar"
