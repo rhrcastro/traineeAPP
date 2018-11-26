@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
 public class CadastroEstagiario extends AppCompatActivity {
 
     Button cadastrar;
@@ -52,7 +54,8 @@ public class CadastroEstagiario extends AppCompatActivity {
     }
 
     private void validaCampos() {
-        boolean res = false;
+        boolean camposVazios = false;
+        ArrayList<String> logError = new ArrayList<>();
 
         String nome = edtNome.getText().toString();
         String email = edtEmail.getText().toString();
@@ -64,30 +67,46 @@ public class CadastroEstagiario extends AppCompatActivity {
         String pergunta = edtPergunta.getText().toString();
         String resposta = edtResposta.getText().toString();
 
-        if (res = isCampoVazio(nome)) {
+        if (camposVazios = isCampoVazio(nome)) {
             edtNome.requestFocus();
-        } else if (res = !isEmailValido(email)) {
+        } else if (camposVazios = isCampoVazio(email)) {
             edtEmail.requestFocus();
-        } else if (res = isCampoVazio(cpf)) {
+        } else if (camposVazios = isCampoVazio(cpf)) {
             edtCPF.requestFocus();
-        } else if (res = isCampoVazio(senha)) {
+        } else if (camposVazios = isCampoVazio(senha)) {
             edtSenha.requestFocus();
-        } else if (res = isCampoVazio(confSenha)) {
+        } else if (camposVazios = isCampoVazio(confSenha)) {
             edtConfSenha.requestFocus();
-        } else if (res = isCampoVazio(area)) {
+        } else if (camposVazios = isCampoVazio(area)) {
             edtArea.requestFocus();
-        } else if (res = isCampoVazio(cidade)) {
+        } else if (camposVazios = isCampoVazio(cidade)) {
             edtCidade.requestFocus();
-        } else if (res = isCampoVazio(pergunta)) {
+        } else if (camposVazios = isCampoVazio(pergunta)) {
             edtPergunta.requestFocus();
-        } else if (res = isCampoVazio(resposta)) {
+        } else if (camposVazios = isCampoVazio(resposta)) {
             edtResposta.requestFocus();
         }
 
-        if (res) {
+        if (camposVazios) {
+            logError.add("- Preencha todos os campos vazios.");
+        }
+
+        if (!isEmailValido(email)) {
+            logError.add("- O email não é válido.");
+        }
+
+        if (!isSenhaIgual(senha, confSenha)) {
+            logError.add("- As senhas não conferem.");
+        }
+
+        if (logError.size() > 0) {
+            String msg = new String();
+            for (String erro : logError) {
+                msg = msg.concat(erro + "\n");
+            }
             AlertDialog.Builder dlg = new AlertDialog.Builder(this);
             dlg.setTitle("Aviso");
-            dlg.setMessage("Há campos inválidos ou em branco");
+            dlg.setMessage(msg);
             dlg.setNeutralButton("OK", null);
             dlg.show();
         }
@@ -100,6 +119,11 @@ public class CadastroEstagiario extends AppCompatActivity {
 
     private boolean isEmailValido(String email) {
         boolean resultado = (!isCampoVazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        return resultado;
+    }
+
+    private boolean isSenhaIgual(String senha1, String senha2) {
+        boolean resultado = senha1.equals(senha2);
         return resultado;
     }
 }
