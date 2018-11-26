@@ -5,6 +5,7 @@ public class Estagiario {
     private Curriculo curriculo;
     private String senha;
     private String email;
+    private int id;
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
@@ -31,5 +32,11 @@ public class Estagiario {
 
     public String getSenha() {
         return senha;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
     }
 }
