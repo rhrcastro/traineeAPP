@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 import com.example.thal3.myapplication.R;
 import com.example.thal3.myapplication.negocio.EstagiarioServices;
+import com.example.thal3.myapplication.negocio.LoginServices;
+import com.example.thal3.myapplication.dominio.Pessoa;
+import com.example.thal3.myapplication.dominio.Estagiario;
 
 import java.util.ArrayList;
 
@@ -31,28 +34,34 @@ public class CadastroEstagiario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_estagiario);
 
-        edtNome = (EditText)findViewById(R.id.editNomeCadastroEst);
-        edtEmail = (EditText)findViewById(R.id.editEmailCadastroEst);
-        edtCPF = (EditText)findViewById(R.id.editCpf);
-        edtSenha = (EditText)findViewById(R.id.editSenhaCadastro);
-        edtConfSenha = (EditText)findViewById(R.id.editConfirmaSenha);
-        edtCidade = (EditText)findViewById(R.id.editCidade);
+        this.edtNome = findViewById(R.id.editNomeCadastroEst);
+        this.edtEmail = findViewById(R.id.editEmailCadastroEst);
+        this.edtCPF = findViewById(R.id.editCpf);
+        this.edtSenha = findViewById(R.id.editSenhaCadastro);
+        this.edtConfSenha = findViewById(R.id.editConfirmaSenha);
+        this.edtCidade = findViewById(R.id.editCidade);
 
-        cadastrar = (Button)findViewById(R.id.cadastrar);
-        cadastrar.setOnClickListener(new View.OnClickListener() {
+        this.cadastrar = findViewById(R.id.cadastrar);
+        this.cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validaCampos()) {
-                    Toast.makeText(CadastroEstagiario.this,
-                            "Cadastro realizado, preencha seu currículo", Toast.LENGTH_LONG).show();
-                    Intent abreTelaCadastroCurriculo = new Intent(getBaseContext(), Curriculo.class);
-                    startActivity(abreTelaCadastroCurriculo);
-                }
+                cadastrar();
             }
         });
 
     }
-
+    public void cadastrar() {
+        if (!this.validaCampos()) {
+            return;
+        }
+        LoginServices loginServices = new LoginServices();
+        if (loginServices.cadastrar(this.criarPessoa())) {
+            Toast.makeText(getApplicationContext(),"Conta Criada",Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Toast.makeText(getApplicationContext(),"Já existe uma conta com este e-mail",Toast.LENGTH_SHORT).show();
+        }
+    }
     private boolean validaCampos() {
         boolean camposVazios = false;
         ArrayList<String> logError = new ArrayList<>();
@@ -112,4 +121,20 @@ public class CadastroEstagiario extends AppCompatActivity {
         boolean resultado = (TextUtils.isEmpty(valor) || valor.trim().isEmpty());
         return resultado;
     }
+    private Pessoa criarPessoa() {
+        String nome = edtNome.getText().toString().trim();
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome(nome);
+        pessoa.setEstagiario(this.criarEstagiario());
+        return pessoa;
+    }
+    private Estagiario criarEstagiario() {
+        String email = edtEmail.getText().toString().trim();
+        String senha = edtSenha.getText().toString().trim();
+        Estagiario estagiario = new Estagiario();
+        estagiario.setEmail(email);
+        estagiario.setSenha(senha);
+        return estagiario;
+    }
+
 }

@@ -25,13 +25,37 @@ public class estagiarioDAO {
         estagiario.setSenha(senha);
         return estagiario;
     }
-    public void inserirEstagiario(Estagiario estagiario) {
+    public long inserirEstagiario(Estagiario estagiario) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("id", estagiario.getId());
         valores.put("email", estagiario.getEmail());
         valores.put("senha", estagiario.getSenha());
-        valores.put("id_pessoa", estagiario.getPessoa().getId());
-
+        long id = escritorBanco.insert("id", null, valores);
+        escritorBanco.close();
+        return id;
+    }
+    private Estagiario load(String query, String[] args) {
+        SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Estagiario estagiario = null;
+        if (cursor.moveToNext()) {
+            estagiario = criarEstagiario(cursor);
+        }
+        cursor.close();
+        leitorBanco.close();
+        return estagiario;
+    }
+    public Estagiario getEstagiarioByEmail(String email) {
+        String query =  "SELECT * FROM usuario " +
+                "WHERE email = ?";
+        String[] args = {email};
+        return this.load(query, args);
+    }
+    public Estagiario getEstagiarioByEmaileSenha(String email, String senha) {
+        String query =  "SELECT * FROM usuario " +
+                "WHERE email = ? AND senha = ?";
+        String[] args = {email, senha};
+        return this.load(query, args);
     }
 }

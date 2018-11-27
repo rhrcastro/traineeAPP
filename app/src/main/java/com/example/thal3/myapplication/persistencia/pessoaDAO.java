@@ -8,21 +8,39 @@ import com.example.thal3.myapplication.dominio.Pessoa;
 import com.example.thal3.myapplication.infra.Database;
 
 public class pessoaDAO {
-    private Database bancodados;
+    private Database bancoDados;
     private estagiarioDAO estagiarioDAO;
     public pessoaDAO() {
-        bancodados = new Database();
+        bancoDados = new Database();
         estagiarioDAO = new estagiarioDAO();
     }
     public void inserirPessoa(Pessoa pessoa) {
-        SQLiteDatabase escreverBanco = bancodados.getWritableDatabase();
+        SQLiteDatabase escreverBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("id", pessoa.getId());
         valores.put("nome", pessoa.getNome());
         valores.put("cpf", pessoa.getCpf());
+        valores.put("id_estagiario", pessoa.getEstagiario().getId());
         escreverBanco.insert("pessoa", null, valores);
+        escreverBanco.close();
 
-
+    }
+    private Pessoa load(String query, String[] args) {
+        SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Pessoa pessoa = null;
+        if (cursor.moveToNext()) {
+            pessoa = criarPessoa(cursor);
+        }
+        cursor.close();
+        leitorBanco.close();
+        return pessoa;
+    }
+    public Pessoa getIdUsuario(long id) {
+        String query = "SELECT * FROM pessoa " +
+                "WHERE id_usuario = ?";
+        String[] args = {String.valueOf(id)};
+        return this.load(query, args);
     }
     private Pessoa criarPessoa(Cursor cursor) {
         int indexId = cursor.getColumnIndex("id");

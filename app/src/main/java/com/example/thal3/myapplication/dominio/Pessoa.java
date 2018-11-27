@@ -4,6 +4,7 @@ public class Pessoa {
     private String nome;
     private String cpf;
     private long id;
+    private Estagiario estagiario;
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -24,5 +25,12 @@ public class Pessoa {
     }
     public String getNome() {
         return this.nome;
+    }
+    public Estagiario getEstagiario() {
+        return this.estagiario;
+    }
+
+    public void setEstagiario(Estagiario estagiario) {
+        this.estagiario = estagiario;
     }
 }
