@@ -4,10 +4,6 @@ import android.util.Patterns;
 
 import java.util.InputMismatchException;
 
-/**
- * Created by Aluno on 27/11/2018.
- */
-
 public class EstagiarioServices {
 
     public static boolean isEmailValido(String email) {

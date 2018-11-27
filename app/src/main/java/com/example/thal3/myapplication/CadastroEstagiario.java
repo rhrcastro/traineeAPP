@@ -9,7 +9,9 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.thal3.myapplication.dominio.Curriculo;
 import com.example.thal3.myapplication.negocio.EstagiarioServices;
 
 import java.util.ArrayList;
@@ -32,7 +34,7 @@ public class CadastroEstagiario extends AppCompatActivity {
 
         edtNome = (EditText)findViewById(R.id.editNomeCadastroEst);
         edtEmail = (EditText)findViewById(R.id.editEmailCadastroEst);
-        edtCPF = (EditText)findViewById(R.id.editEmailCadastroEst);
+        edtCPF = (EditText)findViewById(R.id.editCpf);
         edtSenha = (EditText)findViewById(R.id.editSenhaCadastro);
         edtConfSenha = (EditText)findViewById(R.id.editConfirmaSenha);
         edtCidade = (EditText)findViewById(R.id.editCidade);
@@ -41,15 +43,18 @@ public class CadastroEstagiario extends AppCompatActivity {
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validaCampos();
-                //Intent abreTelaCadastroCurriculo = new Intent(getBaseContext(), Curriculo.class);
-               // startActivity(abreTelaCadastroCurriculo);
+                if (validaCampos()) {
+                    Toast.makeText(CadastroEstagiario.this,
+                            "Cadastro realizado, preencha seu currículo", Toast.LENGTH_LONG).show();
+                    Intent abreTelaCadastroCurriculo = new Intent(getBaseContext(), Curriculo.class);
+                    startActivity(abreTelaCadastroCurriculo);
+                }
             }
         });
 
     }
 
-    private void validaCampos() {
+    private boolean validaCampos() {
         boolean camposVazios = false;
         ArrayList<String> logError = new ArrayList<>();
 
@@ -82,9 +87,9 @@ public class CadastroEstagiario extends AppCompatActivity {
             logError.add("- O email não é válido.");
         }
 
-       /* if (!EstagiarioServices.isCPF(cpf)) {
-            logError.add("O CPF não é válido.");
-        }*/
+        if (!EstagiarioServices.isCPF(cpf)) {
+            logError.add("- O CPF não é válido.");
+        }
 
         if (!EstagiarioServices.isSenhaIgual(senha, confSenha)) {
             logError.add("- As senhas não conferem.");
@@ -100,7 +105,8 @@ public class CadastroEstagiario extends AppCompatActivity {
             dlg.setMessage(msg);
             dlg.setNeutralButton("OK", null);
             dlg.show();
-        }
+            return false;
+        } return true;
     }
 
     private boolean isCampoVazio(String valor) {
