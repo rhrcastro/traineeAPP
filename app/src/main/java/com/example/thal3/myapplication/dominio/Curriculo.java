@@ -6,10 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import com.example.thal3.myapplication.R;
-import com.example.thal3.myapplication.TelaPrincipalEstagiario;
+import com.example.thal3.myapplication.gui.TelaPrincipalEstagiario;
 
 public class Curriculo extends AppCompatActivity {
 

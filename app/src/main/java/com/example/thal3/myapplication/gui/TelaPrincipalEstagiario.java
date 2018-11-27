@@ -1,10 +1,12 @@
-package com.example.thal3.myapplication;
+package com.example.thal3.myapplication.gui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.thal3.myapplication.R;
 
 public class TelaPrincipalEstagiario extends AppCompatActivity {
 

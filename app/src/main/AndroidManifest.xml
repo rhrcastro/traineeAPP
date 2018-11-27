@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".gui.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,19 +20,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginEstagiario"
+            android:name=".gui.LoginEstagiario"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LoginEmpregador"
+            android:name=".gui.LoginEmpregador"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Contato"
+            android:name=".gui.Contato"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CadastroEstagiario"
+            android:name=".gui.CadastroEstagiario"
             android:screenOrientation="portrait" />
         <activity android:name=".dominio.Curriculo" />
-        <activity android:name=".TelaPrincipalEstagiario"></activity>
+        <activity android:name=".gui.TelaPrincipalEstagiario"></activity>
     </application>
 
 </manifest>

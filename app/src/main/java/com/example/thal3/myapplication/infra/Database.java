@@ -1,4 +1,4 @@
-package com.example.thal3.myapplication.persistencia;
+package com.example.thal3.myapplication.infra;
 import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
