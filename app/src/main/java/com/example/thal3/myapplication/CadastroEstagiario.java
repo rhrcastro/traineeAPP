@@ -10,11 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.thal3.myapplication.negocio.EstagiarioServices;
+
 import java.util.ArrayList;
 
 public class CadastroEstagiario extends AppCompatActivity {
 
     Button cadastrar;
+
     private EditText edtNome;
     private EditText edtEmail;
     private EditText edtCPF;
@@ -91,11 +94,15 @@ public class CadastroEstagiario extends AppCompatActivity {
             logError.add("- Preencha todos os campos vazios.");
         }
 
-        if (!isEmailValido(email)) {
+        if (!EstagiarioServices.isEmailValido(email)) {
             logError.add("- O email não é válido.");
         }
 
-        if (!isSenhaIgual(senha, confSenha)) {
+       /* if (!EstagiarioServices.isCPF(cpf)) {
+            logError.add("O CPF não é válido.");
+        }*/
+
+        if (!EstagiarioServices.isSenhaIgual(senha, confSenha)) {
             logError.add("- As senhas não conferem.");
         }
 
@@ -114,16 +121,6 @@ public class CadastroEstagiario extends AppCompatActivity {
 
     private boolean isCampoVazio(String valor) {
         boolean resultado = (TextUtils.isEmpty(valor) || valor.trim().isEmpty());
-        return resultado;
-    }
-
-    private boolean isEmailValido(String email) {
-        boolean resultado = (!isCampoVazio(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-        return resultado;
-    }
-
-    private boolean isSenhaIgual(String senha1, String senha2) {
-        boolean resultado = senha1.equals(senha2);
         return resultado;
     }
 }
