@@ -35,11 +35,7 @@ public class CadastroEstagiario extends AppCompatActivity {
         edtCPF = (EditText)findViewById(R.id.editEmailCadastroEst);
         edtSenha = (EditText)findViewById(R.id.editSenhaCadastro);
         edtConfSenha = (EditText)findViewById(R.id.editConfirmaSenha);
-        edtArea = (EditText)findViewById(R.id.editArea);
         edtCidade = (EditText)findViewById(R.id.editCidade);
-        edtPergunta = (EditText)findViewById(R.id.editPergunta1);
-        edtResposta = (EditText)findViewById(R.id.editResposta);
-
 
         cadastrar = (Button)findViewById(R.id.cadastrar);
         cadastrar.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +58,7 @@ public class CadastroEstagiario extends AppCompatActivity {
         String cpf = edtCPF.getText().toString();
         String senha = edtSenha.getText().toString();
         String confSenha = edtConfSenha.getText().toString();
-        String area = edtArea.getText().toString();
         String cidade = edtCidade.getText().toString();
-        String pergunta = edtPergunta.getText().toString();
-        String resposta = edtResposta.getText().toString();
 
         if (camposVazios = isCampoVazio(nome)) {
             edtNome.requestFocus();
@@ -77,16 +70,10 @@ public class CadastroEstagiario extends AppCompatActivity {
             edtSenha.requestFocus();
         } else if (camposVazios = isCampoVazio(confSenha)) {
             edtConfSenha.requestFocus();
-        } else if (camposVazios = isCampoVazio(area)) {
-            edtArea.requestFocus();
-        } else if (camposVazios = isCampoVazio(cidade)) {
-            edtCidade.requestFocus();
-        } else if (camposVazios = isCampoVazio(pergunta)) {
-            edtPergunta.requestFocus();
-        } else if (camposVazios = isCampoVazio(resposta)) {
-            edtResposta.requestFocus();
         }
-
+          else if (camposVazios = isCampoVazio(cidade)) {
+            edtCidade.requestFocus();
+        }
         if (camposVazios) {
             logError.add("- Preencha todos os campos vazios.");
         }
