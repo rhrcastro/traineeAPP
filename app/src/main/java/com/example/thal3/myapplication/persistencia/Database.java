@@ -17,11 +17,16 @@ public  class Database extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE pessoa(" +
         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "nome text NOT NULL, " + "cpf text NOT NULL); ");
+        db.execSQL("CREATE TABLE estagiario(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "senha text NOT NULL," +
+                "email text NOT NULL," + "id_pessoa integer NOT NULL);");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE pessoa;");
+        db.execSQL("DROP TABLE estagiario");
         onCreate(db);
     }
 }

@@ -20,10 +20,7 @@ public class CadastroEstagiario extends AppCompatActivity {
     private EditText edtCPF;
     private EditText edtSenha;
     private EditText edtConfSenha;
-    private EditText edtArea;
     private EditText edtCidade;
-    private EditText edtPergunta;
-    private EditText edtResposta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
