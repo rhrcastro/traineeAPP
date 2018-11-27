@@ -10,16 +10,15 @@
     android:background="#00A6FF">
 
     <android.support.v7.widget.Toolbar
-        app:itemTextColor="#fff"
-        app:itemIconTint="#fff"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:id="@+id/botnavi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:id="@+id/botnavi"
         android:layout_gravity="top"
-        design:menu="@menu/navi_menu"
-        >
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
+        design:menu="@menu/navi_menu">
 
 
     </android.support.v7.widget.Toolbar>
