@@ -19,8 +19,8 @@ public  class Database extends SQLiteOpenHelper {
         "nome text NOT NULL, " + "cpf text NOT NULL); ");
         db.execSQL("CREATE TABLE estagiario(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "senha text NOT NULL," +
-                "email text NOT NULL," + "id_pessoa integer NOT NULL);");
+                "email text NOT NULL," +
+                "senha text NOT NULL," + "id_pessoa integer NOT NULL);");
     }
 
     @Override

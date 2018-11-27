@@ -16,10 +16,13 @@ public class Pessoa {
     public String getCpf (){
         return cpf;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
     public long getId() {
         return id;
+    }
+    public String getNome() {
+        return this.nome;
     }
 }

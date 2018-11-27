@@ -1,5 +1,7 @@
 package com.example.thal3.myapplication.dominio;
 
+import com.example.thal3.myapplication.gui.Curriculo;
+
 public class Estagiario {
     private Pessoa pessoa;
     private Curriculo curriculo;
@@ -33,7 +35,7 @@ public class Estagiario {
     public String getSenha() {
         return senha;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
     public long getId() {

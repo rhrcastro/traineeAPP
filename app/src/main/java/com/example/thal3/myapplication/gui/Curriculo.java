@@ -1,4 +1,4 @@
-package com.example.thal3.myapplication.dominio;
+package com.example.thal3.myapplication.gui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

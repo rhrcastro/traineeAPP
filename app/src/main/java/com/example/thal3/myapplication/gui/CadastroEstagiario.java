@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.thal3.myapplication.R;
-import com.example.thal3.myapplication.dominio.Curriculo;
 import com.example.thal3.myapplication.negocio.EstagiarioServices;
 
 import java.util.ArrayList;

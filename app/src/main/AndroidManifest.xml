@@ -31,7 +31,7 @@
         <activity
             android:name=".gui.CadastroEstagiario"
             android:screenOrientation="portrait" />
-        <activity android:name=".dominio.Curriculo" />
+        <activity android:name=".gui.Curriculo" />
         <activity android:name=".gui.TelaPrincipalEstagiario"></activity>
     </application>
 
