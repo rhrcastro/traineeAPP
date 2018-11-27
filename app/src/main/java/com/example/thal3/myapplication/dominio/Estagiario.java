@@ -5,7 +5,7 @@ public class Estagiario {
     private Curriculo curriculo;
     private String senha;
     private String email;
-    private int id;
+    private long id;
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
@@ -36,7 +36,7 @@ public class Estagiario {
     public void setId(int id) {
         this.id = id;
     }
-    public int getId() {
+    public long getId() {
         return id;
     }
 }
