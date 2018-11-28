@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TRAINEE</string>
+    <string name="estagiario">TRAINEE - ESTAGIÁRIO</string>
+    <string name="empregador">TRAINEE - EMPREGADOR</string>
+    <string name="contato">CONTATE-NOS</string>
+    <string name="cadastroestagiario">CADASTRE-SE</string>
+    <string name="cadastrocurriculo">PRÉ - CURRICULO</string>
+</resources>

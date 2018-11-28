@@ -44,21 +44,15 @@ public class CadastroEstagiario extends AppCompatActivity {
         edtConfSenha = (EditText)findViewById(R.id.editConfirmaSenha);
         edtArea = (EditText)findViewById(R.id.editArea);
         edtCidade = (EditText)findViewById(R.id.editCidade);
-
         cadastrar = (Button)findViewById(R.id.cadastrar);
-        cadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        String resultado;
+        Usuario usuario = new Usuario();
 
-                if (validaCampos() == true){
-                    BancoController crud = new BancoController(getBaseContext());
-                    crud.AddDado(edtNome.getText().toString(), edtEmail.getText().toString(), edtSenha.getText().toString(), edtCidade.getText().toString());
-                    Toast.makeText(getApplicationContext(), "Usuario registrado com sucesso.", Toast.LENGTH_LONG).show();
-                    Intent abreTelaCadastroCurriculo = new Intent(getBaseContext(), Curriculo.class);
-                    startActivity(abreTelaCadastroCurriculo);
-                }
-            }
-        });
+        resultado = teste.addUser(new Usuario("Thales","140299","thal3s49@hotmail.com","Recife" ));
+        Toast.makeText(CadastroEstagiario.this, resultado, Toast.LENGTH_LONG).show();
+
+        Intent abreTelaCadastroCurriculo = new Intent(getBaseContext(), Curriculo.class);
+        startActivity(abreTelaCadastroCurriculo);
 
     }
 

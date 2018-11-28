@@ -1,0 +1,208 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\9f6036b86590fa984e3d81e192c34651\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\173f79f1433841d8a10de8bb3445d28f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\02293009b286c4e8d1fbd5c6f30b3941\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\edd10f6a76ce8fdc101bfe2511f4ea32\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\c997fa172030f76fb19e3f4ce63d4583\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\e22839568635de535aac621cd8be1ada\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\2c364151d60bb88bd5e51ef2e8368ce8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\f3f860840ebd9b532ba847d82fa92915\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\42bdd440738916ac86e44ce195ebdb05\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\64aaf63f076cf275b86053dae919d34e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\bc44ff07c7ec28ea9d0becec2d6f3a78\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\a8b7b8f05ccfcdc2a329231334abaf25\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\eda73ec3cd12c4502891e475b3fd15d8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\7ef338b2656819d4797fd1c9b3ea2594\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\be9e5f5da4574e8e035aba47e3ef86e9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\c2757ad1409e58a08762c9536f74d504\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\1f11968786a53556fc6acc6277a1eff5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\6c1eda4280a67f08bf855d199efdde28\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cfe297c7b32c72ac1572a9e177e73a1f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1e40bd36b3c799684f6eb301f41313b4\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\e75b17a77388d8a714fbd3c2d0228e30\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\4acb56bea6403378acdcbdc77a19f434\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\d634e50a3c493fb2e47dceeed65c82b4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\aa5148efd1c56ca32eb8225e841e8662\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\354b4156c7efd4b62b08070c303fb31e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\b3930895f2710667e9b121876ca4a855\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\3a0a7d201b1a5e0e7af0ddf952b26cd3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\356f4a9017cb9e4b318b505ab18062ba\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\921eaf675c5b0feee3f8330447fbdae9\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\14234950b1cad09153a81fd2f2022607\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\50551c9170aed878f823030778f99af2\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+	package
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:3:5-46
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:1-40:12
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:2:11-69
+application
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:5:5-38:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\9f6036b86590fa984e3d81e192c34651\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\9f6036b86590fa984e3d81e192c34651\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\02293009b286c4e8d1fbd5c6f30b3941\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\02293009b286c4e8d1fbd5c6f30b3941\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cfe297c7b32c72ac1572a9e177e73a1f\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cfe297c7b32c72ac1572a9e177e73a1f\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1e40bd36b3c799684f6eb301f41313b4\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1e40bd36b3c799684f6eb301f41313b4\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cfe297c7b32c72ac1572a9e177e73a1f\AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:11:9-35
+	android:label
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:9:9-41
+	android:debuggable
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:7:9-34
+	android:roundIcon
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:10:9-54
+	android:icon
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:8:9-43
+	android:allowBackup
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:12:9-40
+activity#com.example.thal3.myapplication.MainActivity
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:13:9-21:20
+	android:screenOrientation
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:15:13-49
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:14:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:16:13-20:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:17:17-69
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:17:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:19:17-77
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:19:27-74
+activity#com.example.thal3.myapplication.LoginEstagiario
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:22:9-24:52
+	android:screenOrientation
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:24:13-49
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:23:13-44
+activity#com.example.thal3.myapplication.LoginEmpregador
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:25:9-27:52
+	android:screenOrientation
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:27:13-49
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:26:13-44
+activity#com.example.thal3.myapplication.Contato
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:28:9-30:52
+	android:screenOrientation
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:30:13-49
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:29:13-36
+activity#com.example.thal3.myapplication.CadastroEstagiario
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:31:9-33:52
+	android:screenOrientation
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:33:13-49
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:32:13-47
+activity#com.example.thal3.myapplication.dominio.Curriculo
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:34:9-55
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:34:19-52
+activity#com.example.thal3.myapplication.TelaPrincipalEstagiario
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:35:9-61
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:35:19-58
+activity#com.example.thal3.myapplication.Consulta
+ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:36:9-37:20
+	android:name
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml:36:19-43
+uses-sdk
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\9f6036b86590fa984e3d81e192c34651\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\9f6036b86590fa984e3d81e192c34651\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\173f79f1433841d8a10de8bb3445d28f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\173f79f1433841d8a10de8bb3445d28f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\02293009b286c4e8d1fbd5c6f30b3941\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\02293009b286c4e8d1fbd5c6f30b3941\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\edd10f6a76ce8fdc101bfe2511f4ea32\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\edd10f6a76ce8fdc101bfe2511f4ea32\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\c997fa172030f76fb19e3f4ce63d4583\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\c997fa172030f76fb19e3f4ce63d4583\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\e22839568635de535aac621cd8be1ada\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\e22839568635de535aac621cd8be1ada\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\2c364151d60bb88bd5e51ef2e8368ce8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\2c364151d60bb88bd5e51ef2e8368ce8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\f3f860840ebd9b532ba847d82fa92915\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\f3f860840ebd9b532ba847d82fa92915\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\42bdd440738916ac86e44ce195ebdb05\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\42bdd440738916ac86e44ce195ebdb05\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\64aaf63f076cf275b86053dae919d34e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\64aaf63f076cf275b86053dae919d34e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\bc44ff07c7ec28ea9d0becec2d6f3a78\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\bc44ff07c7ec28ea9d0becec2d6f3a78\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\a8b7b8f05ccfcdc2a329231334abaf25\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\a8b7b8f05ccfcdc2a329231334abaf25\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\eda73ec3cd12c4502891e475b3fd15d8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\eda73ec3cd12c4502891e475b3fd15d8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\7ef338b2656819d4797fd1c9b3ea2594\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\7ef338b2656819d4797fd1c9b3ea2594\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\be9e5f5da4574e8e035aba47e3ef86e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\be9e5f5da4574e8e035aba47e3ef86e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\c2757ad1409e58a08762c9536f74d504\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\c2757ad1409e58a08762c9536f74d504\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\1f11968786a53556fc6acc6277a1eff5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\1f11968786a53556fc6acc6277a1eff5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\6c1eda4280a67f08bf855d199efdde28\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\6c1eda4280a67f08bf855d199efdde28\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cfe297c7b32c72ac1572a9e177e73a1f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\cfe297c7b32c72ac1572a9e177e73a1f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1e40bd36b3c799684f6eb301f41313b4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\1e40bd36b3c799684f6eb301f41313b4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\e75b17a77388d8a714fbd3c2d0228e30\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\e75b17a77388d8a714fbd3c2d0228e30\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\4acb56bea6403378acdcbdc77a19f434\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\4acb56bea6403378acdcbdc77a19f434\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\d634e50a3c493fb2e47dceeed65c82b4\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\d634e50a3c493fb2e47dceeed65c82b4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\aa5148efd1c56ca32eb8225e841e8662\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\aa5148efd1c56ca32eb8225e841e8662\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\354b4156c7efd4b62b08070c303fb31e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\354b4156c7efd4b62b08070c303fb31e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\b3930895f2710667e9b121876ca4a855\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\b3930895f2710667e9b121876ca4a855\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\3a0a7d201b1a5e0e7af0ddf952b26cd3\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\3a0a7d201b1a5e0e7af0ddf952b26cd3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\356f4a9017cb9e4b318b505ab18062ba\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\356f4a9017cb9e4b318b505ab18062ba\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\921eaf675c5b0feee3f8330447fbdae9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\921eaf675c5b0feee3f8330447fbdae9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\14234950b1cad09153a81fd2f2022607\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\14234950b1cad09153a81fd2f2022607\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\50551c9170aed878f823030778f99af2\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\thal3\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\50551c9170aed878f823030778f99af2\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\thal3\Downloads\traineeAPP-master\app\src\main\AndroidManifest.xml
