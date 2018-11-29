@@ -1,28 +1,34 @@
 package com.example.thal3.myapplication.negocio;
+import android.content.Context;
+
 import com.example.thal3.myapplication.persistencia.pessoaDAO;
-import com.example.thal3.myapplication.persistencia.estagiarioDAO;
+import com.example.thal3.myapplication.persistencia.EstagiarioDAO;
 import com.example.thal3.myapplication.dominio.Pessoa;
 import com.example.thal3.myapplication.dominio.Estagiario;
 public class LoginServices {
     private pessoaDAO pessoaDAO;
-    private estagiarioDAO estagiarioDAO;
-    public LoginServices() {
-        pessoaDAO = new pessoaDAO();
-        estagiarioDAO = new estagiarioDAO();
+    private EstagiarioDAO estagiarioDAO;
+    public LoginServices(Context context) {
+        pessoaDAO = new pessoaDAO(context );
+        estagiarioDAO = new EstagiarioDAO(context);
     }
-    public boolean cadastrar(Pessoa pessoa) {
-        if (verificarEmail(pessoa.getEstagiario().getEmail())) {
+    public boolean cadastrar(Pessoa pessoa,Context context) {
+        if (verificarEmail(pessoa.getEstagiario().getEmail(),context)) {
             return false;
         }
         else {
-            long id = this.estagiarioDAO.inserirEstagiario(pessoa.getEstagiario());
-            pessoa.getEstagiario().setId(id);
+            this.estagiarioDAO.inserirEstagiario(pessoa.getEstagiario());
+            pessoa.setEstagiario(this.estagiarioDAO.getEstagiarioByEmail( pessoa.getEstagiario().getEmail(),context ));
+
             this.pessoaDAO.inserirPessoa(pessoa);
             return true;
         }
     }
-    private boolean verificarEmail(String email) {
-            Estagiario estagiarioEmail = this.estagiarioDAO.getEstagiarioByEmail(email);
-            return estagiarioEmail != null;
-        }
+    private boolean verificarEmail(String email,Context context) {
+            Estagiario estagiarioEmail = this.estagiarioDAO.getEstagiarioByEmail(email,context);
+            if (estagiarioEmail != null) {
+                return true;
+            }
+            return  false;
+    }
 }

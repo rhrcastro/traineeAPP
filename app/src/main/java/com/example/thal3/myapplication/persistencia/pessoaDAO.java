@@ -1,6 +1,7 @@
 package com.example.thal3.myapplication.persistencia;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -9,15 +10,14 @@ import com.example.thal3.myapplication.infra.Database;
 
 public class pessoaDAO {
     private Database bancoDados;
-    private estagiarioDAO estagiarioDAO;
-    public pessoaDAO() {
-        bancoDados = new Database();
-        estagiarioDAO = new estagiarioDAO();
+    private EstagiarioDAO estagiarioDAO;
+    public pessoaDAO(Context context) {
+        bancoDados = new Database(context);
+        estagiarioDAO = new EstagiarioDAO(context);
     }
     public void inserirPessoa(Pessoa pessoa) {
         SQLiteDatabase escreverBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put("id", pessoa.getId());
         valores.put("nome", pessoa.getNome());
         valores.put("cpf", pessoa.getCpf());
         valores.put("id_estagiario", pessoa.getEstagiario().getId());

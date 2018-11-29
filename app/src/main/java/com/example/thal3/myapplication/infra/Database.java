@@ -8,9 +8,9 @@ import com.example.thal3.myapplication.infra.TraineeApp;
 
 public  class Database extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "traineeapp.db";
-    public Database() {
-        super(TraineeApp.getContext(), DATABASE_NAME, null, DATABASE_VERSION);
+    private static final String DATABASE_NAME = "traineeapp.bd";
+    public Database(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -28,5 +28,14 @@ public  class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE pessoa;");
         db.execSQL("DROP TABLE estagiario");
         onCreate(db);
+    }
+    public SQLiteDatabase getBancoLeitura(Context context){
+        SQLiteDatabase bancoDados = this.getReadableDatabase();
+        return bancoDados;
+    }
+
+    public SQLiteDatabase getBancoEscrita(Context context) {
+        SQLiteDatabase bancoDados = this.getWritableDatabase();
+        return bancoDados;
     }
 }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class CadastroEstagiario extends AppCompatActivity {
 
     Button cadastrar;
-
+    private LoginServices loginServices = new LoginServices(this);
     private EditText edtNome;
     private EditText edtEmail;
     private EditText edtCPF;
@@ -54,8 +54,8 @@ public class CadastroEstagiario extends AppCompatActivity {
         if (!this.validaCampos()) {
             return;
         }
-        LoginServices loginServices = new LoginServices();
-        if (loginServices.cadastrar(this.criarPessoa())) {
+
+        if (this.loginServices.cadastrar(criarPessoa(),this)) {
             Toast.makeText(getApplicationContext(),"Conta Criada",Toast.LENGTH_SHORT).show();
             finish();
         } else {
@@ -123,8 +123,10 @@ public class CadastroEstagiario extends AppCompatActivity {
     }
     private Pessoa criarPessoa() {
         String nome = edtNome.getText().toString().trim();
+        String cpf = edtCPF.getText().toString().trim();
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(nome);
+        pessoa.setCpf( cpf );
         pessoa.setEstagiario(this.criarEstagiario());
         return pessoa;
     }
