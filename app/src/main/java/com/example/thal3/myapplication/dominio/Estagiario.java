@@ -1,5 +1,7 @@
 package com.example.thal3.myapplication.dominio;
 
+import android.content.Context;
+
 import com.example.thal3.myapplication.gui.Curriculo;
 
 public class Estagiario {
@@ -7,6 +9,7 @@ public class Estagiario {
     private String senha;
     private String email;
     private long id;
+
     public void setCurriculo(Curriculo curriculo) {
         this.curriculo = curriculo;
     }

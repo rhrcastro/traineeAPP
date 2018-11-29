@@ -36,9 +36,9 @@ public class pessoaDAO {
         leitorBanco.close();
         return pessoa;
     }
-    public Pessoa getIdUsuario(long id) {
+    public Pessoa getIdEstagiario(long id) {
         String query = "SELECT * FROM pessoa " +
-                "WHERE id_usuario = ?";
+                "WHERE id_estagiario = ?";
         String[] args = {String.valueOf(id)};
         return this.load(query, args);
     }
