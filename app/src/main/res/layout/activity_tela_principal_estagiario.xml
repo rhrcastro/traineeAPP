@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:design="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFf"
     android:orientation="vertical"
-    tools:context=".gui.TelaPrincipalEstagiario"
-    android:background="#00A6FF">
+    tools:context=".gui.TelaPrincipalEstagiario">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/botnavi"
@@ -24,14 +24,14 @@
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.BottomNavigationView
-        app:itemTextColor="#fff"
-        app:itemIconTint="#fff"
-        android:backgroundTint="@color/colorPrimaryDark"
+        android:id="@+id/navbot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/navbot"
-        android:background="@color/colorPrimaryDark"
         android:layout_gravity="bottom"
+        android:background="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
+        app:itemIconTint="#fff"
+        app:itemTextColor="#fff"
         design:menu="@menu/menu_navi"
 
         >
