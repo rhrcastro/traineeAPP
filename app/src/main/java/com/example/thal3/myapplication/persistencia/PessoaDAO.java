@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import com.example.thal3.myapplication.dominio.Pessoa;
 import com.example.thal3.myapplication.infra.Database;
 
-public class pessoaDAO {
+public class PessoaDAO {
     private Database bancoDados;
     private EstagiarioDAO estagiarioDAO;
-    public pessoaDAO(Context context) {
+    public PessoaDAO(Context context) {
         bancoDados = new Database(context);
         estagiarioDAO = new EstagiarioDAO(context);
     }
