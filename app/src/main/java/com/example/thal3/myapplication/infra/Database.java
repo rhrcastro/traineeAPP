@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.thal3.myapplication.infra.TraineeApp;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 13;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -15,8 +15,11 @@ public  class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE pessoa(" +
-        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-        "nome text NOT NULL, " + "cpf text NOT NULL," + "id_estagiario integer NOT NULL);");
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "nome text NOT NULL, " + "cpf text NOT NULL," + "id_estagiario integer NOT NULL);");
+        db.execSQL("CREATE TABLE curriculo(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "curso text NOT NULL, " + "area text NOT NULL, " + "instituicao text NOT NULL," + "id_estagiario integer NOT NULL);");
         db.execSQL("CREATE TABLE estagiario(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "email text NOT NULL," +
@@ -26,6 +29,7 @@ public  class Database extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE pessoa;");
+        db.execSQL("DROP TABLE curriculo");
         db.execSQL("DROP TABLE estagiario");
         onCreate(db);
     }

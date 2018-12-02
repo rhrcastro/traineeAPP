@@ -63,6 +63,7 @@
             android:layout_height="40dp"
             android:background="@drawable/roundbutton"
             android:text="Estagiário"
+            android:elevation="4dp"
             android:textColor="#00A6FF" />
 
         <Button
@@ -72,6 +73,7 @@
             android:layout_marginLeft="20dp"
             android:background="@drawable/roundbutton"
             android:text="Empregador"
+            android:elevation="4dp"
             android:textColor="#00A6FF" />
     </LinearLayout>
 

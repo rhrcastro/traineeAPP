@@ -5,12 +5,12 @@ import android.content.Context;
 import com.example.thal3.myapplication.gui.Curriculo;
 
 public class Estagiario {
-    private Curriculo curriculo;
+    private CurriculoEstagiario curriculo;
     private String senha;
     private String email;
     private long id;
 
-    public void setCurriculo(Curriculo curriculo) {
+    public void setCurriculo(CurriculoEstagiario curriculo) {
         this.curriculo = curriculo;
     }
     public void setSenha(String senha){
@@ -19,7 +19,7 @@ public class Estagiario {
     public void setEmail(String email){
         this.email = email;
     }
-    public Curriculo getCurriculo() {
+    public CurriculoEstagiario getCurriculo() {
         return curriculo;
     }
     public String getEmail() {

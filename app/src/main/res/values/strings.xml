@@ -5,4 +5,12 @@
     <string name="contato">CONTATE-NOS</string>
     <string name="cadastroestagiario">CADASTRE-SE</string>
     <string name="cadastrocurriculo">PRÉ - CURRICULO</string>
+
+    <string-array name="fields">
+        <item>Tecnologia</item>
+        <item>Exatas</item>
+        <item>Humanas</item>
+        <item>Saude</item>
+
+    </string-array>
 </resources>

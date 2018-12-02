@@ -56,10 +56,11 @@ public class CadastroEstagiario extends AppCompatActivity {
         }
 
         if (this.loginServices.cadastrar(criarPessoa(),this)) {
-            Toast.makeText(getApplicationContext(),"Conta Criada",Toast.LENGTH_SHORT).show();
-            finish();
+            Toast.makeText(getApplicationContext(),"Conta Criada.",Toast.LENGTH_SHORT).show();
+            Intent abreTelaCadastroCurriculo = new Intent (CadastroEstagiario.this, Curriculo.class);
+            startActivity(abreTelaCadastroCurriculo);
         } else {
-            Toast.makeText(getApplicationContext(),"Já existe uma conta com este e-mail",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Já existe uma conta com este e-mail.",Toast.LENGTH_SHORT).show();
         }
     }
     private boolean validaCampos() {
