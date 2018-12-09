@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Perfil"
+        android:icon="@drawable/ic_business_black_24dp"
+        />
+
+    <item
+        android:title="Vagas criadas"
+        android:icon="@drawable/ic_business_center_black_24dp"
+        />
+
+    <item
+        android:title="Lista de Candidatos"
+        android:icon="@drawable/ic_recent_actors_black_24dp"
+        />
+
+
+</menu>
