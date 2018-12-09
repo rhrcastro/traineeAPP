@@ -10,9 +10,7 @@ import bsi.mpoo.traineeufrpe.infra.Database.Database;
 
 public class EmpregadorDAO {
     private Database bancoDados;
-    public EmpregadorDAO(Context context) {
-        bancoDados = new Database(context);
-    }
+    public EmpregadorDAO(Context context) { bancoDados = new Database(context); }
     private Empregador criarEmpregador(Cursor cursor) {
         int indexId = cursor.getColumnIndex("id");
         long id = cursor.getLong(indexId);
@@ -35,7 +33,7 @@ public class EmpregadorDAO {
         empregador.setCidade(cidade);
         return empregador;
     }
-    public void inserirEmpregador(Empregador empregador) {
+    public long inserirEmpregador(Empregador empregador) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("nome", empregador.getNome());
@@ -43,8 +41,9 @@ public class EmpregadorDAO {
         valores.put("cnpj", empregador.getCnpj());
         valores.put("senha", empregador.getSenha());
         valores.put("cidade", empregador.getCidade());
-        escritorBanco.insert("empregador", null, valores);
+        long  id = escritorBanco.insert("empregador", null, valores);
         escritorBanco.close();
+        return id;
     }
     private Empregador carregarObjeto(String query, String[] args, Context context) {
         SQLiteDatabase leitorBanco = bancoDados.getBancoLeitura(context);

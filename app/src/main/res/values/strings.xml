@@ -47,6 +47,6 @@
     <string name="title_activity_tela_principal_empregador">TelaPrincipalEmpregador</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_tela_estagiario_principal">Bem Vindo!</string>
-    <string name="title_activity_tela_empregador_principal">TelaEmpregadorPrincipal</string>
+    <string name="title_activity_tela_empregador_principal">Bem Vindo!</string>
 
 </resources>

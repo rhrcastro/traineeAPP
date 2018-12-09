@@ -12,7 +12,7 @@ import com.example.thal3.trainee.R;
 
 import bsi.mpoo.traineeufrpe.Persistencia.EmpregadorDAO.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
-import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.HomeEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_antiga.HomeEmpregador;
 import bsi.mpoo.traineeufrpe.infra.Database.Database;
 
 public class EditarEmpresa extends AppCompatActivity {

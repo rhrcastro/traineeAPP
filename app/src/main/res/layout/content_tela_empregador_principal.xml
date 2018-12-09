@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.fragment.TelaEmpregadorPrincipal"
+    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.TelaEmpregadorPrincipal"
     tools:showIn="@layout/app_bar_tela_empregador_principal"
     android:background="#fff">
 

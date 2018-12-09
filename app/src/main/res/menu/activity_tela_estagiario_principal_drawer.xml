@@ -22,7 +22,7 @@
             android:title="Sair" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Comunique-se">
         <menu>
             <item
                 android:id="@+id/nav_share"

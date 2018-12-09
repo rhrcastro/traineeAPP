@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.fragment.FragmentMinhaVaga">
+    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.fragment.FragmentMinhaVaga">
 
 </android.support.constraint.ConstraintLayout>

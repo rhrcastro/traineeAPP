@@ -35,7 +35,9 @@ public class EmpregadorServices {
         if (verificarEmail(empregador.getEmail(), context)) {
             return false;
         } else {
-            this.empregadorDAO.inserirEmpregador(empregador);
+            long result = this.empregadorDAO.inserirEmpregador(empregador);
+            empregador.setId(result);
+            this.iniciarSessaoEmpregador(empregador);
             return true;
         }
 

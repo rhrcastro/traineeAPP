@@ -14,7 +14,7 @@ import com.example.thal3.trainee.R;
 
 import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.CadastroEmpregador;
-import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.HomeEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_antiga.HomeEmpregador;
 import bsi.mpoo.traineeufrpe.gui.main.gui.Main.MainActivity;
 import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices.EmpregadorServices;

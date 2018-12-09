@@ -1,8 +1,7 @@
-package bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador;
+package bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_antiga;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -17,10 +16,8 @@ import com.example.thal3.trainee.R;
 
 import java.util.ArrayList;
 
-import bsi.mpoo.traineeufrpe.Persistencia.EmpregadorDAO.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.EditarEmpresa.EditarEmpresa;
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.LoginEmpregador.LoginEmpregador;
-import bsi.mpoo.traineeufrpe.infra.Database.Database;
 import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices.EmpregadorServices;
 

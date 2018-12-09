@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.fragment;
+package bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

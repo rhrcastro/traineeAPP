@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +15,12 @@ import android.widget.Toast;
 import com.example.thal3.trainee.R;
 
 import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
-import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.HomeEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.TelaEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices.EmpregadorServices;
 
 public class FragmentCadastroEmpregador extends Fragment {
     Button cadastrarEmpregador;
-    private EmpregadorServices empregadorServices = new EmpregadorServices(getContext());
     private Validacao validacao = new Validacao();
     private EditText editNomeCadastroEmpregador;
     private EditText editEmailCadastroEmpregador;
@@ -86,9 +84,10 @@ public class FragmentCadastroEmpregador extends Fragment {
         if (!this.verificarCampos()) {
             return;
         }
-        if (this.empregadorServices.cadastrarEmpregador(this.criarEmpregador(), context)) {
+        EmpregadorServices empregadorServices = new EmpregadorServices(getContext());
+        if (empregadorServices.cadastrarEmpregador(this.criarEmpregador(), getActivity())) {
             Toast.makeText(getContext(), "Conta criada com sucesso", Toast.LENGTH_SHORT).show();
-            Intent abreTelaEmpregador = new Intent(getActivity(), HomeEmpregador.class);
+            Intent abreTelaEmpregador = new Intent(getActivity(), TelaEmpregadorPrincipal.class);
             startActivity(abreTelaEmpregador);
         } else {
             Toast.makeText(getContext(),"Já existe uma conta com este e-mail",Toast.LENGTH_SHORT).show();
