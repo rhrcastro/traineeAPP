@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">TRAINEE</string>
+    <string name="cadastroestagiario">INFORMAÇÕES PESSOAIS:</string>
+    <string name="cadastrocurriculo">INFORMAÇÕES ACADÊMICAS:</string>
+    <string name="cadastroempregador">INFORMAÇÕES EMPRESARIAIS:</string>
+    <string name="aberto">Aberto</string>
+    <string name="fechado">Fechado</string>
+
+    <string-array name="tabs">
+        <item>ENTRAR</item>
+        <item>CADASTRAR</item>
+
+    </string-array>
+
+
+    <string-array name="tabsPrincipal">
+        <item>Novas Vagas</item>
+        <item>Vagas em aberto</item>
+        <item>Vagas Recomendadas</item>
+
+    </string-array>
+
+    <string-array name="tabsPrincipalEmpregador">
+        <item>Minhas Vagas</item>
+        <item>Candidatos</item>
+    </string-array>
+
+    <string-array name="fields">
+        <item>Tecnologia</item>
+        <item>Exatas</item>
+        <item>Humanas</item>
+        <item>Saude</item>
+
+    </string-array>
+    <string name="title_activity_tela_principal_estagiario">Trainee</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="title_activity_tela_principal_empregador">TelaPrincipalEmpregador</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

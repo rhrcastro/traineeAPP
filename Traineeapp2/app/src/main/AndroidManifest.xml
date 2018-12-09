@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.trainee2">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".GUI.TelaPrincipal">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GUI.fragment.estagiario.Cadastro_b_Login_a.Fragment_a" />
+        <activity android:name=".GUI.fragment.estagiario.Cadastro_b_Login_a.Fragment_b" />
+        <activity android:name=".GUI.estagiario.TelaCadastroEstagiario" />
+        <activity android:name=".GUI.estagiario.TelaCadastroCurriculo" />
+        <activity
+            android:name=".GUI.estagiario.TelaPrincipalEstagiario"
+            android:label="@string/title_activity_tela_principal_estagiario"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".GUI.fragment.estagiario.Home.FragmentNovaVaga" />
+        <activity android:name=".GUI.fragment.estagiario.Home.FragmentVagaEmAberto" />
+        <activity android:name=".GUI.fragment.estagiario.Home.FragmentVagaRecomendada" />
+        <activity android:name=".GUI.empregador.TelaCadastroEmpregador" />
+        <activity android:name=".GUI.fragment.empregador.Cadastro_Login.FragmentLoginEmpregador" />
+        <activity android:name=".GUI.fragment.empregador.Cadastro_Login.FragmentCadastroEmpregador" />
+        <activity
+            android:name=".GUI.empregador.TelaPrincipalEmpregador"
+            android:label="@string/title_activity_tela_principal_empregador"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".GUI.fragment.empregador.Home.FragmentMinhaVaga" />
+        <activity android:name=".GUI.fragment.empregador.Home.FragmentCandidato"></activity>
+    </application>
+
+</manifest>
