@@ -1,124 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LoginEstagiario"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00A6FF"
-    tools:context=".gui.LoginEstagiario">
+    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Login.LoginEstagiario"
+    android:orientation="vertical"
+    android:background="#00A6FF">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    />
+            />
+        />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/editEmail1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="30dp"
         app:srcCompat="@mipmap/ic_launcher_foreground" />
 
 
     <EditText
         android:id="@+id/editEmail1"
         style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/edittextstyle"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:singleLine="false"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editSenha1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        android:textColorHint="#FFFFFF" />
 
     <EditText
         android:id="@+id/editSenha1"
         style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="39dp"
         android:background="@drawable/edittextstyle"
         android:backgroundTint="@color/colorPrimary"
+        android:layout_width="350dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Senha"
-        android:inputType="textPassword"
         android:textAlignment="center"
+        android:inputType="textPassword"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/butlogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail1" />
+        android:textColorHint="#FFFFFF" />
 
     <Button
         android:id="@+id/butlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/roundbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:text="LOGAR"
-        android:textColor="#00A6FF"
-        app:layout_constraintBottom_toTopOf="@+id/forgot"
-        app:layout_constraintStart_toStartOf="@+id/forgot"
-        app:layout_constraintTop_toBottomOf="@+id/editSenha1" />
+        android:textColor="#00A6FF" />
 
     <TextView
         android:id="@+id/forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
         android:text="Esqueceu sua senha?"
+        android:layout_gravity="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/cadastro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/butlogin" />
+        android:layout_marginTop="20sp"/>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/cadastro"
-        android:layout_width="wrap_content"
+        android:id="@+id/cadastroEmpregador"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="11dp"
         android:clickable="true"
         android:tint="@color/colorPrimary"
         app:backgroundTint="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgot"
         app:srcCompat="@drawable/round_person_add_white_24" />
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

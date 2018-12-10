@@ -1,126 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Contato"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00A6FF"
-    tools:context=".gui.Contato">
+    tools:context="bsi.mpoo.traineeufrpe.gui.main.gui.Contato.Contato"
+    android:orientation="vertical"
+    android:background="#fff">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    />
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#225386">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/presentation4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:srcCompat="@mipmap/ic_launcher_foreground" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
-    <TextView
-        android:id="@+id/presentation4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:text="@string/contato"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/editEmail3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_launcher_foreground" />
+            <TextView
+                android:id="@+id/presentation4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textSize="25sp"
+                android:textStyle="italic"
+                android:textColor="#fff"
+                android:text="@string/contato" />
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
 
     <EditText
         android:id="@+id/editEmail3"
         style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/edittextstyle"
-        android:backgroundTint="@color/colorPrimary"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:layout_width="350dp"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextform"
+        android:hint="Email"
+        android:layout_marginTop="40dp"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/message"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/presentation4" />
+        android:textColor="#FFFFFF"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/message"
         style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="29dp"
-        android:background="@drawable/edittextstyle"
-        android:backgroundTint="@color/colorPrimary"
+        android:layout_width="350dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittextform"
         android:ems="10"
         android:hint="Digite sua mensagem."
         android:inputType="textMultiLine"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail3" />
+        android:textColorHint="#FFFFFF" />
 
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="123dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message">
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/cancel"
+            android:background="@color/colorPrimaryDark"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_gravity="left"
-            android:background="@drawable/roundbutton"
-            android:text="Cancelar"
-            android:textColor="@color/colorPrimary" />
+            android:text="Cancelar" />
 
         <Button
             android:id="@+id/send"
+            android:background="@color/colorAccent"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_gravity="right"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/roundbutton"
-            android:text="Enviar"
-            android:textColor="@color/colorPrimary" />
+            android:text="Enviar" />
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

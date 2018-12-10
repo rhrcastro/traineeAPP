@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFf"
     android:orientation="vertical"
-    tools:context=".gui.TelaPrincipalEstagiario">
+    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_antiga.TelaPrincipalEstagiario">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/botnavi"
