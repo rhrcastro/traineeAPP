@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.thal3.trainee.R;
 
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.CadastroEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.PerfilEmpregador.PerfilEmpregador;
 import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.CadastroEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.Sessao.Sessao;
@@ -112,7 +113,7 @@ public class TelaEmpregadorPrincipal extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            exibirPerfil();
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -158,6 +159,11 @@ public class TelaEmpregadorPrincipal extends AppCompatActivity
     }
     public void exibirTelaLogin(){
         Intent intent = new Intent(this, CadastroEmpregador.class);
+        startActivity(intent);
+    }
+
+    private void exibirPerfil() {
+        Intent intent = new Intent(getBaseContext(), PerfilEmpregador.class);
         startActivity(intent);
     }
 }
