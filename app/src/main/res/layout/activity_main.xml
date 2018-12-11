@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:text="Escolha uma opção de usuário abaixo:"
         android:textSize="18dp"
-        android:textColor="#bdbebd"
+        android:textColor="#696969"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"/>
 
@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:text="Deseja falar conosco?"
             android:textSize="15dp"
-            android:textColor="#bdbebd"
+            android:textColor="#696969"
             android:layout_gravity="center" />
 
         <TextView

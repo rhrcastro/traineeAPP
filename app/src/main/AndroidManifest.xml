@@ -34,28 +34,46 @@
         <activity
             android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.CadastroEstagiario"
             android:screenOrientation="portrait" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.TelaCurriculo.TelaCurriculo" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_antiga.TelaPrincipalEstagiario" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.CadastroEmpregador" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_antiga.HomeEmpregador" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.EditarEmpresa.EditarEmpresa" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.fragment_cadastro_e_login.FragmentLoginEstagiario" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.fragment_cadastro_e_login.FragmentCadastroEstagiario" />
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.TelaCurriculo.TelaCurriculo"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_antiga.TelaPrincipalEstagiario"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.CadastroEmpregador"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_antiga.HomeEmpregador"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.EditarEmpresa.EditarEmpresa"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.fragment_cadastro_e_login.FragmentLoginEstagiario"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.fragment_cadastro_e_login.FragmentCadastroEstagiario"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.TelaEstagiarioPrincipal"
             android:label="@string/title_activity_tela_estagiario_principal"
-            android:theme="@style/AppTheme" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentNvagas" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentVagasEmAberto" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentVagasRecomendadas" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentNvagas"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentVagasEmAberto"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentVagasRecomendadas"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.TelaEmpregadorPrincipal"
             android:label="@string/title_activity_tela_empregador_principal"
-            android:theme="@style/AppTheme" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.fragment.FragmentMinhaVaga" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.fragment.FragmentCandidato" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.fragment_login_cadastro.FragmentLoginEmpregador" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.fragment_login_cadastro.FragmentCadastroEmpregador"></activity>
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.fragment.FragmentMinhaVaga"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.fragment.FragmentCandidato"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.fragment_login_cadastro.FragmentLoginEmpregador"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.fragment_login_cadastro.FragmentCadastroEmpregador"
+            android:screenOrientation="portrait"/>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastrarVaga"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

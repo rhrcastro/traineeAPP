@@ -25,4 +25,6 @@ public class SessaoEmpregador {
     public static SessaoEmpregador getInstance() {
         return instance;
     }
+
+
 }

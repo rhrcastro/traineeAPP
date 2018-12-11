@@ -11,7 +11,7 @@ import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
 import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 27;
+    private static final int DATABASE_VERSION = 28;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,7 +41,16 @@ public  class Database extends SQLiteOpenHelper {
                 "email text NOT NULL," +
                 "cnpj text NOT NULL,"+
                 "senha text NOT NULL," +
-                "cidade NOT NULL);");
+                "cidade text NOT NULL);");
+
+        db.execSQL("CREATE TABLE vaga(" +
+                "id integer PRIMARY KEY AUTOINCREMENT," +
+                "nome text NOT NULL,"+
+                "requisito text NOT NULL," +
+                "bolsa text NOT NULL,"+
+                "area text NOT NULL," +
+                "obs text NOT NULL," +
+                "id_empregador integer NOT NULL);");
 
     }
 
@@ -51,6 +60,7 @@ public  class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE estagiario");
         db.execSQL("DROP TABLE curriculo");
         db.execSQL("DROP TABLE IF EXISTS empregador");
+        db.execSQL("DROP TABLE IF EXISTS vaga");
         onCreate(db);
     }
     public SQLiteDatabase getBancoLeitura(Context context){
@@ -61,6 +71,14 @@ public  class Database extends SQLiteOpenHelper {
     public SQLiteDatabase getBancoEscrita(Context context) {
         SQLiteDatabase bancoDados = this.getWritableDatabase();
         return bancoDados;
+    }
+
+
+    public Cursor getDado(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM vaga";
+        Cursor dado = db.rawQuery(query, null);
+        return dado;
     }
 
 

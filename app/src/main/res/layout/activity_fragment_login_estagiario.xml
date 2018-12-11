@@ -37,8 +37,8 @@
                 android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="10dp"
                 android:hint="Email"
-                android:textColorHint="#808080"
-                android:textColor="#fff"
+                android:textColorHint="#696969"
+                android:textColor="#696969"
                 android:background="@drawable/edittextform"/>
             <EditText
                 android:id="@+id/senhaLogin"
@@ -51,8 +51,8 @@
                 android:hint="Senha"
                 android:padding="10dp"
                 android:drawablePadding="10dp"
-                android:textColorHint="#808080"
-                android:textColor="#fff"
+                android:textColorHint="#696969"
+                android:textColor="#696969"
                 android:drawableLeft="@drawable/ic_key"
                 android:background="@drawable/edittextform"/>
             <Button
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Esqueceu sua senha?"
-                    android:textColor="#bdbebd"
+                    android:textColor="#696969"
                     android:textSize="15dp" />
                 <TextView
                     android:id="@+id/forgot2"

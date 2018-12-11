@@ -8,6 +8,7 @@
     <string name="cadastroestagiario">INFORMAÇÕES PESSOAIS:</string>
     <string name="cadastrocurriculo">INFORMAÇÕES ACADÊMICAS:</string>
     <string name="cadastroempregador">INFORMAÇÕES EMPRESARIAIS:</string>
+    <string name="vagaempregador">DIVULGUE SUA VAGA</string>
     <string name="aberto">Aberto</string>
     <string name="fechado">Fechado</string>
 
@@ -31,12 +32,17 @@
     </string-array>
 
     <string-array name="fields">
+        <item>Artes e Design</item>
+        <item>Ciências Biológicas</item>
+        <item>Ciências Humanas</item>
+        <item>Ciências Exatas</item>
+        <item>Comunicação</item>
+        <item>Negócios</item>
+        <item>Saúde</item>
         <item>Tecnologia</item>
-        <item>Exatas</item>
-        <item>Humanas</item>
-        <item>Saude</item>
-
     </string-array>
+
+
     <string name="title_activity_tela_principal_estagiario">Trainee</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

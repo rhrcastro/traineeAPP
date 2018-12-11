@@ -5,6 +5,8 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
+import bsi.mpoo.traineeufrpe.Persistencia.VagaDAO.VagaDAO;
+import bsi.mpoo.traineeufrpe.dominio.Vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.Sessao.Sessao;
 import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.Persistencia.EmpregadorDAO.EmpregadorDAO;
@@ -13,9 +15,11 @@ import bsi.mpoo.traineeufrpe.infra.TraineApp.TraineeApp;
 
 public class EmpregadorServices {
     private EmpregadorDAO empregadorDAO;
+    private VagaDAO vagaDAO;
     private TraineeApp traineeApp;
     public EmpregadorServices(Context context) {
         empregadorDAO = new EmpregadorDAO(context);
+        vagaDAO = new VagaDAO(context);
     }
 
     public boolean logarEmpregador(Empregador empregador) {
@@ -48,15 +52,6 @@ public class EmpregadorServices {
             return true;
         }
         return false;
-    }
-    public ArrayList<String> getListaNomeEmpresa(){
-        ArrayList<String> listaNomeEmpresa = new ArrayList<String>();
-        Cursor data = this.empregadorDAO.getData();
-        while (data.moveToNext()){
-            listaNomeEmpresa.add(data.getString(1));
-        }
-
-        return listaNomeEmpresa;
     }
     public int getIdEmpresa(String name){
         int idempresa = 0;

@@ -44,7 +44,7 @@ public class TelaPrincipalEstagiario extends AppCompatActivity {
         setBtnNegativoSair(msgBox);
         msgBox.show();
     }
-    public void setBtnPositivoSair(AlertDialog.Builder msgBox) {
+    public void setBtnPositivoSair(final AlertDialog.Builder msgBox) {
         msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
