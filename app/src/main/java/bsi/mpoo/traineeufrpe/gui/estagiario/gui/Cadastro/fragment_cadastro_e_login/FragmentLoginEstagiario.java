@@ -59,6 +59,12 @@ public class FragmentLoginEstagiario extends Fragment {
     }
     private void goHome() {
         startActivity(new Intent(getActivity(), TelaEstagiarioPrincipal.class));
+        finishActivity();
+    }
+    private void finishActivity() {
+        if(getActivity() != null) {
+            getActivity().finish();
+        }
     }
     private Estagiario criarEstagiario() {
         String email = this.edtEmail.getText().toString().trim();

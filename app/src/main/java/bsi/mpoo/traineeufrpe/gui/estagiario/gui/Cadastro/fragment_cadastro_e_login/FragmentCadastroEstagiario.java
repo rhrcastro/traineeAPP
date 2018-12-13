@@ -77,6 +77,7 @@ public class FragmentCadastroEstagiario extends Fragment implements AdapterView.
             Toast.makeText(getContext(), "Curriculo cadastrado.", Toast.LENGTH_SHORT).show();
             Intent abreTelaCadastroEstagiario = new Intent(getActivity(), TelaCurriculo.class);
             startActivity(abreTelaCadastroEstagiario);
+            finishActivity();
         }else{
             Toast.makeText(getContext(), "Curriculo não cadastrado.", Toast.LENGTH_SHORT).show();
         }
@@ -100,5 +101,10 @@ public class FragmentCadastroEstagiario extends Fragment implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    private void finishActivity() {
+        if(getActivity() != null) {
+            getActivity().finish();
+        }
     }
 }

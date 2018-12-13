@@ -123,7 +123,7 @@ public class TelaEmpregadorPrincipal extends AppCompatActivity
         return true;
     }
     public void exibirConfirmacaoSair() {
-        AlertDialog.Builder msgBox = new AlertDialog.Builder(this);
+        AlertDialog.Builder msgBox = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
         msgBox.setIcon(android.R.drawable.ic_menu_delete);
         msgBox.setTitle("Sair");
         msgBox.setMessage("Deseja mesmo sair?");

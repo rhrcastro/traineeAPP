@@ -93,6 +93,7 @@ public class FragmentCadastroEmpregador extends Fragment {
             Toast.makeText(getContext(), "Conta criada com sucesso", Toast.LENGTH_SHORT).show();
             Intent abreTelaEmpregador = new Intent(getActivity(), TelaEmpregadorPrincipal.class);
             startActivity(abreTelaEmpregador);
+            finishActivity();
         } else {
             Toast.makeText(getContext(),"Já existe uma conta com este e-mail",Toast.LENGTH_SHORT).show();
         }
@@ -115,5 +116,10 @@ public class FragmentCadastroEmpregador extends Fragment {
         byte[] bitmapdata = blob.toByteArray();
         empregador.setFoto(bitmapdata);
         return empregador;
+    }
+    private void finishActivity() {
+        if(getActivity() != null) {
+            getActivity().finish();
+        }
     }
 }

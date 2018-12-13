@@ -66,6 +66,7 @@ public class TelaCurriculo extends AppCompatActivity {
             Toast.makeText(this,"Conta Criada",Toast.LENGTH_SHORT).show();
             Intent abreTelaPrincipal =  new Intent(this, TelaEstagiarioPrincipal.class);
             startActivity(abreTelaPrincipal);
+            TelaCurriculo.this.finish();
         } else {
             Toast.makeText(this,"Já existe uma conta com este e-mail",Toast.LENGTH_SHORT).show();
         }
@@ -128,6 +129,4 @@ public class TelaCurriculo extends AppCompatActivity {
         estagiario.setFoto(bitmapdata);
         return estagiario;
     }
-
-
 }

@@ -22,9 +22,7 @@ import android.widget.TextView;
 import com.example.thal3.trainee.R;
 
 import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.CadastroEstagiario;
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.fragment_cadastro_e_login.FragmentLoginEstagiario;
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_antiga.TelaPrincipalEstagiario;
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Login.LoginEstagiario;
+
 import bsi.mpoo.traineeufrpe.gui.estagiario.gui.PerfilEstagiario.PerfilEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.gui.Contato.Contato;
@@ -120,7 +118,7 @@ public class TelaEstagiarioPrincipal extends AppCompatActivity
         return true;
     }
     public void exibirConfirmacaoSair() {
-        AlertDialog.Builder msgBox = new AlertDialog.Builder(this);
+        AlertDialog.Builder msgBox = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
         msgBox.setIcon(android.R.drawable.ic_menu_delete);
         msgBox.setTitle("Sair");
         msgBox.setMessage("Deseja mesmo sair?");
