@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidDomInspection -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.thal3.trainee">
 
@@ -62,10 +63,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.PerfilEstagiario.PerfilEstagiario" />
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.PerfilEmpregador.PerfilEmpregador"
-            android:label="@string/title_activity_perfil_empregador"
-            android:theme="@style/AppTheme"></activity>
+            android:name="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.PerfilEmpregador.PerfilEmpregador" />
     </application>
 
 </manifest>

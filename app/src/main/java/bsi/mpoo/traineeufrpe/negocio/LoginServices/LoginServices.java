@@ -4,6 +4,7 @@ import android.database.Cursor;
 
 import bsi.mpoo.traineeufrpe.Persistencia.CurriculoDAO.CurriculoDAO;
 import bsi.mpoo.traineeufrpe.dominio.Curriculo.Curriculo;
+import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
 import bsi.mpoo.traineeufrpe.infra.Sessao.Sessao;
 import bsi.mpoo.traineeufrpe.infra.TraineApp.TraineeApp;
 import bsi.mpoo.traineeufrpe.Persistencia.PessoaDAO.PessoaDAO;
@@ -71,6 +72,7 @@ public class LoginServices {
     private void iniciarSessao(Pessoa pessoa) {
         Sessao.instance.setPessoa(pessoa);
     }
-
-
+    public void alterarFotoEstagiario(Estagiario estagiario) {
+        estagiarioDAO.mudarFotoEstagiario(estagiario);
+    }
 }

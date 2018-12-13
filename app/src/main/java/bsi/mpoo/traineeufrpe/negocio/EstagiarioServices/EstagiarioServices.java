@@ -4,6 +4,8 @@ import android.util.Patterns;
 
 import java.util.InputMismatchException;
 
+import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
+
 public class EstagiarioServices {
 
     public static boolean isEmailValido(String email) {

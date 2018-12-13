@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.Estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.infra.Database.Database;
 
@@ -18,10 +19,13 @@ public class EstagiarioDAO {
         String email = cursor.getString(indexEmail);
         int indexSenha = cursor.getColumnIndex("senha");
         String senha = cursor.getString(indexSenha);
+        int indexFoto = cursor.getColumnIndex("fotoestagiario");
+        byte[] fotoEstagiario  = cursor.getBlob(indexFoto);
         Estagiario estagiario = new Estagiario();
         estagiario.setId(id);
         estagiario.setEmail(email);
         estagiario.setSenha(senha);
+        estagiario.setFoto(fotoEstagiario);
         return estagiario;
     }
     public long inserirEstagiario(Estagiario estagiario) {
@@ -30,6 +34,7 @@ public class EstagiarioDAO {
         valores.put("email", estagiario.getEmail());
         valores.put("senha", estagiario.getSenha());
         valores.put("id_curriculo", estagiario.getCurriculo().getId());
+        valores.put("fotoestagiario", estagiario.getFoto());
         long id = escritorBanco.insert("estagiario", null, valores);
         escritorBanco.close();
         return id;
@@ -62,6 +67,13 @@ public class EstagiarioDAO {
                 "WHERE id_estagiario = ?";
         String[] args = {String.valueOf(id)};
         return this.load(query, args, context);
+    }
+    public void mudarFotoEstagiario(Estagiario estagiario) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("fotoestagiario", estagiario.getFoto());
+        db.update("estagiario", valores,"id = ?", new String[]{String.valueOf(estagiario.getId())});
+        db.close();
     }
 
 

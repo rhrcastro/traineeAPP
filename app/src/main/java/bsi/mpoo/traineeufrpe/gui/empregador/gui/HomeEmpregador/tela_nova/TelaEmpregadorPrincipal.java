@@ -22,8 +22,8 @@ import android.widget.TextView;
 import com.example.thal3.trainee.R;
 
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.CadastroEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.gui.EditarEmpresa.EditarEmpresa;
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.PerfilEmpregador.PerfilEmpregador;
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.CadastroEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.Sessao.Sessao;
 import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
@@ -47,7 +47,7 @@ public class TelaEmpregadorPrincipal extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.trocarImagem);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,19 +86,14 @@ public class TelaEmpregadorPrincipal extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.tela_empregador_principal, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -109,15 +104,12 @@ public class TelaEmpregadorPrincipal extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
             exibirPerfil();
-        } else if (id == R.id.nav_gallery) {
-
         } else if (id == R.id.nav_slideshow) {
-
+            exibirConfiguracoes();
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
         } else if (id == R.id.nav_share) {
@@ -164,6 +156,10 @@ public class TelaEmpregadorPrincipal extends AppCompatActivity
 
     private void exibirPerfil() {
         Intent intent = new Intent(getBaseContext(), PerfilEmpregador.class);
+        startActivity(intent);
+    }
+    private void exibirConfiguracoes() {
+        Intent intent = new Intent(getBaseContext(), EditarEmpresa.class);
         startActivity(intent);
     }
 }

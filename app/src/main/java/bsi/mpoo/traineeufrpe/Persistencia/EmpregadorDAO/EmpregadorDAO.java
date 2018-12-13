@@ -87,7 +87,7 @@ public class EmpregadorDAO {
 
     }
 
-    public void deletarEmpregador(int id2, String nome2){
+    public void deletarEmpregador(int id2){
         SQLiteDatabase db =  bancoDados.getWritableDatabase();
         String query = "DELETE FROM empregador " +
                 "WHERE id = " + id2;

@@ -7,6 +7,7 @@ public class Estagiario {
     private String senha;
     private String email;
     private long id;
+    private byte[] foto;
 
     public void setCurriculo(Curriculo curriculo) {
         this.curriculo = curriculo;
@@ -31,5 +32,13 @@ public class Estagiario {
     }
     public long getId() {
         return id;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    public byte[] getFoto() {
+        return foto;
     }
 }

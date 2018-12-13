@@ -25,6 +25,7 @@ import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.CadastroEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.fragment_cadastro_e_login.FragmentLoginEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_antiga.TelaPrincipalEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Login.LoginEstagiario;
+import bsi.mpoo.traineeufrpe.gui.estagiario.gui.PerfilEstagiario.PerfilEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.gui.Contato.Contato;
 import bsi.mpoo.traineeufrpe.infra.Sessao.Sessao;
@@ -102,8 +103,8 @@ public class TelaEstagiarioPrincipal extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            exibirPerfilEstagiario();
         } else if (id == R.id.nav_gallery) {
-
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -151,6 +152,10 @@ public class TelaEstagiarioPrincipal extends AppCompatActivity
     }
     public void openContato() {
         Intent intent = new Intent(this, Contato.class);
+        startActivity(intent);
+    }
+    public void exibirPerfilEstagiario(){
+        Intent intent = new Intent(this, PerfilEstagiario.class);
         startActivity(intent);
     }
 }

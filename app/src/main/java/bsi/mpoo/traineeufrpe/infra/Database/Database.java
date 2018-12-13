@@ -11,7 +11,7 @@ import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
 import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 29;
+    private static final int DATABASE_VERSION = 31;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -29,7 +29,7 @@ public  class Database extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "email text NOT NULL," +
                 "senha text NOT NULL," +
-                "id_curriculo integer NOT NULL);");
+                "id_curriculo integer NOT NULL, fotoestagiario blob NOT NULL);");
 
         db.execSQL("CREATE TABLE curriculo(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," + "curso text NOT NULL," +

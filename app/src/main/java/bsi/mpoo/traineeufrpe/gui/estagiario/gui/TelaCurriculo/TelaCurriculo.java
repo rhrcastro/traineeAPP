@@ -1,6 +1,8 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.gui.TelaCurriculo;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,6 +12,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.thal3.trainee.R;
+
+import java.io.ByteArrayOutputStream;
 
 import bsi.mpoo.traineeufrpe.dominio.Estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.dominio.Pessoa.Pessoa;
@@ -117,6 +121,11 @@ public class TelaCurriculo extends AppCompatActivity {
         estagiario.setEmail(email);
         estagiario.setSenha(senha);
         estagiario.setCurriculo(Sessao.instance.getCurriculo());
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile_empregador);
+        ByteArrayOutputStream blob = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, blob);
+        byte[] bitmapdata = blob.toByteArray();
+        estagiario.setFoto(bitmapdata);
         return estagiario;
     }
 

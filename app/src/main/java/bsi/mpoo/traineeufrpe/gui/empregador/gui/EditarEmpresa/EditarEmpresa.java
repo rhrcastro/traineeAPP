@@ -14,15 +14,17 @@ import bsi.mpoo.traineeufrpe.Persistencia.EmpregadorDAO.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_antiga.HomeEmpregador;
 import bsi.mpoo.traineeufrpe.infra.Database.Database;
+import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
+import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
 
 public class EditarEmpresa extends AppCompatActivity {
-    private static final String TAG = "editar";
     private Button save, del;
     private EditText nome;
+    private EditText cidade;
+    private EditText senha;
+    private Validacao validacao = new Validacao();
 
-    private Database mDatabase;
 
-    private String selectedname;
     private int selectedid;
 
     @Override
@@ -30,44 +32,61 @@ public class EditarEmpresa extends AppCompatActivity {
         final EmpregadorDAO empregadorDAO = new EmpregadorDAO(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_empresa);
-        save = (Button)findViewById(R.id.save);
-        del = (Button)findViewById(R.id.del);
-        nome = (EditText)findViewById(R.id.nome);
-        mDatabase = new Database(this);
-
+        save = (Button) findViewById(R.id.save);
+        del = (Button) findViewById(R.id.del);
+        nome = (EditText) findViewById(R.id.editAlterarNome);
+        cidade = (EditText) findViewById(R.id.editAlterarCidade);
+        senha = (EditText) findViewById(R.id.editAlterarSenha) ;
         Intent received = getIntent();
-
         selectedid = received.getIntExtra("id", -1);
-        selectedname = received.getStringExtra("nome");
-
-        nome.setText(selectedname);
-
+        nome.setText(SessaoEmpregador.getInstance().getEmpregador().getNome());
+        cidade.setText(SessaoEmpregador.getInstance().getEmpregador().getCidade());
+        senha.setText(SessaoEmpregador.getInstance().getEmpregador().getSenha());
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String item = nome.getText().toString();
-                if(item != ""){
-                    Empregador empregador = empregadorDAO.getId(selectedid, getBaseContext());
-                    empregador.setNome(item);
-                    empregadorDAO.mudarNomeEmpregador(empregador);
-                    Toast.makeText(getBaseContext(), "Alterado com sucesso", Toast.LENGTH_SHORT).show();
-                    Intent voltar = new Intent(getBaseContext(), HomeEmpregador.class);
-                    startActivity(voltar);
-                }else{
-                    Toast.makeText(getBaseContext(), "O nome não pode ser vazio", Toast.LENGTH_SHORT).show();
-                }
+               alterarDadosEmpregador(empregadorDAO);
             }
         });
 
         del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                empregadorDAO.deletarEmpregador(selectedid, selectedname);
-                nome.setText("");
-                Toast.makeText(getBaseContext(), "Removido.", Toast.LENGTH_SHORT).show();
+                empregadorDAO.deletarEmpregador(selectedid);
+                Toast.makeText(getBaseContext(), "Conta excluída com sucesso.", Toast.LENGTH_SHORT).show();
                 Intent voltar = new Intent(getBaseContext(), HomeEmpregador.class);
                 startActivity(voltar);
             }
         });
+    }
+
+    private boolean verificarCampos() {
+        String nomeEmpregador = nome.getText().toString().trim();
+        String senhaEmpregador = senha.getText().toString().trim();
+        String cidadeEmpregador = cidade.getText().toString().trim();
+        if (validacao.verificarCampoVazio(nomeEmpregador)) {
+            this.nome.setError("Campo vazio");
+            return false;
+        } else if (validacao.verificarCampoVazio(senhaEmpregador)) {
+            this.senha.setError("Campo vazio");
+            return false;
+        } else if (validacao.verificarCampoVazio(cidadeEmpregador)) {
+            this.cidade.setError("Campo vazio");
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public void alterarDadosEmpregador(EmpregadorDAO empregadorDAO) {
+        if (!this.verificarCampos()) {
+            String nomeEmpregador = nome.getText().toString().trim();
+            Empregador empregador = empregadorDAO.getId(selectedid, getBaseContext());
+            empregador.setNome(nomeEmpregador);
+            empregadorDAO.mudarNomeEmpregador(empregador);
+            Toast.makeText(getBaseContext(), "Alterado com sucesso", Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Toast.makeText(getBaseContext(), "O nome não pode ser vazio", Toast.LENGTH_SHORT).show();
+        }
     }
 }

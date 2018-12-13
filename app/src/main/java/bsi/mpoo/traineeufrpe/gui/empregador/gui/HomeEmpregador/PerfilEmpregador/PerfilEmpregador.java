@@ -6,20 +6,15 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,10 +22,7 @@ import android.widget.Toast;
 import com.example.thal3.trainee.R;
 
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 
-import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
-import bsi.mpoo.traineeufrpe.infra.Sessao.Sessao;
 import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices.EmpregadorServices;
 
@@ -42,8 +34,6 @@ public class PerfilEmpregador extends AppCompatActivity {
 
     private TextView edtNomeEmpresa;
     private TextView edtLocalizacao;
-    private EditText descricao;
-    private TextView edtMinhasVagas;
     private ImageView imgEmpresa;
     private final int newImage = 1;
     private static final int PERMISSION_REQUEST = 0;
@@ -72,7 +62,7 @@ public class PerfilEmpregador extends AppCompatActivity {
         edtLocalizacao = findViewById(R.id.localizacaoEmpresa);
         edtLocalizacao.setText(this.localizacao);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.trocarImagem);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +87,8 @@ public class PerfilEmpregador extends AppCompatActivity {
         }
     }
 
-    public void setFotoEmpregador(Bitmap bitmap) {
+    public void setFotoEmpregador(Bitmap bitmap)
+    {
         this.imgEmpresa.setImageBitmap(bitmap);
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.TelaEmpregadorPrincipal">
+    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.PerfilEmpregador.PerfilEmpregador">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -15,12 +15,15 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimaryDark"
+            android:background="#225386"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_tela_empregador_principal" />
+    <include
+        layout="@layout/content_perfil_estagiario"
+        app:layout_anchor="@+id/trocarImagem"
+        app:layout_anchorGravity="bottom|center" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/trocarImagem"
@@ -28,6 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_work_white" />
+        app:srcCompat="@drawable/btn_edit" />
 
 </android.support.design.widget.CoordinatorLayout>

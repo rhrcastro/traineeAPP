@@ -15,14 +15,14 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="#225386"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
     <include
         layout="@layout/content_perfil_empregador"
-        app:layout_anchor="@+id/fab"
+        app:layout_anchor="@+id/trocarImagem"
         app:layout_anchorGravity="bottom|center" />
 
     <android.support.design.widget.FloatingActionButton
