@@ -47,7 +47,7 @@
         android:layout_gravity="center">
 
         <ImageView
-            android:id="@+id/imagemEstagiario"
+            android:id="@+id/imagemView"
             android:layout_width="25dp"
             android:layout_height="26dp"
             android:layout_marginStart="128dp"
@@ -71,4 +71,5 @@
             android:textSize="16sp" />
 
     </LinearLayout>
+
 </LinearLayout>

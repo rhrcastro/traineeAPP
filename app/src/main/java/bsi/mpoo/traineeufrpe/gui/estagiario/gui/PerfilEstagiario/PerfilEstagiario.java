@@ -48,7 +48,7 @@ public class PerfilEstagiario extends AppCompatActivity {
   protected  void onCreate(Bundle savedInstanceState){
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_perfil_estagiario);
-      imgEstagiario = findViewById(R.id.imagemEstagiario);
+      imgEstagiario = findViewById(R.id.imagemPerfilEstagiario);
       Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
 
