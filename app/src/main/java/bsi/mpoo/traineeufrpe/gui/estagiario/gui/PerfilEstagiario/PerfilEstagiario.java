@@ -94,7 +94,7 @@ public class PerfilEstagiario extends AppCompatActivity {
     }
     public void editarImagemObjeto() {
         byte[] foto = conveterImageViewToByte();
-        SessaoEmpregador.getInstance().getEmpregador().setFoto(foto);
+        Sessao.getInstance().getPessoa().getEstagiario().setFoto(foto);
         loginServices.alterarFotoEstagiario(Sessao.getInstance().getPessoa().getEstagiario());
     }
     private void permissaoGravarLerArquivos() {

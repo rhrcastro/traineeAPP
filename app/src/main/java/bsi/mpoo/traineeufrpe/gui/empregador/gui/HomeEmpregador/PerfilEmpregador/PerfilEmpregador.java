@@ -62,7 +62,7 @@ public class PerfilEmpregador extends AppCompatActivity {
         edtLocalizacao = findViewById(R.id.localizacaoEmpresa);
         edtLocalizacao.setText(this.localizacao);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.trocarImagem);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
