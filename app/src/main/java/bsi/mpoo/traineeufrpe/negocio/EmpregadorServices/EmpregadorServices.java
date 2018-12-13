@@ -5,6 +5,7 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
+import bsi.mpoo.traineeufrpe.dominio.Estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.infra.Sessao.Sessao;
 import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.Persistencia.EmpregadorDAO.EmpregadorDAO;
@@ -65,5 +66,8 @@ public class EmpregadorServices {
             idempresa = data.getInt(0);
         }
         return idempresa;
+    }
+    public void alterarFotoEmpregador(Empregador empregador) {
+        empregadorDAO.mudarFoto(empregador);
     }
 }

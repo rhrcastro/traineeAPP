@@ -11,7 +11,7 @@ import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
 import bsi.mpoo.traineeufrpe.infra.SessaoEmpregador.SessaoEmpregador;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 27;
+    private static final int DATABASE_VERSION = 29;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,7 +41,7 @@ public  class Database extends SQLiteOpenHelper {
                 "email text NOT NULL," +
                 "cnpj text NOT NULL,"+
                 "senha text NOT NULL," +
-                "cidade NOT NULL);");
+                "cidade NOT NULL, fotoperfil blob NOT NULL);");
 
     }
 

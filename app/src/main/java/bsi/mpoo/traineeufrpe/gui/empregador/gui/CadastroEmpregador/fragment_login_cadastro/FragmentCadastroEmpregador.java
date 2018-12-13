@@ -2,6 +2,8 @@ package bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastroEmpregador.fragment_log
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,6 +15,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.thal3.trainee.R;
+
+import java.io.ByteArrayOutputStream;
 
 import bsi.mpoo.traineeufrpe.dominio.Empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.TelaEmpregadorPrincipal;
@@ -105,6 +109,11 @@ public class FragmentCadastroEmpregador extends Fragment {
         empregador.setSenha(senha);
         empregador.setCnpj(cnpj);
         empregador.setCidade(cidade);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile_empregador);
+        ByteArrayOutputStream blob = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, blob);
+        byte[] bitmapdata = blob.toByteArray();
+        empregador.setFoto(bitmapdata);
         return empregador;
     }
 }

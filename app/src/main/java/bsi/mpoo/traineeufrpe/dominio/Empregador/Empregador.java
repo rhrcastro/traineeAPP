@@ -7,6 +7,7 @@ public class Empregador {
     private String email;
     private String senha;
     private String cidade;
+    private byte[] foto;
 
     public long getId() {
         return id;
@@ -54,5 +55,12 @@ public class Empregador {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    public byte[] getFoto() {
+        return foto;
     }
 }

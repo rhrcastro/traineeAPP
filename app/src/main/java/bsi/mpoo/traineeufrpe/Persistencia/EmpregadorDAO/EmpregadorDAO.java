@@ -24,6 +24,8 @@ public class EmpregadorDAO {
         String senha = cursor.getString(indexSenha);
         int indexCidade = cursor.getColumnIndex("cidade");
         String cidade = cursor.getString(indexCidade);
+        int indexFoto = cursor.getColumnIndex("fotoperfil");
+        byte[] fotoPerfil  = cursor.getBlob(indexFoto);
         Empregador empregador = new Empregador();
         empregador.setId(id);
         empregador.setNome(nome);
@@ -31,6 +33,7 @@ public class EmpregadorDAO {
         empregador.setCnpj(cnpj);
         empregador.setSenha(senha);
         empregador.setCidade(cidade);
+        empregador.setFoto(fotoPerfil);
         return empregador;
     }
     public long inserirEmpregador(Empregador empregador) {
@@ -41,6 +44,7 @@ public class EmpregadorDAO {
         valores.put("cnpj", empregador.getCnpj());
         valores.put("senha", empregador.getSenha());
         valores.put("cidade", empregador.getCidade());
+        valores.put("fotoperfil", empregador.getFoto());
         long  id = escritorBanco.insert("empregador", null, valores);
         escritorBanco.close();
         return id;
@@ -105,6 +109,13 @@ public class EmpregadorDAO {
         String[] args = {String.valueOf(name)};
         Cursor data = db.rawQuery(query, args);
         return data;
+    }
+    public void mudarFoto(Empregador empregador) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("fotoperfil", empregador.getFoto());
+        db.update("empregador", valores,"id = ?", new String[]{String.valueOf(empregador.getId())});
+        db.close();
     }
 
 
