@@ -6,16 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    tools:openDrawer="start"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.TelaEmpregadorPrincipal">
 
     <include
         layout="@layout/app_bar_tela_empregador_principal"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

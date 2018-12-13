@@ -16,6 +16,7 @@ import com.example.thal3.trainee.R;
 
 import java.util.ArrayList;
 
+import bsi.mpoo.traineeufrpe.Lista;
 import bsi.mpoo.traineeufrpe.dominio.Vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.TelaEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.gui.empregador.gui.HomeEmpregador.tela_nova.fragment.FragmentMinhaVaga;
