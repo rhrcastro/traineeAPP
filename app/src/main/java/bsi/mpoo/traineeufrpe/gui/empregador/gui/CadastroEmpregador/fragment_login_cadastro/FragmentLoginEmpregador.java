@@ -63,6 +63,7 @@ public class FragmentLoginEmpregador extends Fragment {
     }
     private void goHome() {
         startActivity(new Intent(getContext(), TelaEmpregadorPrincipal.class));
+        finishActivity();
     }
     private boolean verificarCampos(){
         String email = this.edtEmailEmpregador.getText().toString().trim();
@@ -87,5 +88,11 @@ public class FragmentLoginEmpregador extends Fragment {
     }
     public void onBackPressed() {
         startActivity(new Intent(getContext(), MainActivity.class));
+    }
+
+    private void finishActivity() {
+        if(getActivity() != null) {
+            getActivity().finish();
+        }
     }
 }
