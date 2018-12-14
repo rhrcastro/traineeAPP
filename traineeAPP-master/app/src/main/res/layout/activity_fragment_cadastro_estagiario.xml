@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.CadastroEstagiario"
+    android:orientation="vertical"
+    android:background="#fff">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cadastrocurriculo"
+                android:layout_marginTop="10dp"
+                android:textSize="25dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Curso"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#696969"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/cursoCadastro"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:textColor="#696969"
+                android:textSize="18dp"
+                android:layout_marginTop="3dp"
+                android:ems="10"
+                android:textAlignment="center"
+                android:inputType="textPersonName"
+                android:background="@drawable/edittextform"/>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Instituição"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#696969"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/instituicaoCadastro"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:background="@drawable/edittextform"
+                android:textAlignment="center"
+                android:textColor="#696969"
+                android:textSize="18dp"
+                android:layout_marginTop="3dp"/>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Área"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#696969"
+                android:layout_marginTop="20dp"/>
+
+            <Spinner
+                android:id="@+id/Segmento"
+                style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                android:layout_width="350dp"
+                android:layout_height="60dp"
+                android:textColor="#696969"
+                android:textSize="15dp"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center"
+                android:background="@drawable/edittextform"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_marginTop="70dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:text="Avançar"
+                android:elevation="5dp"
+                android:textColor="#fff"
+                android:id="@+id/botCadastroCurriculo"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

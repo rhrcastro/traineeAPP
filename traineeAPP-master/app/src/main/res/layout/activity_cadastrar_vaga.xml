@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.CadastrarVaga"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="DIVULGUE SUA VAGA"
+                android:textStyle="italic"
+                android:textSize="25dp"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Titulo:"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#696969"
+                android:layout_marginTop="30dp"/>
+
+            <EditText
+                android:id="@+id/edtNomeVaga"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:textColor="#696969"
+                android:inputType="textPersonName"
+                android:background="@drawable/edittextform"
+                android:textSize="18dp"
+                android:padding="10dp"
+                android:layout_marginTop="3dp"/>
+            
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Requisitos e diferenciais do estagiário:"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#696969"
+                android:layout_marginTop="40dp"/>
+
+            <EditText
+                android:id="@+id/editRequisitos"
+                android:layout_width="350dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/edittextform"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#696969"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Carga Horária e outras observações:"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#696969"
+                android:layout_marginTop="40dp"/>
+
+            <EditText
+                android:id="@+id/editObs"
+                android:layout_width="350dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:textColor="#696969"
+                android:inputType="textPersonName"
+                android:background="@drawable/edittextform"
+                android:textSize="18dp"
+                android:padding="10dp"
+                android:layout_marginTop="3dp"/>
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ajudas de custo:"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#696969"
+                android:layout_marginTop="40dp"/>
+
+            <Spinner
+                android:id="@+id/editBolsa"
+                style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:textColor="#696969"
+                android:textSize="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center"
+                android:background="@drawable/edittextform"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"/>
+
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Área da vaga:"
+                android:layout_marginLeft="20dp"
+                android:textSize="15dp"
+                android:textColor="#696969"
+                android:layout_marginTop="40dp"/>
+
+            <Spinner
+                android:id="@+id/Area"
+                style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:textColor="#696969"
+                android:textSize="15dp"
+                android:layout_marginTop="3dp"
+                android:layout_gravity="center"
+                android:background="@drawable/edittextform"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimaryDark"
+                android:text="Publicar"
+                android:elevation="5dp"
+                android:textColor="#fff"
+                android:id="@+id/publicarVaga"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

@@ -1,0 +1,72 @@
+<resources>
+    <string name="app_name">TRAINEE</string>
+    <string name="estagiario">TRAINEE - ESTAGIÁRIO</string>
+    <string name="empregador">TRAINEE - EMPREGADOR</string>
+    <string name="contato">CONTATE-NOS</string>
+    <string name="REMETENTE_EMAIL">help.trainee.app@gmail.com</string>
+    <string name="PW_REMETENTE_EMAIL">traineeufrpe0</string>
+    <string name="cadastroestagiario">INFORMAÇÕES PESSOAIS:</string>
+    <string name="cadastrocurriculo">INFORMAÇÕES ACADÊMICAS:</string>
+    <string name="cadastroempregador">INFORMAÇÕES EMPRESARIAIS:</string>
+    <string name="aberto">Aberto</string>
+    <string name="fechado">Fechado</string>
+
+    <string-array name="tabs">
+        <item>ENTRAR</item>
+        <item>CADASTRAR</item>
+
+    </string-array>
+
+
+    <string-array name="tabsPrincipal">
+        <item>Novas Vagas</item>
+        <item>Vagas em aberto</item>
+        <item>Vagas Recomendadas</item>
+
+    </string-array>
+
+    <string-array name="tabsPrincipalEmpregador">
+        <item>Minhas Vagas</item>
+        <item>Candidatos</item>
+    </string-array>
+
+    <string-array name="fields">
+        <item>Artes e Design</item>
+        <item>Ciências Biológicas</item>
+        <item>Ciências Humanas</item>
+        <item>Ciências Exatas</item>
+        <item>Comunicação</item>
+        <item>Negócios</item>
+        <item>Saúde</item>
+        <item>Tecnologia</item>
+    </string-array>
+
+    <string-array name="Bolsas">
+        <item>A combinar</item>
+        <item>300,00 ~ 400,00</item>
+        <item>400,00 ~ 500,00</item>
+        <item>500,00 ~ 600,00</item>
+        <item>600,00 ~ 700,00</item>
+        <item>700,00 ~ 800,00</item>
+        <item>800,00 ~ 900,00</item>
+        <item>900,00 ~ 1100,00</item>
+        <item>1100,00 ~ 1500,00</item>
+        <item>1500,00 ~ 1900,00</item>
+    </string-array>
+
+
+    <string name="title_activity_tela_principal_estagiario">Trainee</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="title_activity_tela_principal_empregador">TelaPrincipalEmpregador</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tela_estagiario_principal">Home</string>
+    <string name="title_activity_tela_empregador_principal">Home</string>
+    <string name="title_activity_perfil_empregador">PerfilEmpregador</string>
+    <string name="title_activity_perfil_curriculo">PerfilCurriculo</string>
+
+</resources>
