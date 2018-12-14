@@ -22,18 +22,10 @@
             tools:layout_editor_absoluteY="0dp">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="60dp"
+                android:layout_width="421dp"
+                android:layout_height="225dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_launcher_foreground" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Trainee"
-                android:textColor="#fff"
-                android:textSize="30dp"
-                android:textStyle="italic" />
+                android:src="@drawable/trainee_logo_side" />
 
         </LinearLayout>
     </android.support.v7.widget.Toolbar>

@@ -11,20 +11,47 @@
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="#225386">
+        android:background="#225386"
+        app:contentInsetStart="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
             android:gravity="center"
             android:orientation="horizontal"
+            android:padding="0dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
-            <ImageView
-                android:layout_width="397dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/ic_launcher_foreground" />
+            <ViewFlipper
+                android:id="@+id/viewflip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/gi3" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/gi1" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/gi2" />
+            </ViewFlipper>
 
 
         </LinearLayout>
@@ -35,23 +62,22 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Trainee"
-        android:textStyle="italic"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Olá,"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="30dp"
-        />
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Escolha uma opção de usuário abaixo:"
-        android:textSize="18dp"
-        android:textColor="#bdbebd"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"
+        android:text="quem é você?"
+        android:textColor="@color/colorAccent"
+        android:textSize="18dp" />
 
     <Button
         android:layout_width="250dp"
@@ -90,11 +116,11 @@
             android:id="@+id/contato2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clique Aqui."
-            android:textSize="15dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="2dp"
+            android:text="Clique Aqui"
             android:textColor="@color/colorPrimaryDark"
-            android:layout_gravity="center" />
+            android:textSize="15dp" />
 
     </LinearLayout>
 

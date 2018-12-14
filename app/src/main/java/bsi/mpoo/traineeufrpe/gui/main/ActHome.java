@@ -5,7 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
+
+import com.bumptech.glide.Glide;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
@@ -14,12 +18,17 @@ import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario;
 public class ActHome extends AppCompatActivity {
     Button butest, butemp;
     TextView contact;
+    ViewFlipper viewFlipper;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        viewFlipper = findViewById(R.id.viewflip);
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setFlipInterval(1500);
+        viewFlipper.startFlipping();
 
         butemp = (Button)findViewById(R.id.butEmpregador);
         butest = (Button)findViewById(R.id.butEstagiario);
@@ -51,6 +60,7 @@ public class ActHome extends AppCompatActivity {
         });
 
     }
+
     @Override
     public void onBackPressed() {
         finish();

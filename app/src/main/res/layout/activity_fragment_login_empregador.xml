@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff"
-    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.login.LoginEmpregador">
+    android:background="#fff">
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -37,8 +36,8 @@
                 android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="10dp"
                 android:hint="Email"
-                android:textColorHint="#808080"
-                android:textColor="#fff"
+                android:textColorHint="#333333"
+                android:textColor="@color/colorAccent"
                 android:background="@drawable/edittextform"/>
             <EditText
                 android:id="@+id/edtSenhaEmpregador"
@@ -51,8 +50,8 @@
                 android:hint="Senha"
                 android:padding="10dp"
                 android:drawablePadding="10dp"
-                android:textColorHint="#808080"
-                android:textColor="#fff"
+                android:textColorHint="#333333"
+                android:textColor="@color/colorAccent"
                 android:drawableLeft="@drawable/ic_key"
                 android:background="@drawable/edittextform"/>
             <Button
@@ -79,15 +78,16 @@
                     android:text="Esqueceu sua senha?"
                     android:textColor="#bdbebd"
                     android:textSize="15dp" />
+
                 <TextView
                     android:id="@+id/forgot2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clique aqui."
-                    android:textColor="@color/colorPrimaryDark"
                     android:layout_gravity="center"
                     android:layout_marginLeft="2dp"
-                    android:textSize="15dp"/>
+                    android:text="Clique aqui"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="15dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
