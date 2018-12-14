@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 app:layout_behavior="@string/appbar_scrolling_view_behavior"
-tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.TelaEstagiarioPrincipal"
+tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal"
 tools:showIn="@layout/app_bar_tela_estagiario_principal"
 android:background="#fff">
 

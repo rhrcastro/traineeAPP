@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#00A6FF"
     android:orientation="vertical"
-    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.LoginEmpregador.LoginEmpregador">
+    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.login.LoginEmpregador">
 
     <include
         android:id="@+id/toolbar"

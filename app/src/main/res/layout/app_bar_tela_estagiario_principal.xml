@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.TelaEstagiarioPrincipal">
+    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

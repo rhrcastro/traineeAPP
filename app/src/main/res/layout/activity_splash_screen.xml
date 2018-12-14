@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash_trainee"
-    tools:context="bsi.mpoo.traineeufrpe.gui.main.gui.Main.SplashScreen">
+    tools:context="bsi.mpoo.traineeufrpe.gui.main.ActSplashScreen">
 
     <ImageView
         android:id="@+id/gif_load"

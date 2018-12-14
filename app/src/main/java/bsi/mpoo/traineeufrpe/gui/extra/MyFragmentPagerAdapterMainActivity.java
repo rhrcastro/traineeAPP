@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.fragment_cadastro_e_login.FragmentCadastroEstagiario;
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Cadastro.fragment_cadastro_e_login.FragmentLoginEstagiario;
+import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.FragmentCadastroEstagiario;
+import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.FragmentLoginEstagiario;
 
 public class MyFragmentPagerAdapterMainActivity extends FragmentStatePagerAdapter {
 

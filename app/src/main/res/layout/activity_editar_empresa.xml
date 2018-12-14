@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFF"
-    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.gui.EditarEmpresa.EditarEmpresa"
+    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar

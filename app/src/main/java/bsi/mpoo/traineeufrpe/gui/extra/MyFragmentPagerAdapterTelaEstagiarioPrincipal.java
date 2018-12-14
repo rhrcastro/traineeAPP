@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentNvagas;
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentVagasRecomendadas;
-import bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_nova.fragment.FragmentVagasEmAberto;
+import bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentNovasVagas;
+import bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentVagasRecomendadas;
+import bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentVagasEmAberto;
 
 
 public class MyFragmentPagerAdapterTelaEstagiarioPrincipal extends FragmentStatePagerAdapter {
@@ -23,7 +23,7 @@ public class MyFragmentPagerAdapterTelaEstagiarioPrincipal extends FragmentState
 
         switch(i){
             case 0:
-                return new FragmentNvagas();
+                return new FragmentNovasVagas();
             case 1:
                 return new FragmentVagasEmAberto();
             case 2:
