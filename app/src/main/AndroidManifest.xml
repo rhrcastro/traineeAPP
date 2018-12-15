@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--suppress AndroidDomInspection -->
+<?xml version="1.0" encoding="utf-8"?><!-- suppress AndroidDomInspection -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="bsi.mpoo.traineeufrpe">
 
@@ -16,56 +15,59 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.main.ActHome"
+            android:name=".gui.main.ActHome"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Login.LoginEstagiario"
+            android:name=".gui.estagiario.gui.Login.LoginEstagiario"
             android:screenOrientation="portrait" />
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.empregador.login.LoginEmpregador"
+            android:name=".gui.empregador.login.LoginEmpregador"
             android:screenOrientation="portrait" />
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.main.ActContato"
+            android:name=".gui.main.ActContato"
             android:screenOrientation="portrait" />
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario"
+            android:name=".gui.estagiario.acesso.ActCadastroLoginEstagiario"
             android:screenOrientation="portrait" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.curriculo.ActCurriculo" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Home.tela_antiga.TelaPrincipalEstagiario" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.home.tela_antiga.HomeEmpregador" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.acesso.FragmentLoginEstagiario" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.acesso.FragmentCadastroEstagiario" />
+        <activity android:name=".gui.estagiario.curriculo.ActCurriculo" />
+        <activity android:name=".gui.estagiario.gui.Home.tela_antiga.TelaPrincipalEstagiario" />
+        <activity android:name=".gui.empregador.acesso.ActCadastroLoginEmpregador" />
+        <activity android:name=".gui.empregador.home.tela_antiga.HomeEmpregador" />
+        <activity android:name=".gui.empregador.edit.ActEditarEmpregador" />
+        <activity android:name=".gui.estagiario.acesso.FragmentLoginEstagiario" />
+        <activity android:name=".gui.estagiario.acesso.FragmentCadastroEstagiario" />
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal"
+            android:name=".gui.estagiario.home.ActEstagiarioPrincipal"
             android:label="@string/title_activity_tela_estagiario_principal"
             android:theme="@style/AppTheme" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentNovasVagas" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentVagasEmAberto" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentVagasRecomendadas" />
+        <activity android:name=".gui.estagiario.home.FragmentNovasVagas" />
+        <activity android:name=".gui.estagiario.home.FragmentVagasEmAberto" />
+        <activity android:name=".gui.estagiario.home.FragmentVagasRecomendadas" />
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal"
+            android:name=".gui.empregador.home.ActEmpregadorPrincipal"
             android:label="@string/title_activity_tela_empregador_principal"
             android:theme="@style/AppTheme" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.home.FragmentMinhaVaga" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.home.FragmentCandidato" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.acesso.FragmentLoginEmpregador" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.empregador.acesso.FragmentCadastroEmpregador" />
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.main.ActSplashScreen">
+        <activity android:name=".gui.empregador.home.FragmentMinhaVaga" />
+        <activity android:name=".gui.empregador.home.FragmentCandidato" />
+        <activity android:name=".gui.empregador.acesso.FragmentLoginEmpregador" />
+        <activity android:name=".gui.empregador.acesso.FragmentCadastroEmpregador" />
+        <activity android:name=".gui.main.ActSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="bsi.mpoo.traineeufrpe.gui.estagiario.home.perfil.ActPerfilEstagiario" />
+        <activity android:name=".gui.estagiario.home.perfil.ActPerfilEstagiario" />
+        <activity android:name=".gui.empregador.home.perfil.PerfilEmpregador" />
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.empregador.home.perfil.PerfilEmpregador" />
+            android:name=".gui.empregador.home.perfil.Perfilemp"
+            android:label="@string/title_activity_perfilemp"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

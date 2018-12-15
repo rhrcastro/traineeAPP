@@ -49,5 +49,6 @@
     <string name="title_activity_tela_estagiario_principal">Home</string>
     <string name="title_activity_tela_empregador_principal">Home</string>
     <string name="title_activity_perfil_empregador">PerfilEmpregador</string>
+    <string name="title_activity_perfilemp">Perfilemp</string>
 
 </resources>

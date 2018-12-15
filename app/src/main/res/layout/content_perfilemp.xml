@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.home.perfil.PerfilEmpregador"
-    tools:showIn="@layout/activity_perfil_empregador">
+    tools:context=".gui.empregador.home.perfil.Perfilemp"
+    tools:showIn="@layout/app_bar_perfilemp"
+    android:background="#fff"
+    android:orientation="vertical">
 
-    <include
-        layout="@layout/nav_header_tela_empregador_principal" />
-
+    <include layout="@layout/nav_header_perfilemp"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center">
@@ -33,7 +31,7 @@
         <TextView
             android:id="@+id/localizacaoEmpresa"
             android:layout_width="wrap_content"
-            android:layout_height="26dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="10dp"
@@ -42,33 +40,9 @@
             android:layout_marginBottom="8dp"
             android:text="Localização"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/minhasVagas"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Minhas vagas >"
-        android:textColor="@color/colorPrimaryDark" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="250dp"
-        app:srcCompat="@drawable/btn_edit" />
-
-
 
 
 

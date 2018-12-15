@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +27,6 @@ import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class PerfilEmpregador extends AppCompatActivity {
-    private String nomeEmpresa;
     private String localizacao;
     private EmpregadorServices empregadorServices = new EmpregadorServices(this);
     private long id;
@@ -39,7 +39,6 @@ public class PerfilEmpregador extends AppCompatActivity {
 
 
     public PerfilEmpregador() {
-        this.nomeEmpresa = SessaoEmpregador.getInstance().getEmpregador().getNome();
         this.localizacao = SessaoEmpregador.getInstance().getEmpregador().getCidade();
         this.id = SessaoEmpregador.getInstance().getEmpregador().getId();
     }
@@ -52,12 +51,10 @@ public class PerfilEmpregador extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        imgEmpresa = findViewById(R.id.imagemEmpresa);
+        imgEmpresa = findViewById(R.id.imagemEmpregadorDrawer);
         byte[] foto = SessaoEmpregador.getInstance().getEmpregador().getFoto();
         Bitmap bitmap = BitmapFactory.decodeByteArray(foto, 0, foto.length);
         this.imgEmpresa.setImageBitmap(bitmap);
-        edtNomeEmpresa = findViewById(R.id.nomeEmpresa);
-        edtNomeEmpresa.setText(this.nomeEmpresa);
         edtLocalizacao = findViewById(R.id.localizacaoEmpresa);
         edtLocalizacao.setText(this.localizacao);
 
@@ -68,6 +65,12 @@ public class PerfilEmpregador extends AppCompatActivity {
                 permissaoGravarLerArquivos();
             }
         });
+
+        TextView nome = findViewById(R.id.nomeEmpregadorDrawer);
+        TextView email = findViewById(R.id.emailEmpregadorDrawer);
+        nome.setText(SessaoEmpregador.instance.getEmpregador().getNome());
+        email.setText(SessaoEmpregador.instance.getEmpregador().getEmail());
+
     }
 
     @Override

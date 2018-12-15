@@ -2,6 +2,8 @@ package bsi.mpoo.traineeufrpe.gui.empregador.home;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,12 +19,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.perfil.PerfilEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.home.perfil.Perfilemp;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
@@ -67,8 +71,12 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         View headView  = navigationView.getHeaderView(0);
         TextView nome = headView.findViewById(R.id.nomeEmpregadorDrawer);
         TextView email = headView.findViewById(R.id.emailEmpregadorDrawer);
+        ImageView imagem = headView.findViewById(R.id.imagemEmpregadorDrawer);
         nome.setText(SessaoEmpregador.instance.getEmpregador().getNome());
         email.setText(SessaoEmpregador.instance.getEmpregador().getEmail());
+        byte[] foto = SessaoEmpregador.getInstance().getEmpregador().getFoto();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(foto, 0, foto.length);
+        imagem.setImageBitmap(bitmap);
 
 
     }
@@ -154,7 +162,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
     }
 
     private void exibirPerfil() {
-        Intent intent = new Intent(getBaseContext(), PerfilEmpregador.class);
+        Intent intent = new Intent(getBaseContext(), Perfilemp.class);
         startActivity(intent);
     }
     private void exibirConfiguracoes() {
