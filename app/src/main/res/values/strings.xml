@@ -31,12 +31,29 @@
     </string-array>
 
     <string-array name="fields">
+        <item>Artes e Design</item>
+        <item>Ciências Biológicas</item>
+        <item>Ciências Humanas</item>
+        <item>Ciências Exatas</item>
+        <item>Comunicação</item>
+        <item>Negócios</item>
+        <item>Saúde</item>
         <item>Tecnologia</item>
-        <item>Exatas</item>
-        <item>Humanas</item>
-        <item>Saude</item>
-
     </string-array>
+
+    <string-array name="Bolsas">
+        <item>A combinar</item>
+        <item>300,00 ~ 400,00</item>
+        <item>400,00 ~ 500,00</item>
+        <item>500,00 ~ 600,00</item>
+        <item>600,00 ~ 700,00</item>
+        <item>700,00 ~ 800,00</item>
+        <item>800,00 ~ 900,00</item>
+        <item>900,00 ~ 1100,00</item>
+        <item>1100,00 ~ 1500,00</item>
+        <item>1500,00 ~ 1900,00</item>
+    </string-array>
+
     <string name="title_activity_tela_principal_estagiario">Trainee</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

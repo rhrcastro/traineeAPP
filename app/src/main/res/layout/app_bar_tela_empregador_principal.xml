@@ -23,7 +23,7 @@
     <include layout="@layout/content_tela_empregador_principal" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/trocarImagem"
+        android:id="@+id/cadastrarVaga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

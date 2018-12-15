@@ -47,9 +47,10 @@
         </activity>
         <activity android:name=".gui.estagiario.perfil.ActPerfilEstagiario" />
         <activity
-            android:name="bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp"
+            android:name=".gui.empregador.perfil.PerfilEmp"
             android:label="@string/title_activity_perfilemp"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".CadastrarVaga"></activity>
     </application>
 
 </manifest>

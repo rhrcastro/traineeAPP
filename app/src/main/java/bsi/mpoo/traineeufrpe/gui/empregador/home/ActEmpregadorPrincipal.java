@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import bsi.mpoo.traineeufrpe.CadastrarVaga;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador;
@@ -40,31 +41,31 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_empregador_principal);
 
-        mTabLayout = (TabLayout)findViewById(R.id.tab_layoutTEMP);
-        mViewPager = (ViewPager)findViewById(R.id.view_pagerTEMP);
+        mTabLayout = findViewById(R.id.tab_layoutTEMP);
+        mViewPager = findViewById(R.id.view_pagerTEMP);
 
         mViewPager.setAdapter(new MyFragmentPagerAdapterTelaEmpregadorPrincipal(getSupportFragmentManager(), getResources().getStringArray(R.array.tabsPrincipalEmpregador)));
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.trocarImagem);
+        FloatingActionButton fab =  findViewById(R.id.cadastrarVaga);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent abreCadastroVaga = new Intent(ActEmpregadorPrincipal.this, CadastrarVaga.class);
+                startActivity(abreCadastroVaga);
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         View headView  = navigationView.getHeaderView(0);
@@ -82,7 +83,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -124,7 +125,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
