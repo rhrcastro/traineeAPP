@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.gui.estagiario.home;
+package bsi.mpoo.traineeufrpe.gui.empregador.home.fragment;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,12 +9,13 @@ import android.view.ViewGroup;
 
 import bsi.mpoo.traineeufrpe.R;
 
-public class FragmentVagasRecomendadas extends Fragment {
+public class FragmentMinhaVaga extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
-        return Inflater.inflate(R.layout.activity_fragment_vagas_recomendadas, container, false);
+        View v = Inflater.inflate(R.layout.activity_fragment_minha_vaga, container, false);
 
+        return v;
     }
 }

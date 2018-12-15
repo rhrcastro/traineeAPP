@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.gui.empregador.acesso;
+package bsi.mpoo.traineeufrpe.gui.empregador.acesso.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
-import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentLoginEmpregador extends Fragment {

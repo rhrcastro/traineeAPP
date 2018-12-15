@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#fff"
-    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.gui.Login.LoginEstagiario">
+    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario">
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">

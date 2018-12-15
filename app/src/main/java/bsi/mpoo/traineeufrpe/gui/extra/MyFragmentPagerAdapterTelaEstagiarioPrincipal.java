@@ -4,9 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentNovasVagas;
-import bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentVagasRecomendadas;
-import bsi.mpoo.traineeufrpe.gui.estagiario.home.FragmentVagasEmAberto;
+import bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentNovasVagas;
+import bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentVagasRecomendadas;
+import bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentVagasEmAberto;
 
 
 public class MyFragmentPagerAdapterTelaEstagiarioPrincipal extends FragmentStatePagerAdapter {

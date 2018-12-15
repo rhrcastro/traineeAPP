@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterMainActivity;
+import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterFragMainActivity;
 
 
 public class ActCadastroLoginEstagiario extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class ActCadastroLoginEstagiario extends AppCompatActivity {
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
 
-        mViewPager.setAdapter(new MyFragmentPagerAdapterMainActivity(getSupportFragmentManager(), getResources().getStringArray(R.array.tabs)));
+        mViewPager.setAdapter(new MyFragmentPagerAdapterFragMainActivity(getSupportFragmentManager(), getResources().getStringArray(R.array.tabs)));
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
 

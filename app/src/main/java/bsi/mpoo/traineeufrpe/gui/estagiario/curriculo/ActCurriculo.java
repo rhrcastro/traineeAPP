@@ -18,7 +18,7 @@ import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
-import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class ActCurriculo extends AppCompatActivity {

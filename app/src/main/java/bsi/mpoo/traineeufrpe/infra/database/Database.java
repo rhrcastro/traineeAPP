@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.infra;
+package bsi.mpoo.traineeufrpe.infra.database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.infra.TraineApp.TraineeApp;
+import bsi.mpoo.traineeufrpe.infra.app.TraineeApp;
 
 public class EmpregadorServices {
     private EmpregadorDAO empregadorDAO;

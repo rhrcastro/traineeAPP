@@ -22,39 +22,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".gui.estagiario.gui.Login.LoginEstagiario"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".gui.empregador.login.LoginEmpregador"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".gui.main.ActContato"
             android:screenOrientation="portrait" />
         <activity
             android:name=".gui.estagiario.acesso.ActCadastroLoginEstagiario"
             android:screenOrientation="portrait" />
         <activity android:name=".gui.estagiario.curriculo.ActCurriculo" />
-        <activity android:name=".gui.estagiario.gui.Home.tela_antiga.TelaPrincipalEstagiario" />
         <activity android:name=".gui.empregador.acesso.ActCadastroLoginEmpregador" />
-        <activity android:name=".gui.empregador.home.tela_antiga.HomeEmpregador" />
         <activity android:name=".gui.empregador.edit.ActEditarEmpregador" />
-        <activity android:name=".gui.estagiario.acesso.FragmentLoginEstagiario" />
-        <activity android:name=".gui.estagiario.acesso.FragmentCadastroEstagiario" />
         <activity
             android:name=".gui.estagiario.home.ActEstagiarioPrincipal"
             android:label="@string/title_activity_tela_estagiario_principal"
             android:theme="@style/AppTheme" />
-        <activity android:name=".gui.estagiario.home.FragmentNovasVagas" />
-        <activity android:name=".gui.estagiario.home.FragmentVagasEmAberto" />
-        <activity android:name=".gui.estagiario.home.FragmentVagasRecomendadas" />
         <activity
             android:name=".gui.empregador.home.ActEmpregadorPrincipal"
             android:label="@string/title_activity_tela_empregador_principal"
             android:theme="@style/AppTheme" />
-        <activity android:name=".gui.empregador.home.FragmentMinhaVaga" />
-        <activity android:name=".gui.empregador.home.FragmentCandidato" />
-        <activity android:name=".gui.empregador.acesso.FragmentLoginEmpregador" />
-        <activity android:name=".gui.empregador.acesso.FragmentCadastroEmpregador" />
         <activity android:name=".gui.main.ActSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,10 +45,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gui.estagiario.home.perfil.ActPerfilEstagiario" />
-        <activity android:name=".gui.empregador.home.perfil.PerfilEmpregador" />
+        <activity android:name=".gui.estagiario.perfil.ActPerfilEstagiario" />
         <activity
-            android:name=".gui.empregador.home.perfil.Perfilemp"
+            android:name="bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp"
             android:label="@string/title_activity_perfilemp"
             android:theme="@style/AppTheme"></activity>
     </application>

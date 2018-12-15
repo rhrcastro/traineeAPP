@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.infra.Validacao;
+package bsi.mpoo.traineeufrpe.infra.validacao;
 import android.util.Patterns;
 public class Validacao {
     public static boolean verificarCampoVazio(String campo) {

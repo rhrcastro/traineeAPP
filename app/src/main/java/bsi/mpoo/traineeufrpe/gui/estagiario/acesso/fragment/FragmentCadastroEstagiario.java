@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.gui.estagiario.acesso;
+package bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
@@ -18,7 +18,7 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.gui.estagiario.curriculo.ActCurriculo;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
-import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class FragmentCadastroEstagiario extends Fragment implements AdapterView.OnItemSelectedListener{

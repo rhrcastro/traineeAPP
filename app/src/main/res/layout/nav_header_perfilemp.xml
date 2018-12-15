@@ -27,6 +27,7 @@
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:textSize="18sp"
         android:text="@string/nav_header_title"
+        android:textStyle="bold"
         android:id="@+id/NomePerfilEmp"
         android:layout_gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />

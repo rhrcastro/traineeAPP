@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.home.perfil.ActPerfilEstagiario"
+    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.perfil.ActPerfilEstagiario"
     tools:showIn="@layout/activity_perfil_estagiario">
 
     <ImageView

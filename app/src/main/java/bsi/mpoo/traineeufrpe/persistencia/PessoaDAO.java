@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
-import bsi.mpoo.traineeufrpe.infra.Database;
+import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class PessoaDAO {
     private Database bancoDados;

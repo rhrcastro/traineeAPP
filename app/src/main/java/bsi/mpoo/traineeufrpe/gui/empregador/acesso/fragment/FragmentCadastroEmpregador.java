@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.gui.empregador.acesso;
+package bsi.mpoo.traineeufrpe.gui.empregador.acesso.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +19,7 @@ import java.io.ByteArrayOutputStream;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
-import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentCadastroEmpregador extends Fragment {

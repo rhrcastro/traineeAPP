@@ -4,13 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.FragmentCadastroEstagiario;
-import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.FragmentLoginEstagiario;
+import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment.FragmentCadastroEstagiario;
+import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment.FragmentLoginEstagiario;
 
-public class MyFragmentPagerAdapterMainActivity extends FragmentStatePagerAdapter {
+public class MyFragmentPagerAdapterFragMainActivity extends FragmentStatePagerAdapter {
 
     private String[] mTabTitles;
-    public MyFragmentPagerAdapterMainActivity(FragmentManager fm, String[] TabTitles){
+    public MyFragmentPagerAdapterFragMainActivity(FragmentManager fm, String[] TabTitles){
         super(fm);
         this.mTabTitles = TabTitles;
 

@@ -13,7 +13,7 @@ import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
-import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
 
 public class ActEditarEmpregador extends AppCompatActivity {
     private Button save, del;

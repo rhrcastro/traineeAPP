@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import bsi.mpoo.traineeufrpe.gui.empregador.acesso.FragmentCadastroEmpregador;
-import bsi.mpoo.traineeufrpe.gui.empregador.acesso.FragmentLoginEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.acesso.fragment.FragmentCadastroEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.acesso.fragment.FragmentLoginEmpregador;
 
 public class MyFragmentPagerAdapterMainActivityEmpregador extends FragmentStatePagerAdapter {
     private String[] mTabTitles;

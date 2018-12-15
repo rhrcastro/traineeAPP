@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.gui.estagiario.home.perfil;
+package bsi.mpoo.traineeufrpe.gui.estagiario.perfil;
 
 import android.Manifest;
 import android.content.Intent;

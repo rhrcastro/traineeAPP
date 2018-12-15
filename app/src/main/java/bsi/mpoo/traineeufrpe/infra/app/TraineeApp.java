@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.infra.TraineApp;
+package bsi.mpoo.traineeufrpe.infra.app;
 import android.app.Application;
 import android.content.Context;
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import bsi.mpoo.traineeufrpe.persistencia.CurriculoDAO;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
-import bsi.mpoo.traineeufrpe.infra.TraineApp.TraineeApp;
+import bsi.mpoo.traineeufrpe.infra.app.TraineeApp;
 import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
 import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;

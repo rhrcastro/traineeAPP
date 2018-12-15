@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.home.FragmentCandidato">
+    tools:context="bsi.mpoo.traineeufrpe.gui.empregador.home.fragment.FragmentCandidato">
 
 </android.support.constraint.ConstraintLayout>

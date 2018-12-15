@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
-import bsi.mpoo.traineeufrpe.infra.Database;
+import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class CurriculoDAO {
     private Database bancoDados;

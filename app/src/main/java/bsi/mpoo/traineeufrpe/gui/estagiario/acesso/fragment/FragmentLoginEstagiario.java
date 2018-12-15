@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.gui.estagiario.acesso;
+package bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment;
 
 import android.content.Intent;
 import android.support.annotation.Nullable;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
-import bsi.mpoo.traineeufrpe.infra.Validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class FragmentLoginEstagiario extends Fragment {

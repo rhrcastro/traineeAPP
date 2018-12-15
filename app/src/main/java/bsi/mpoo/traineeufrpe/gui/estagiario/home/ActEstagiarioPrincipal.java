@@ -20,7 +20,7 @@ import android.widget.TextView;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario;
 
-import bsi.mpoo.traineeufrpe.gui.estagiario.home.perfil.ActPerfilEstagiario;
+import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.ActPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActContato;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;

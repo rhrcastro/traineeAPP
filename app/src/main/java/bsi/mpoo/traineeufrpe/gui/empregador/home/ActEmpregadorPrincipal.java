@@ -25,8 +25,7 @@ import android.widget.TextView;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador;
-import bsi.mpoo.traineeufrpe.gui.empregador.home.perfil.PerfilEmpregador;
-import bsi.mpoo.traineeufrpe.gui.empregador.home.perfil.Perfilemp;
+import bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
@@ -162,7 +161,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
     }
 
     private void exibirPerfil() {
-        Intent intent = new Intent(getBaseContext(), Perfilemp.class);
+        Intent intent = new Intent(getBaseContext(), PerfilEmp.class);
         startActivity(intent);
     }
     private void exibirConfiguracoes() {

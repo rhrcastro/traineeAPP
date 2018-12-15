@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe.gui.empregador.home.perfil;
+package bsi.mpoo.traineeufrpe.gui.empregador.perfil;
 
 import android.Manifest;
 import android.content.Intent;
@@ -33,7 +33,7 @@ import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
-public class Perfilemp extends AppCompatActivity
+public class PerfilEmp extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private String localizacao;
@@ -45,7 +45,7 @@ public class Perfilemp extends AppCompatActivity
     private static final int PERMISSION_REQUEST = 0;
 
 
-    public Perfilemp() {
+    public PerfilEmp() {
         this.localizacao = SessaoEmpregador.getInstance().getEmpregador().getCidade();
         this.id = SessaoEmpregador.getInstance().getEmpregador().getId();
     }
@@ -136,7 +136,7 @@ public class Perfilemp extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             exibirTelaP();
         } else if (id == R.id.nav_gallery) {
 
@@ -197,16 +197,16 @@ public class Perfilemp extends AppCompatActivity
     }
 
     private void permissaoGravarLerArquivos() {
-        int permissionCheckRead = ContextCompat.checkSelfPermission(Perfilemp.this,
+        int permissionCheckRead = ContextCompat.checkSelfPermission(PerfilEmp.this,
                 Manifest.permission.READ_EXTERNAL_STORAGE);
 
         if (permissionCheckRead != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(Perfilemp.this,
+            if (ActivityCompat.shouldShowRequestPermissionRationale(PerfilEmp.this,
                     Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 ActivityCompat.requestPermissions(this, new String[]{
                         Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST);
             } else {
-                ActivityCompat.requestPermissions(Perfilemp.this,
+                ActivityCompat.requestPermissions(PerfilEmp.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST);
             }
         } else {
@@ -215,7 +215,7 @@ public class Perfilemp extends AppCompatActivity
     }
 
     private void exibirTelaP() {
-        Intent intent = new Intent(Perfilemp.this, ActEmpregadorPrincipal.class);
+        Intent intent = new Intent(PerfilEmp.this, ActEmpregadorPrincipal.class);
         startActivity(intent);
     }
 }
