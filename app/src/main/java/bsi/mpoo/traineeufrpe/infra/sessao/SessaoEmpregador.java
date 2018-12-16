@@ -1,6 +1,7 @@
 package bsi.mpoo.traineeufrpe.infra.sessao;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
+import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,5 +25,13 @@ public class SessaoEmpregador {
     }
     public static SessaoEmpregador getInstance() {
         return instance;
+    }
+
+    public void setVaga(Vaga vaga) {
+        setValor("sessao.Vaga", vaga);
+    }
+
+    public Vaga getVaga() {
+        return (Vaga) values.get("sessao.Vaga");
     }
 }

@@ -50,7 +50,9 @@
             android:name=".gui.empregador.perfil.PerfilEmp"
             android:label="@string/title_activity_perfilemp"
             android:theme="@style/AppTheme" />
-        <activity android:name=".CadastrarVaga"></activity>
+        <activity android:name=".gui.empregador.home.vaga.CadastrarVaga" />
+        <activity android:name=".PerfilVagaEmpregador" />
+        <activity android:name=".EditarVaga"></activity>
     </application>
 
 </manifest>

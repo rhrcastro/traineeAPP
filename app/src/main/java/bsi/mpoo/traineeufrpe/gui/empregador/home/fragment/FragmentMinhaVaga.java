@@ -13,6 +13,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import bsi.mpoo.traineeufrpe.PerfilVagaEmpregador;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.extra.VagasListAdapter;
@@ -43,6 +44,15 @@ public class FragmentMinhaVaga extends Fragment {
         listObjeto = vagaServices.getObjetoVaga(listVagas, getActivity());
         final VagasListAdapter adapter = new VagasListAdapter(getActivity(), R.layout.lista_vaga_empresa, listObjeto);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Vaga id = ((Vaga) adapterView.getItemAtPosition(i));
+                SessaoEmpregador.instance.setVaga(id);
+                Intent EditVaga = new Intent(getActivity(), PerfilVagaEmpregador.class);
+                startActivity(EditVaga);
+            }
+        });
 
     }
 }
