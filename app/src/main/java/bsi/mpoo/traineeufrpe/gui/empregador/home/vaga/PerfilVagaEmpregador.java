@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe;
+package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
@@ -72,7 +73,6 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
     }
 
     private void del(){
-        long id = SessaoEmpregador.instance.getVaga().getId();
         vagaServices.DelVaga(SessaoEmpregador.instance.getVaga().getId());
         Toast.makeText(this, "Deletado com sucesso.", Toast.LENGTH_SHORT).show();
     }

@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import bsi.mpoo.traineeufrpe.PerfilVagaEmpregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.PerfilVagaEmpregador;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.extra.VagasListAdapter;

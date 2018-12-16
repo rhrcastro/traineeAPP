@@ -1,4 +1,4 @@
-package bsi.mpoo.traineeufrpe;
+package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
@@ -27,18 +28,18 @@ public class EditarVaga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_vaga);
-        edtNomeVaga = (EditText)findViewById(R.id.edtNomeVaga2);
-        editRequisitos = (EditText)findViewById(R.id.editRequisitos2);
-        editObs = (EditText)findViewById(R.id.editObs2);
+        edtNomeVaga = findViewById(R.id.edtNomeVaga2);
+        editRequisitos = findViewById(R.id.editRequisitos2);
+        editObs = findViewById(R.id.editObs2);
 
-        editBolsa = (Spinner)findViewById(R.id.editBolsa2);
+        editBolsa = findViewById(R.id.editBolsa2);
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Bolsas, R.layout.spinner_dropdown_item);
         adapter1.setDropDownViewResource(R.layout.spinner_dropdown_item);
         editBolsa.setAdapter(adapter1);
 
         popular();
 
-        saveVaga = (FloatingActionButton)findViewById(R.id.saveVaga);
+        saveVaga = findViewById(R.id.saveVaga);
         saveVaga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +50,7 @@ public class EditarVaga extends AppCompatActivity {
         });
 
 
-        cancelVaga = (FloatingActionButton)findViewById(R.id.CancelVaga);
+        cancelVaga = findViewById(R.id.CancelVaga);
         cancelVaga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,7 +76,7 @@ public class EditarVaga extends AppCompatActivity {
         String req = editRequisitos.getText().toString().trim();
         vaga = vagaServices.mudarRequisitoVaga(vaga, req);
         String obs = editObs.getText().toString().trim();
-        vaga = vagaServices.mudarObsVaga(vaga, obs);
+        vagaServices.mudarObsVaga(vaga, obs);
 
 
     }
