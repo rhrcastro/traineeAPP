@@ -13,7 +13,7 @@
         tools:layout_editor_absoluteX="0dp">
 
         <TextView
-            android:id="@+id/nome_vaga"
+            android:id="@+id/nome_candidato"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/nome_empresa"
+            android:id="@+id/mensagem"
             android:layout_width="251dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

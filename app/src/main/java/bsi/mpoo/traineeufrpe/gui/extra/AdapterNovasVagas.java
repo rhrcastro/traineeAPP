@@ -1,8 +1,6 @@
 package bsi.mpoo.traineeufrpe.gui.extra;
 
 import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -47,8 +45,8 @@ public class AdapterNovasVagas extends BaseAdapter {
         }
         Vaga vaga = listaVagas.get(position);
 
-        TextView titulo = (TextView) convertView.findViewById(R.id.nome_vaga);
-        TextView nomeEmpresa = (TextView) convertView.findViewById(R.id.nome_empresa);
+        TextView titulo = (TextView) convertView.findViewById(R.id.nome_candidato);
+        TextView nomeEmpresa = (TextView) convertView.findViewById(R.id.mensagem);
         TextView valorBolsa = (TextView) convertView.findViewById(R.id.bolsa_vaga);
         TextView dataVaga = (TextView) convertView.findViewById(R.id.data_vaga);
 
