@@ -28,6 +28,8 @@ public class VagaDAO {
         String area = cursor.getString(indexArea);
         int indexObs = cursor.getColumnIndex("obs");
         String obs = cursor.getString(indexObs);
+        int indexData = cursor.getColumnIndex("data_criacao");
+        long data = cursor.getLong(indexData);
         Vaga vaga = new Vaga();
         vaga.setId(id);
         vaga.setNome(nome);
@@ -35,6 +37,7 @@ public class VagaDAO {
         vaga.setBolsa(bolsa);
         vaga.setArea(area);
         vaga.setObs(obs);
+        vaga.setDataCriacao(data);
         return vaga;
     }
 

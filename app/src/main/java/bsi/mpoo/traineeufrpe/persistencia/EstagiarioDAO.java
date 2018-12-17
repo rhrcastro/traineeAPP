@@ -53,13 +53,19 @@ public class EstagiarioDAO {
         String query =  "SELECT * FROM estagiario " +
                 "WHERE email = ?";
         String[] args = {email};
-        return this.load(query, args,context);
+        return this.load(query, args, context);
     }
     public Estagiario getEstagiarioByEmaileSenha(String email, String senha,Context context) {
         String query =  "SELECT * FROM estagiario " +
                 "WHERE email = ? AND senha = ?";
         String[] args = {email, senha};
-        return this.load(query, args,context);
+        return this.load(query, args, context);
+    }
+    public Estagiario getEstagiarioById(long id, Context context) {
+        String query =  "SELECT * FROM estagiario " +
+                "WHERE id = ?";
+        String[] args = {String.valueOf(id)};
+        return this.load(query, args, context);
     }
     public Estagiario getIdCurriculo(long id, Context context) {
         String query = "SELECT * FROM curriculo " +

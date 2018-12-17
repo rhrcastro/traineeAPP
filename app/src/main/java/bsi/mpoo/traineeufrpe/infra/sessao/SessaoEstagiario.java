@@ -19,9 +19,11 @@ public class SessaoEstagiario {
     private void setValor(String chave, Object valor){
         values.put(chave, valor);
     }
+
     public void reset() {
         this.values.clear();
     }
+
     public static SessaoEstagiario getInstance() {
         return instance;
     }

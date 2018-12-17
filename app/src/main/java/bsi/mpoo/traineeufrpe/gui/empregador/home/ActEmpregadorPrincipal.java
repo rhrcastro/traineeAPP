@@ -119,7 +119,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
         } else if (id == R.id.nav_share) {
-
+            exibirNotificacoes();
         } else if (id == R.id.nav_send) {
 
         }
@@ -166,6 +166,11 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
     }
     private void exibirConfiguracoes() {
         Intent intent = new Intent(getBaseContext(), ActEditarEmpregador.class);
+        startActivity(intent);
+    }
+
+    private void exibirNotificacoes() {
+        Intent intent = new Intent(getBaseContext(), ActNotifEmpregador.class);
         startActivity(intent);
     }
 }

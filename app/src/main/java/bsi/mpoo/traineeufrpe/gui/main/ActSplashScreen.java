@@ -35,4 +35,8 @@ public class ActSplashScreen extends AppCompatActivity {
                 .asGif()
                 .into((ImageView) findViewById(R.id.gif_load));
     }
+
+    private void verificarSessao() {
+        //TODO verificar se já existe alguém logado.
+    }
 }

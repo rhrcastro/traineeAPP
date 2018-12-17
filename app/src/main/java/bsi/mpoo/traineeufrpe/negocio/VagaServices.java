@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.TestandoList;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
+import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.app.TraineeApp;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
@@ -16,7 +17,6 @@ import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 public class VagaServices {
     private VagaDAO vagaDAO;
     private EmpregadorDAO empregadorDAO;
-    private TraineeApp traineeApp;
     public VagaServices(Context context) {
         vagaDAO = new VagaDAO(context);
     }
@@ -43,6 +43,7 @@ public class VagaServices {
         Cursor data = this.vagaDAO.getAllDataOrderByDate();
         Vaga vaga;
         Empregador empregador;
+        empregadorDAO = new EmpregadorDAO(context);
         while (data.moveToNext()) {
             vaga = new Vaga();
             empregador = new Empregador();
@@ -53,7 +54,6 @@ public class VagaServices {
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
             vaga.setDataCriacao(data.getLong(7));
-            empregadorDAO = new EmpregadorDAO(context);
             empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
@@ -139,6 +139,10 @@ public class VagaServices {
 
     public void DelVaga(long id){
         vagaDAO.deletarVaga(id);
+    }
+
+    public void cadastrarInscricao() {
+
     }
 
 }
