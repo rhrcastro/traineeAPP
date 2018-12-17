@@ -22,6 +22,7 @@ public class NotificationServices {
     private final int COLUMN_ID_VAGA = 3;
     private final int COLUMN_MENSAGEM = 4;
     private final int COLUMN_IS_EMPREGADOR = 5;
+    private final int COLUMN_FOTOREMENTENTE = 6;
 
     private NotificationsDAO notificationsDAO;
     private EmpregadorDAO empregadorDAO;
@@ -47,6 +48,7 @@ public class NotificationServices {
             notif.setId(data.getLong(COLUMN_ID));
             notif.setIdRemetente(data.getLong(COLUMN_ID_REMETENTE));
             notif.setIdDestinatario(data.getLong(COLUMN_ID_DESTINATARIO));
+            notif.setFotoEstagiario(data.getBlob(COLUMN_FOTOREMENTENTE));
             nomeEstagiario = pessoaDAO.getIdEstagiario(data.getLong(COLUMN_ID_REMETENTE)).getNome();
             notif.setNomeRemetente(nomeEstagiario);
             nomeEmpregador = empregadorDAO.getEmpregadorById(data

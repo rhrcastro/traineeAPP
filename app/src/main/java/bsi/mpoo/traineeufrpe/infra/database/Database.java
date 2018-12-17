@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 43;
+    private static final int DATABASE_VERSION = 49;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -59,7 +59,7 @@ public  class Database extends SQLiteOpenHelper {
                 "id_destinatario integer NOT NULL," +
                 "id_vaga integer NOT NULL," +
                 "mensagem text NOT NULL," +
-                "is_empregador integer NOT NULL);");
+                "is_empregador integer NOT NULL," + "fotorementente blob NOT NULL);");
     }
 
     @Override
@@ -67,10 +67,10 @@ public  class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE pessoa");
         db.execSQL("DROP TABLE estagiario");
         db.execSQL("DROP TABLE curriculo");
-        db.execSQL("DROP TABLE IF EXISTS empregador");
-        db.execSQL("DROP TABLE IF EXISTS vaga");
-        db.execSQL("DROP TABLE IF EXISTS controladorvaga");
-        db.execSQL("DROP TABLE IF EXISTS notificacao");
+        db.execSQL("DROP TABLE empregador");
+        db.execSQL("DROP TABLE  vaga");
+        db.execSQL("DROP TABLE controlador_vaga");
+        db.execSQL("DROP TABLE  notificacao");
         onCreate(db);
     }
     public SQLiteDatabase getBancoLeitura(Context context){

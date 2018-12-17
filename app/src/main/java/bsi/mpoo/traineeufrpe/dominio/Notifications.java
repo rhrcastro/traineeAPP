@@ -13,6 +13,7 @@ public class Notifications {
     private String mensagem;
     private String nomeRemetente;
     private String nomeDestinatario;
+    private byte[] fotoEstagiario;
 
     private boolean isEmpregador;
 
@@ -71,7 +72,12 @@ public class Notifications {
     public void setNomeDestinatario(String nomeDestinatario) {
         this.nomeDestinatario = nomeDestinatario;
     }
-
+    public void setFotoEstagiario(byte[] foto) {
+        this.fotoEstagiario = foto;
+    }
+    public byte[] getFotoEstagiario () {
+        return fotoEstagiario;
+    }
     public boolean getIsEmpregador(){
         return isEmpregador;
     }

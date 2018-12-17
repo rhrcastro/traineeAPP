@@ -22,6 +22,7 @@ public class NotificationsDAO {
         valores.put("id_destinatario", notif.getIdDestinatario());
         valores.put("id_vaga", notif.getIdVaga());
         valores.put("mensagem", notif.getMensagem());
+        valores.put("fotorementente", notif.getFotoEstagiario());
         if (notif.getIsEmpregador()) {
             valores.put("is_empregador", 1);
         } else {

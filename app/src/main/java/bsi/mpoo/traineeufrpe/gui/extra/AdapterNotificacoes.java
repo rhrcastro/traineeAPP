@@ -2,6 +2,8 @@ package bsi.mpoo.traineeufrpe.gui.extra;
 
 import android.app.Activity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.Notifications;
+import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 
 public class AdapterNotificacoes extends BaseAdapter {
 
@@ -51,6 +54,9 @@ public class AdapterNotificacoes extends BaseAdapter {
         TextView mensagem = (TextView) convertView.findViewById(R.id.mensagem);
         TextView nomeVaga = (TextView) convertView.findViewById(R.id.notif_nome_vaga);
         ImageView image = convertView.findViewById(R.id.imagemNotif);
+        byte[] fotoEstagiario = notifications.getFotoEstagiario();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(fotoEstagiario, 0, fotoEstagiario.length);
+        image.setImageBitmap(bitmap);
 
         titulo.setText(notifications.getNomeRemetente());
         mensagem.setText(notifications.getMensagem());

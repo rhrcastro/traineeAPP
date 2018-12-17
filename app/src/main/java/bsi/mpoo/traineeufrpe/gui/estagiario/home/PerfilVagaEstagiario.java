@@ -106,6 +106,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         notifications.setMensagem(" se inscreveu na sua vaga:  ");
         notifications.setNomeRemetente(remetente.getNome());
         notifications.setNomeDestinatario(destinatario.getNome());
+        notifications.setFotoEstagiario(remetente.getEstagiario().getFoto());
         notifications.setIsEmpregador(true);
         return notifications;
     }
