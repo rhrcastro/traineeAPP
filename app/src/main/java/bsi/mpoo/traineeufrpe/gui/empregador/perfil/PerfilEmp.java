@@ -57,13 +57,13 @@ public class PerfilEmp extends AppCompatActivity
         setContentView(R.layout.activity_perfilemp);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        imgEmpresa = findViewById(R.id.imageViewPEmp);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.trocarFotoEmp);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                permissaoGravarLerArquivos();
             }
         });
 
@@ -81,8 +81,6 @@ public class PerfilEmp extends AppCompatActivity
         byte[] foto = SessaoEmpregador.getInstance().getEmpregador().getFoto();
         Bitmap bitmap = BitmapFactory.decodeByteArray(foto, 0, foto.length);
         imagem.setImageBitmap(bitmap);
-        edtLocalizacao = findViewById(R.id.localizacaoEmpresa);
-        edtLocalizacao.setText(this.localizacao);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -96,6 +94,8 @@ public class PerfilEmp extends AppCompatActivity
         byte[] foto1 = SessaoEmpregador.getInstance().getEmpregador().getFoto();
         Bitmap bitmap1 = BitmapFactory.decodeByteArray(foto, 0, foto.length);
         imagem1.setImageBitmap(bitmap1);
+        edtLocalizacao = findViewById(R.id.localizacaoEmpresa);
+        edtLocalizacao.setText(this.localizacao);
     }
 
     @Override

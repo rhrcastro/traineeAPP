@@ -116,10 +116,12 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
             exibirPerfil();
         } else if (id == R.id.nav_slideshow) {
             exibirConfiguracoes();
+        } else if (id == R.id.nav_gallery) {
+            exibirNotificacoes();
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
         } else if (id == R.id.nav_share) {
-            exibirNotificacoes();
+            
         } else if (id == R.id.nav_send) {
 
         }
