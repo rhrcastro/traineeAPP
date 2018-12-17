@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 
-public class VagasListAdapter extends ArrayAdapter<Vaga> {private static final String TAG = "Vaga adapter";
+public class VagasListAdapter extends ArrayAdapter<Vaga> {
+    private static final String TAG = "Vaga adapter";
     private Context Mcontext;
     private int Mresource;
 

@@ -24,7 +24,7 @@ public class FragmentMinhaVaga extends Fragment {
 
     private ListView listView;
     private final String TAG = "listData";
-    private VagaServices vagaServices;
+    VagaServices vagaServices = new VagaServices(getContext());
 
     @Nullable
     @Override

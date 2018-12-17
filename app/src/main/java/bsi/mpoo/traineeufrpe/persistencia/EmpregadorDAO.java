@@ -66,7 +66,7 @@ public class EmpregadorDAO {
         String[] args = {email, senha};
         return this.carregarObjeto(query, args,context);
     }
-    public Empregador getId(long id, Context context) {
+    public Empregador getEmpregadorById(long id, Context context) {
         String query = "SELECT * FROM empregador " +
                 "WHERE id = ?";
         String[] args = {String.valueOf(id)};

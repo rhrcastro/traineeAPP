@@ -5,13 +5,17 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
+import bsi.mpoo.traineeufrpe.TestandoList;
+import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.app.TraineeApp;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
+import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
 public class VagaServices {
     private VagaDAO vagaDAO;
+    private EmpregadorDAO empregadorDAO;
     private TraineeApp traineeApp;
     public VagaServices(Context context) {
         vagaDAO = new VagaDAO(context);
@@ -26,7 +30,7 @@ public class VagaServices {
 
     public ArrayList<String> getListaNomeVagas(){
         ArrayList<String> listaNomeVaga = new ArrayList<String>();
-        Cursor data = this.vagaDAO.getData(SessaoEmpregador.instance.getEmpregador().getId());
+        Cursor data = this.vagaDAO.getDatabyEmpregador(SessaoEmpregador.instance.getEmpregador().getId());
         while (data.moveToNext()){
             listaNomeVaga.add(data.getString(1));
         }
@@ -34,10 +38,32 @@ public class VagaServices {
         return listaNomeVaga;
     }
 
+    public ArrayList<Vaga> getListaVagas(Context context) {
+        ArrayList<Vaga> listaVagas = new ArrayList<Vaga>();
+        Cursor data = this.vagaDAO.getAllDataOrderByDate();
+        Vaga vaga;
+        Empregador empregador;
+        while (data.moveToNext()) {
+            vaga = new Vaga();
+            empregador = new Empregador();
+            vaga.setId(data.getLong(0));
+            vaga.setNome(data.getString(1));
+            vaga.setRequisito(data.getString(2));
+            vaga.setBolsa(data.getString(3));
+            vaga.setArea(data.getString(4));
+            vaga.setObs(data.getString(5));
+            vaga.setDataCriacao(data.getLong(7));
+            empregadorDAO = new EmpregadorDAO(context);
+            empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
+            vaga.setEmpregador(empregador);
+            listaVagas.add(vaga);
+        }
+        return listaVagas;
+    }
 
     public ArrayList<String> getListaBolsaVagas(){
         ArrayList<String> listaNomeVaga = new ArrayList<String>();
-        Cursor data = this.vagaDAO.getData(SessaoEmpregador.instance.getEmpregador().getId());
+        Cursor data = this.vagaDAO.getDatabyEmpregador(SessaoEmpregador.instance.getEmpregador().getId());
         while (data.moveToNext()){
             listaNomeVaga.add(data.getString(3));
         }
@@ -47,7 +73,7 @@ public class VagaServices {
 
     public ArrayList<String> getVagas(){
         ArrayList<String> listaVaga = new ArrayList<String>();
-        Cursor data = this.vagaDAO.getData(SessaoEmpregador.instance.getEmpregador().getId());
+        Cursor data = this.vagaDAO.getDatabyEmpregador(SessaoEmpregador.instance.getEmpregador().getId());
         while (data.moveToNext()){
             listaVaga.add(data.getString(0));
         }

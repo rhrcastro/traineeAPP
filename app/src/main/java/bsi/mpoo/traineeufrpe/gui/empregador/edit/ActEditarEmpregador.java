@@ -78,7 +78,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
     public void alterarDadosEmpregador(EmpregadorDAO empregadorDAO) {
         if (!this.verificarCampos()) {
             String nomeEmpregador = nome.getText().toString().trim();
-            Empregador empregador = empregadorDAO.getId(selectedid, getBaseContext());
+            Empregador empregador = empregadorDAO.getEmpregadorById(selectedid, getBaseContext());
             empregador.setNome(nomeEmpregador);
             empregadorDAO.mudarNomeEmpregador(empregador);
             Toast.makeText(getBaseContext(), "Alterado com sucesso", Toast.LENGTH_SHORT).show();

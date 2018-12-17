@@ -21,7 +21,7 @@ public class EmpregadorServices {
         Empregador empregadorLogin = this.empregadorDAO.getEmpregadorByEmaileSenha(empregador.getEmail(), empregador.getSenha(), traineeApp.getContext());
         boolean taLogado = false;
         if (empregadorLogin != null) {
-            Empregador empregado = this.empregadorDAO.getId(empregadorLogin.getId(), traineeApp.getContext());
+            Empregador empregado = this.empregadorDAO.getEmpregadorById(empregadorLogin.getId(), traineeApp.getContext());
             this.iniciarSessaoEmpregador(empregado);
             taLogado = true;
         }

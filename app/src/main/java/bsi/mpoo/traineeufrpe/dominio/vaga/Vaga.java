@@ -1,5 +1,7 @@
 package bsi.mpoo.traineeufrpe.dominio.vaga;
 
+import java.text.SimpleDateFormat;
+
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 
 public class Vaga {
@@ -10,6 +12,8 @@ public class Vaga {
     private String area;
     private String bolsa;
     private String obs;
+    private long miliseconds;
+    SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM' às 'HH:mm");
 
     public String getNome() {
         return nome;
@@ -65,5 +69,13 @@ public class Vaga {
 
     public void setEmpregador(Empregador empregador) {
         this.empregador = empregador;
+    }
+
+    public String getDataCriacao(){
+        return formatodata.format(miliseconds);
+    }
+
+    public void setDataCriacao(long miliseconds) {
+        this.miliseconds = miliseconds;
     }
 }

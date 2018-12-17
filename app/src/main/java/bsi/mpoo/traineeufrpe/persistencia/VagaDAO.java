@@ -10,11 +10,9 @@ import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class VagaDAO {
     private Database bancoDados;
-    private EmpregadorDAO empregadorDAO;
 
     public VagaDAO(Context context){
         bancoDados = new Database(context);
-        empregadorDAO = new EmpregadorDAO(context);
     }
 
     private Vaga criarVaga(Cursor cursor) {
@@ -49,12 +47,13 @@ public class VagaDAO {
         valores.put("bolsa",vaga.getBolsa());
         valores.put("obs",vaga.getObs());
         valores.put("id_empregador",vaga.getEmpregador().getId());
+        valores.put("data_criacao", System.currentTimeMillis());
         long resultado = escreverBanco.insert("vaga", null, valores);
         escreverBanco.close();
         return resultado;
     }
 
-    public Cursor getData(long id){
+    public Cursor getDatabyEmpregador(long id){
         SQLiteDatabase db = bancoDados.getReadableDatabase();
         String query =  "SELECT * FROM vaga " +
                 "WHERE id_empregador = ?";
@@ -63,6 +62,12 @@ public class VagaDAO {
         return data;
     }
 
+    public Cursor getAllDataOrderByDate(){
+        SQLiteDatabase db = bancoDados.getReadableDatabase();
+        String query = "SELECT * FROM vaga ORDER BY data_criacao DESC";
+        Cursor data = db.rawQuery(query, null);
+        return data;
+    }
     public Cursor getId(String name){
         SQLiteDatabase db = bancoDados.getWritableDatabase();
         String query = "SELECT  id FROM vaga " +

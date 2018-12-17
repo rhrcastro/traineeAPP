@@ -73,6 +73,7 @@ public class CadastrarVaga extends AppCompatActivity implements AdapterView.OnIt
         vaga.setObs(obs);
         vaga.setRequisito(req);
         vaga.setEmpregador(SessaoEmpregador.instance.getEmpregador());
+        vaga.setDataCriacao(System.currentTimeMillis());
         return vaga;
     }
 
