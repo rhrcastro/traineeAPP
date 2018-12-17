@@ -53,7 +53,7 @@ public class NotificationsDAO {
     public void deletarNotificacao(long idVaga, long idRemetente){
         SQLiteDatabase db =  bancoDados.getWritableDatabase();
         String query = "DELETE FROM notificacao " +
-                "WHERE id_vaga = " + String.valueOf(idVaga) + " AND id_remetente" + String.valueOf(idRemetente);
+                "WHERE id_vaga = " + String.valueOf(idVaga) + " AND id_remetente = " + String.valueOf(idRemetente);
         db.execSQL(query);
     }
 }

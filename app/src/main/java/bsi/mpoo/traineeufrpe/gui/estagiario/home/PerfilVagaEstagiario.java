@@ -44,7 +44,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         reqPerfilEst = findViewById(R.id.ReqPerfilVagaEst);
         queroCandidatar = findViewById(R.id.quero_candidatar);
         popular();
-        mudaBotao(verificaStatus());
+        verificaStatus();
         queroCandidatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,8 +75,8 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
             inscricaoServices.delInscricao(vaga.getId(), remetente.getId());
             notificationServices = new NotificationServices(this);
             notificationServices.delNotificacao(vaga.getId(), remetente.getId(), this);
-
-
+            Toast.makeText(getBaseContext(), "Inscrição cancelada com sucesso", Toast.LENGTH_SHORT).show();
+            this.status = mudaBotao(status);
         } else {
             ControladorVaga inscricao = new ControladorVaga();
             inscricao.setVaga(vaga);
@@ -125,6 +125,9 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     private boolean verificaStatus() {
         InscricaoServices inscricaoServices = new InscricaoServices(this);
         this.status = inscricaoServices.isInscrito(SessaoEstagiario.instance.getPessoa().getId(), vaga.getId());
+        if (status){
+            mudaBotao(false);
+        }
         return status;
     }
 }
