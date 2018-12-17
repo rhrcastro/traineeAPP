@@ -77,11 +77,11 @@ public class InscricaoServices {
 
     public boolean isInscrito(long idEstagiario, long idVaga) {
         Cursor data = inscricaoDAO.getInscricaoByEstagiarioAndVaga(idEstagiario, idVaga);
-        if (data.moveToNext()) {
+        if (data.getCount() == 0) {
             data.close();
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     public void delInscricao(long idVaga, long idRemetente){
