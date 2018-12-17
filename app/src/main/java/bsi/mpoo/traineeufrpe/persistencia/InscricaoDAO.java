@@ -22,7 +22,7 @@ public class InscricaoDAO {
         valores.put("id_empregador", inscricao.getEmpregador().getId());
         valores.put("id_estagiario", inscricao.getEstagiario().getId());
         valores.put("data_inscricao", System.currentTimeMillis());
-        long resultado = escreverBranco.insert("controlador_vaga", null, valores);
+        long resultado = escreverBranco.insert("controladorvaga", null, valores);
         escreverBranco.close();
         return resultado;
     }
@@ -81,7 +81,7 @@ public class InscricaoDAO {
     public void deletarInscricao(long idVaga, long idRemetente){
         SQLiteDatabase db =  bancoDados.getWritableDatabase();
         String query = "DELETE FROM controlador_vaga " +
-                "WHERE id_vaga = "+ String.valueOf(idVaga) + " AND id_estagiario = " + String.valueOf(idRemetente);
+                "WHERE id_vaga = "+ String.valueOf(idVaga) + " AND id_remetente = " + String.valueOf(idRemetente);
         db.execSQL(query);
     }
 }
