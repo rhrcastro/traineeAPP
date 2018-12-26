@@ -1,6 +1,8 @@
 package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 
 import android.content.Intent;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,9 +57,7 @@ public class CadastrarVaga extends AppCompatActivity implements AdapterView.OnIt
 
     private void Cadastrar() {
         vagaServices.cadastrarVaga(criarVaga(), this);
-        Intent volta = new Intent(CadastrarVaga.this, ActEmpregadorPrincipal.class);
-        startActivity(volta);
-
+        volta();
     }
 
     private Vaga criarVaga() {
@@ -81,5 +81,16 @@ public class CadastrarVaga extends AppCompatActivity implements AdapterView.OnIt
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) { }
     @Override
     public void onNothingSelected(AdapterView<?> parent) { }
+
+    @Override
+    public void onBackPressed() {
+        volta();
+    }
+
+    public void volta(){
+        Intent volta = new Intent(CadastrarVaga.this, ActEmpregadorPrincipal.class);
+        startActivity(volta);
+        finish();
+    }
 
 }

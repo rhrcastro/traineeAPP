@@ -5,11 +5,8 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
-import bsi.mpoo.traineeufrpe.TestandoList;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
-import bsi.mpoo.traineeufrpe.infra.app.TraineeApp;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;

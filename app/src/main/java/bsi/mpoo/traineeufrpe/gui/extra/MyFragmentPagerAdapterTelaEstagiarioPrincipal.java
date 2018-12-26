@@ -8,19 +8,16 @@ import bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentNovasVagas;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentVagasRecomendadas;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentVagasEmAberto;
 
-
 public class MyFragmentPagerAdapterTelaEstagiarioPrincipal extends FragmentStatePagerAdapter {
 
     private String[] mTabTitles;
     public MyFragmentPagerAdapterTelaEstagiarioPrincipal(FragmentManager fm, String[] TabTitles){
         super(fm);
         this.mTabTitles = TabTitles;
-
     }
 
     @Override
     public Fragment getItem(int i) {
-
         switch(i){
             case 0:
                 return new FragmentNovasVagas();
@@ -41,7 +38,5 @@ public class MyFragmentPagerAdapterTelaEstagiarioPrincipal extends FragmentState
     @Override
     public CharSequence getPageTitle(int i){
         return this.mTabTitles[i];
-
     }
 }
-

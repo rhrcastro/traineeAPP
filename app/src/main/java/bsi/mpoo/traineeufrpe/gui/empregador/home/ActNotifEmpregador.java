@@ -39,7 +39,7 @@ public class ActNotifEmpregador extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Notifications notif = ((Notifications) parent.getItemAtPosition(position));
-                Intent it = new Intent(TestandoList.this, PerfilVagaEstagiario.class);
+                Intent it = new Intent(getActivity(), PerfilVagaEstagiario.class);
                 PerfilVagaEstagiario.vaga = vaga;
                 startActivity(it);
             }

@@ -55,6 +55,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
             public void onClick(View view) {
                 Intent abreCadastroVaga = new Intent(ActEmpregadorPrincipal.this, CadastrarVaga.class);
                 startActivity(abreCadastroVaga);
+                finish();
             }
         });
 
@@ -143,7 +144,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                SessaoEstagiario.getInstance().reset();
+                SessaoEmpregador.getInstance().resetEmpregador();
                 exibirTelaLogin();
                 finish();
             }
