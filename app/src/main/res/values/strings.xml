@@ -10,6 +10,7 @@
     <string name="cadastroempregador">INFORMAÇÕES EMPRESARIAIS:</string>
     <string name="aberto">Aberto</string>
     <string name="fechado">Fechado</string>
+    <string name="search_hint">Pesquisar</string>
 
     <string-array name="tabs">
         <item>ENTRAR</item>
