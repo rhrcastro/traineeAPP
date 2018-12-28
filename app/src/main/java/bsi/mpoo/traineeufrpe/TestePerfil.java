@@ -58,6 +58,6 @@ public class TestePerfil extends AppCompatActivity {
     }
 
     private Curriculo getCurriculo(){
-        return SessaoEstagiario.getInstance().getPessoa().getEstagiario().getCurriculo();
+        return SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo();
     }
 }

@@ -30,7 +30,7 @@ public class LoginServices {
             estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), trainee.getContext()));
             Pessoa pessoa = this.PessoaDAO.getIdEstagiario(estagiario.getId());
             pessoa.setEstagiario(estagiario);
-            this.iniciarSessao(pessoa);
+            this.iniciarSessao(pessoa, estagiario.getCurriculo());
             return true;
         } return false;
     }
@@ -66,6 +66,12 @@ public class LoginServices {
                 .setCurriculo(SessaoEstagiario.instance.getCurriculo());
     }
 
+    private void iniciarSessao(Pessoa pessoa, Curriculo curriculo) {
+        SessaoEstagiario.instance.setPessoa(pessoa);
+        SessaoEstagiario.instance.getPessoa().getEstagiario()
+                .setCurriculo(curriculo);
+    }
+    
     public void alterarFotoEstagiario(Estagiario estagiario) {
         estagiarioDAO.mudarFotoEstagiario(estagiario);
     }
