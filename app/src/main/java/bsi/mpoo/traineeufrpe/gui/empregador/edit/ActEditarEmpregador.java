@@ -13,14 +13,14 @@ import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
-import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 
 public class ActEditarEmpregador extends AppCompatActivity {
     private Button save, del;
     private EditText nome;
     private EditText cidade;
     private EditText senha;
-    private Validacao validacao = new Validacao();
+    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
 
 
     private int selectedid;
@@ -62,13 +62,13 @@ public class ActEditarEmpregador extends AppCompatActivity {
         String nomeEmpregador = nome.getText().toString().trim();
         String senhaEmpregador = senha.getText().toString().trim();
         String cidadeEmpregador = cidade.getText().toString().trim();
-        if (validacao.verificarCampoVazio(nomeEmpregador)) {
+        if (validacaoGUI.isCampoVazio(nomeEmpregador)) {
             this.nome.setError("Campo vazio");
             return false;
-        } else if (validacao.verificarCampoVazio(senhaEmpregador)) {
+        } else if (validacaoGUI.isCampoVazio(senhaEmpregador)) {
             this.senha.setError("Campo vazio");
             return false;
-        } else if (validacao.verificarCampoVazio(cidadeEmpregador)) {
+        } else if (validacaoGUI.isCampoVazio(cidadeEmpregador)) {
             this.cidade.setError("Campo vazio");
             return false;
         } else {

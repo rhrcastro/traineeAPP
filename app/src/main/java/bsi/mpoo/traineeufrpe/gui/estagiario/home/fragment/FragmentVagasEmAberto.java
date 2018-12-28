@@ -16,7 +16,6 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.PerfilVagaEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterCardsVagas;
-import bsi.mpoo.traineeufrpe.gui.extra.AdapterNovasVagas;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
@@ -29,7 +28,7 @@ public class FragmentVagasEmAberto extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = Inflater.inflate(R.layout.activity_fragment_vagas_em_aberto, container, false);
+        View v = Inflater.inflate(R.layout.fragment_vagas_em_aberto, container, false);
         listaVagas = v.findViewById(R.id.lista_vagas_emaberto);
         populate();
         return v;

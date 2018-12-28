@@ -17,12 +17,12 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
-import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentLoginEmpregador extends Fragment {
     Button loginEmpregador;
-    private Validacao validacao = new Validacao();
+    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     private EditText edtEmailEmpregador;
     private EditText edtSenhaEmpregador;
     private TextView forgot;
@@ -31,7 +31,7 @@ public class FragmentLoginEmpregador extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = Inflater.inflate(R.layout.activity_fragment_login_empregador, container, false);
+        View v = Inflater.inflate(R.layout.fragment_login_empregador, container, false);
         this.edtEmailEmpregador = v.findViewById(R.id.edtEmailEmpregador);
         this.edtSenhaEmpregador = v.findViewById(R.id.edtSenhaEmpregador);
         this.edtEmailEmpregador.requestFocus();
@@ -67,10 +67,10 @@ public class FragmentLoginEmpregador extends Fragment {
     private boolean verificarCampos(){
         String email = this.edtEmailEmpregador.getText().toString().trim();
         String senha = this.edtSenhaEmpregador.getText().toString().trim();
-        if (this.validacao.verificarCampoEmail(email)) {
+        if (this.validacaoGUI.isEmailValido(email)) {
             this.edtEmailEmpregador.setError("Email Inválido");
             return false;
-        } else if (this.validacao.verificarCampoVazio(senha)) {
+        } else if (this.validacaoGUI.isCampoVazio(senha)) {
             this.edtSenhaEmpregador.setError("Senha Inválida");
             return false;
         } else {

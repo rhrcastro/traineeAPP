@@ -101,7 +101,7 @@
                 android:padding="5dp"
                 android:text="TextView"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorTextDark"
                 android:textSize="18dp" />
 
             <TextView
@@ -123,7 +123,7 @@
                 android:padding="5dp"
                 android:text="TextView"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/colorTextDark"
                 android:textSize="18dp" />
 
             <LinearLayout

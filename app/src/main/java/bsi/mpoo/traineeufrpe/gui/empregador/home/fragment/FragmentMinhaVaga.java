@@ -29,7 +29,7 @@ public class FragmentMinhaVaga extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = Inflater.inflate(R.layout.activity_fragment_minha_vaga, container, false);
+        View v = Inflater.inflate(R.layout.fragment_minha_vaga, container, false);
         listView = v.findViewById(R.id.lista);
         populate();
         return v;

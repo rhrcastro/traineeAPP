@@ -20,7 +20,6 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_tela_empregador_principal"
-        app:menu="@menu/activity_tela_empregador_principal_drawer"
-        android:background="@color/colorAccent"/>
+        app:menu="@menu/activity_tela_empregador_principal_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

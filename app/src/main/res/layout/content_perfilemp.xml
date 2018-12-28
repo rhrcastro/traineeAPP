@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".gui.empregador.perfil.PerfilEmp"
-    tools:showIn="@layout/app_bar_perfilemp"
+    tools:showIn="@layout/activity_perfil_empregador"
     android:background="#fff"
     android:orientation="vertical">
 

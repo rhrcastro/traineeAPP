@@ -25,8 +25,10 @@ public  class Database extends SQLiteOpenHelper {
                 "id_curriculo integer NOT NULL, fotoestagiario blob NOT NULL);");
 
         db.execSQL("CREATE TABLE curriculo(" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," + "curso text NOT NULL," +
-                "instituicao text NOT NULL," + "areaAtuacao text NOT NULL);");
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "curso text NOT NULL," +
+                "instituicao text NOT NULL," +
+                "areaAtuacao text NOT NULL);");
 
         db.execSQL("CREATE TABLE empregador(" +
                 "id integer PRIMARY KEY AUTOINCREMENT," +

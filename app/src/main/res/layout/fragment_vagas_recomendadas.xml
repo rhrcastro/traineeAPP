@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
-    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentNovasVagas">
+    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentVagasRecomendadas">
 
     <ListView
-        android:id="@+id/lista_novas_vagas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp" />
 </LinearLayout>

@@ -65,13 +65,13 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:textColor="#fff"
-                android:inputType="textPersonName"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/edittextform"
-                android:textSize="18dp"
+                android:ems="10"
+                android:inputType="textPersonName"
                 android:padding="10dp"
-                android:layout_marginTop="3dp"/>
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textview1"
@@ -88,13 +88,13 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:textColor="#fff"
-                android:textSize="18dp"
                 android:layout_marginTop="3dp"
+                android:background="@drawable/edittextform"
                 android:ems="10"
-                android:padding="10dp"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/edittextform" />
+                android:padding="10dp"
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textview4"
@@ -111,13 +111,13 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="number"
-                android:textColor="#fff"
-                android:background="@drawable/edittextform"
-                android:textSize="18dp"
                 android:padding="10dp"
-                android:layout_marginTop="3dp"/>
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textview5"
@@ -134,13 +134,13 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:textColor="#fff"
                 android:padding="10dp"
-                android:background="@drawable/edittextform"
-                android:textSize="18dp"
-                android:layout_marginTop="3dp"/>
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -157,13 +157,13 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:textColor="#fff"
-                android:background="@drawable/edittextform"
-                android:textSize="18dp"
                 android:padding="10dp"
-                android:layout_marginTop="3dp"/>
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -180,13 +180,13 @@
                 android:layout_width="350dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:ems="10"
-                android:textColor="#fff"
-                android:inputType="textPersonName"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/edittextform"
-                android:textSize="18dp"
+                android:ems="10"
+                android:inputType="textPersonName"
                 android:padding="10dp"
-                android:layout_marginTop="3dp"/>
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <Button
                 android:layout_width="match_parent"

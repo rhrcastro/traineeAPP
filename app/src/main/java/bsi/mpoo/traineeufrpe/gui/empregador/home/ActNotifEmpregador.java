@@ -20,7 +20,7 @@ public class ActNotifEmpregador extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_act_notif_empregador);
+        setContentView(R.layout.listview_notificacoes_emp);
         listaNotificacoes = findViewById(R.id.listNotifEmpregador);
         populate();
     }

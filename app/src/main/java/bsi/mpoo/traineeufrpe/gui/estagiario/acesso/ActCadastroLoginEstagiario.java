@@ -18,7 +18,7 @@ public class ActCadastroLoginEstagiario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_estagiario);
+        setContentView(R.layout.activity_acesso_estagiario);
 
         mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) findViewById(R.id.view_pager);

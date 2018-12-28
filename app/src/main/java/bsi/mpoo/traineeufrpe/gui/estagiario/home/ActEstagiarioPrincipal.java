@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.TestePerfil;
 import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario;
 
 import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.ActPerfilEstagiario;
@@ -103,7 +104,7 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
         } else if (id == R.id.nav_share) {
-            openContato();
+            openTeste();
         } else if (id == R.id.nav_send) {
             openContato();
         }
@@ -149,6 +150,10 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
     }
     public void exibirPerfilEstagiario(){
         Intent intent = new Intent(this, ActPerfilEstagiario.class);
+        startActivity(intent);
+    }
+    public void openTeste() {
+        Intent intent = new Intent(this, TestePerfil.class);
         startActivity(intent);
     }
 }

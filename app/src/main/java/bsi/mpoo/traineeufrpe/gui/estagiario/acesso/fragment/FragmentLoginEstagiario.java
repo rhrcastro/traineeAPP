@@ -1,6 +1,7 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -12,80 +13,74 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
-import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class FragmentLoginEstagiario extends Fragment {
 
+    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     private EditText edtEmail;
     private EditText edtSenha;
-    private Validacao validacao = new Validacao();
+    private String email;
+    private String senha;
+    Button btnLogin;
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = Inflater.inflate(R.layout.activity_fragment_login_estagiario, container, false);
-        this.edtEmail = v.findViewById(R.id.emailLogin);
-        this.edtSenha = v.findViewById(R.id.senhaLogin);
-        Button butlogin = (Button)v.findViewById(R.id.botLog);
-        butlogin.setOnClickListener(new View.OnClickListener() {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_login_estagiario, container, false);
+        edtEmail = v.findViewById(R.id.emailLogin);
+        edtSenha = v.findViewById(R.id.senhaLogin);
+        btnLogin = (Button)v.findViewById(R.id.botLog);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+                logar();
             }
         });
-
         return v;
     }
 
-    public void login() {
-        if (!this.verificarCampos()) {
+    public void logar() {
+        capturaTextos();
+        if (!isCamposValidos()) {
             return;
         }
-        else {
-            LoginServices loginServices = new LoginServices(getContext());
-            boolean taLogado = loginServices.logar(this.criarEstagiario());
-            if (taLogado) {
-                Toast.makeText(getContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
-                goHome();
-            } else {
-                Toast.makeText(getContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
-            }
-
+        LoginServices loginServices = new LoginServices(getContext());
+        boolean taLogado = loginServices.fazerLogin(email, senha);
+        if (taLogado) {
+            Toast.makeText(getContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
+            goHome();
+        } else {
+            Toast.makeText(getContext(),"Email ou senha inválidos", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private boolean isCamposValidos(){
+        if (this.validacaoGUI.isEmailValido(email)) {
+            this.edtEmail.setError("Email Inválido");
+            return false;
+        } else if (this.validacaoGUI.isCampoVazio(senha)) {
+            this.edtSenha.setError("Senha Inválida");
+            return false;
+        } return true;
+    }
+
+    private void capturaTextos() {
+        email = this.edtEmail.getText().toString().trim();
+        senha = this.edtSenha.getText().toString().trim();
+    }
+
     private void goHome() {
         startActivity(new Intent(getActivity(), ActEstagiarioPrincipal.class));
         finishActivity();
     }
+
     private void finishActivity() {
         if(getActivity() != null) {
             getActivity().finish();
         }
     }
-    private Estagiario criarEstagiario() {
-        String email = this.edtEmail.getText().toString().trim();
-        String senha = this.edtSenha.getText().toString().trim();
-        Estagiario estagiario = new Estagiario();
-        estagiario.setEmail(email);
-        estagiario.setSenha(senha);
-        return estagiario;
-    }
-    private boolean verificarCampos(){
-        String email = this.edtEmail.getText().toString().trim();
-        String senha = this.edtSenha.getText().toString().trim();
-        if (this.validacao.verificarCampoEmail(email)) {
-            this.edtEmail.setError("Email Inválido");
-            return false;
-        } else if (this.validacao.verificarCampoVazio(senha)) {
-            this.edtSenha.setError("Senha Inválida");
-            return false;
-        } else {
-            return true;
-        }
-    }
-
 }
 

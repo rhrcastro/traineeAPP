@@ -30,13 +30,15 @@
         android:textStyle="bold"
         android:id="@+id/NomePerfilEmp"
         android:layout_gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/White"/>
 
     <TextView
         android:id="@+id/emailPerfilEmp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/nav_header_subtitle" />
+        android:text="@string/nav_header_subtitle"
+        android:textColor="@color/White"/>
 
 </LinearLayout>

@@ -14,7 +14,7 @@ public class FragmentVagasRecomendadas extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
-        return Inflater.inflate(R.layout.activity_fragment_vagas_recomendadas, container, false);
+        return Inflater.inflate(R.layout.fragment_vagas_recomendadas, container, false);
 
     }
 }

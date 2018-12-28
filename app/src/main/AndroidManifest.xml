@@ -55,7 +55,7 @@
         <activity android:name=".gui.empregador.home.vaga.EditarVaga" />
         <activity android:name=".gui.estagiario.home.PerfilVagaEstagiario" />
         <activity android:name=".gui.empregador.home.ActNotifEmpregador" />
-        <activity android:name=".TestandoCards"></activity>
+        <activity android:name=".TestePerfil"></activity>
     </application>
 
 </manifest>

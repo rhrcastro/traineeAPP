@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,32 +17,32 @@ import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
-import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class ActCurriculo extends AppCompatActivity {
 
-    Button cadastrar;
     private LoginServices loginServices = new LoginServices(this);
-    private Validacao validacao = new Validacao();
+    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     private EditText edtNome;
     private EditText edtEmail;
     private EditText edtCPF;
-    private EditText edtSenha;
-    private EditText edtConfSenha;
+    private EditText edtSenha1;
+    private EditText edtSenha2;
     private EditText edtCidade;
+    private String nome;
+    private String email;
+    private String cpf;
+    private String senha1;
+    private String senha2;
+    private String cidade;
+    Button cadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_curriculo);
-        this.edtNome = findViewById(R.id.editNomeCadastroEst);
-        this.edtEmail = findViewById(R.id.editEmailCadastroEst);
-        this.edtCPF = findViewById(R.id.editCpf);
-        this.edtSenha = findViewById(R.id.editSenhaCadastro);
-        this.edtConfSenha = findViewById(R.id.editConfirmaSenha);
-        this.edtCidade = findViewById(R.id.editCidade);
-
+        findEditTexts();
         this.cadastrar = findViewById(R.id.botCadastroPessoal);
         this.cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,16 +51,26 @@ public class ActCurriculo extends AppCompatActivity {
             }
         });
     }
+
+    private void findEditTexts() {
+        edtNome = findViewById(R.id.editNomeCadastroEst);
+        edtEmail = findViewById(R.id.editEmailCadastroEst);
+        edtCPF = findViewById(R.id.editCpf);
+        edtSenha1 = findViewById(R.id.editSenhaCadastro);
+        edtSenha2 = findViewById(R.id.editConfirmaSenha);
+        edtCidade = findViewById(R.id.editCidade);
+    }
+
     public void cadastrar() {
-        boolean resultado;
-        if (!this.verificarCampos()) {
+        capturarTextos();
+        if (!isCamposValidos()){
             return;
         }
-        Pessoa nova = criarPessoa();
-        Estagiario novo = criarEstagiario();
-        nova.setEstagiario(novo);
-        resultado = this.loginServices.cadastrar(nova,this);
-        if (resultado == true) {
+        Pessoa novaPessoa = criarPessoa();
+        Estagiario novoEstagiario = criarEstagiario();
+        novaPessoa.setEstagiario(novoEstagiario);
+        boolean resultado = this.loginServices.cadastrarPessoaNoBanco(novaPessoa,this);
+        if (resultado) {
             Toast.makeText(this,"Conta Criada",Toast.LENGTH_SHORT).show();
             Intent abreTelaPrincipal =  new Intent(this, ActEstagiarioPrincipal.class);
             startActivity(abreTelaPrincipal);
@@ -70,56 +79,49 @@ public class ActCurriculo extends AppCompatActivity {
             Toast.makeText(this,"Já existe uma conta com este e-mail",Toast.LENGTH_SHORT).show();
         }
     }
-    private boolean verificarCampos() {
-        String nome = edtNome.getText().toString().trim();
-        String email = edtEmail.getText().toString().trim();
-        String senha = edtSenha.getText().toString().trim();
-        String repetirSenha = edtConfSenha.getText().toString().trim();
-        String cpf = edtCPF.getText().toString().trim();
-        String cidade = edtCidade.getText().toString().trim();
-        if (validacao.verificarCampoVazio(nome)){
-            this.edtNome.setError("Campo vazio");
-            return false;
-        } else if (validacao.verificarCampoEmail(email)) {
-            this.edtEmail.setError("Formato de email inválido");
-            return false;
-        } else if (validacao.verificarCampoVazio(senha)){
-            this.edtSenha.setError("Campo vazio");
-            return false;
-        } else if (validacao.verificarCampoVazio(repetirSenha)) {
-            this.edtConfSenha.setError("Campo vazio");
-            return false;
-        } else if (validacao.verificarCampoVazio(cpf)){
-            this.edtCPF.setError("Campo vazio");
-            return false;
-        } else if (validacao.verificarCampoVazio(cidade)){
-            this.edtCidade.setError("Campo vazio");
-            return false;
-        } else {
-            return true;
-        }
+
+    private void capturarTextos() {
+        nome = edtNome.getText().toString().trim();
+        email = edtEmail.getText().toString().trim();
+        senha1 = edtSenha1.getText().toString().trim();
+        senha2 = edtSenha2.getText().toString().trim();
+        cpf = edtCPF.getText().toString().trim();
+        cidade = edtCidade.getText().toString().trim();
     }
 
-    private boolean isCampoVazio(String valor) {
-        boolean resultado = (TextUtils.isEmpty(valor) || valor.trim().isEmpty());
-        return resultado;
+    private boolean isCamposValidos() {
+        if (validacaoGUI.isCampoVazio(nome)){
+            edtNome.setError("Campo vazio");
+            return false;
+        } else if (validacaoGUI.isEmailValido(email)) {
+            edtEmail.setError("Email inválido");
+            return false;
+        } else if (validacaoGUI.isCampoVazio(senha1)){
+            edtSenha1.setError("Campo vazio");
+            return false;
+        } else if (validacaoGUI.isCampoVazio(senha2)) {
+            edtSenha2.setError("Campo vazio");
+            return false;
+        } else if (validacaoGUI.isCampoVazio(cpf)){
+            edtCPF.setError("Campo vazio");
+            return false;
+        } else if (validacaoGUI.isCampoVazio(cidade)) {
+            edtCidade.setError("Campo vazio");
+            return false;
+        } return true;
     }
+
     private Pessoa criarPessoa() {
-        String nome = edtNome.getText().toString().trim();
-        String cpf = edtCPF.getText().toString().trim();
-        String cidade = edtCidade.getText().toString().trim();
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(nome);
-        pessoa.setCpf( cpf );
+        pessoa.setCpf(cpf);
         pessoa.setCidade(cidade);
         return pessoa;
     }
     private Estagiario criarEstagiario() {
-        String email = edtEmail.getText().toString().trim();
-        String senha = edtSenha.getText().toString().trim();
         Estagiario estagiario = new Estagiario();
         estagiario.setEmail(email);
-        estagiario.setSenha(senha);
+        estagiario.setSenha(senha1);
         estagiario.setCurriculo(SessaoEstagiario.instance.getCurriculo());
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile_empregador);
         ByteArrayOutputStream blob = new ByteArrayOutputStream();

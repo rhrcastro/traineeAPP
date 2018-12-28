@@ -19,11 +19,13 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layoutTEMP"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/tab_layoutTEMP"
-            android:background="@color/colorAccent"
-            app:tabTextColor="#fff">
+            android:background="@color/colorPrimaryDark"
+            app:tabTextColor="#fff"
+            app:tabIndicatorColor="@color/White"
+            app:tabIndicatorHeight="4dp">
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"

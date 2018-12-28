@@ -92,17 +92,17 @@
             android:layout_gravity="center"
             android:textColor="#696969"/>
 
-        <TextView
-            android:id="@+id/ObsPerfilVagaEmp"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:padding="5dp"
-            android:textSize="18dp"
-            android:textAlignment="center"
-            android:textColor="@color/colorAccent"
-            android:layout_gravity="center"
-            android:background="@drawable/edittextform"/>
+            <TextView
+                android:id="@+id/ObsPerfilVagaEmp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/edittextform"
+                android:padding="5dp"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
         <TextView
             android:id="@+id/textView20"
@@ -114,17 +114,17 @@
             android:layout_gravity="center"
             android:textColor="#696969"/>
 
-        <TextView
-            android:id="@+id/ReqPerfilVagaEmp"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:padding="5dp"
-            android:textAlignment="center"
-            android:text="TextView"
-            android:textSize="18dp"
-            android:layout_gravity="center"
-            android:background="@drawable/edittextform"/>
+            <TextView
+                android:id="@+id/ReqPerfilVagaEmp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/edittextform"
+                android:padding="5dp"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"

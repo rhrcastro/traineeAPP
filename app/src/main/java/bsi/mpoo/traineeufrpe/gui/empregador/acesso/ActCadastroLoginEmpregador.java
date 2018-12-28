@@ -14,7 +14,7 @@ public class ActCadastroLoginEmpregador extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        setContentView(R.layout.activity_tela_cadastro_empregador);
+        setContentView(R.layout.activity_acesso_empregador);
         mTabLayout = (TabLayout) findViewById(R.id.tab_layoutCEMP);
         mViewPager = (ViewPager) findViewById(R.id.view_pagerCEMP);
 

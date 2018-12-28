@@ -26,7 +26,7 @@ public class FragmentNovasVagas extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_fragment_novas_vagas, container, false);
+        View v = inflater.inflate(R.layout.fragment_novas_vagas, container, false);
         listaVagas = v.findViewById(R.id.lista_novas_vagas);
         populate();
         return v;

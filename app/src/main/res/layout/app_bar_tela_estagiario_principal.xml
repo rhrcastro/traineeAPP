@@ -22,8 +22,10 @@
             android:id="@+id/tab_layoutTEP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            app:tabTextColor="#fff">
+            android:background="@color/colorPrimaryDark"
+            app:tabTextColor="@color/White"
+            app:tabIndicatorColor="@color/White"
+            app:tabIndicatorHeight="4dp">
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"

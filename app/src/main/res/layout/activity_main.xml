@@ -86,7 +86,8 @@
         android:background="@color/colorPrimaryDark"
         android:id="@+id/butEstagiario"
         android:layout_height="wrap_content"
-        android:text="Estagiário"/>
+        android:text="Estagiário"
+        android:textColor="@color/White"/>
 
     <Button
         android:layout_width="250dp"
@@ -95,7 +96,8 @@
         android:layout_gravity="center"
         android:background="@color/colorPrimaryDark"
         android:id="@+id/butEmpregador"
-        android:text="Empregador" />
+        android:text="Empregador"
+        android:textColor="@color/White"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -107,10 +109,10 @@
             android:id="@+id/contato"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Deseja falar conosco?"
-            android:textSize="15dp"
-            android:textColor="#bdbebd"
-            android:layout_gravity="center" />
+            android:textColor="@color/colorHint"
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/contato2"

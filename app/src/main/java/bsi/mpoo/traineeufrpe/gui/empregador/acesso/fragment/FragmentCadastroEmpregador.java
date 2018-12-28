@@ -19,12 +19,12 @@ import java.io.ByteArrayOutputStream;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
-import bsi.mpoo.traineeufrpe.infra.validacao.Validacao;
+import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentCadastroEmpregador extends Fragment {
     Button cadastrarEmpregador;
-    private Validacao validacao = new Validacao();
+    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     private EditText editNomeCadastroEmpregador;
     private EditText editEmailCadastroEmpregador;
     private EditText editCNPJ;
@@ -36,7 +36,7 @@ public class FragmentCadastroEmpregador extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = Inflater.inflate(R.layout.activity_fragment_cadastro_empregador, container, false);
+        View v = Inflater.inflate(R.layout.fragment_cadastro_empregador, container, false);
         context = v.getContext();
         this.editNomeCadastroEmpregador = v.findViewById(R.id.editNomeCadastroEmpregador);
         this.editEmailCadastroEmpregador = v.findViewById(R.id.editEmailCadastroEmpregador);
@@ -61,22 +61,22 @@ public class FragmentCadastroEmpregador extends Fragment {
         String repetirSenha = editConfirmaSenhaEmpregador.getText().toString().trim();
         String cnpj = editCNPJ.getText().toString().trim();
         String cidade = editCidadeEmpregador.getText().toString().trim();
-        if (validacao.verificarCampoVazio(nome)){
+        if (validacaoGUI.isCampoVazio(nome)){
             this.editNomeCadastroEmpregador.setError("Campo vazio");
             return false;
-        } else if (validacao.verificarCampoEmail(email)) {
+        } else if (validacaoGUI.isEmailValido(email)) {
             this.editEmailCadastroEmpregador.setError("Formato de email inválido");
             return false;
-        } else if (validacao.verificarCampoVazio(senha)){
+        } else if (validacaoGUI.isCampoVazio(senha)){
             this.editSenhaCadastroEmpregador.setError("Campo vazio");
             return false;
-        } else if (validacao.verificarCampoVazio(repetirSenha)) {
+        } else if (validacaoGUI.isCampoVazio(repetirSenha)) {
             this.editConfirmaSenhaEmpregador.setError("Campo vazio");
             return false;
-        } else if (validacao.verificarCampoVazio(cnpj)){
+        } else if (validacaoGUI.isCampoVazio(cnpj)){
             this.editCNPJ.setError("Campo vazio");
             return false;
-        } else if (validacao.verificarCampoVazio(cidade)){
+        } else if (validacaoGUI.isCampoVazio(cidade)){
             this.editCNPJ.setError("Campo vazio");
             return false;
         } else {

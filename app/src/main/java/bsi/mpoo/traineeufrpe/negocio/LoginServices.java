@@ -9,67 +9,63 @@ import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
 import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+
 public class LoginServices {
+
+    private static final int naoEncontrado = -1;
     private PessoaDAO PessoaDAO;
     private EstagiarioDAO estagiarioDAO;
     private CurriculoDAO curriculoDAO;
     private TraineeApp trainee;
+
     public LoginServices(Context context) {
         PessoaDAO = new PessoaDAO(context );
         estagiarioDAO = new EstagiarioDAO(context);
         curriculoDAO = new CurriculoDAO(context);
-
     }
-    public boolean logar(Estagiario estagiario) {
-        Estagiario estagiarioLogin = this.estagiarioDAO.getEstagiarioByEmaileSenha(estagiario.getEmail(), estagiario.getSenha(), trainee.getContext());
-        boolean taLogado = false;
-        if (estagiarioLogin != null) {
-            Pessoa pessoa = this.PessoaDAO.getIdEstagiario(estagiarioLogin.getId());
-            pessoa.setEstagiario(estagiarioLogin);
+
+    public boolean fazerLogin(String email, String senha) {
+        Estagiario estagiario = this.estagiarioDAO.getEstagiarioByEmaileSenha(email, senha, trainee.getContext());
+        if (estagiario != null) {
+            estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), trainee.getContext()));
+            Pessoa pessoa = this.PessoaDAO.getIdEstagiario(estagiario.getId());
+            pessoa.setEstagiario(estagiario);
             this.iniciarSessao(pessoa);
-            taLogado = true;
-        }
-        return taLogado;
-    }
-    public boolean cadastrar(Pessoa pessoa,Context context) {
-        if (verificarEmail(pessoa.getEstagiario().getEmail(),context)) {
-            return false;
-        }
-        else {
-            long result = this.estagiarioDAO.inserirEstagiario(pessoa.getEstagiario());
-            pessoa.getEstagiario().setId(result);
-            pessoa.setEstagiario(this.estagiarioDAO.getEstagiarioByEmail( pessoa.getEstagiario().getEmail(),context ));
-
-            long result2 = this.PessoaDAO.inserirPessoa(pessoa);
-            pessoa.setId(result2);
-            SessaoEstagiario.instance.setPessoa(pessoa);
-            SessaoEstagiario.instance.getPessoa().getEstagiario().setCurriculo(SessaoEstagiario.instance.getCurriculo());
             return true;
-        }
+        } return false;
     }
 
-    public Curriculo cadastrar(Curriculo curriculo, Context context) {
-        long result;
-        result = this.curriculoDAO.inserirCurriculo(curriculo);
-        if (result!= -1){
-            curriculo.setId(result);
+    public boolean cadastrarPessoaNoBanco(Pessoa pessoa, Context context) {
+        if (!isEmailCadastrado(pessoa.getEstagiario().getEmail(),context)) {
+            long codigoEstagiario = this.estagiarioDAO.inserirEstagiario(pessoa.getEstagiario());
+            pessoa.getEstagiario().setId(codigoEstagiario);
+            long codigoPessoa = this.PessoaDAO.inserirPessoa(pessoa);
+            pessoa.setId(codigoPessoa);
+            iniciarSessao(pessoa);
+            return true;
+        } return false;
+    }
+
+    public Curriculo cadastrarCurriculoNoBanco(Curriculo curriculo) {
+        long codigoCurriculo;
+        codigoCurriculo = this.curriculoDAO.inserirCurriculo(curriculo);
+        if (codigoCurriculo!= naoEncontrado) {
+            curriculo.setId(codigoCurriculo);
             return curriculo;
-        }else{
-            return null;
-        }
-
-
+        } return null;
     }
-    private boolean verificarEmail(String email,Context context) {
+
+    private boolean isEmailCadastrado(String email, Context context) {
         Estagiario estagiarioEmail = this.estagiarioDAO.getEstagiarioByEmail(email,context);
-        if (estagiarioEmail != null) {
-            return true;
-        }
-        return  false;
+        return (estagiarioEmail != null);
     }
+
     private void iniciarSessao(Pessoa pessoa) {
         SessaoEstagiario.instance.setPessoa(pessoa);
+        SessaoEstagiario.instance.getPessoa().getEstagiario()
+                .setCurriculo(SessaoEstagiario.instance.getCurriculo());
     }
+
     public void alterarFotoEstagiario(Estagiario estagiario) {
         estagiarioDAO.mudarFotoEstagiario(estagiario);
     }

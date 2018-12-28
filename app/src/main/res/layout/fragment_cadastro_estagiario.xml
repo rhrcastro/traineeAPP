@@ -43,13 +43,13 @@
                 android:layout_width="350dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:textColor="#fff"
-                android:textSize="18dp"
                 android:layout_marginTop="3dp"
+                android:background="@drawable/edittextform"
                 android:ems="10"
-                android:textAlignment="center"
                 android:inputType="textPersonName"
-                android:background="@drawable/edittextform"/>
+                android:textAlignment="center"
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -66,13 +66,13 @@
                 android:layout_width="350dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:background="@drawable/edittextform"
                 android:textAlignment="center"
-                android:textColor="#fff"
-                android:textSize="18dp"
-                android:layout_marginTop="3dp"/>
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -89,14 +89,14 @@
                 style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
                 android:layout_width="350dp"
                 android:layout_height="60dp"
-                android:textColor="#666666"
-                android:textSize="18dp"
-                android:layout_marginTop="3dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
 
             <Button
                 android:layout_width="match_parent"
