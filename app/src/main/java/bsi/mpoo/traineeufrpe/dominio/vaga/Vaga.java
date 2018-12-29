@@ -1,6 +1,7 @@
 package bsi.mpoo.traineeufrpe.dominio.vaga;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 
@@ -13,7 +14,25 @@ public class Vaga {
     private String bolsa;
     private String obs;
     private long miliseconds;
-    SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM' às 'HH:mm");
+    SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM");
+
+    private String mascaraTempo(long miliseconds){
+        Calendar dataAtual = Calendar.getInstance();
+        Calendar dataPublicada = Calendar.getInstance();
+        dataAtual.setTimeInMillis(System.currentTimeMillis());
+        dataPublicada.setTimeInMillis(miliseconds);
+        int diaAtual = dataAtual.get(Calendar.DAY_OF_YEAR);
+        int diaVaga = dataPublicada.get(Calendar.DAY_OF_YEAR);
+        int anoAtual = dataAtual.get(Calendar.YEAR);
+        int anoVaga = dataAtual.get(Calendar.YEAR);
+        if (anoAtual == anoVaga){
+            if (diaAtual == diaVaga){
+                return "Hoje";
+            } else if ((diaAtual - diaVaga) == 1){
+            return "Ontem";
+            }
+        } return formatodata.format(miliseconds);
+    }
 
     public String getNome() {
         return nome;
@@ -72,7 +91,7 @@ public class Vaga {
     }
 
     public String getDataCriacao(){
-        return formatodata.format(miliseconds);
+        return mascaraTempo(this.miliseconds);
     }
 
     public void setDataCriacao(long miliseconds) {
