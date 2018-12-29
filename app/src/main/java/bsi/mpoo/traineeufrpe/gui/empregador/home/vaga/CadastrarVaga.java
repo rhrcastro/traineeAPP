@@ -1,16 +1,22 @@
 package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.PopupMenu;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
@@ -18,72 +24,142 @@ import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
-public class CadastrarVaga extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class CadastrarVaga extends AppCompatActivity {
 
-    Spinner edtArea, editBolsa;
-    EditText edtNomeVaga, editRequisitos, editObs;
-    Button publicarVaga;
-    private VagaServices vagaServices = new VagaServices(this);
+    VagaServices vagaServices = new VagaServices(this);
+    private NestedScrollView nestedScrollView;
+    private EditText editTitulo;
+    private EditText editRequisitos;
+    private EditText editObservacoes;
+    private RadioGroup radioGroup;
+    private TextView txtAreaVaga;
+    private TextView txtR$;
+    private TextView txtValorBolsa;
+    private TextView txtACombinar;
+    SeekBar skbAjusteBolsa;
+    CardView menu_areas;
+    Button btnDivulgar;
+    private String titulo;
+    private String requisitos;
+    private String observacoes;
+    private String area;
+    private String turno;
+    private String valor = "A combinar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_vaga);
-
-        edtNomeVaga = findViewById(R.id.edtNomeVaga);
-        editRequisitos = findViewById(R.id.editRequisitos);
-        editObs = findViewById(R.id.editObs);
-        publicarVaga = findViewById(R.id.publicarVaga);
-
-        edtArea = findViewById(R.id.Area);
-        edtArea.setOnItemSelectedListener(this);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.fields, R.layout.spinner_dropdown_item);
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
-
-        editBolsa = findViewById(R.id.editBolsa);
-        editBolsa.setOnItemSelectedListener(this);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Bolsas, R.layout.spinner_dropdown_item);
-        adapter1.setDropDownViewResource(R.layout.spinner_dropdown_item);
-
-        edtArea.setAdapter(adapter);
-        editBolsa.setAdapter(adapter1);
-        publicarVaga.setOnClickListener(new View.OnClickListener() {
+        txtAreaVaga = (TextView) findViewById(R.id.txt_area_vaga);
+        menu_areas = (CardView) findViewById(R.id.cardView_2);
+        menu_areas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cadastrar();
+                showPopupMenu(v);
+            }
+        });
+        txtValorBolsa = (TextView) findViewById(R.id.txtValorBolsa);
+        txtACombinar = (TextView) findViewById(R.id.txtCombinar);
+        txtR$ = (TextView) findViewById(R.id.reais);
+        skbAjusteBolsa = (SeekBar) findViewById(R.id.seekbar_ajusta_bolsa);
+        skbAjusteBolsa.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (progress >= 14) {
+                    valor = String.valueOf(progress*25);
+                    txtValorBolsa.setText(valor);
+                    if (progress == 80) {
+                        txtValorBolsa.setText("2000+");
+                    }
+                    txtACombinar.setVisibility(View.INVISIBLE);
+                    txtR$.setVisibility(View.VISIBLE);
+                    txtValorBolsa.setVisibility(View.VISIBLE);
+                } else {
+                    valor = "A combinar";
+                    txtValorBolsa.setText(String.valueOf(progress*25));
+                    txtACombinar.setVisibility(View.VISIBLE);
+                    txtR$.setVisibility(View.INVISIBLE);
+                    txtValorBolsa.setVisibility(View.INVISIBLE);
+                }
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        btnDivulgar = (Button) findViewById(R.id.btnDivulgar);
+        btnDivulgar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (validarArea()){
+                    finderTextos();
+                    cadastrar();
+                }
             }
         });
     }
 
-    private void Cadastrar() {
-        vagaServices.cadastrarVaga(criarVaga(), this);
-        volta();
+    private void finderTextos(){
+        editTitulo = (EditText) findViewById(R.id.editTituloVaga);
+        editRequisitos = (EditText) findViewById(R.id.editRequisitos);
+        editObservacoes = (EditText) findViewById(R.id.editObservacoes);
+        capturarTextos();
+    }
+
+    private void capturarTextos(){
+        titulo = editTitulo.getText().toString().trim();
+        requisitos = editRequisitos.getText().toString().trim();
+        observacoes = editObservacoes.getText().toString().trim();
     }
 
     private Vaga criarVaga() {
-        String nome = edtNomeVaga.getText().toString().trim();
-        String bolsa = editBolsa.getSelectedItem().toString();
-        String req = editRequisitos.getText().toString().trim();
-        String obs = editObs.getText().toString().trim();
-        String area = edtArea.getSelectedItem().toString();
         Vaga vaga = new Vaga();
+        vaga.setNome(titulo);
         vaga.setArea(area);
-        vaga.setBolsa(bolsa);
-        vaga.setNome(nome);
-        vaga.setObs(obs);
-        vaga.setRequisito(req);
+        if (valor.equals("A combinar")){
+            vaga.setBolsa(valor);
+        } else {
+            vaga.setBolsa("R$ "+valor);
+        }
+        vaga.setObs(observacoes);
+        vaga.setRequisito(requisitos);
         vaga.setEmpregador(SessaoEmpregador.instance.getEmpregador());
         vaga.setDataCriacao(System.currentTimeMillis());
         return vaga;
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) { }
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) { }
+    private void showPopupMenu(View view) {
+        PopupMenu popup = new PopupMenu(view.getContext(),view );
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.popup_areas, popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                txtAreaVaga.setText(item.getTitle());
+                txtAreaVaga.setTextColor(getResources().getColor(R.color.colorTextDark));
+                return true;
+            }
+        });
+        popup.show();
+    }
 
-    @Override
-    public void onBackPressed() {
+    private boolean validarArea(){
+        String area = txtAreaVaga.getText().toString();
+        if (area.equals("Selecione a área da vaga")){
+            Toast.makeText(this, "Selecione a área da vaga", Toast.LENGTH_SHORT).show();
+            txtAreaVaga.setTextColor(getResources().getColor(R.color.colorTextError));
+            return false;
+        } this.area = area;
+        return true;
+    }
+
+    private void cadastrar() {
+        vagaServices.cadastrarVaga(criarVaga(), this);
+        Toast.makeText(this,"Vaga cadastrada", Toast.LENGTH_SHORT).show();
         volta();
     }
 
@@ -93,4 +169,33 @@ public class CadastrarVaga extends AppCompatActivity implements AdapterView.OnIt
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        exibirConfirmacaoSair();
+    }
+
+    public void exibirConfirmacaoSair() {
+        AlertDialog.Builder msgBox = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+        msgBox.setIcon(android.R.drawable.ic_menu_delete);
+        msgBox.setTitle("Deseja voltar?");
+        msgBox.setMessage("A vaga não será cadastrada");
+        setBtnPositivoSair(msgBox);
+        setBtnNegativoSair(msgBox);
+        msgBox.show();
+    }
+    public void setBtnPositivoSair(AlertDialog.Builder msgBox){
+        msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                volta();
+            }
+        });
+    }
+    public void setBtnNegativoSair(AlertDialog.Builder msgBox){
+        msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+    }
 }

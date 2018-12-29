@@ -1,87 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#fff"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
 
         <TextView
             android:id="@+id/NomeListaVaga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="TextView"
-            android:textColor="#696969"
+            android:paddingLeft="16dp"
+            android:paddingTop="12dp"
+            android:text="Título da Vaga"
+            android:textColor="@color/colorPrimary"
             android:textSize="20dp"
-        />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/name_bolsa"
+            android:id="@+id/numinscritos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="20dp"
-            android:textColor="#696969"
-            android:text="Bolsa:"
-        />
-
-        <TextView
-            android:id="@+id/BolsaVagaLista"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"
-            android:textColor="#696969"
-            android:text="TextView"
-        />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:textColor="#696969"
-            android:text="Inscritos:"
-        />
+            android:layout_below="@+id/NomeListaVaga"
+            android:paddingLeft="16dp"
+            android:paddingTop="10dp"
+            android:text="N° de inscritos:"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/IdVagaLista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"
-            android:textColor="#696969"
-            android:text="num"
-        />
+            android:layout_below="@+id/NomeListaVaga"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:layout_toEndOf="@+id/numinscritos"
+            android:paddingTop="10dp"
+            android:text="###"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:textStyle="italic" />
 
+        <TextView
+            android:id="@+id/BolsaVagaLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/status_vaga"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="12dp"
+            android:text="A combinar"
+            android:textColor="#2ed573"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/status_vaga"
+            android:layout_width="86dp"
+            android:layout_height="31dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="12dp"
+            app:srcCompat="@drawable/aberta_v" />
 
-    <TextView
-        android:id="@+id/linha"
-        android:layout_width="310dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:textColor="#696969"
-        android:background="@drawable/splitlist"
-        android:layout_gravity="center"
-    />
+</RelativeLayout>
 
-
-
-</LinearLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/lbl_administracao"
+        android:orderInCategory="100"
+        android:title="Administração" />
+    <item
+        android:id="@+id/lbl_artes"
+        android:orderInCategory="101"
+        android:title="Artes e Design"/>
+    <item
+        android:id="@+id/lbl_comunicacao"
+        android:orderInCategory="102"
+        android:title="Comunicação" />
+    <item
+        android:id="@+id/lbl_engenharia"
+        android:orderInCategory="103"
+        android:title="Engenharia"/>
+    <item
+        android:id="@+id/lbl_financas"
+        android:orderInCategory="104"
+        android:title="Finanças" />
+    <item
+        android:id="@+id/lbl_saude"
+        android:orderInCategory="105"
+        android:title="Saúde"/>
+    <item
+        android:id="@+id/lbl_sociais"
+        android:orderInCategory="106"
+        android:title="Sociais"/>
+    <item
+        android:id="@+id/lbl_tecnologia"
+        android:orderInCategory="106"
+        android:title="Tecnologia"/>
+    <item
+        android:id="@+id/lbl_outros"
+        android:orderInCategory="107"
+        android:title="Outros"/>
+</menu>

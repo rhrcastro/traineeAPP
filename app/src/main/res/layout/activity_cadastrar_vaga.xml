@@ -1,187 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gui.empregador.home.vaga.CadastrarVaga"
-    android:background="#fff"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    tools:context=".gui.empregador.home.vaga.CadastrarVaga">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:title="Cadastrar vaga" />
 
+    </android.support.design.widget.AppBarLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@color/colorPrimaryDark"
-                android:gravity="center"
-                android:orientation="horizontal"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="0dp">
+    <include layout="@layout/content_cadastrar_vaga"/>
 
-                <ImageView
-                    android:id="@+id/logo"
-                    android:layout_width="421dp"
-                    android:layout_height="225dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/trainee_logo_side" />
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:text="DIVULGUE SUA VAGA"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="25sp"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="30dp"
-                android:text="Titulo:"
-                android:textColor="#696969"
-                android:textSize="15sp" />
-
-            <EditText
-                android:id="@+id/edtNomeVaga"
-                android:layout_width="350dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:background="@drawable/edittextform"
-                android:ems="10"
-                android:textAlignment="center"
-                android:inputType="textPersonName"
-                android:padding="10dp"
-                android:textColor="#696969"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:text="Área da vaga:"
-                android:textColor="#696969"
-                android:textSize="15sp" />
-
-            <Spinner
-                android:id="@+id/Area"
-                style="#696969"
-                android:layout_width="350dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:background="@drawable/edittextform"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:textColor="#696969"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:text="Ajudas de custo:"
-                android:textColor="#696969"
-                android:textSize="15sp" />
-
-            <Spinner
-                android:id="@+id/editBolsa"
-                style="#696969"
-                android:layout_width="350dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:background="@drawable/edittextform"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textAlignment="center"
-                android:textColor="#696969"
-                android:textSize="3sp" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:text="Requisitos e diferenciais do estagiário:"
-                android:textColor="#696969"
-                android:textSize="15sp" />
-
-            <EditText
-                android:id="@+id/editRequisitos"
-                android:layout_width="350dp"
-                android:layout_height="130dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:background="@drawable/edittextform"
-                android:ems="10"
-                android:gravity="start"
-                android:maxLines="6"
-                android:inputType="textMultiLine"
-                android:padding="10dp"
-                android:textColor="#696969"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="40dp"
-                android:text="Carga Horária e outras observações:"
-                android:textColor="#696969"
-                android:textSize="15sp" />
-
-            <EditText
-                android:id="@+id/editObs"
-                android:layout_width="350dp"
-                android:layout_height="130dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="3dp"
-                android:background="@drawable/edittextform"
-                android:ems="10"
-                android:gravity="start"
-                android:maxLines="6"
-                android:inputType="textMultiLine"
-                android:padding="10dp"
-                android:textColor="#696969"
-                android:textSize="18sp" />
-
-
-            <Button
-                android:id="@+id/publicarVaga"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:background="@color/colorPrimaryDark"
-                android:elevation="5dp"
-                android:text="Publicar"
-                android:textColor="#fff" />
-
-        </LinearLayout>
-    </ScrollView>
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

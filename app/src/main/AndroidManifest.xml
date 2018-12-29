@@ -50,12 +50,12 @@
             android:name=".gui.empregador.perfil.PerfilEmp"
             android:label="@string/title_activity_perfilemp"
             android:theme="@style/AppTheme" />
-        <activity android:name=".gui.empregador.home.vaga.CadastrarVaga" />
         <activity android:name=".gui.empregador.home.vaga.PerfilVagaEmpregador" />
         <activity android:name=".gui.empregador.home.vaga.EditarVaga" />
         <activity android:name=".gui.estagiario.home.PerfilVagaEstagiario" />
         <activity android:name=".gui.empregador.home.ActNotifEmpregador" />
-        <activity android:name=".TestePerfil"></activity>
+        <activity android:name=".TestePerfil" />
+        <activity android:name=".gui.empregador.home.vaga.CadastrarVaga"></activity>
     </application>
 
 </manifest>

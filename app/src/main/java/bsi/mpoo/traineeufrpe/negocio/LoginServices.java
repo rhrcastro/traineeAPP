@@ -71,7 +71,7 @@ public class LoginServices {
         SessaoEstagiario.instance.getPessoa().getEstagiario()
                 .setCurriculo(curriculo);
     }
-    
+
     public void alterarFotoEstagiario(Estagiario estagiario) {
         estagiarioDAO.mudarFotoEstagiario(estagiario);
     }

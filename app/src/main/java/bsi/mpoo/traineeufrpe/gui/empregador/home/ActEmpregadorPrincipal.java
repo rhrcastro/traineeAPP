@@ -27,7 +27,6 @@ import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEmpregadorPrincipal;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 
 public class ActEmpregadorPrincipal extends AppCompatActivity
@@ -122,7 +121,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
         } else if (id == R.id.nav_share) {
-
+            exibirCadastroVagasTeste();
         } else if (id == R.id.nav_send) {
 
         }
@@ -174,6 +173,11 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
 
     private void exibirNotificacoes() {
         Intent intent = new Intent(getBaseContext(), ActNotifEmpregador.class);
+        startActivity(intent);
+    }
+
+    private void exibirCadastroVagasTeste() {
+        Intent intent = new Intent(getBaseContext(), CadastrarVaga.class);
         startActivity(intent);
     }
 }

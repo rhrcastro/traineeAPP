@@ -8,5 +8,6 @@
     <color name="White">#FFFFFF</color>
     <color name="colorHint">#999999</color>
     <color name="transparent">#00000000</color>
+    <color name="colorTextError">#EA2027</color>
 </resources>
 

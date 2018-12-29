@@ -47,7 +47,7 @@ public class AdapterCardsVagas extends BaseAdapter {
         Vaga vaga = listaVagas.get(position);
 
         TextView titulo = (TextView) convertView.findViewById(R.id.titulo_vaga);
-        TextView nomeEmpresa = (TextView) convertView.findViewById(R.id.campo_empresa);
+        TextView nomeEmpresa = (TextView) convertView.findViewById(R.id.numinscritos);
         TextView valorBolsa = (TextView) convertView.findViewById(R.id.campo_bolsa);
         TextView campoHorario = (TextView) convertView.findViewById(R.id.campo_horario);
         ImageView status = (ImageView) convertView.findViewById(R.id.status_vaga);
