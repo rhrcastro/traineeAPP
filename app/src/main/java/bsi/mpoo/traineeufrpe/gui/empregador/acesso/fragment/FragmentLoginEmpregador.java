@@ -67,7 +67,7 @@ public class FragmentLoginEmpregador extends Fragment {
     private boolean verificarCampos(){
         String email = this.edtEmailEmpregador.getText().toString().trim();
         String senha = this.edtSenhaEmpregador.getText().toString().trim();
-        if (this.validacaoGUI.isEmailValido(email)) {
+        if (this.validacaoGUI.isEmailInvalido(email)) {
             this.edtEmailEmpregador.setError("Email Inválido");
             return false;
         } else if (this.validacaoGUI.isCampoVazio(senha)) {

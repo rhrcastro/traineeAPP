@@ -8,8 +8,9 @@ public class ValidacaoGUI {
         return campo.isEmpty();
     }
 
-    public static boolean isEmailValido(String email){
-        return isCampoVazio(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    public static boolean isEmailInvalido(String email){
+        return isCampoVazio(email) ||
+                !Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     public static boolean isSenhasIguais(String senha1 , String senha2){

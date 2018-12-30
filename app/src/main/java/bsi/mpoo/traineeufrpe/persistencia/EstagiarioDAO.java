@@ -80,6 +80,12 @@ public class EstagiarioDAO {
         db.update("estagiario", valores,"id = ?", new String[]{String.valueOf(estagiario.getId())});
         db.close();
     }
-
+    public void mudarEmailEstagiario(Estagiario estagiario) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("email", estagiario.getEmail());
+        db.update("estagiario", valores,"id = ?", new String[]{String.valueOf(estagiario.getId())});
+        db.close();
+    }
 
 }

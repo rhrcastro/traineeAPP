@@ -62,5 +62,28 @@ public class CurriculoDAO {
         return this.load(query, args, context);
     }
 
+    public void mudarCurso(Curriculo curriculo) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("curso", curriculo.getCurso());
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
+    public void mudarInstituicao(Curriculo curriculo) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("instituicao", curriculo.getInstituicao());
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
+    public void mudarArea(Curriculo curriculo) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("areaAtuacao", curriculo.getAreaAtuacao());
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
 
 }

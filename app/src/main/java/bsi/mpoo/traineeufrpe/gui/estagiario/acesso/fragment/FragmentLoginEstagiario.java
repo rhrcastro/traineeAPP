@@ -58,7 +58,7 @@ public class FragmentLoginEstagiario extends Fragment {
     }
 
     private boolean isCamposValidos(){
-        if (this.validacaoGUI.isEmailValido(email)) {
+        if (this.validacaoGUI.isEmailInvalido(email)) {
             this.edtEmail.setError("Email Inválido");
             return false;
         } else if (this.validacaoGUI.isCampoVazio(senha)) {

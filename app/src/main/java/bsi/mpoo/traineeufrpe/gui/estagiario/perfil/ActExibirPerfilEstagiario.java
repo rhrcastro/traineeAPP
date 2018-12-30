@@ -1,18 +1,23 @@
-package bsi.mpoo.traineeufrpe;
+package bsi.mpoo.traineeufrpe.gui.estagiario.perfil;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
+import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
-public class TestePerfil extends AppCompatActivity {
+public class ActExibirPerfilEstagiario extends AppCompatActivity {
 
     private TextView curso, instituicao, area, email, cidade;
     private ImageView imagem;
@@ -20,9 +25,10 @@ public class TestePerfil extends AppCompatActivity {
     Toolbar toolbar;
 
     private String strCurso, strInstituicao, strArea, strEmail, strCidade;
+    FloatingActionButton fab_edit;
     private String strNome;
 
-    public TestePerfil(){
+    public ActExibirPerfilEstagiario(){
         Curriculo curriculo = getCurriculo();
         strCurso = curriculo.getCurso();
         strInstituicao = curriculo.getInstituicao();
@@ -40,6 +46,8 @@ public class TestePerfil extends AppCompatActivity {
         cidade = (TextView) findViewById(R.id.campo_local);
         imagem = (ImageView) findViewById(R.id.campo_imagem);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        fab_edit = (FloatingActionButton) findViewById(R.id.fab_edit);
         Bitmap bitmap = getImagem();
         Curriculo curriculo = getCurriculo();
         curso.setText(strCurso);
@@ -50,6 +58,14 @@ public class TestePerfil extends AppCompatActivity {
         imagem.setContentDescription(SessaoEstagiario.getInstance().getPessoa().getNome());
         imagem.setImageBitmap(bitmap);
         toolbar.setTitle(SessaoEstagiario.getInstance().getPessoa().getNome());
+        fab_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), EditarPerfilEstagiario.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private Bitmap getImagem(){

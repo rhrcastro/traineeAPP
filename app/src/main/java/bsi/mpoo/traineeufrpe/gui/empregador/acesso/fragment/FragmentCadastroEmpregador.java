@@ -64,7 +64,7 @@ public class FragmentCadastroEmpregador extends Fragment {
         if (validacaoGUI.isCampoVazio(nome)){
             this.editNomeCadastroEmpregador.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isEmailValido(email)) {
+        } else if (validacaoGUI.isEmailInvalido(email)) {
             this.editEmailCadastroEmpregador.setError("Formato de email inválido");
             return false;
         } else if (validacaoGUI.isCampoVazio(senha)){

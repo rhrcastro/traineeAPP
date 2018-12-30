@@ -13,13 +13,13 @@ import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 public class LoginServices {
 
     private static final int naoEncontrado = -1;
-    private PessoaDAO PessoaDAO;
+    private PessoaDAO pessoaDAO;
     private EstagiarioDAO estagiarioDAO;
     private CurriculoDAO curriculoDAO;
     private TraineeApp trainee;
 
     public LoginServices(Context context) {
-        PessoaDAO = new PessoaDAO(context );
+        pessoaDAO = new PessoaDAO(context);
         estagiarioDAO = new EstagiarioDAO(context);
         curriculoDAO = new CurriculoDAO(context);
     }
@@ -28,7 +28,7 @@ public class LoginServices {
         Estagiario estagiario = this.estagiarioDAO.getEstagiarioByEmaileSenha(email, senha, trainee.getContext());
         if (estagiario != null) {
             estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), trainee.getContext()));
-            Pessoa pessoa = this.PessoaDAO.getIdEstagiario(estagiario.getId());
+            Pessoa pessoa = this.pessoaDAO.getIdEstagiario(estagiario.getId());
             pessoa.setEstagiario(estagiario);
             this.iniciarSessao(pessoa, estagiario.getCurriculo());
             return true;
@@ -39,7 +39,7 @@ public class LoginServices {
         if (!isEmailCadastrado(pessoa.getEstagiario().getEmail(),context)) {
             long codigoEstagiario = this.estagiarioDAO.inserirEstagiario(pessoa.getEstagiario());
             pessoa.getEstagiario().setId(codigoEstagiario);
-            long codigoPessoa = this.PessoaDAO.inserirPessoa(pessoa);
+            long codigoPessoa = this.pessoaDAO.inserirPessoa(pessoa);
             pessoa.setId(codigoPessoa);
             iniciarSessao(pessoa);
             return true;
@@ -55,7 +55,7 @@ public class LoginServices {
         } return null;
     }
 
-    private boolean isEmailCadastrado(String email, Context context) {
+    public boolean isEmailCadastrado(String email, Context context) {
         Estagiario estagiarioEmail = this.estagiarioDAO.getEstagiarioByEmail(email,context);
         return (estagiarioEmail != null);
     }
@@ -74,5 +74,12 @@ public class LoginServices {
 
     public void alterarFotoEstagiario(Estagiario estagiario) {
         estagiarioDAO.mudarFotoEstagiario(estagiario);
+    }
+
+    public void alterarDadosEstagiario(Pessoa pessoa){
+        pessoaDAO.mudarNome(pessoa);
+        curriculoDAO.mudarCurso(pessoa.getEstagiario().getCurriculo());
+        curriculoDAO.mudarInstituicao(pessoa.getEstagiario().getCurriculo());
+        estagiarioDAO.mudarEmailEstagiario(pessoa.getEstagiario());
     }
 }

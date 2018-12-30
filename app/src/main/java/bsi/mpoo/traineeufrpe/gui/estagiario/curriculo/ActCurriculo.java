@@ -93,7 +93,7 @@ public class ActCurriculo extends AppCompatActivity {
         if (validacaoGUI.isCampoVazio(nome)){
             edtNome.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isEmailValido(email)) {
+        } else if (validacaoGUI.isEmailInvalido(email)) {
             edtEmail.setError("Email inválido");
             return false;
         } else if (validacaoGUI.isCampoVazio(senha1)){

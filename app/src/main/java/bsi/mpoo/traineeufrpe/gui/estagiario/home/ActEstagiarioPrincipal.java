@@ -18,10 +18,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.TestePerfil;
+import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.ActExibirPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario;
 
-import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.ActPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActContato;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
@@ -149,11 +148,11 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         startActivity(intent);
     }
     public void exibirPerfilEstagiario(){
-        Intent intent = new Intent(this, ActPerfilEstagiario.class);
+        Intent intent = new Intent(this, ActExibirPerfilEstagiario.class);
         startActivity(intent);
     }
     public void openTeste() {
-        Intent intent = new Intent(this, TestePerfil.class);
+        Intent intent = new Intent(this, ActExibirPerfilEstagiario.class);
         startActivity(intent);
     }
 }

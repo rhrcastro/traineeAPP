@@ -60,4 +60,20 @@ public class PessoaDAO {
         pessoa.setCidade(cidade);
         return pessoa;
     }
+
+    public void mudarNome(Pessoa pessoa) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("nome", pessoa.getNome());
+        db.update("pessoa", valores,"id = ?", new String[]{String.valueOf(pessoa.getId())});
+        db.close();
+    }
+
+    public void mudarCidade(Pessoa pessoa) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("cidade", pessoa.getCidade());
+        db.update("pessoa", valores,"id = ?", new String[]{String.valueOf(pessoa.getId())});
+        db.close();
+    }
 }
