@@ -17,7 +17,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/numinscritos"
+        android:id="@+id/campo_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titulo_vaga"
@@ -28,10 +28,10 @@
         android:textStyle="italic" />
 
     <TextView
-        android:id="@+id/campo_horario"
+        android:id="@+id/campo_turno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/numinscritos"
+        android:layout_below="@+id/campo_empresa"
         android:paddingLeft="16dp"
         android:text="Turno do Estágio"
         android:textColor="#000000"
@@ -42,7 +42,7 @@
         android:id="@+id/campo_bolsa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/numinscritos"
+        android:layout_below="@+id/campo_empresa"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:paddingRight="16dp"

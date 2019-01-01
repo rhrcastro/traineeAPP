@@ -1,13 +1,22 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.ListFragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -18,39 +27,76 @@ import bsi.mpoo.traineeufrpe.gui.extra.AdapterNovasVagas;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
-public class FragmentNovasVagas extends Fragment {
+public class FragmentNovasVagas extends ListFragment
+        implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
 
-    VagaServices vagaServices = new VagaServices(getContext());
-    EmpregadorServices empregadorServices = new EmpregadorServices(getContext());
+    Context mContext;
     ListView listaVagas;
+    AdapterNovasVagas adapter;
+    ArrayList<Vaga> vagas;
+    VagaServices vagaServices = new VagaServices(getContext());
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mContext = getActivity();
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_novas_vagas, container, false);
-        listaVagas = v.findViewById(R.id.lista_novas_vagas);
+        View layout = inflater.inflate(R.layout.fragment_novas_vagas, container, false);
+        listaVagas = (ListView) layout.findViewById(android.R.id.list);
         populate();
-        return v;
+        return layout;
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 
     private void populate() {
-        ArrayList<Vaga> vagas = new ArrayList<Vaga>();
         vagaServices = new VagaServices(getActivity());
         vagas = vagaServices.getListaVagas(getActivity());
-        final AdapterNovasVagas adapter = new AdapterNovasVagas(getActivity(), vagas);
+        adapter = new AdapterNovasVagas(getContext(), vagas);
         listaVagas.setAdapter(adapter);
-        onClick();
     }
 
-    private void onClick() {
-        listaVagas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Vaga vaga = ((Vaga) parent.getItemAtPosition(position));
-                Intent it = new Intent(getActivity(), PerfilVagaEstagiario.class);
-                PerfilVagaEstagiario.vaga = vaga;
-                startActivity(it);
-            }
-        });
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.tela_estagiario_principal, menu);
+        MenuItem myActionMenuItem = menu.findItem(R.id.action_settings);
+        SearchView searchView = (SearchView) myActionMenuItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+        searchView.setQueryHint("em novas vagas");
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String text) {
+        if (TextUtils.isEmpty(text)) {
+            adapter.filtro("");
+            listaVagas.clearTextFilter();
+        } else {
+            adapter.filtro(text);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemActionExpand(MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public boolean onMenuItemActionCollapse(MenuItem item) {
+        return false;
     }
 }

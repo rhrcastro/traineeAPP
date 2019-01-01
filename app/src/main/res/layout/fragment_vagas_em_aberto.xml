@@ -7,8 +7,7 @@
     tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentVagasEmAberto"
     android:background="#fff">
 
-    <ListView
-        android:id="@+id/lista_vagas_emaberto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <ListView android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 </LinearLayout>

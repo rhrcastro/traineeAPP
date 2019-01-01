@@ -19,7 +19,7 @@
         android:singleLine="true"/>
 
     <TextView
-        android:id="@+id/mensagem"
+        android:id="@+id/txtNomeEmpresa"
         android:layout_width="275dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nome_candidato"
