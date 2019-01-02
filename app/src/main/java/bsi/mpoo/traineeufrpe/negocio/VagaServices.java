@@ -35,9 +35,55 @@ public class VagaServices {
         return listaNomeVaga;
     }
 
-    public ArrayList<Vaga> getListaVagas(Context context) {
+    public ArrayList<Vaga> getVagasPorData(Context context) {
         ArrayList<Vaga> listaVagas = new ArrayList<Vaga>();
         Cursor data = this.vagaDAO.getAllDataOrderByDate();
+        Vaga vaga;
+        Empregador empregador;
+        empregadorDAO = new EmpregadorDAO(context);
+        while (data.moveToNext()) {
+            vaga = new Vaga();
+            empregador = new Empregador();
+            vaga.setId(data.getLong(0));
+            vaga.setNome(data.getString(1));
+            vaga.setRequisito(data.getString(2));
+            vaga.setBolsa(data.getString(3));
+            vaga.setArea(data.getString(4));
+            vaga.setObs(data.getString(5));
+            vaga.setDataCriacao(data.getLong(7));
+            empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
+            vaga.setEmpregador(empregador);
+            listaVagas.add(vaga);
+        }
+        return listaVagas;
+    }
+
+    public ArrayList<Vaga> getVagasPorNome(Context context) {
+        ArrayList<Vaga> listaVagas = new ArrayList<Vaga>();
+        Cursor data = this.vagaDAO.getAllDataOrderByName();
+        Vaga vaga;
+        Empregador empregador;
+        empregadorDAO = new EmpregadorDAO(context);
+        while (data.moveToNext()) {
+            vaga = new Vaga();
+            empregador = new Empregador();
+            vaga.setId(data.getLong(0));
+            vaga.setNome(data.getString(1));
+            vaga.setRequisito(data.getString(2));
+            vaga.setBolsa(data.getString(3));
+            vaga.setArea(data.getString(4));
+            vaga.setObs(data.getString(5));
+            vaga.setDataCriacao(data.getLong(7));
+            empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
+            vaga.setEmpregador(empregador);
+            listaVagas.add(vaga);
+        }
+        return listaVagas;
+    }
+
+    public ArrayList<Vaga> getVagasPorArea(Context context, String area) {
+        ArrayList<Vaga> listaVagas = new ArrayList<Vaga>();
+        Cursor data = this.vagaDAO.getAllDataByArea(area);
         Vaga vaga;
         Empregador empregador;
         empregadorDAO = new EmpregadorDAO(context);
@@ -105,6 +151,16 @@ public class VagaServices {
         }
         return vaga;
     }
+
+    public Vaga mudarAreaVaga(Vaga vaga, String area){
+        if (area!="") {
+            vaga.setArea(area);
+            vagaDAO.mudarNomeVaga(vaga);
+        }
+        return vaga;
+    }
+
+
     public Vaga mudarBolsaVaga(Vaga vaga, String bolsa){
         if(bolsa != ""){
             vaga.setBolsa(bolsa);

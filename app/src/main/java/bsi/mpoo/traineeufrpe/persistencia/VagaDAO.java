@@ -71,6 +71,23 @@ public class VagaDAO {
         Cursor data = db.rawQuery(query, null);
         return data;
     }
+
+    public Cursor getAllDataOrderByName(){
+        SQLiteDatabase db = bancoDados.getReadableDatabase();
+        String query = "SELECT * FROM vaga ORDER BY nome ASC";
+        Cursor data = db.rawQuery(query, null);
+        return data;
+    }
+
+    public Cursor getAllDataByArea(String area){
+        SQLiteDatabase db = bancoDados.getReadableDatabase();
+        String query = "SELECT * FROM vaga" +
+                " WHERE area = ?";
+        String[] args = {String.valueOf(area)};
+        Cursor data = db.rawQuery(query, args);
+        return data;
+    }
+
     public Cursor getId(String name){
         SQLiteDatabase db = bancoDados.getWritableDatabase();
         String query = "SELECT  id FROM vaga " +
@@ -104,8 +121,15 @@ public class VagaDAO {
         ContentValues values = new ContentValues();
         values.put("nome", vaga.getNome());
         db.update("vaga", values, "id = ?", new String[]{String.valueOf(vaga.getId())});
-
     }
+
+    public void mudarAreaVaga(Vaga vaga){
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("area", vaga.getNome());
+        db.update("vaga", values, "id = ?", new String[]{String.valueOf(vaga.getId())});
+    }
+
     public void mudarBolsaVaga(Vaga vaga){
         SQLiteDatabase db = bancoDados.getWritableDatabase();
         ContentValues values = new ContentValues();

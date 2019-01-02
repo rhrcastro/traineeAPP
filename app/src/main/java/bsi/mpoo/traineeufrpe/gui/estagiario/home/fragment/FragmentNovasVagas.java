@@ -1,8 +1,6 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.text.TextUtils;
@@ -12,19 +10,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
-import bsi.mpoo.traineeufrpe.gui.estagiario.home.PerfilVagaEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterNovasVagas;
-import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class FragmentNovasVagas extends ListFragment
@@ -58,7 +51,7 @@ public class FragmentNovasVagas extends ListFragment
 
     private void populate() {
         vagaServices = new VagaServices(getActivity());
-        vagas = vagaServices.getListaVagas(getActivity());
+        vagas = vagaServices.getVagasPorData(getActivity());
         adapter = new AdapterNovasVagas(getContext(), vagas);
         listaVagas.setAdapter(adapter);
     }

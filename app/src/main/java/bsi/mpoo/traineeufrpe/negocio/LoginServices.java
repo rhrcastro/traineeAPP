@@ -68,6 +68,7 @@ public class LoginServices {
 
     private void iniciarSessao(Pessoa pessoa, Curriculo curriculo) {
         SessaoEstagiario.instance.setPessoa(pessoa);
+        SessaoEstagiario.instance.setCurriculo(curriculo);
         SessaoEstagiario.instance.getPessoa().getEstagiario()
                 .setCurriculo(curriculo);
     }

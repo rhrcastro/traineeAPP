@@ -1,10 +1,13 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.home;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,13 +25,16 @@ import bsi.mpoo.traineeufrpe.negocio.NotificationServices;
 public class PerfilVagaEstagiario extends AppCompatActivity {
 
     public static Vaga vaga;
-
-    TextView nomeVaga, BolsaPerfilEst, AreaPerfilEst, ObsPerfilEst, reqPerfilEst;
-
+    private TextView txtNomeVaga;
+    private TextView txtCampoEmpresa;
+    private TextView txtArea;
+    private TextView txtRequisitos;
+    private TextView txtObservacoes;
+    private TextView txtValorBolsa;
+    private ImageView imgEmpresa;
     Button queroCandidatar;
 
     InscricaoServices inscricaoServices;
-
     NotificationServices notificationServices;
 
     boolean status;
@@ -36,13 +42,15 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_vaga_estagiario);
-        nomeVaga = findViewById(R.id.NomeVagaPerfilEst);
-        BolsaPerfilEst = findViewById(R.id.BolsaPerfilVagaEst);
-        AreaPerfilEst = findViewById(R.id.AreaPerfilVagaEst);
-        ObsPerfilEst = findViewById(R.id.ObsPerfilVagaEst);
-        reqPerfilEst = findViewById(R.id.ReqPerfilVagaEst);
-        queroCandidatar = findViewById(R.id.quero_candidatar);
+        setContentView(R.layout.activity_perfil_vaga_estagiario2);
+        txtNomeVaga = findViewById(R.id.txtTituloVaga);
+        txtCampoEmpresa = findViewById(R.id.campo_empresa);
+        txtArea = findViewById(R.id.txt_area_vaga);
+        txtRequisitos = findViewById(R.id.txtRequisitos);
+        txtObservacoes = findViewById(R.id.txtObservacoes);
+        txtValorBolsa = findViewById(R.id.txtValorBolsa);
+        imgEmpresa = findViewById(R.id.imgEmpresa);
+        queroCandidatar = findViewById(R.id.btnQueroCandidatar);
         popular();
         verificaStatus();
         queroCandidatar.setOnClickListener(new View.OnClickListener() {
@@ -60,12 +68,17 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         String area = vaga.getArea();
         String obs = vaga.getObs();
         String req = vaga.getRequisito();
+        String nome_empregador = vaga.getEmpregador().getNome();
+        byte[] imgBits = vaga.getEmpregador().getFoto();
+        Bitmap imagem = BitmapFactory.decodeByteArray(imgBits, 0, imgBits.length);
 
-        nomeVaga.setText(nome);
-        BolsaPerfilEst.setText(bolsa);
-        AreaPerfilEst.setText(area);
-        ObsPerfilEst.setText(obs);
-        reqPerfilEst.setText(req);
+        txtNomeVaga.setText(nome);
+        txtCampoEmpresa.setText(nome_empregador);
+        imgEmpresa.setImageBitmap(imagem);
+        txtArea.setText(area);
+        txtRequisitos.setText(req);
+        txtObservacoes.setText(obs);
+        txtValorBolsa.setText(bolsa);
     }
 
     private void criarInscricao(){
@@ -114,11 +127,9 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     private boolean mudaBotao(boolean jaCadastrado){
         if (!jaCadastrado) {
             queroCandidatar.setText("CANCELAR INSCRIÇÃO");
-            queroCandidatar.setBackgroundColor(Color.RED);
             return true;
         } else {
             queroCandidatar.setText("QUERO ME CANDIDATAR");
-            queroCandidatar.setBackgroundColor(Color.parseColor("#194879"));
             return false;
         }
     }

@@ -91,7 +91,7 @@ public class CadastrarVaga extends AppCompatActivity {
 
             }
         });
-        btnDivulgar = (Button) findViewById(R.id.btnDivulgar);
+        btnDivulgar = (Button) findViewById(R.id.btnQueroCandidatar);
         btnDivulgar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

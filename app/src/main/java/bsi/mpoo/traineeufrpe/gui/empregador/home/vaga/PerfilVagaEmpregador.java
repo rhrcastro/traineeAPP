@@ -36,6 +36,7 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
             public void onClick(View v) {
                 Intent abreEdit = new Intent(PerfilVagaEmpregador.this, EditarVaga.class);
                 startActivity(abreEdit);
+                finish();
             }
         });
 
