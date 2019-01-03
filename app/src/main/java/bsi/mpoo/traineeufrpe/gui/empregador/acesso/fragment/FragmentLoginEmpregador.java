@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class FragmentLoginEmpregador extends Fragment {
         this.edtEmailEmpregador = v.findViewById(R.id.edtEmailEmpregador);
         this.edtSenhaEmpregador = v.findViewById(R.id.edtSenhaEmpregador);
         this.edtEmailEmpregador.requestFocus();
-        loginEmpregador = (Button)v.findViewById(R.id.butlogin2);
+        loginEmpregador = v.findViewById(R.id.butlogin2);
         loginEmpregador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +83,8 @@ public class FragmentLoginEmpregador extends Fragment {
         String senha = this.edtSenhaEmpregador.getText().toString().trim();
         Empregador empregador = new Empregador();
         empregador.setEmail(email);
-        empregador.setSenha(senha);
+        String senhaCodificada = codificarBase64(senha);
+        empregador.setSenha(senhaCodificada);
         return empregador;
     }
     public void onBackPressed() {
@@ -93,5 +95,9 @@ public class FragmentLoginEmpregador extends Fragment {
         if(getActivity() != null) {
             getActivity().finish();
         }
+    }
+
+    public static String codificarBase64 (String texto) {
+        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
     }
 }
