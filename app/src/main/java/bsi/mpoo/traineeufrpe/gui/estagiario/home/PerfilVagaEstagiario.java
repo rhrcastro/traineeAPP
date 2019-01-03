@@ -1,5 +1,6 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.home;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -95,6 +96,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
             inscricao.setVaga(vaga);
             inscricao.setEmpregador(vaga.getEmpregador());
             inscricao.setPessoa(SessaoEstagiario.instance.getPessoa());
+            inscricao.setStatus("concorrendo");
             inscricaoServices.cadastrarInscricao(inscricao, this);
             enviarNotificacao(criarNotificacao(inscricao));
         }
@@ -142,4 +144,5 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         }
         return status;
     }
+
 }

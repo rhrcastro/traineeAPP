@@ -32,6 +32,7 @@ public class InscricaoServices {
     private final int COLUMN_ID_EMPREGADOR = 2;
     private final int COLUMN_ID_ESTAGIARIO = 3;
     private final int COLUMN_DATA_INSCRICAO = 4;
+    private final int COLUMN_STATUS = 5;
 
 
     public InscricaoServices(Context context) {
@@ -70,6 +71,7 @@ public class InscricaoServices {
                 inscricao.setPessoa(pessoa);
             }
             inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
+            inscricao.setStatus(data.getString(COLUMN_STATUS));
             inscricoes.add(inscricao);
         } return inscricoes;
     }
@@ -93,6 +95,7 @@ public class InscricaoServices {
                 inscricao.setPessoa(pessoa);
             }
             inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
+            inscricao.setStatus(data.getString(COLUMN_STATUS));
             inscricoes.add(inscricao);
         } return inscricoes;
     }
@@ -110,4 +113,20 @@ public class InscricaoServices {
         inscricaoDAO.deletarInscricao(idVaga, idRemetente);
     }
 
+    public long getNumInscritosByVaga(long idVaga){
+        Cursor data = inscricaoDAO.getInscricaoByVaga(idVaga);
+        long num = data.getCount();
+        data.close();
+        return num;
+    }
+
+    public String getStatusInscricaoByEstagiarioAndVaga(Pessoa pessoa, Vaga vaga){
+        Cursor data = inscricaoDAO.getInscricaoByEstagiarioAndVaga(pessoa.getId(), vaga.getId());
+        if (data != null && data.moveToFirst()) {
+            String status = data.getString(COLUMN_STATUS);
+            data.close();
+            return status;
+        }
+        return "aberta";
+    }
 }

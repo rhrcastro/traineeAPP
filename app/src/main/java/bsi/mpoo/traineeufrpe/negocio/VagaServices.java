@@ -43,7 +43,6 @@ public class VagaServices {
         empregadorDAO = new EmpregadorDAO(context);
         while (data.moveToNext()) {
             vaga = new Vaga();
-            empregador = new Empregador();
             vaga.setId(data.getLong(0));
             vaga.setNome(data.getString(1));
             vaga.setRequisito(data.getString(2));
@@ -51,6 +50,7 @@ public class VagaServices {
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
             vaga.setDataCriacao(data.getLong(7));
+            vaga.setHorario(data.getString(8));
             empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
@@ -74,6 +74,7 @@ public class VagaServices {
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
             vaga.setDataCriacao(data.getLong(7));
+            vaga.setHorario(data.getString(8));
             empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
@@ -97,6 +98,7 @@ public class VagaServices {
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
             vaga.setDataCriacao(data.getLong(7));
+            vaga.setHorario(data.getString(8));
             empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);

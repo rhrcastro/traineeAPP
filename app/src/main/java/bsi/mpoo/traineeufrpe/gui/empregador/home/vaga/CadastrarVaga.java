@@ -1,7 +1,9 @@
 package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -11,11 +13,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
@@ -36,6 +41,10 @@ public class CadastrarVaga extends AppCompatActivity {
     private TextView txtR$;
     private TextView txtValorBolsa;
     private TextView txtACombinar;
+    private TextView txtHoraInicio;
+    private TextView txtHoraFim;
+    private TextView txtAS;
+    CheckBox checkHorario;
     SeekBar skbAjusteBolsa;
     CardView menu_areas;
     Button btnDivulgar;
@@ -43,7 +52,7 @@ public class CadastrarVaga extends AppCompatActivity {
     private String requisitos;
     private String observacoes;
     private String area;
-    private String turno;
+    private String horario;
     private String valor = "A combinar";
 
     @Override
@@ -95,12 +104,58 @@ public class CadastrarVaga extends AppCompatActivity {
         btnDivulgar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validarArea()){
+                if (validarArea() && validarHorario()){
                     finderTextos();
                     cadastrar();
                 }
             }
         });
+        txtAS = findViewById(R.id.txtAs);
+        txtHoraInicio = findViewById(R.id.txtHoraInicio);
+        txtHoraInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(CadastrarVaga.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                        txtHoraInicio.setText(String.format("%02d:%02d", hourOfDay, minutes));
+                    }
+                }, 0, 0, true);
+                timePickerDialog.show();
+            }
+        });
+        txtHoraFim = findViewById(R.id.txtHoraFIm);
+        txtHoraFim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timePickerDialog = new TimePickerDialog(CadastrarVaga.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                        txtHoraFim.setText(String.format("%02d:%02d", hourOfDay, minutes));
+                    }
+                }, 0, 0, true);
+                timePickerDialog.show();
+            }
+        });
+        checkHorario = findViewById(R.id.checkBox);
+        checkHorario.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    mudarCorHorario("#999999");
+                    horario = "Não especificado";
+                } else {
+                    mudarCorHorario("#095f8a");
+                    horario = txtHoraInicio.getText().toString() + " às " + txtHoraFim.getText().toString();
+                }
+            }
+        });
+    }
+
+    private void mudarCorHorario(String color) {
+        txtHoraInicio.setTextColor(Color.parseColor(color));
+        txtHoraFim.setTextColor(Color.parseColor(color));
+        txtAS.setTextColor(Color.parseColor(color));
     }
 
     private void finderTextos(){
@@ -129,6 +184,7 @@ public class CadastrarVaga extends AppCompatActivity {
         vaga.setRequisito(requisitos);
         vaga.setEmpregador(SessaoEmpregador.instance.getEmpregador());
         vaga.setDataCriacao(System.currentTimeMillis());
+        vaga.setHorario(horario);
         return vaga;
     }
 
@@ -197,5 +253,18 @@ public class CadastrarVaga extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
             }
         });
+    }
+
+
+    private boolean validarHorario(){
+        String horaInicio = txtHoraInicio.getText().toString();
+        String horaFim = txtHoraFim.getText().toString();
+        if (checkHorario.isChecked()){
+            return true;
+        } else if (horaInicio.equals("--:--") || (horaFim.equals("--:--"))){
+            Toast.makeText(this, "Por favor, verifique o horário", Toast.LENGTH_SHORT).show();
+            return false;
+        } horario = horaInicio + " às " + horaFim;
+        return true;
     }
 }

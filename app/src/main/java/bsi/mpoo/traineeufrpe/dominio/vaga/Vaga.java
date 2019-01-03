@@ -13,6 +13,7 @@ public class Vaga {
     private String area;
     private String bolsa;
     private String obs;
+    private String horario;
     private long miliseconds;
     SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM");
 
@@ -96,5 +97,13 @@ public class Vaga {
 
     public void setDataCriacao(long miliseconds) {
         this.miliseconds = miliseconds;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getHorario() {
+        return horario;
     }
 }

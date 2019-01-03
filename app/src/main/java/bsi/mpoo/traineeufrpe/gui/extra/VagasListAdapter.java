@@ -12,16 +12,19 @@ import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
+import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 
 public class VagasListAdapter extends ArrayAdapter<Vaga> {
     private static final String TAG = "Vaga adapter";
     private Context Mcontext;
     private int Mresource;
+    InscricaoServices inscricaoServices;
 
     public VagasListAdapter(Context context, int resource, ArrayList<Vaga> objects) {
         super(context, resource, objects);
         Mcontext = context;
         Mresource = resource;
+        inscricaoServices = new InscricaoServices(context);
     }
 
     @NonNull
@@ -45,7 +48,7 @@ public class VagasListAdapter extends ArrayAdapter<Vaga> {
 
         ShowName.setText(nome);
         ShowBolsa.setText(bolsa);
-        ShowId.setText(0 + "");
+        ShowId.setText(String.valueOf(inscricaoServices.getNumInscritosByVaga(id)));
         return view;
     }
 }

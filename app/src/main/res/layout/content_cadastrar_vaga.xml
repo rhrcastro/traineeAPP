@@ -200,61 +200,67 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="Turno"
+                    android:text="Horário"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioGroup
-                    android:layout_width="227dp"
-                    android:layout_height="73dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
+                <TextView
+                    android:id="@+id/txtHoraInicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:text="--:--"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/txtAs"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtHoraFIm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:text="--:--"
+                    android:textColor="@color/colorTextDark"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/txtAs"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtAs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="às"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorTextDark"
+                    app:layout_constraintEnd_toStartOf="@+id/txtHoraFIm"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/txtHoraInicio"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Não especificado"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView28">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1">
-
-                        <RadioButton
-                            android:id="@+id/rbtManha"
-                            android:layout_width="133dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Manhã" />
-
-                        <RadioButton
-                            android:id="@+id/rbtTarde"
-                            android:layout_width="132dp"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/rbtManha"
-                            android:text="Tarde" />
-
-                        <RadioButton
-                            android:id="@+id/rbtNoite"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignStart="@id/rbtIntegral"
-                            android:layout_alignParentRight="true"
-                            android:layout_weight="1"
-                            android:text="Noite" />
-
-                        <RadioButton
-                            android:id="@+id/rbtIntegral"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@id/rbtNoite"
-                            android:layout_alignParentRight="true"
-                            android:layout_weight="1"
-                            android:text="Integral" />
-                    </RelativeLayout>
-
-                </RadioGroup>
+                    app:layout_constraintTop_toBottomOf="@+id/txtAs" />
 
             </android.support.constraint.ConstraintLayout>
 
