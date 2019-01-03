@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +59,7 @@ public class FragmentLoginEstagiario extends Fragment {
             return;
         }
         LoginServices loginServices = new LoginServices(getContext());
-        boolean taLogado = loginServices.fazerLogin(email, senha);
+        boolean taLogado = loginServices.fazerLogin(email, codificarBase64(senha));
         if (taLogado) {
             Toast.makeText(getContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             goHome();
@@ -91,6 +92,10 @@ public class FragmentLoginEstagiario extends Fragment {
         if(getActivity() != null) {
             getActivity().finish();
         }
+    }
+
+    public static String codificarBase64 (String texto) {
+        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
     }
 }
 

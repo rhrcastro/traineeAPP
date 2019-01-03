@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -106,7 +107,8 @@ public class FragmentCadastroEmpregador extends Fragment {
         Empregador empregador = new Empregador();
         empregador.setNome(nome);
         empregador.setEmail(email);
-        empregador.setSenha(senha);
+        String senhaCodificada = codificarBase64(senha);
+        empregador.setSenha(senhaCodificada);
         empregador.setCnpj(cnpj);
         empregador.setCidade(cidade);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile_empregador);
@@ -120,5 +122,9 @@ public class FragmentCadastroEmpregador extends Fragment {
         if(getActivity() != null) {
             getActivity().finish();
         }
+    }
+
+    public static String codificarBase64 (String texto) {
+        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
     }
 }

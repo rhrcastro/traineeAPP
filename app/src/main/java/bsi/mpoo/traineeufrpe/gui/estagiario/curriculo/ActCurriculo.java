@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -121,7 +122,8 @@ public class ActCurriculo extends AppCompatActivity {
     private Estagiario criarEstagiario() {
         Estagiario estagiario = new Estagiario();
         estagiario.setEmail(email);
-        estagiario.setSenha(senha1);
+        String senha = codificarBase64(senha1);
+        estagiario.setSenha(senha);
         estagiario.setCurriculo(SessaoEstagiario.instance.getCurriculo());
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile_empregador);
         ByteArrayOutputStream blob = new ByteArrayOutputStream();
@@ -129,5 +131,9 @@ public class ActCurriculo extends AppCompatActivity {
         byte[] bitmapdata = blob.toByteArray();
         estagiario.setFoto(bitmapdata);
         return estagiario;
+    }
+
+    public static String codificarBase64 (String texto) {
+        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
     }
 }
