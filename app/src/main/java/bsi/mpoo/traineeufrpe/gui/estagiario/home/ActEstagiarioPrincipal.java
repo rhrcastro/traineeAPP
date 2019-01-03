@@ -2,6 +2,8 @@ package bsi.mpoo.traineeufrpe.gui.estagiario.home;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -16,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -23,9 +26,11 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.ActExibirPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario;
 
+import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterNovasVagas;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActContato;
+import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 
 public class ActEstagiarioPrincipal extends AppCompatActivity
@@ -62,8 +67,12 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         View headView  = navigationView.getHeaderView(0);
         TextView nome = headView.findViewById(R.id.nomeDrawerEstagiario);
         TextView email = headView.findViewById(R.id.emailDrawerEstagiario);
-        nome.setText(SessaoEstagiario.instance.getPessoa().getNome());
-        email.setText(SessaoEstagiario.instance.getPessoa().getEstagiario().getEmail());
+        ImageView imagem = headView.findViewById(R.id.imagemDrawerEstagiario);
+        byte[] foto = SessaoEstagiario.getInstance().getPessoa().getEstagiario().getFoto();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(foto, 0, foto.length);
+        imagem.setImageBitmap(bitmap);
+        nome.setText(SessaoEstagiario.getInstance().getPessoa().getNome());
+        email.setText(SessaoEstagiario.getInstance().getPessoa().getEstagiario().getEmail());
     }
 
     @Override
@@ -103,10 +112,11 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             return true;
         } else if (id == R.id.nav_slideshow) {
+            openConfiguracoesEstagiario();
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
         } else if (id == R.id.nav_share) {
-            openTeste();
+            openPerfilEstagiario();
         } else if (id == R.id.nav_send) {
             openContato();
         }
@@ -154,8 +164,12 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         Intent intent = new Intent(this, ActExibirPerfilEstagiario.class);
         startActivity(intent);
     }
-    public void openTeste() {
+    public void openPerfilEstagiario() {
         Intent intent = new Intent(this, ActExibirPerfilEstagiario.class);
+        startActivity(intent);
+    }
+    private void openConfiguracoesEstagiario() {
+        Intent intent = new Intent(this, EditarPerfilEstagiario.class);
         startActivity(intent);
     }
 }
