@@ -32,6 +32,7 @@ import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEstagiarioPrinc
 import bsi.mpoo.traineeufrpe.gui.main.ActContato;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ActEstagiarioPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -67,7 +68,7 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         View headView  = navigationView.getHeaderView(0);
         TextView nome = headView.findViewById(R.id.nomeDrawerEstagiario);
         TextView email = headView.findViewById(R.id.emailDrawerEstagiario);
-        ImageView imagem = headView.findViewById(R.id.imagemDrawerEstagiario);
+        CircleImageView imagem = headView.findViewById(R.id.imagemDrawerEstagiario);
         byte[] foto = SessaoEstagiario.getInstance().getPessoa().getEstagiario().getFoto();
         Bitmap bitmap = BitmapFactory.decodeByteArray(foto, 0, foto.length);
         imagem.setImageBitmap(bitmap);

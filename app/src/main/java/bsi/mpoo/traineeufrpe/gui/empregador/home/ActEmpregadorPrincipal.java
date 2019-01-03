@@ -28,6 +28,7 @@ import bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ActEmpregadorPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -70,7 +71,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         View headView  = navigationView.getHeaderView(0);
         TextView nome = headView.findViewById(R.id.nomeEmpregadorDrawer);
         TextView email = headView.findViewById(R.id.emailEmpregadorDrawer);
-        ImageView imagem = headView.findViewById(R.id.imagemEmpregadorDrawer);
+        CircleImageView imagem = headView.findViewById(R.id.imagemEmpregadorDrawer);
         nome.setText(SessaoEmpregador.instance.getEmpregador().getNome());
         email.setText(SessaoEmpregador.instance.getEmpregador().getEmail());
         byte[] foto = SessaoEmpregador.getInstance().getEmpregador().getFoto();
