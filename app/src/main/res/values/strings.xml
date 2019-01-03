@@ -5,6 +5,7 @@
     <string name="contato">CONTATE-NOS</string>
     <string name="REMETENTE_EMAIL">help.trainee.app@gmail.com</string>
     <string name="PW_REMETENTE_EMAIL">traineeufrpe0</string>
+    <string name="CONTATO"><u>Problemas? Entre em contato conosco</u></string>
     <string name="cadastroestagiario">INFORMAÇÕES PESSOAIS:</string>
     <string name="cadastrocurriculo">INFORMAÇÕES ACADÊMICAS:</string>
     <string name="cadastroempregador">INFORMAÇÕES EMPRESARIAIS:</string>

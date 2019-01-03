@@ -33,14 +33,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@drawable/scrim_top"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:layout_gravity="bottom"
                 android:layout_alignBottom="@+id/image"
-                android:background="@drawable/scrim_bottom"/>
+                android:layout_gravity="bottom"
+                android:background="@drawable/scrim_bottom" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"

@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +41,7 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
     private EditText edtCodigo;
     private TextView txtEmailOk;
     private TextView txtInformeCod;
+    CardView cardView2;
     javax.mail.Session session;
     LoginServices loginServices = new LoginServices(this);
     private static String servidorEmail;
@@ -61,6 +63,7 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
         txtInformeCod = findViewById(R.id.txtInformeCod);
         btnEnviar = findViewById(R.id.btnEnviar);
         btnOK = findViewById(R.id.btnOk);
+        cardView2 = findViewById(R.id.cardView2);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,9 +163,7 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
 
     private void exibirParte2() {
         txtEmailOk.setVisibility(View.VISIBLE);
-        txtInformeCod.setVisibility(View.VISIBLE);
-        btnOK.setVisibility(View.VISIBLE);
-        edtCodigo.setVisibility(View.VISIBLE);
+        cardView2.setVisibility(View.VISIBLE);
     }
 
     public static String codigoAleatorio() {

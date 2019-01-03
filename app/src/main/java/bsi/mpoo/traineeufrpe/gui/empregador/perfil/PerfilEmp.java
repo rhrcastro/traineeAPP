@@ -58,7 +58,7 @@ public class PerfilEmp extends AppCompatActivity
         setSupportActionBar(toolbar);
         imgEmpresa = findViewById(R.id.imageViewPEmp);
 
-        FloatingActionButton fab =  findViewById(R.id.trocarFotoEmp);
+        FloatingActionButton fab =  findViewById(R.id.fab_edit);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
