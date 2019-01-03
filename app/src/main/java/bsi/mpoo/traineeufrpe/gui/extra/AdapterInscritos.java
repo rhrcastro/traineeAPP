@@ -13,7 +13,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 
 public class AdapterInscritos extends BaseAdapter {

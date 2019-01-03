@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
-import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
