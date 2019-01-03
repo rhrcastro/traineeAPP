@@ -34,12 +34,12 @@ public class FragmentCadastroEstagiario extends Fragment implements AdapterView.
         View v = Inflater.inflate(R.layout.fragment_cadastro_estagiario, container, false);
         this.edtCurso = v.findViewById(R.id.cursoCadastro);
         this.edtInstituicao = v.findViewById(R.id.instituicaoCadastro);
-        edtSegmento = (Spinner)v.findViewById(R.id.Segmento);
+        edtSegmento = v.findViewById(R.id.Segmento);
         edtSegmento.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.fields, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         edtSegmento.setAdapter(adapter);
-        cadastrar = (Button)v.findViewById(R.id.botCadastroCurriculo);
+        cadastrar = v.findViewById(R.id.botCadastroCurriculo);
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

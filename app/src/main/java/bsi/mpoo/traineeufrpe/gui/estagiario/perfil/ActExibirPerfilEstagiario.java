@@ -38,15 +38,15 @@ public class ActExibirPerfilEstagiario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_testando_cards);
-        curso = (TextView) findViewById(R.id.campo_curso);
-        instituicao = (TextView) findViewById(R.id.campo_instituicao);
-        area = (TextView) findViewById(R.id.campo_area);
-        email = (TextView) findViewById(R.id.campo_email);
-        cidade = (TextView) findViewById(R.id.campo_local);
-        imagem = (ImageView) findViewById(R.id.campo_imagem);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        curso =  findViewById(R.id.campo_curso);
+        instituicao =  findViewById(R.id.campo_instituicao);
+        area =  findViewById(R.id.campo_area);
+        email = findViewById(R.id.campo_email);
+        cidade =  findViewById(R.id.campo_local);
+        imagem =  findViewById(R.id.campo_imagem);
+        toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fab_edit = (FloatingActionButton) findViewById(R.id.fab_edit);
+        fab_edit =  findViewById(R.id.fab_edit);
         Bitmap bitmap = getImagem();
         Curriculo curriculo = getCurriculo();
         curso.setText(strCurso);
