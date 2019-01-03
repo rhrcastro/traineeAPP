@@ -4,11 +4,12 @@ import java.text.SimpleDateFormat;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 
 public class ControladorVaga {
     private long id;
     private Vaga vaga;
-    private Estagiario estagiario;
+    private Pessoa pessoa;
     private Empregador empregador;
     private long horaInscricao;
     SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM' às 'HH:mm");
@@ -29,12 +30,12 @@ public class ControladorVaga {
         this.vaga = vaga;
     }
 
-    public Estagiario getEstagiario() {
-        return estagiario;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setEstagiario(Estagiario estagiario) {
-        this.estagiario = estagiario;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     public Empregador getEmpregador() {

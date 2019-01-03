@@ -4,10 +4,13 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -56,11 +59,17 @@
         <activity android:name=".gui.empregador.home.vaga.EditarVaga" />
         <activity android:name=".gui.estagiario.home.PerfilVagaEstagiario" />
         <activity android:name=".gui.empregador.home.ActNotifEmpregador" />
-        <activity android:name=".gui.estagiario.perfil.ActExibirPerfilEstagiario"
-            android:parentActivityName=".gui.estagiario.home.ActEstagiarioPrincipal"></activity>
+        <activity
+            android:name=".gui.estagiario.perfil.ActExibirPerfilEstagiario"
+            android:parentActivityName=".gui.estagiario.home.ActEstagiarioPrincipal" />
         <activity android:name=".gui.empregador.home.vaga.CadastrarVaga" />
-        <activity android:name=".gui.estagiario.perfil.EditarPerfilEstagiario"
-            android:parentActivityName=".gui.estagiario.perfil.ActPerfilEstagiario"></activity>
+        <activity
+            android:name=".gui.estagiario.perfil.EditarPerfilEstagiario"
+            android:parentActivityName=".gui.estagiario.perfil.ActExibirPerfilEstagiario" />
+        <activity
+            android:name=".gui.estagiario.acesso.ActEsqueciSenhaEstagiario"
+            android:parentActivityName=".gui.estagiario.acesso.ActCadastroLoginEstagiario" />
+        <activity android:name=".gui.estagiario.acesso.MudarSenhaEstagiario"></activity>
     </application>
 
 </manifest>

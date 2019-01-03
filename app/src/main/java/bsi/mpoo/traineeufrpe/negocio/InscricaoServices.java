@@ -6,12 +6,17 @@ import android.database.Cursor;
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
+import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
+import bsi.mpoo.traineeufrpe.infra.app.TraineeApp;
+import bsi.mpoo.traineeufrpe.persistencia.CurriculoDAO;
 import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.persistencia.InscricaoDAO;
+import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
 import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
 public class InscricaoServices {
@@ -19,6 +24,8 @@ public class InscricaoServices {
     private VagaDAO vagaDAO;
     private EmpregadorDAO empregadorDAO;
     private EstagiarioDAO estagiarioDAO;
+    private PessoaDAO pessoaDAO;
+    private CurriculoDAO curriculoDAO;
 
     private final int COLUMN_ID = 0;
     private final int COLUMN_ID_VAGA = 1;
@@ -32,6 +39,8 @@ public class InscricaoServices {
         vagaDAO = new VagaDAO(context);
         empregadorDAO = new EmpregadorDAO(context);
         estagiarioDAO = new EstagiarioDAO(context);
+        pessoaDAO = new PessoaDAO(context);
+        curriculoDAO = new CurriculoDAO(context);
 
     }
 
@@ -45,14 +54,21 @@ public class InscricaoServices {
         ArrayList<ControladorVaga> inscricoes = new ArrayList<>();
         Cursor data = inscricaoDAO.getInscricaoByEmpregador(empregador.getId());
         ControladorVaga inscricao;
+        Estagiario estagiario;
         while (data.moveToNext()){
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
             inscricao.setVaga(vagaDAO.getId(data.getLong(COLUMN_ID_VAGA), context));
             inscricao.setEmpregador(empregadorDAO
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), context));
-            inscricao.setEstagiario(estagiarioDAO
-                    .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context));
+            estagiario = estagiarioDAO
+                    .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
+            if (estagiario != null) {
+                Pessoa pessoa = pessoaDAO.getIdEstagiario(estagiario.getId());
+                estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
+                pessoa.setEstagiario(estagiario);
+                inscricao.setPessoa(pessoa);
+            }
             inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
             inscricoes.add(inscricao);
         } return inscricoes;
@@ -68,8 +84,14 @@ public class InscricaoServices {
             inscricao.setVaga(vagaDAO.getId(data.getLong(COLUMN_ID_VAGA), context));
             inscricao.setEmpregador(empregadorDAO
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), context));
-            inscricao.setEstagiario(estagiarioDAO
-                    .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context));
+            estagiario = estagiarioDAO
+                    .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
+            if (estagiario != null) {
+                Pessoa pessoa = pessoaDAO.getIdEstagiario(estagiario.getId());
+                estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
+                pessoa.setEstagiario(estagiario);
+                inscricao.setPessoa(pessoa);
+            }
             inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
             inscricoes.add(inscricao);
         } return inscricoes;
@@ -87,4 +109,5 @@ public class InscricaoServices {
     public void delInscricao(long idVaga, long idRemetente){
         inscricaoDAO.deletarInscricao(idVaga, idRemetente);
     }
+
 }

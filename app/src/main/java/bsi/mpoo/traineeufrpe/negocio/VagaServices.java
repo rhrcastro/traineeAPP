@@ -194,8 +194,4 @@ public class VagaServices {
         vagaDAO.deletarVaga(id);
     }
 
-    public void cadastrarInscricao() {
-
-    }
-
 }

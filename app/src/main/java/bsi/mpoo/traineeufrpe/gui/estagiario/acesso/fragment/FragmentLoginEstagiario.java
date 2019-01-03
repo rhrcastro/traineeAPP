@@ -10,9 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActEsqueciSenhaEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
@@ -20,6 +22,7 @@ import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 public class FragmentLoginEstagiario extends Fragment {
 
     private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
+    private TextView forgot;
     private EditText edtEmail;
     private EditText edtSenha;
     private String email;
@@ -37,6 +40,13 @@ public class FragmentLoginEstagiario extends Fragment {
             @Override
             public void onClick(View v) {
                 logar();
+            }
+        });
+        forgot = v.findViewById(R.id.forgot2);
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActEsqueciSenhaEstagiario.class));
             }
         });
         return v;

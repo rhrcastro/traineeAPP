@@ -94,7 +94,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
             ControladorVaga inscricao = new ControladorVaga();
             inscricao.setVaga(vaga);
             inscricao.setEmpregador(vaga.getEmpregador());
-            inscricao.setEstagiario(SessaoEstagiario.instance.getPessoa().getEstagiario());
+            inscricao.setPessoa(SessaoEstagiario.instance.getPessoa());
             inscricaoServices.cadastrarInscricao(inscricao, this);
             enviarNotificacao(criarNotificacao(inscricao));
         }
