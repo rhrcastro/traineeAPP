@@ -58,7 +58,7 @@ public class PerfilEmp extends AppCompatActivity
         setSupportActionBar(toolbar);
         imgEmpresa = findViewById(R.id.imageViewPEmp);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.trocarFotoEmp);
+        FloatingActionButton fab =  findViewById(R.id.trocarFotoEmp);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +66,7 @@ public class PerfilEmp extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -91,7 +91,7 @@ public class PerfilEmp extends AppCompatActivity
         nome1.setText(SessaoEmpregador.instance.getEmpregador().getNome());
         email1.setText(SessaoEmpregador.instance.getEmpregador().getEmail());
         byte[] foto1 = SessaoEmpregador.getInstance().getEmpregador().getFoto();
-        Bitmap bitmap1 = BitmapFactory.decodeByteArray(foto, 0, foto.length);
+        Bitmap bitmap1 = BitmapFactory.decodeByteArray(foto1, 0, foto.length);
         imagem1.setImageBitmap(bitmap1);
         edtLocalizacao = findViewById(R.id.localizacaoEmpresa);
         edtLocalizacao.setText(this.localizacao);
@@ -149,7 +149,7 @@ public class PerfilEmp extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

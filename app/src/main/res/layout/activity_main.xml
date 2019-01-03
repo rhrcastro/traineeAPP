@@ -83,7 +83,7 @@
         android:layout_width="250dp"
         android:layout_marginTop="40dp"
         android:layout_gravity="center"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/roundbutton"
         android:id="@+id/butEstagiario"
         android:layout_height="wrap_content"
         android:text="Estagiário"
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/roundbutton"
         android:id="@+id/butEmpregador"
         android:text="Empregador"
         android:textColor="@color/White"/>

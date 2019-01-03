@@ -44,7 +44,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
 
         mViewPager.setAdapter(new MyFragmentPagerAdapterTelaEmpregadorPrincipal(getSupportFragmentManager(), getResources().getStringArray(R.array.tabsPrincipalEmpregador)));
         mTabLayout.setupWithViewPager(mViewPager);
-        mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+        mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.White));
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

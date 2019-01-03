@@ -25,7 +25,7 @@ public class ActCadastroLoginEstagiario extends AppCompatActivity {
 
         mViewPager.setAdapter(new MyFragmentPagerAdapterFragMainActivity(getSupportFragmentManager(), getResources().getStringArray(R.array.tabs)));
         mTabLayout.setupWithViewPager(mViewPager);
-        mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorPrimary));
+        mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.White));
 
 
     }
