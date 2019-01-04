@@ -177,9 +177,7 @@ public class VagaServices {
             vaga.setRequisito(req);
             vagaDAO.mudarRequisitoVaga(vaga);
         }
-
         return vaga;
-
     }
 
     public Vaga mudarObsVaga(Vaga vaga, String obs){
@@ -187,9 +185,15 @@ public class VagaServices {
             vaga.setObs(obs);
             vagaDAO.mudarObsVaga(vaga);
         }
-
         return vaga;
+    }
 
+    public Vaga mudarHorarioVaga(Vaga vaga, String horario){
+        if(horario != ""){
+            vaga.setHorario(horario);
+            vagaDAO.mudarHorarioVaga(vaga);
+        }
+        return vaga;
     }
 
     public void DelVaga(long id){

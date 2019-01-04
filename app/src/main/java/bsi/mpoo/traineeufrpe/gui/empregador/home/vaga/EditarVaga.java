@@ -110,18 +110,6 @@ public class EditarVaga extends AppCompatActivity {
 
             }
         });
-        btnDivulgar = (Button) findViewById(R.id.btnQueroCandidatar);
-        btnDivulgar.setText("SALVAR ALTERAÇÕES");
-        btnDivulgar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (verificarCampos()){
-                    capturarTextos();
-                    salvar(alterarVaga());
-                    volta();
-                }
-            }
-        });
         txtAS = findViewById(R.id.txtAs);
         txtHoraInicio = findViewById(R.id.txtHoraInicio);
         txtHoraInicio.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +147,18 @@ public class EditarVaga extends AppCompatActivity {
                 } else {
                     mudarCorHorario("#095f8a");
                     horario = txtHoraInicio.getText().toString() + " às " + txtHoraFim.getText().toString();
+                }
+            }
+        });
+        btnDivulgar = (Button) findViewById(R.id.btnQueroCandidatar);
+        btnDivulgar.setText("SALVAR ALTERAÇÕES");
+        btnDivulgar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (verificarCampos() && validarHorario()){
+                    capturarTextos();
+                    salvar(alterarVaga());
+                    volta();
                 }
             }
         });
@@ -287,6 +287,7 @@ public class EditarVaga extends AppCompatActivity {
         vagaServices.mudarRequisitoVaga(vaga, vaga.getRequisito());
         vagaServices.mudarObsVaga(vaga, vaga.getObs());
         vagaServices.mudarAreaVaga(vaga, vaga.getArea());
+        vagaServices.mudarHorarioVaga(vaga, vaga.getHorario());
         SessaoEmpregador.instance.setVaga(vaga);
     }
 

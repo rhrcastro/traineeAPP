@@ -1,6 +1,7 @@
 package bsi.mpoo.traineeufrpe.gui.extra;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -13,7 +14,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
+import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
+import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.ActPerfilEstagiario4Empregador;
+import bsi.mpoo.traineeufrpe.gui.estagiario.home.PerfilVagaEstagiario;
 
 public class AdapterInscritos extends BaseAdapter {
 
@@ -76,15 +81,14 @@ public class AdapterInscritos extends BaseAdapter {
         Bitmap bitmap = BitmapFactory.decodeByteArray(fotoEstagiario, 0, fotoEstagiario.length);
         holder.mImg.setImageBitmap(bitmap);
 
-        /*view.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Pessoa pessoa = ((Pessoa) listaInscritos.get(position));
-                Intent it = new Intent(mContext, PerfilVagaEstagiario.class);
-                PerfilVagaEstagiario.vaga = vaga;
+                Intent it = new Intent(mContext, ActPerfilEstagiario4Empregador.class);
+                ActPerfilEstagiario4Empregador.controladorVaga = listaInscritos.get(position);
                 mContext.startActivity(it);
             }
-        });*/
+        });
         return view;
     }
 

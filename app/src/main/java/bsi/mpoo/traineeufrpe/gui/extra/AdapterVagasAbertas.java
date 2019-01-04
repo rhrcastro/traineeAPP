@@ -104,6 +104,8 @@ public class AdapterVagasAbertas extends BaseAdapter {
                     holder.mImagem.setImageResource(R.drawable.dispensado_v);
                     break;
             }
+        } else {
+            holder.mImagem.setImageResource(R.drawable.aberta_v);
         }
     }
 

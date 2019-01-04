@@ -129,4 +129,9 @@ public class InscricaoServices {
         }
         return "aberta";
     }
+
+    public void setStatusInscricaoByEstagiarioAndVaga(ControladorVaga controladorVaga){
+        inscricaoDAO.mudarStatusInscricao(controladorVaga);
+    }
+
 }

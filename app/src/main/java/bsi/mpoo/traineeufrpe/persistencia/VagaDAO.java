@@ -156,6 +156,15 @@ public class VagaDAO {
         db.update("vaga", values, "id = ?", new String[]{String.valueOf(vaga.getId())});
 
     }
+
+    public void mudarHorarioVaga(Vaga vaga){
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("horario", vaga.getHorario());
+        db.update("vaga", values, "id = ?", new String[]{String.valueOf(vaga.getId())});
+
+    }
+
     public void deletarVaga(long id2){
         SQLiteDatabase db =  bancoDados.getWritableDatabase();
         String query = "DELETE FROM vaga " +
