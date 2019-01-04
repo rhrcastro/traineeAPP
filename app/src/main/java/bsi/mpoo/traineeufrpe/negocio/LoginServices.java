@@ -83,4 +83,5 @@ public class LoginServices {
         curriculoDAO.mudarInstituicao(pessoa.getEstagiario().getCurriculo());
         estagiarioDAO.mudarEmailEstagiario(pessoa.getEstagiario());
     }
+
 }

@@ -28,7 +28,9 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
+import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
@@ -72,7 +74,9 @@ public class PerfilEmp extends AppCompatActivity {
         fab_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getBaseContext(), ActEditarEmpregador.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
