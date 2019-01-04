@@ -86,5 +86,11 @@ public class PerfilEmp extends AppCompatActivity {
         byte[] fotoEmp = SessaoEmpregador.instance.getEmpregador().getFoto();
         return BitmapFactory.decodeByteArray(fotoEmp, 0, fotoEmp.length);
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, ActEmpregadorPrincipal.class));
+        finish();
+    }
 }
 

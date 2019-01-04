@@ -8,9 +8,13 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
+import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class PerfilVagaEmpregador extends AppCompatActivity {
@@ -18,6 +22,7 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
     TextView NomeVagaPerfilEmp, BolsaPerfilVagaEmp, AreaPerfilVagaEmp, ObsPerfilVagaEmp, ReqPerfilVagaEmp, IdPerfilVagaEmp;
     FloatingActionButton floatingActionEdit, floatingActionDelete;
     private VagaServices vagaServices = new VagaServices(this);
+    private InscricaoServices inscricaoServices = new InscricaoServices(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +79,11 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
     }
 
     private void del(){
+        ArrayList<ControladorVaga> inscritos = inscricaoServices.
+                getInscritosByVaga(SessaoEmpregador.instance.getVaga().getId(), this);
+        for (ControladorVaga inscrito : inscritos){
+            inscricaoServices.delInscricao(inscrito.getVaga().getId(), inscrito.getPessoa().getId());
+        }
         vagaServices.DelVaga(SessaoEmpregador.instance.getVaga().getId());
         Toast.makeText(this, "Deletado com sucesso.", Toast.LENGTH_SHORT).show();
     }

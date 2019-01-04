@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
+import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
@@ -75,5 +76,11 @@ public class ActExibirPerfilEstagiario extends AppCompatActivity {
 
     private Curriculo getCurriculo(){
         return SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, ActEstagiarioPrincipal.class));
+        finish();
     }
 }

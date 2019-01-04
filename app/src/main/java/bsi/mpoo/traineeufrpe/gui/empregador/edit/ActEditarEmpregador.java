@@ -64,6 +64,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
         this.empregador = SessaoEmpregador.getInstance().getEmpregador();
         this.nomeEmpregador = SessaoEmpregador.getInstance().getEmpregador().getNome();
         this.emailEmpregador = SessaoEmpregador.getInstance().getEmpregador().getEmail();
+        this.emailTempEmpregador = emailEmpregador;
         this.id = SessaoEmpregador.getInstance().getEmpregador().getId();
 
     }
@@ -283,7 +284,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, ActExibirPerfilEstagiario.class);
+        Intent intent = new Intent(this, PerfilEmp.class);
         startActivity(intent);
         finish();
     }
