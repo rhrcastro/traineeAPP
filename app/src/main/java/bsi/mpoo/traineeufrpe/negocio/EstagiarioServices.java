@@ -1,10 +1,31 @@
 package bsi.mpoo.traineeufrpe.negocio;
 
+import android.content.Context;
+import android.database.Cursor;
 import android.util.Patterns;
 
 import java.util.InputMismatchException;
 
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
+import bsi.mpoo.traineeufrpe.persistencia.CurriculoDAO;
+import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
+import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
+
 public class EstagiarioServices {
+
+    private final int COLUMN_ID_ESTAGIARIO = 4;
+
+    Context mContext;
+    private PessoaDAO pessoaDAO;
+    private EstagiarioDAO estagiarioDAO;
+    private CurriculoDAO curriculoDAO;
+
+    public EstagiarioServices(Context context) {
+        mContext = context;
+        this.pessoaDAO = new PessoaDAO(context);
+        this.estagiarioDAO = new EstagiarioDAO(context);
+        this.curriculoDAO = new CurriculoDAO(context);
+    }
 
     public static boolean isEmailValido(String email) {
         boolean resultado = (Patterns.EMAIL_ADDRESS.matcher(email).matches());
@@ -62,6 +83,18 @@ public class EstagiarioServices {
         } catch (InputMismatchException erro) {
             return(false);
         }
+    }
+
+    public Pessoa getPessoaCompleta(long idPessoa){
+        Pessoa pessoa = pessoaDAO.getPessoaById(idPessoa);
+        Cursor data = pessoaDAO.getIdEstagiarioByPessoa(idPessoa);
+        if (data != null && data.moveToFirst()) {
+            long idEstagiario = data.getLong(COLUMN_ID_ESTAGIARIO);
+            data.close();
+            pessoa.setEstagiario(estagiarioDAO.getEstagiarioById(idEstagiario, mContext));
+            pessoa.getEstagiario().setCurriculo(curriculoDAO.getIdCurriculo(idEstagiario, mContext));
+            return pessoa;
+        } return null;
     }
 }
 

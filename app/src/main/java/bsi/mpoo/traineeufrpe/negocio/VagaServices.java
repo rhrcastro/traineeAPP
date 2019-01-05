@@ -130,7 +130,7 @@ public class VagaServices {
         ArrayList<Vaga> listaVaga = new ArrayList<Vaga>();
         for(int i = 0; i<listaId.size(); i++){
             int id = Integer.parseInt(listaId.get(i));
-            Vaga vaga = vagaDAO.getId(id, context);
+            Vaga vaga = vagaDAO.getVagaById(id, context);
             listaVaga.add(vaga);
         }
         return listaVaga;

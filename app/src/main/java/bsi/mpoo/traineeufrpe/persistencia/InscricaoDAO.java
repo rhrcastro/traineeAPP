@@ -51,8 +51,8 @@ public class InscricaoDAO {
         PessoaDAO pessoaDAO = new PessoaDAO(context);
         CurriculoDAO curriculoDAO = new CurriculoDAO(context);
         EstagiarioDAO estagiarioDAO = new EstagiarioDAO(context);
-        inscricao.setVaga(vagaDAO.getId(id_vaga, context));
-        Pessoa pessoa = pessoaDAO.getIdEstagiario(id_estagiario);
+        inscricao.setVaga(vagaDAO.getVagaById(id_vaga, context));
+        Pessoa pessoa = pessoaDAO.getPessoaByIdEstagiario(id_estagiario);
         Estagiario estagiario = estagiarioDAO.getEstagiarioById(id_estagiario, context);
         estagiario.setCurriculo(curriculoDAO.getIdCurriculo(estagiario.getId(), context));
         pessoa.setEstagiario(estagiario);

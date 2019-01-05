@@ -37,11 +37,27 @@ public class PessoaDAO {
         leitorBanco.close();
         return pessoa;
     }
-    public Pessoa getIdEstagiario(long id) {
+    public Pessoa getPessoaByIdEstagiario(long id) {
         String query = "SELECT * FROM pessoa " +
                 "WHERE id_estagiario = ?";
         String[] args = {String.valueOf(id)};
         return this.load(query, args);
+    }
+
+    public Pessoa getPessoaById(long id) {
+        String query = "SELECT * FROM pessoa " +
+                "WHERE id = ?";
+        String[] args = {String.valueOf(id)};
+        return this.load(query, args);
+    }
+
+    public Cursor getIdEstagiarioByPessoa(long idPessoa) {
+        SQLiteDatabase bancoLeitura = bancoDados.getReadableDatabase();
+        String query = "SELECT * FROM pessoa " +
+                "WHERE id = ?";
+        String[] args = {String.valueOf(idPessoa)};
+        Cursor data = bancoLeitura.rawQuery(query, args);
+        return data;
     }
 
     private Pessoa criarPessoa(Cursor cursor) {

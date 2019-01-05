@@ -165,10 +165,12 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
     public void exibirPerfilEstagiario(){
         Intent intent = new Intent(this, ActExibirPerfilEstagiario.class);
         startActivity(intent);
+        finish();
     }
     public void openPerfilEstagiario() {
         Intent intent = new Intent(this, ActExibirPerfilEstagiario.class);
         startActivity(intent);
+        finish();
     }
     private void openConfiguracoesEstagiario() {
         Intent intent = new Intent(this, EditarPerfilEstagiario.class);

@@ -392,19 +392,18 @@
 
         <Button
             android:id="@+id/btnQueroCandidatar"
-            android:layout_width="match_parent"
+            android:layout_width="299dp"
             android:layout_height="48dp"
             android:layout_below="@id/cardview_6"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
+            android:layout_marginStart="29dp"
             android:layout_marginLeft="0dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="31dp"
             android:layout_marginRight="0dp"
-            android:layout_marginBottom="12dp"
-            android:background="@color/colorPrimaryDark"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/rounded_button_green"
             android:text="DIVULGAR VAGA"
             android:textColor="@color/White" />
 

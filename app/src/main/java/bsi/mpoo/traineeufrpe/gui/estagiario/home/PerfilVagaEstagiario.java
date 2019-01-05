@@ -129,9 +129,11 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     private boolean mudaBotao(boolean jaCadastrado){
         if (!jaCadastrado) {
             queroCandidatar.setText("CANCELAR INSCRIÇÃO");
+            queroCandidatar.setBackgroundResource(R.drawable.rounded_button_red);
             return true;
         } else {
             queroCandidatar.setText("QUERO ME CANDIDATAR");
+            queroCandidatar.setBackgroundResource(R.drawable.rounded_button_green);
             return false;
         }
     }

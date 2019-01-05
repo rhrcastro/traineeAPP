@@ -9,10 +9,8 @@ import bsi.mpoo.traineeufrpe.dominio.Notifications;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
-import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.persistencia.NotificationsDAO;
 import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
-import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
 public class NotificationServices {
 
@@ -49,7 +47,7 @@ public class NotificationServices {
             notif.setIdRemetente(data.getLong(COLUMN_ID_REMETENTE));
             notif.setIdDestinatario(data.getLong(COLUMN_ID_DESTINATARIO));
             notif.setFotoEstagiario(data.getBlob(COLUMN_FOTOREMENTENTE));
-            nomeEstagiario = pessoaDAO.getIdEstagiario(data.getLong(COLUMN_ID_REMETENTE)).getNome();
+            nomeEstagiario = pessoaDAO.getPessoaByIdEstagiario(data.getLong(COLUMN_ID_REMETENTE)).getNome();
             notif.setNomeRemetente(nomeEstagiario);
             nomeEmpregador = empregadorDAO.getEmpregadorById(data
                     .getLong(COLUMN_ID_DESTINATARIO), context).getNome();
@@ -79,7 +77,7 @@ public class NotificationServices {
             nomeEmpregador = empregadorDAO.getEmpregadorById(data
                     .getLong(COLUMN_ID_DESTINATARIO), context).getNome();
             notif.setNomeRemetente(nomeEmpregador);
-            nomeEstagiario = pessoaDAO.getIdEstagiario(data.getLong(COLUMN_ID_REMETENTE)).getNome();
+            nomeEstagiario = pessoaDAO.getPessoaByIdEstagiario(data.getLong(COLUMN_ID_REMETENTE)).getNome();
             notif.setNomeDestinatario(nomeEstagiario);
             notif.setMensagem(data.getString(COLUMN_MENSAGEM));
             lista.add(notif);

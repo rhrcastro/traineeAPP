@@ -101,7 +101,7 @@ public class VagaDAO {
         return data;
     }
 
-    public Vaga getId(long id, Context context) {
+    public Vaga getVagaById(long id, Context context) {
         String query = "SELECT * FROM vaga " +
                 "WHERE id = ?";
         String[] args = {String.valueOf(id)};

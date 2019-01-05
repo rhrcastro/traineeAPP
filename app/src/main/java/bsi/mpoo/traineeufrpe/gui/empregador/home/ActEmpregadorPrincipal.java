@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.ActNovasNotificacoes;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.CadastrarVaga;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
@@ -166,6 +167,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
     private void exibirPerfil() {
         Intent intent = new Intent(getBaseContext(), PerfilEmp.class);
         startActivity(intent);
+        finish();
     }
     private void exibirConfiguracoes() {
         Intent intent = new Intent(getBaseContext(), ActEditarEmpregador.class);
@@ -173,7 +175,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
     }
 
     private void exibirNotificacoes() {
-        Intent intent = new Intent(getBaseContext(), ActNotifEmpregador.class);
+        Intent intent = new Intent(getBaseContext(), ActNovasNotificacoes.class);
         startActivity(intent);
     }
 

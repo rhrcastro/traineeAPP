@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 51;
+    private static final int DATABASE_VERSION = 52;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -64,6 +64,15 @@ public  class Database extends SQLiteOpenHelper {
                 "id_vaga integer NOT NULL," +
                 "mensagem text NOT NULL," +
                 "is_empregador integer NOT NULL," + "fotorementente blob NOT NULL);");
+
+        db.execSQL("CREATE TABLE notificacoes(" +
+                "id integer PRIMARY KEY AUTOINCREMENT," +
+                "mensagem text NOT NULL," +
+                "id_pessoa_envia integer," +
+                "id_pessoa_recebe integer," +
+                "id_empregador_envia integer," +
+                "id_empregador_recebe integer," +
+                "id_vaga integer);");
     }
 
     @Override

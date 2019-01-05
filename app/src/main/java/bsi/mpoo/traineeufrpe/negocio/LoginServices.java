@@ -28,7 +28,7 @@ public class LoginServices {
         Estagiario estagiario = this.estagiarioDAO.getEstagiarioByEmaileSenha(email, senha, trainee.getContext());
         if (estagiario != null) {
             estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), trainee.getContext()));
-            Pessoa pessoa = this.pessoaDAO.getIdEstagiario(estagiario.getId());
+            Pessoa pessoa = this.pessoaDAO.getPessoaByIdEstagiario(estagiario.getId());
             pessoa.setEstagiario(estagiario);
             this.iniciarSessao(pessoa, estagiario.getCurriculo());
             return true;

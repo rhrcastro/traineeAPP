@@ -6,7 +6,6 @@ import android.database.Cursor;
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
@@ -26,6 +25,7 @@ public class InscricaoServices {
     private EstagiarioDAO estagiarioDAO;
     private PessoaDAO pessoaDAO;
     private CurriculoDAO curriculoDAO;
+    private Context mContext;
 
     private final int COLUMN_ID = 0;
     private final int COLUMN_ID_VAGA = 1;
@@ -42,6 +42,7 @@ public class InscricaoServices {
         estagiarioDAO = new EstagiarioDAO(context);
         pessoaDAO = new PessoaDAO(context);
         curriculoDAO = new CurriculoDAO(context);
+        mContext = context;
 
     }
 
@@ -59,13 +60,13 @@ public class InscricaoServices {
         while (data.moveToNext()){
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
-            inscricao.setVaga(vagaDAO.getId(data.getLong(COLUMN_ID_VAGA), context));
+            inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
             inscricao.setEmpregador(empregadorDAO
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), context));
             estagiario = estagiarioDAO
                     .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
             if (estagiario != null) {
-                Pessoa pessoa = pessoaDAO.getIdEstagiario(estagiario.getId());
+                Pessoa pessoa = pessoaDAO.getPessoaByIdEstagiario(estagiario.getId());
                 estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
                 pessoa.setEstagiario(estagiario);
                 inscricao.setPessoa(pessoa);
@@ -83,13 +84,13 @@ public class InscricaoServices {
         while (data.moveToNext()){
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
-            inscricao.setVaga(vagaDAO.getId(data.getLong(COLUMN_ID_VAGA), context));
+            inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
             inscricao.setEmpregador(empregadorDAO
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), context));
             estagiario = estagiarioDAO
                     .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
             if (estagiario != null) {
-                Pessoa pessoa = pessoaDAO.getIdEstagiario(estagiario.getId());
+                Pessoa pessoa = pessoaDAO.getPessoaByIdEstagiario(estagiario.getId());
                 estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
                 pessoa.setEstagiario(estagiario);
                 inscricao.setPessoa(pessoa);
@@ -128,13 +129,13 @@ public class InscricaoServices {
         while (data.moveToNext()){
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
-            inscricao.setVaga(vagaDAO.getId(data.getLong(COLUMN_ID_VAGA), context));
+            inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
             inscricao.setEmpregador(empregadorDAO
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), context));
             estagiario = estagiarioDAO
                     .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
             if (estagiario != null) {
-                Pessoa pessoa = pessoaDAO.getIdEstagiario(estagiario.getId());
+                Pessoa pessoa = pessoaDAO.getPessoaByIdEstagiario(estagiario.getId());
                 estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
                 pessoa.setEstagiario(estagiario);
                 inscricao.setPessoa(pessoa);
@@ -153,6 +154,34 @@ public class InscricaoServices {
             return status;
         }
         return "aberta";
+    }
+
+    public ControladorVaga getInscricaoByPessoaAndVaga(Pessoa pessoa, Vaga vaga){
+        Cursor data = inscricaoDAO.getInscricaoByEstagiarioAndVaga(pessoa.getId(), vaga.getId());
+        ControladorVaga inscricao;
+        if (data != null && data.moveToFirst()) {
+            inscricao = new ControladorVaga();
+            inscricao.setId(data.getLong(COLUMN_ID));
+            inscricao.setVaga(vaga);
+            inscricao.setEmpregador(empregadorDAO
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), mContext));
+            inscricao.setPessoa(pessoa);
+            inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
+            inscricao.setStatus(data.getString(COLUMN_STATUS));
+            return inscricao;
+        }
+        return null;
+    }
+
+    public ArrayList<Empregador> getEmpresasByPessoa(Pessoa pessoa){
+        ArrayList<Empregador> empresas = new ArrayList<>();
+        Cursor data = inscricaoDAO.getInscricaoByEstagiario(pessoa.getId());
+        Empregador empregador;
+        while (data.moveToNext()) {
+            empregador = empregadorDAO
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), mContext);
+            empresas.add(empregador);
+        } return empresas;
     }
 
     public void setStatusInscricaoByEstagiarioAndVaga(ControladorVaga controladorVaga){

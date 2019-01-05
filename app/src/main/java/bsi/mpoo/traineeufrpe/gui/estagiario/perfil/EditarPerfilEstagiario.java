@@ -29,12 +29,17 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
+import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
+import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
+import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
 
 public class EditarPerfilEstagiario extends AppCompatActivity {
 
@@ -50,6 +55,8 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
     private EditText editEmail;
     private String emailTemp;
     private LoginServices loginServices = new LoginServices(EditarPerfilEstagiario.this);
+    private NovaNotificacoesServices novaNotificacoesServices = new NovaNotificacoesServices(EditarPerfilEstagiario.this);
+    private InscricaoServices inscricaoServices = new InscricaoServices(EditarPerfilEstagiario.this);
     private ImageView imgPerfil;
     private final int novaImagem = 1;
     private static final int PERMISSION_REQUEST = 0;
@@ -263,8 +270,20 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
             pessoa.getEstagiario().getCurriculo().setCurso(editCurso.getText().toString().trim());
             pessoa.getEstagiario().getCurriculo().setInstituicao(editInstituicao.getText().toString().trim());
             loginServices.alterarDadosEstagiario(pessoa);
+            enviarNotificacaoParaEmpregador(pessoa);
             Toast.makeText(this, "Dados alterados com sucesso", Toast.LENGTH_SHORT).show();
             sair();
+        }
+    }
+
+    private void enviarNotificacaoParaEmpregador(Pessoa pessoa) {
+        NovaNofificacoes novaNofificacoes = new NovaNofificacoes();
+        novaNofificacoes.setMensagem("Alterou dados do perfil.");
+        novaNofificacoes.setPessoaEnvia(pessoa);
+        ArrayList<Empregador> empresasAInformar = inscricaoServices.getEmpresasByPessoa(pessoa);
+        for (Empregador e : empresasAInformar){
+            novaNofificacoes.setEmpregadorRecebe(e);
+            novaNotificacoesServices.enviar4Empregador(novaNofificacoes);
         }
     }
 
