@@ -89,7 +89,7 @@ public class FragmentCadastroEmpregador extends Fragment {
             return;
         }
         EmpregadorServices empregadorServices = new EmpregadorServices(getContext());
-        if (empregadorServices.cadastrarEmpregador(this.criarEmpregador(), getActivity())) {
+        if (empregadorServices.cadastrarEmpregador(this.criarEmpregador())) {
             Toast.makeText(getContext(), "Conta criada com sucesso", Toast.LENGTH_SHORT).show();
             Intent abreTelaEmpregador = new Intent(getActivity(), ActEmpregadorPrincipal.class);
             startActivity(abreTelaEmpregador);

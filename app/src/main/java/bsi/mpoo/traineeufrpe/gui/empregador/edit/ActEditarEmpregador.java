@@ -275,7 +275,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
         if (ValidacaoGUI.isEmailInvalido(email)){
             edtEmailEmpregador.setError("E-mail inválido");
             return false;
-        } else if (!emailTempEmpregador.equals(email) && empregadorServices.isEmailCadastrado(email, this)){
+        } else if (!emailTempEmpregador.equals(email) && empregadorServices.isEmailCadastrado(email)){
             edtEmailEmpregador.setError("E-mail já cadastrado");
             return false;
         }

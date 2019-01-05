@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.persistencia.NovaNotificacoesDAO;
 import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
@@ -25,14 +26,14 @@ public class NovaNotificacoesServices {
     private Context mContext;
     private NovaNotificacoesDAO novaNotificacoesDAO;
     private VagaDAO vagaDAO;
-    private EmpregadorDAO empregadorDAO;
+    private EmpregadorServices empregadorServices;
     private EstagiarioServices estagiarioServices;
 
     public NovaNotificacoesServices(Context context) {
         this.mContext = context;
         this.novaNotificacoesDAO = new NovaNotificacoesDAO(context);
         this.vagaDAO = new VagaDAO(context);
-        this.empregadorDAO = new EmpregadorDAO(context);
+        this.empregadorServices = new EmpregadorServices(context);
         this.estagiarioServices = new EstagiarioServices(context);
     }
 
@@ -62,8 +63,8 @@ public class NovaNotificacoesServices {
             notificacao = new NovaNofificacoes();
             notificacao.setPessoaEnvia(estagiarioServices
                     .getPessoaCompleta(data.getLong(COLUMN_ID_PESSOA_ENVIA)));
-            notificacao.setEmpregadorRecebe(empregadorDAO.
-                    getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR_RECEBE), mContext));
+            notificacao.setEmpregadorRecebe(empregadorServices.
+                    getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR_RECEBE)));
             notificacao.setMensagem(data.getString(COLUMN_MENSAGEM));
             if (!data.isNull(COLUMN_ID_VAGA)){
                 notificacao.setVagaRelacionada(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), mContext));
@@ -78,8 +79,8 @@ public class NovaNotificacoesServices {
         Cursor data = novaNotificacoesDAO.getNotificacoes4Empregador(estagiario.getId());
         while (data.moveToNext()){
             notificacao = new NovaNofificacoes();
-            notificacao.setEmpregadorEnvia(empregadorDAO
-                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR_ENVIA), mContext));
+            notificacao.setEmpregadorEnvia(empregadorServices
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR_ENVIA)));
             notificacao.setPessoaRecebe(estagiarioServices
                     .getPessoaCompleta(data.getLong(COLUMN_ID_PESSOA_RECEBE)));
             notificacao.setMensagem(data.getString(COLUMN_MENSAGEM));
@@ -88,5 +89,9 @@ public class NovaNotificacoesServices {
             }
             listagem.add(notificacao);
         } return listagem;
+    }
+
+    public void delNotificacoesVagaParaEmpregador(long idVaga, long idEmpregador){
+        novaNotificacoesDAO.delNotificacaoVagaParaEmpregador(idEmpregador, idVaga);
     }
 }

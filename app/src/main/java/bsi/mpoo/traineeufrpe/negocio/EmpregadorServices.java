@@ -5,75 +5,107 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.infra.app.TraineeApp;
 
 public class EmpregadorServices {
+
+    Context mContext;
     private EmpregadorDAO empregadorDAO;
-    private TraineeApp traineeApp;
+
+    private final int COLUMN_ID = 0;
+    private final int COLUMN_NOME = 1;
+    private final int COLUMN_EMAIL = 2;
+    private final int COLUMN_CNPJ = 3;
+    private final int COLUMN_SENHA = 4;
+    private final int COLUMN_CIDADE = 5;
+    private final int COLUMN_FOTO = 6;
+
     public EmpregadorServices(Context context) {
+        mContext = context;
         empregadorDAO = new EmpregadorDAO(context);
     }
 
-    public boolean logarEmpregador(Empregador empregador) {
-        Empregador empregadorLogin = this.empregadorDAO.getEmpregadorByEmaileSenha(empregador.getEmail(), empregador.getSenha(), traineeApp.getContext());
-        boolean taLogado = false;
-        if (empregadorLogin != null) {
-            Empregador empregado = this.empregadorDAO.getEmpregadorById(empregadorLogin.getId(), traineeApp.getContext());
-            this.iniciarSessaoEmpregador(empregado);
-            taLogado = true;
-        }
-        return taLogado;
+    public Empregador getEmpregadorByEmailAndSenha(String email, String senha) {
+        Cursor data = empregadorDAO.getEmpregadorByEmaileSenha(email, senha);
+        if (data != null && data.moveToFirst()) {
+            Empregador empregador = new Empregador();
+            empregador.setId(data.getLong(COLUMN_ID));
+            empregador.setNome(data.getString(COLUMN_NOME));
+            empregador.setEmail(data.getString(COLUMN_EMAIL));
+            empregador.setCnpj(data.getString(COLUMN_CNPJ));
+            empregador.setSenha(data.getString(COLUMN_SENHA));
+            empregador.setCidade(data.getString(COLUMN_CIDADE));
+            empregador.setFoto(data.getBlob(COLUMN_FOTO));
+            data.close();
+            return empregador;
+        } return null;
     }
-    public void iniciarSessaoEmpregador(Empregador empregador) {
-        SessaoEmpregador.instance.setEmpregador(empregador);
+
+    public Empregador getEmpregadorByEmail(String email) {
+        Cursor data = empregadorDAO.getEmpregadorByEmail(email);
+        if (data != null && data.moveToFirst()) {
+            Empregador empregador = new Empregador();
+            empregador.setId(data.getLong(COLUMN_ID));
+            empregador.setNome(data.getString(COLUMN_NOME));
+            empregador.setEmail(data.getString(COLUMN_EMAIL));
+            empregador.setCnpj(data.getString(COLUMN_CNPJ));
+            empregador.setSenha(data.getString(COLUMN_SENHA));
+            empregador.setCidade(data.getString(COLUMN_CIDADE));
+            empregador.setFoto(data.getBlob(COLUMN_FOTO));
+            data.close();
+            return empregador;
+        } return null;
     }
-    public boolean cadastrarEmpregador(Empregador empregador, Context context) {
-        if (verificarEmail(empregador.getEmail(), context)) {
-            return false;
-        } else {
+
+    public Empregador getEmpregadorById(long id) {
+        Cursor data = empregadorDAO.getEmpregadorById(id);
+        if (data != null && data.moveToFirst()) {
+            Empregador empregador = new Empregador();
+            empregador.setId(data.getLong(COLUMN_ID));
+            empregador.setNome(data.getString(COLUMN_NOME));
+            empregador.setEmail(data.getString(COLUMN_EMAIL));
+            empregador.setCnpj(data.getString(COLUMN_CNPJ));
+            empregador.setSenha(data.getString(COLUMN_SENHA));
+            empregador.setCidade(data.getString(COLUMN_CIDADE));
+            empregador.setFoto(data.getBlob(COLUMN_FOTO));
+            data.close();
+            return empregador;
+        } return null;
+    }
+
+    public boolean cadastrarEmpregador(Empregador empregador) {
+        if (!this.isEmailCadastrado(empregador.getEmail())) {
             long result = this.empregadorDAO.inserirEmpregador(empregador);
             empregador.setId(result);
             this.iniciarSessaoEmpregador(empregador);
             return true;
-        }
-
+        } return false;
     }
-    private boolean verificarEmail(String email,Context context) {
-        Empregador empregadorEmail = this.empregadorDAO.getEmpregadorByEmail(email, context);
-        if (empregadorEmail != null) {
+
+    public boolean logarEmpregador(Empregador empregadorLogin) {
+        Empregador empregador = getEmpregadorByEmailAndSenha
+                (empregadorLogin.getEmail(), empregadorLogin.getSenha());
+        if (empregador != null) {
+            this.iniciarSessaoEmpregador(empregador);
             return true;
-        }
-        return false;
+        } return false;
     }
-    public ArrayList<String> getListaNomeEmpresa(){
-        ArrayList<String> listaNomeEmpresa = new ArrayList<String>();
-        Cursor data = this.empregadorDAO.getData();
-        while (data.moveToNext()){
-            listaNomeEmpresa.add(data.getString(1));
-        }
 
-        return listaNomeEmpresa;
+    public void iniciarSessaoEmpregador(Empregador empregador) {
+        SessaoEmpregador.instance.setEmpregador(empregador);
     }
-    public int getIdEmpresa(String name){
-        int idempresa = 0;
-        Cursor data = this.empregadorDAO.getId(name);
-        while (data.moveToNext()){
-            idempresa = data.getInt(0);
-        }
-        return idempresa;
+
+    public boolean isEmailCadastrado(String email) {
+        Cursor data = empregadorDAO.getEmpregadorByEmail(email);
+        return ((data != null) && (data.getCount() > 0));
     }
+
     public void alterarFotoEmpregador(Empregador empregador) {
         empregadorDAO.mudarFoto(empregador);
     }
-    public boolean isEmailCadastrado(String email, Context context) {
-        Empregador empregadorEmail = this.empregadorDAO.getEmpregadorByEmail(email,context);
-        return (empregadorEmail != null);
-    }
+
     public void alterarDadosEmpregador(Empregador empregador){
         empregadorDAO.mudarNomeEmpregador(empregador);
         empregadorDAO.mudarEmailEmpregador(empregador);

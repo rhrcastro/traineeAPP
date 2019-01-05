@@ -30,39 +30,6 @@ public class InscricaoDAO {
         return resultado;
     }
 
-    public ControladorVaga criarObjetoInscricao(Cursor cursor, Context context){
-        int indexId = cursor.getColumnIndex("id");
-        long id = cursor.getLong(indexId);
-        int indexIdVaga = cursor.getColumnIndex("id_vaga");
-        long id_vaga = cursor.getLong(indexIdVaga);
-        int indexIdEmpregador = cursor.getColumnIndex("id_empregador");
-        long id_empregador = cursor.getLong(indexIdEmpregador);
-        int indexIdEstagiario = cursor.getColumnIndex("id_estagiario");
-        long id_estagiario = cursor.getLong(indexIdEstagiario);
-        int indexIdHora = cursor.getColumnIndex("hora_inscricao");
-        long horaInscricao = cursor.getLong(indexIdHora);
-        int indexDataIns = cursor.getColumnIndex("data_inscricao");
-        long data = cursor.getLong(indexDataIns);
-        int indexStatus = cursor.getColumnIndex("status");
-        String status = cursor.getString(indexStatus);
-        ControladorVaga inscricao = new ControladorVaga();
-        VagaDAO vagaDAO = new VagaDAO(context);
-        EmpregadorDAO empregadorDAO = new EmpregadorDAO(context);
-        PessoaDAO pessoaDAO = new PessoaDAO(context);
-        CurriculoDAO curriculoDAO = new CurriculoDAO(context);
-        EstagiarioDAO estagiarioDAO = new EstagiarioDAO(context);
-        inscricao.setVaga(vagaDAO.getVagaById(id_vaga, context));
-        Pessoa pessoa = pessoaDAO.getPessoaByIdEstagiario(id_estagiario);
-        Estagiario estagiario = estagiarioDAO.getEstagiarioById(id_estagiario, context);
-        estagiario.setCurriculo(curriculoDAO.getIdCurriculo(estagiario.getId(), context));
-        pessoa.setEstagiario(estagiario);
-        inscricao.setPessoa(pessoa);
-        inscricao.setEmpregador(empregadorDAO.getEmpregadorById(id_empregador, context));
-        inscricao.setHoraInscricao(data);
-        inscricao.setStatus(status);
-        return inscricao;
-    }
-
     public Cursor getInscricaoByEmpregador(long id){
         SQLiteDatabase bancoLeitura = bancoDados.getReadableDatabase();
         String query =  "SELECT * FROM controlador_vaga " +

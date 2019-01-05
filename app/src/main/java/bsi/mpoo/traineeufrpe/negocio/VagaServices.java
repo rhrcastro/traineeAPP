@@ -13,7 +13,7 @@ import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
 public class VagaServices {
     private VagaDAO vagaDAO;
-    private EmpregadorDAO empregadorDAO;
+    private EmpregadorServices empregadorServices;
     public VagaServices(Context context) {
         vagaDAO = new VagaDAO(context);
     }
@@ -40,7 +40,7 @@ public class VagaServices {
         Cursor data = this.vagaDAO.getAllDataOrderByDate();
         Vaga vaga;
         Empregador empregador;
-        empregadorDAO = new EmpregadorDAO(context);
+        empregadorServices = new EmpregadorServices(context);
         while (data.moveToNext()) {
             vaga = new Vaga();
             vaga.setId(data.getLong(0));
@@ -51,7 +51,7 @@ public class VagaServices {
             vaga.setObs(data.getString(5));
             vaga.setDataCriacao(data.getLong(7));
             vaga.setHorario(data.getString(8));
-            empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
+            empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
         }
@@ -63,7 +63,7 @@ public class VagaServices {
         Cursor data = this.vagaDAO.getAllDataOrderByName();
         Vaga vaga;
         Empregador empregador;
-        empregadorDAO = new EmpregadorDAO(context);
+        empregadorServices = new EmpregadorServices(context);
         while (data.moveToNext()) {
             vaga = new Vaga();
             empregador = new Empregador();
@@ -75,7 +75,7 @@ public class VagaServices {
             vaga.setObs(data.getString(5));
             vaga.setDataCriacao(data.getLong(7));
             vaga.setHorario(data.getString(8));
-            empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
+            empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
         }
@@ -87,7 +87,7 @@ public class VagaServices {
         Cursor data = this.vagaDAO.getAllDataByArea(area);
         Vaga vaga;
         Empregador empregador;
-        empregadorDAO = new EmpregadorDAO(context);
+        empregadorServices = new EmpregadorServices(context);
         while (data.moveToNext()) {
             vaga = new Vaga();
             empregador = new Empregador();
@@ -99,7 +99,7 @@ public class VagaServices {
             vaga.setObs(data.getString(5));
             vaga.setDataCriacao(data.getLong(7));
             vaga.setHorario(data.getString(8));
-            empregador = empregadorDAO.getEmpregadorById(data.getLong(6), context);
+            empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
         }

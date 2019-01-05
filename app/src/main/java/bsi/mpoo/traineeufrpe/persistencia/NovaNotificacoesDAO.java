@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import bsi.mpoo.traineeufrpe.dominio.Notifications;
 import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
@@ -70,11 +69,19 @@ public class NovaNotificacoesDAO {
         db.execSQL(query);
     }
 
-    public void deletarNotificacaoSobreVaga(long idEmpregadorRecebe, long idVaga){
+    public void delNotificacaoVagaParaEstagiario(long idEmpregadorEnvia, long idVaga){
         SQLiteDatabase db =  bancoDados.getWritableDatabase();
         String query = "DELETE FROM notificacoes " +
                 "WHERE id_vaga = " + String.valueOf(idVaga) +
-                " AND id_empregador_recebe = " + String.valueOf(idEmpregadorRecebe);
+                " AND id_empregador_envia = " + String.valueOf(idEmpregadorEnvia);
+        db.execSQL(query);
+    }
+
+    public void delNotificacaoVagaParaEmpregador(long idPessoaEnvia, long idVaga){
+        SQLiteDatabase db =  bancoDados.getWritableDatabase();
+        String query = "DELETE FROM notificacoes " +
+                "WHERE id_vaga = " + String.valueOf(idVaga) +
+                " AND id_pessoa_envia = " + String.valueOf(idPessoaEnvia);
         db.execSQL(query);
     }
 }

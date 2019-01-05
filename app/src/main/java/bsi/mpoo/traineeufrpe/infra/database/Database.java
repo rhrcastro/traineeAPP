@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 52;
+    private static final int DATABASE_VERSION = 53;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -57,14 +57,6 @@ public  class Database extends SQLiteOpenHelper {
                 "data_inscricao integer NOT NULL," +
                 "status text NOT NULL);");
 
-        db.execSQL("CREATE TABLE notificacao(" +
-                "id integer PRIMARY KEY AUTOINCREMENT," +
-                "id_remetente integer NOT NULL," +
-                "id_destinatario integer NOT NULL," +
-                "id_vaga integer NOT NULL," +
-                "mensagem text NOT NULL," +
-                "is_empregador integer NOT NULL," + "fotorementente blob NOT NULL);");
-
         db.execSQL("CREATE TABLE notificacoes(" +
                 "id integer PRIMARY KEY AUTOINCREMENT," +
                 "mensagem text NOT NULL," +
@@ -83,9 +75,10 @@ public  class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE empregador");
         db.execSQL("DROP TABLE  vaga");
         db.execSQL("DROP TABLE controlador_vaga");
-        db.execSQL("DROP TABLE  notificacao");
+        db.execSQL("DROP TABLE  notificacoes");
         onCreate(db);
     }
+
     public SQLiteDatabase getBancoLeitura(Context context){
         SQLiteDatabase bancoDados = this.getReadableDatabase();
         return bancoDados;
@@ -95,7 +88,4 @@ public  class Database extends SQLiteOpenHelper {
         SQLiteDatabase bancoDados = this.getWritableDatabase();
         return bancoDados;
     }
-
-
-
 }

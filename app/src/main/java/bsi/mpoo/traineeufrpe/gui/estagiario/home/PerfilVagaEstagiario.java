@@ -1,9 +1,7 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.home;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,15 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
-import bsi.mpoo.traineeufrpe.dominio.Notifications;
-import bsi.mpoo.traineeufrpe.negocio.NotificationServices;
+import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
 
 public class PerfilVagaEstagiario extends AppCompatActivity {
 
@@ -32,11 +28,12 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     private TextView txtRequisitos;
     private TextView txtObservacoes;
     private TextView txtValorBolsa;
+    private TextView txtCampoTurno;
     private ImageView imgEmpresa;
     Button queroCandidatar;
 
     InscricaoServices inscricaoServices;
-    NotificationServices notificationServices;
+    NovaNotificacoesServices notificationServices;
 
     boolean status;
 
@@ -49,6 +46,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         txtArea = findViewById(R.id.txt_area_vaga);
         txtRequisitos = findViewById(R.id.txtRequisitos);
         txtObservacoes = findViewById(R.id.txtObservacoes);
+        txtCampoTurno = findViewById(R.id.campo_turno);
         txtValorBolsa = findViewById(R.id.txtValorBolsa);
         imgEmpresa = findViewById(R.id.imgEmpresa);
         queroCandidatar = findViewById(R.id.btnQueroCandidatar);
@@ -69,6 +67,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         String area = vaga.getArea();
         String obs = vaga.getObs();
         String req = vaga.getRequisito();
+        String horario = vaga.getHorario();
         String nome_empregador = vaga.getEmpregador().getNome();
         byte[] imgBits = vaga.getEmpregador().getFoto();
         Bitmap imagem = BitmapFactory.decodeByteArray(imgBits, 0, imgBits.length);
@@ -80,15 +79,16 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         txtRequisitos.setText(req);
         txtObservacoes.setText(obs);
         txtValorBolsa.setText(bolsa);
+        txtCampoTurno.setText(horario);
     }
 
     private void criarInscricao(){
         inscricaoServices = new InscricaoServices(this);
+        notificationServices = new NovaNotificacoesServices(this);
         if (status) {
             Pessoa remetente = SessaoEstagiario.instance.getPessoa();
             inscricaoServices.delInscricao(vaga.getId(), remetente.getId());
-            notificationServices = new NotificationServices(this);
-            notificationServices.delNotificacao(vaga.getId(), remetente.getId(), this);
+            notificationServices.delNotificacoesVagaParaEmpregador(vaga.getId(), remetente.getId());
             Toast.makeText(getBaseContext(), "Inscrição cancelada com sucesso", Toast.LENGTH_SHORT).show();
             this.status = mudaBotao(status);
         } else {
@@ -98,33 +98,21 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
             inscricao.setPessoa(SessaoEstagiario.instance.getPessoa());
             inscricao.setStatus("concorrendo");
             inscricaoServices.cadastrarInscricao(inscricao, this);
-            enviarNotificacao(criarNotificacao(inscricao));
+            enviarNotificacao4Empregador(inscricao);
+            this.status = mudaBotao(status);
         }
     }
 
-    private void enviarNotificacao(Notifications notification) {
-        notificationServices = new NotificationServices(this);
-        notificationServices.enviar(notification);
-        this.status = mudaBotao(status);
-        Toast.makeText(getBaseContext(), "Inscrição realizada com sucesso", Toast.LENGTH_SHORT).show();
+    private void enviarNotificacao4Empregador(ControladorVaga inscricao){
+        NovaNofificacoes novaNofificacoes = new NovaNofificacoes();
+        novaNofificacoes.setPessoaEnvia(inscricao.getPessoa());
+        novaNofificacoes.setEmpregadorRecebe(inscricao.getEmpregador());
+        String nomeVaga = inscricao.getVaga().getNome();
+        novaNofificacoes.setMensagem("está inscrito em sua vaga " + nomeVaga + ".");
+        novaNofificacoes.setVagaRelacionada(inscricao.getVaga());
+        notificationServices.enviar4Empregador(novaNofificacoes);
     }
 
-    private Notifications criarNotificacao(ControladorVaga inscricao){
-        Notifications notifications = new Notifications();
-        Pessoa remetente = new Pessoa();
-        Empregador destinatario = new Empregador();
-        destinatario = inscricao.getEmpregador();
-        remetente = SessaoEstagiario.instance.getPessoa();
-        notifications.setIdRemetente(remetente.getEstagiario().getId());
-        notifications.setIdVaga(vaga.getId());
-        notifications.setIdDestinatario(destinatario.getId());
-        notifications.setMensagem(" se inscreveu na sua vaga:  ");
-        notifications.setNomeRemetente(remetente.getNome());
-        notifications.setNomeDestinatario(destinatario.getNome());
-        notifications.setFotoEstagiario(remetente.getEstagiario().getFoto());
-        notifications.setIsEmpregador(true);
-        return notifications;
-    }
 
     private boolean mudaBotao(boolean jaCadastrado){
         if (!jaCadastrado) {

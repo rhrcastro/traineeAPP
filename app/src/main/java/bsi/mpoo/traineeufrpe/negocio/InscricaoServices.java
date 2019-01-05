@@ -21,7 +21,7 @@ import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 public class InscricaoServices {
     private InscricaoDAO inscricaoDAO;
     private VagaDAO vagaDAO;
-    private EmpregadorDAO empregadorDAO;
+    private EmpregadorServices empregadorServices;
     private EstagiarioDAO estagiarioDAO;
     private PessoaDAO pessoaDAO;
     private CurriculoDAO curriculoDAO;
@@ -38,7 +38,7 @@ public class InscricaoServices {
     public InscricaoServices(Context context) {
         inscricaoDAO = new InscricaoDAO(context);
         vagaDAO = new VagaDAO(context);
-        empregadorDAO = new EmpregadorDAO(context);
+        empregadorServices = new EmpregadorServices(context);
         estagiarioDAO = new EstagiarioDAO(context);
         pessoaDAO = new PessoaDAO(context);
         curriculoDAO = new CurriculoDAO(context);
@@ -61,8 +61,8 @@ public class InscricaoServices {
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
             inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
-            inscricao.setEmpregador(empregadorDAO
-                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), context));
+            inscricao.setEmpregador(empregadorServices
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             estagiario = estagiarioDAO
                     .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
             if (estagiario != null) {
@@ -85,8 +85,8 @@ public class InscricaoServices {
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
             inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
-            inscricao.setEmpregador(empregadorDAO
-                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), context));
+            inscricao.setEmpregador(empregadorServices
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             estagiario = estagiarioDAO
                     .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
             if (estagiario != null) {
@@ -130,8 +130,8 @@ public class InscricaoServices {
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
             inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
-            inscricao.setEmpregador(empregadorDAO
-                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), context));
+            inscricao.setEmpregador(empregadorServices
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             estagiario = estagiarioDAO
                     .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
             if (estagiario != null) {
@@ -163,8 +163,8 @@ public class InscricaoServices {
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
             inscricao.setVaga(vaga);
-            inscricao.setEmpregador(empregadorDAO
-                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), mContext));
+            inscricao.setEmpregador(empregadorServices
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             inscricao.setPessoa(pessoa);
             inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
             inscricao.setStatus(data.getString(COLUMN_STATUS));
@@ -178,8 +178,8 @@ public class InscricaoServices {
         Cursor data = inscricaoDAO.getInscricaoByEstagiario(pessoa.getId());
         Empregador empregador;
         while (data.moveToNext()) {
-            empregador = empregadorDAO
-                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR), mContext);
+            empregador = empregadorServices
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR));
             empresas.add(empregador);
         } return empresas;
     }

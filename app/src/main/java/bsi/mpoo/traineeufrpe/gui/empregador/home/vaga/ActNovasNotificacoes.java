@@ -7,12 +7,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.Notifications;
 import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
-import bsi.mpoo.traineeufrpe.gui.extra.AdapterNotificacoes;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterNovasNotificacoes;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
-import bsi.mpoo.traineeufrpe.negocio.NotificationServices;
 import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
 
 public class ActNovasNotificacoes extends AppCompatActivity {

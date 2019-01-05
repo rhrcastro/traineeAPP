@@ -183,7 +183,7 @@ public class EditarVaga extends AppCompatActivity {
         } else {
             skbAjusteBolsa.setProgress(0);
         }
-        if (vaga.getHorario().equals("não especificado")){
+        if (vaga.getHorario().equals("Não especificado")){
             checkHorario.setChecked(true);
         } else {
             turno = vaga.getHorario();

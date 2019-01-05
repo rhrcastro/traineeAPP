@@ -58,7 +58,6 @@
         <activity android:name=".gui.empregador.home.vaga.PerfilVagaEmpregador" />
         <activity android:name=".gui.empregador.home.vaga.EditarVaga" />
         <activity android:name=".gui.estagiario.home.PerfilVagaEstagiario" />
-        <activity android:name=".gui.empregador.home.ActNotifEmpregador" />
         <activity
             android:name=".gui.estagiario.perfil.ActExibirPerfilEstagiario"
             android:parentActivityName=".gui.estagiario.home.ActEstagiarioPrincipal" />
