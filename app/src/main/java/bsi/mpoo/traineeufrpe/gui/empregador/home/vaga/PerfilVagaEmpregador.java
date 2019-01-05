@@ -1,10 +1,14 @@
 package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,23 +19,26 @@ import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class PerfilVagaEmpregador extends AppCompatActivity {
 
-    TextView NomeVagaPerfilEmp, BolsaPerfilVagaEmp, AreaPerfilVagaEmp, ObsPerfilVagaEmp, ReqPerfilVagaEmp, IdPerfilVagaEmp;
-    FloatingActionButton floatingActionEdit, floatingActionDelete;
+    TextView NomeVagaPerfilEmp, CampoEmpresa, BolsaPerfilVagaEmp, AreaPerfilVagaEmp, ObsPerfilVagaEmp, ReqPerfilVagaEmp;
+    ImageView imgEmpresa;
+    Button ActionEdit, ActionDelete;
     private VagaServices vagaServices = new VagaServices(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_vaga_empregador);
-        NomeVagaPerfilEmp = findViewById(R.id.NomeVagaPerfilEmp);
-        BolsaPerfilVagaEmp = findViewById(R.id.BolsaPerfilVagaEmp);
-        AreaPerfilVagaEmp = findViewById(R.id.AreaPerfilVagaEmp);
-        ObsPerfilVagaEmp = findViewById(R.id.ObsPerfilVagaEmp);
-        ReqPerfilVagaEmp = findViewById(R.id.ReqPerfilVagaEmp);
-        IdPerfilVagaEmp = findViewById(R.id.IdPerfilVagaEmp);
+        NomeVagaPerfilEmp = findViewById(R.id.txtTituloVaga);
+        CampoEmpresa = findViewById(R.id.campo_empresa);
+        imgEmpresa = findViewById(R.id.imgEmpresa);
+        BolsaPerfilVagaEmp = findViewById(R.id.txtValorBolsa);
+        AreaPerfilVagaEmp = findViewById(R.id.txt_area_vaga);
+        ObsPerfilVagaEmp = findViewById(R.id.txtObservacoes);
+        ReqPerfilVagaEmp = findViewById(R.id.txtRequisitos);
 
-        floatingActionEdit = findViewById(R.id.floatingActionEdit);
-        floatingActionEdit.setOnClickListener(new View.OnClickListener() {
+
+        ActionEdit = findViewById(R.id.btnEditar);
+        ActionEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent abreEdit = new Intent(PerfilVagaEmpregador.this, EditarVaga.class);
@@ -40,8 +47,8 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
             }
         });
 
-        floatingActionDelete = findViewById(R.id.floatingActionDelete);
-        floatingActionDelete.setOnClickListener(new View.OnClickListener() {
+        ActionDelete = findViewById(R.id.btnExcluir);
+        ActionDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 del();
@@ -58,18 +65,22 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
 
     private void pupular() {
         String nome = SessaoEmpregador.instance.getVaga().getNome();
-        String Bolsa = SessaoEmpregador.instance.getVaga().getBolsa();
+        String bolsa = SessaoEmpregador.instance.getVaga().getBolsa();
         String area = SessaoEmpregador.instance.getVaga().getArea();
         String obs = SessaoEmpregador.instance.getVaga().getObs();
         String req = SessaoEmpregador.instance.getVaga().getRequisito();
-        long id = SessaoEmpregador.instance.getVaga().getId();
+        String nome_empregador = SessaoEmpregador.instance.getEmpregador().getNome();
+        byte[] imgBits = SessaoEmpregador.instance.getEmpregador().getFoto();
+        Bitmap imagem = BitmapFactory.decodeByteArray(imgBits, 0, imgBits.length);
 
         NomeVagaPerfilEmp.setText(nome);
-        BolsaPerfilVagaEmp.setText(Bolsa);
+        CampoEmpresa.setText(nome_empregador);
+        BolsaPerfilVagaEmp.setText(bolsa);
         AreaPerfilVagaEmp.setText(area);
         ObsPerfilVagaEmp.setText(obs);
         ReqPerfilVagaEmp.setText(req);
-        IdPerfilVagaEmp.setText(id + "");
+        imgEmpresa.setImageBitmap(imagem);
+
 
     }
 
