@@ -69,7 +69,8 @@
         <activity
             android:name=".gui.estagiario.acesso.ActEsqueciSenhaEstagiario"
             android:parentActivityName=".gui.estagiario.acesso.ActCadastroLoginEstagiario" />
-        <activity android:name=".gui.estagiario.acesso.MudarSenhaEstagiario"></activity>
+        <activity android:name=".gui.estagiario.acesso.MudarSenhaEstagiario" />
+        <activity android:name=".gui.empregador.home.vaga.ActPerfilEstagiario4Empregador"></activity>
     </application>
 
 </manifest>

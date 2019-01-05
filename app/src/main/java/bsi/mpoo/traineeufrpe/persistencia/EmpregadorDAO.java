@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
+import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class EmpregadorDAO {
@@ -79,14 +81,6 @@ public class EmpregadorDAO {
         return this.carregarObjeto(query, args,context);
     }
 
-    public void mudarNomeEmpregador(Empregador empregador){
-        SQLiteDatabase db = bancoDados.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("nome", empregador.getNome());
-        db.update("empregador", values, "id = ?", new String[]{String.valueOf(empregador.getId())});
-
-    }
-
     public void deletarEmpregador(int id2){
         SQLiteDatabase db =  bancoDados.getWritableDatabase();
         String query = "DELETE FROM empregador " +
@@ -117,6 +111,18 @@ public class EmpregadorDAO {
         db.update("empregador", valores,"id = ?", new String[]{String.valueOf(empregador.getId())});
         db.close();
     }
-
-
+    public void mudarNomeEmpregador(Empregador empregador) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("nome", empregador.getNome());
+        db.update("empregador", valores,"id = ?", new String[]{String.valueOf(empregador.getId())});
+        db.close();
+    }
+    public void mudarEmailEmpregador(Empregador empregador) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("email", empregador.getEmail());
+        db.update("empregador", valores,"id = ?", new String[]{String.valueOf(empregador.getId())});
+        db.close();
+    }
 }

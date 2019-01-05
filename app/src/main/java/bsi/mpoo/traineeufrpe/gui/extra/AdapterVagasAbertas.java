@@ -13,8 +13,11 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.PerfilVagaEstagiario;
+import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
+import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 
 public class AdapterVagasAbertas extends BaseAdapter {
 
@@ -22,12 +25,16 @@ public class AdapterVagasAbertas extends BaseAdapter {
     LayoutInflater inflater;
     ArrayList<Vaga> listaVagas = new ArrayList<>();
     private ArrayList<Vaga> arrayVagas = new ArrayList<>();
+    InscricaoServices inscricaoServices;
+    Pessoa pessoa;
 
     public AdapterVagasAbertas(Context context, ArrayList<Vaga> arrayVagas) {
         mContext = context;
         inflater = LayoutInflater.from(mContext);
         this.arrayVagas.addAll(arrayVagas);
         this.listaVagas.addAll(arrayVagas);
+        inscricaoServices = new InscricaoServices(context);
+        pessoa = SessaoEstagiario.instance.getPessoa();
     }
 
     public class ViewHolder{
@@ -68,6 +75,10 @@ public class AdapterVagasAbertas extends BaseAdapter {
         holder.mTitulo.setText(listaVagas.get(position).getNome());
         holder.mNomeEmpresa.setText(listaVagas.get(position).getEmpregador().getNome());
         holder.mValorBolsa.setText(listaVagas.get(position).getBolsa());
+        holder.mTurno.setText(listaVagas.get(position).getHorario());
+        String status = inscricaoServices.getStatusInscricaoByEstagiarioAndVaga(pessoa,
+                listaVagas.get(position));
+        mudarFotoStatus(holder, status);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +89,24 @@ public class AdapterVagasAbertas extends BaseAdapter {
             }
         });
         return view;
+    }
+
+    private void mudarFotoStatus(ViewHolder holder, String status) {
+        if (!status.equals("aberta")) {
+            switch (status) {
+                case "concorrendo":
+                    holder.mImagem.setImageResource(R.drawable.concorrendo_v);
+                    break;
+                case "selecionado":
+                    holder.mImagem.setImageResource(R.drawable.selecionado_v);
+                    break;
+                case "dispensado":
+                    holder.mImagem.setImageResource(R.drawable.dispensado_v);
+                    break;
+            }
+        } else {
+            holder.mImagem.setImageResource(R.drawable.aberta_v);
+        }
     }
 
     public void filtro(String chartext){

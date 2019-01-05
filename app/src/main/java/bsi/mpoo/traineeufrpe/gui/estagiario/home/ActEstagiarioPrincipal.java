@@ -39,6 +39,7 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    static int tabSelect = 1;
 
 
     @Override
@@ -48,7 +49,7 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
 
         mTabLayout = (TabLayout)findViewById(R.id.tab_layoutTEP);
         mViewPager = (ViewPager)findViewById(R.id.view_pagerTEP);
-
+        mTabLayout.getTabAt(tabSelect);
         mViewPager.setAdapter(new MyFragmentPagerAdapterTelaEstagiarioPrincipal(getSupportFragmentManager(), getResources().getStringArray(R.array.tabsPrincipal)));
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.White));

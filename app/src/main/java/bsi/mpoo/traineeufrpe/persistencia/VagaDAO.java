@@ -30,6 +30,8 @@ public class VagaDAO {
         String obs = cursor.getString(indexObs);
         int indexData = cursor.getColumnIndex("data_criacao");
         long data = cursor.getLong(indexData);
+        int indexHorario = cursor.getColumnIndex("horario");
+        String horario = cursor.getString(indexHorario);
         Vaga vaga = new Vaga();
         vaga.setId(id);
         vaga.setNome(nome);
@@ -38,6 +40,7 @@ public class VagaDAO {
         vaga.setArea(area);
         vaga.setObs(obs);
         vaga.setDataCriacao(data);
+        vaga.setHorario(horario);
         return vaga;
     }
 
@@ -51,6 +54,7 @@ public class VagaDAO {
         valores.put("obs",vaga.getObs());
         valores.put("id_empregador",vaga.getEmpregador().getId());
         valores.put("data_criacao", System.currentTimeMillis());
+        valores.put("horario", vaga.getHorario());
         long resultado = escreverBanco.insert("vaga", null, valores);
         escreverBanco.close();
         return resultado;
@@ -152,6 +156,15 @@ public class VagaDAO {
         db.update("vaga", values, "id = ?", new String[]{String.valueOf(vaga.getId())});
 
     }
+
+    public void mudarHorarioVaga(Vaga vaga){
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("horario", vaga.getHorario());
+        db.update("vaga", values, "id = ?", new String[]{String.valueOf(vaga.getId())});
+
+    }
+
     public void deletarVaga(long id2){
         SQLiteDatabase db =  bancoDados.getWritableDatabase();
         String query = "DELETE FROM vaga " +

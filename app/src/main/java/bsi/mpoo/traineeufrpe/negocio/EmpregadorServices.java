@@ -5,6 +5,8 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
+import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
@@ -67,5 +69,13 @@ public class EmpregadorServices {
     }
     public void alterarFotoEmpregador(Empregador empregador) {
         empregadorDAO.mudarFoto(empregador);
+    }
+    public boolean isEmailCadastrado(String email, Context context) {
+        Empregador empregadorEmail = this.empregadorDAO.getEmpregadorByEmail(email,context);
+        return (empregadorEmail != null);
+    }
+    public void alterarDadosEmpregador(Empregador empregador){
+        empregadorDAO.mudarNomeEmpregador(empregador);
+        empregadorDAO.mudarEmailEmpregador(empregador);
     }
 }

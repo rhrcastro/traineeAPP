@@ -24,6 +24,7 @@ public class InscricaoDAO {
         valores.put("id_empregador", inscricao.getEmpregador().getId());
         valores.put("id_estagiario", inscricao.getPessoa().getId());
         valores.put("data_inscricao", System.currentTimeMillis());
+        valores.put("status", inscricao.getStatus());
         long resultado = escreverBranco.insert("controlador_vaga", null, valores);
         escreverBranco.close();
         return resultado;
@@ -42,6 +43,8 @@ public class InscricaoDAO {
         long horaInscricao = cursor.getLong(indexIdHora);
         int indexDataIns = cursor.getColumnIndex("data_inscricao");
         long data = cursor.getLong(indexDataIns);
+        int indexStatus = cursor.getColumnIndex("status");
+        String status = cursor.getString(indexStatus);
         ControladorVaga inscricao = new ControladorVaga();
         VagaDAO vagaDAO = new VagaDAO(context);
         EmpregadorDAO empregadorDAO = new EmpregadorDAO(context);
@@ -56,6 +59,7 @@ public class InscricaoDAO {
         inscricao.setPessoa(pessoa);
         inscricao.setEmpregador(empregadorDAO.getEmpregadorById(id_empregador, context));
         inscricao.setHoraInscricao(data);
+        inscricao.setStatus(status);
         return inscricao;
     }
 
@@ -103,5 +107,13 @@ public class InscricaoDAO {
         String query = "DELETE FROM controlador_vaga " +
                 "WHERE id_vaga = "+ String.valueOf(idVaga) + " AND id_estagiario = " + String.valueOf(idRemetente);
         db.execSQL(query);
+    }
+
+    public void mudarStatusInscricao(ControladorVaga controladorVaga) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("status", controladorVaga.getStatus());
+        db.update("controlador_vaga", valores,"id = ?", new String[]{String.valueOf(controladorVaga.getId())});
+        db.close();
     }
 }

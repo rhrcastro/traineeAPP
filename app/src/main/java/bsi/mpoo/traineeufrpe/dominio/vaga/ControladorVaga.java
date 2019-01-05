@@ -12,6 +12,7 @@ public class ControladorVaga {
     private Pessoa pessoa;
     private Empregador empregador;
     private long horaInscricao;
+    private String status;
     SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM' às 'HH:mm");
 
     public long getId() {
@@ -52,5 +53,13 @@ public class ControladorVaga {
 
     public void setHoraInscricao(long horaInscricao) {
         this.horaInscricao = horaInscricao;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

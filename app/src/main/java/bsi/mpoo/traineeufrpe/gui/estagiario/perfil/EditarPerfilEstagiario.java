@@ -189,7 +189,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     abrirCameraIntent();
                 } else {
-                    Toast.makeText(this, "Não vai funcionar!!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Erro: Permissão é necessária", Toast.LENGTH_LONG).show();
                 }
                 return;
             }

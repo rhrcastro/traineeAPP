@@ -93,4 +93,10 @@ public class FragmentVagasRecomendadas extends ListFragment
         return false;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        populate();
+    }
+
 }
