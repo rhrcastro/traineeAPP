@@ -13,7 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
-        android:text="O código de verificação foi enviado para o seu e-mail"
+        android:text="@string/codigo_verif_enviado"
         android:textColor="@color/colorTextDark"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +79,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="13dp"
-                android:text="Digite seu e-mail:"
+                android:text="@string/digite_email"
                 android:textColor="@color/colorTextDark"
                 android:textSize="26sp"
                 android:textStyle="bold" />
@@ -110,7 +110,7 @@
                 android:layout_marginEnd="99dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_button_green"
-                android:text="ENVIAR"
+                android:text="@string/enviar"
                 android:textColor="@color/White" />
 
         </RelativeLayout>
@@ -124,7 +124,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:visibility="invisible"
         app:cardCornerRadius="10dp"
         app:cardElevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +147,7 @@
 
                 <TextView
                     android:id="@+id/textView16"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -160,14 +159,14 @@
 
             <TextView
                 android:id="@+id/txtInformeCod"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="26dp"
-                android:text="Informe o código de verificação:"
+                android:layout_marginStart="66dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/informe_codigo_verif"
                 android:textColor="@color/colorTextDark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -184,7 +183,7 @@
                 android:layout_marginEnd="100dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/rounded_button_green"
-                android:text="PROSSEGUIR"
+                android:text="@string/prosseguir"
                 android:textColor="@color/White" />
 
             <EditText

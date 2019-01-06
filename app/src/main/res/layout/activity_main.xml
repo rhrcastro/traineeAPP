@@ -31,26 +31,30 @@
             <ViewFlipper
                 android:id="@+id/viewflip"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="match_parent"
+                tools:ignore="UselessParent">
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/acessibity_logo"
                     app:srcCompat="@drawable/gi3" />
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/acessibity_slide2"
                     app:srcCompat="@drawable/gi1" />
 
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@string/acessibity_slide3"
                     app:srcCompat="@drawable/gi2" />
+
             </ViewFlipper>
 
 
@@ -64,9 +68,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Olá,"
+        android:text="@string/txt_ola"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="italic" />
 
     <TextView
@@ -75,29 +79,29 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="quem é você?"
+        android:text="@string/txt_quem"
         android:textColor="@color/colorAccent"
-        android:textSize="18dp" />
+        android:textSize="18sp" />
 
     <Button
-        android:layout_width="250dp"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="center"
-        android:background="@drawable/roundbutton"
         android:id="@+id/butEstagiario"
-        android:layout_height="wrap_content"
-        android:text="Estagiário"
-        android:textColor="@color/White"/>
-
-    <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="40dp"
         android:background="@drawable/roundbutton"
+        android:text="@string/btn_estagiario"
+        android:textColor="@color/White" />
+
+    <Button
         android:id="@+id/butEmpregador"
-        android:text="Empregador"
-        android:textColor="@color/White"/>
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/roundbutton"
+        android:text="@string/btn_empregador"
+        android:textColor="@color/White" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -110,23 +114,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Deseja falar conosco?"
+            android:text="@string/txt_contato"
             android:textColor="@color/colorHint"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/contato2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="2dp"
-            android:text="Clique Aqui"
+            android:layout_marginStart="5dp"
+            android:text="@string/txt_click"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
-
-
-
 
 </LinearLayout>

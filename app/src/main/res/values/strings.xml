@@ -12,6 +12,80 @@
     <string name="aberto">Aberto</string>
     <string name="fechado">Fechado</string>
     <string name="search_hint">Pesquisar</string>
+    <string name="candidatar">QUERO ME CANDIDATAR</string>
+    <string name="cancelar_inscricao">CANCELAR INSCRIÇÃO</string>
+
+    <string name="codigo_verif_enviado">O código de verificação foi enviado para o seu e-mail</string>
+    <string name="informe_codigo_verif">Informe o código de verificação:</string>
+    <string name="digite_email">"Digite o seu e-mail:</string>
+    <string name="enviar">"ENVIAR"</string>
+    <string name="prosseguir">"PROSSEGUIR"</string>
+
+    <string name="hint_nome_pessoa">Nome Completo</string>
+    <string name="hint_nome_empresa">Nome da Empresa</string>
+    <string name="hint_email">"Informe seu e-mail aqui"</string>
+    <string name="hint_curso">Curso</string>
+    <string name="hint_instituicao">Instituição de Ensino</string>
+    <string name="hint_titulo_vaga">Título da Vaga</string>
+    <string name="hint_area_vaga">Selecione a área da vaga</string>
+    <string name="hint_requisitos_vaga">Descreva aqui os requisitos da vaga.</string>
+    <string name="hint_observacoes_vaga">Forneça mais informações sobre esta vaga.</string>
+
+
+
+    <string name="rotulo_requisitos_vaga">Requisitos</string>
+    <string name="rotulo_observacoes_vaga">Observações</string>
+    <string name="rotulo_horario">Horário</string>
+
+    <string name="horario_as">às</string>
+
+
+    <string name="txt_ola">Olá,</string>
+    <string name="txt_quem">quem é você?</string>
+    <string name="txt_valor_bolsa">Valor da Bolsa</string>
+    <string name="txt_a_combinar">A combinar</string>
+    <string name="txt_simbolo_moeda">R$</string>
+    <string name="txt_valor_maximo">2000+</string>
+    <string name="txt_contato">Deseja falar conosco?</string>
+    <string name="txt_click">Clique aqui</string>
+    <string name="txt_pergunta_selecionar">Selecionar candidato?</string>
+    <string name="txt_status_indefinido">O candidato foi ..</string>
+    <string name="txt_example_email">email@trainee.com.br</string>
+    <string name="txt_example_cidade">Cidade Nome</string>
+    <string name="txt_example_curso">Nome do Curso</string>
+    <string name="txt_example_instituicao">Nome da Instiuição</string>
+    <string name="txt_example_area">Área de Atuação</string>
+
+    <string name="btn_divulgar_vaga">DIVULGAR VAGA</string>
+    <string name="btn_avancar">AVANÇAR</string>
+    <string name="btn_estagiario">ESTAGIÁRIO</string>
+    <string name="btn_empregador">EMPREGADOR</string>
+
+    <string name="rotulo_nome">Nome:</string>
+    <string name="rotulo_email">E-mail:</string>
+    <string name="rotulo_senha">Senha:</string>
+    <string name="rotulo_repita_senha">Repita a sua senha:</string>
+    <string name="rotulo_cidade_atual">Cidade atual:</string>
+    <string name="rotulo_cpf">CPF:</string>
+
+    <string name="acessibity_logo">Logo do Trainee</string>
+    <string name="acessibity_slide2">Encontre os melhores estágios</string>
+    <string name="acessibity_slide3">Divulgue a sua vaga</string>
+    <string name="acessibity_perfil_estagiario">Foto do perfil do estagiário</string>
+    <string name="acessibity_perfil_estagiario_edit">Editar foto do perfil do estagiário</string>
+    <string name="acessibity_perfil_empregador">Foto do perfil do empregador</string>
+    <string name="acessibity_perfil_empregador_edit">Editar foto do perfil do empregador</string>
+    <string name="acessibity_icone_endereço">Ícone do endereço</string>
+    <string name="acessibity_icone_pessoa">Ícone do estagiário</string>
+    <string name="acessibity_icone_empresa">Ícone da empresa</string>
+    <string name="acessibity_icone_editar">Ícone editar</string>
+    <string name="acessibity_icone_curso">Ícone do curso</string>
+    <string name="acessibity_icone_instituicao">Ícone da instituição</string>
+    <string name="acessibity_icone_cidade">Ícone da cidade</string>
+    <string name="acessibity_icone_email">Ícone do e-mail</string>
+    <string name="acessibity_selecionar">Selecionar</string>
+    <string name="acessibity_dispensar">Dispensar</string>
+
 
     <string-array name="tabs">
         <item>ENTRAR</item>

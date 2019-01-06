@@ -25,8 +25,8 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:text="@string/cadastroempregador"
-                android:textSize="25dp"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -40,10 +40,12 @@
 
             <EditText
                 android:id="@+id/editNomeCadastroEmpregador"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -63,10 +65,12 @@
 
             <EditText
                 android:id="@+id/editEmailCadastroEmpregador"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textEmailAddress"
@@ -86,10 +90,12 @@
 
             <EditText
                 android:id="@+id/editCNPJ"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="number"
@@ -109,10 +115,12 @@
 
             <EditText
                 android:id="@+id/editSenhaCadastroEmpregador"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPassword"
@@ -132,10 +140,12 @@
 
             <EditText
                 android:id="@+id/editConfirmaSenhaEmpregador"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPassword"
@@ -155,10 +165,12 @@
 
             <EditText
                 android:id="@+id/editCidadeEmpregador"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPersonName"

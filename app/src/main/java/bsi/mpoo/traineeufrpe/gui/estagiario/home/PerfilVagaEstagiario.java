@@ -35,7 +35,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     InscricaoServices inscricaoServices;
     NovaNotificacoesServices notificationServices;
 
-    boolean status;
+    boolean isInscrito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,12 +85,12 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     private void criarInscricao(){
         inscricaoServices = new InscricaoServices(this);
         notificationServices = new NovaNotificacoesServices(this);
-        if (status) {
+        if (isInscrito) {
             Pessoa remetente = SessaoEstagiario.instance.getPessoa();
             inscricaoServices.delInscricao(vaga.getId(), remetente.getId());
             notificationServices.delNotificacoesVagaParaEmpregador(vaga.getId(), remetente.getId());
             Toast.makeText(getBaseContext(), "Inscrição cancelada com sucesso", Toast.LENGTH_SHORT).show();
-            this.status = mudaBotao(status);
+            this.isInscrito = mudaBotao(isInscrito);
         } else {
             ControladorVaga inscricao = new ControladorVaga();
             inscricao.setVaga(vaga);
@@ -99,7 +99,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
             inscricao.setStatus("concorrendo");
             inscricaoServices.cadastrarInscricao(inscricao, this);
             enviarNotificacao4Empregador(inscricao);
-            this.status = mudaBotao(status);
+            this.isInscrito = mudaBotao(isInscrito);
         }
     }
 
@@ -116,11 +116,11 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
 
     private boolean mudaBotao(boolean jaCadastrado){
         if (!jaCadastrado) {
-            queroCandidatar.setText("CANCELAR INSCRIÇÃO");
+            queroCandidatar.setText(getString(R.string.cancelar_inscricao));
             queroCandidatar.setBackgroundResource(R.drawable.rounded_button_red);
             return true;
         } else {
-            queroCandidatar.setText("QUERO ME CANDIDATAR");
+            queroCandidatar.setText(getString(R.string.candidatar));
             queroCandidatar.setBackgroundResource(R.drawable.rounded_button_green);
             return false;
         }
@@ -128,11 +128,16 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
 
     private boolean verificaStatus() {
         InscricaoServices inscricaoServices = new InscricaoServices(this);
-        this.status = inscricaoServices.isInscrito(SessaoEstagiario.instance.getPessoa().getId(), vaga.getId());
-        if (status){
-            mudaBotao(false);
+        this.isInscrito = inscricaoServices.isInscrito(SessaoEstagiario.instance.getPessoa().getId(), vaga.getId());
+        if (isInscrito){
+            String status = inscricaoServices.getStatusInscricaoByEstagiarioAndVaga(SessaoEstagiario.instance.getPessoa(), vaga);            mudaBotao(false);
+            if (status.equals("selecionado")){
+                queroCandidatar.setVisibility(View.INVISIBLE);
+            } else if (status.equals("dispensado")){
+                queroCandidatar.setVisibility(View.INVISIBLE);
+            }
         }
-        return status;
+        return isInscrito;
     }
 
 }

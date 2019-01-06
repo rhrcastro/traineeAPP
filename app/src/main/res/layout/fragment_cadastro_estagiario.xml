@@ -22,28 +22,30 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cadastrocurriculo"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:textSize="25dp"
+                android:text="@string/cadastrocurriculo"
                 android:textColor="@color/colorPrimaryDark"
-                android:layout_gravity="center"/>
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Curso"
                 android:layout_marginLeft="20dp"
-                android:textSize="15dp"
-                android:textColor="#bdbebd"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:text="Curso"
+                android:textColor="@color/colorHint"
+                android:textSize="15dp" />
 
             <EditText
                 android:id="@+id/cursoCadastro"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -55,18 +57,20 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Instituição"
                 android:layout_marginLeft="20dp"
-                android:textSize="15dp"
-                android:textColor="#bdbebd"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:text="Instituição"
+                android:textColor="@color/colorHint"
+                android:textSize="15dp" />
 
             <EditText
                 android:id="@+id/instituicaoCadastro"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPersonName"
@@ -78,19 +82,21 @@
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Área"
                 android:layout_marginLeft="20dp"
-                android:textSize="15dp"
-                android:textColor="#bdbebd"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:text="Área"
+                android:textColor="@color/colorHint"
+                android:textSize="15dp" />
 
             <Spinner
                 android:id="@+id/Segmento"
                 style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
-                android:layout_width="350dp"
+                android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextform"
                 android:ems="10"
                 android:inputType="textPersonName"
