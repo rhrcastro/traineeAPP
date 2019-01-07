@@ -88,4 +88,11 @@ public class EstagiarioDAO {
         db.close();
     }
 
+    public void mudarSenhaEstagiario(Estagiario estagiario) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("senha", estagiario.getSenha());
+        db.update("estagiario", valores,"id = ?", new String[]{String.valueOf(estagiario.getId())});
+        db.close();
+    }
 }

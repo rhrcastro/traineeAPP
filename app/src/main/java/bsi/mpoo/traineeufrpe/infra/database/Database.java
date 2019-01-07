@@ -69,13 +69,13 @@ public  class Database extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE pessoa");
-        db.execSQL("DROP TABLE estagiario");
-        db.execSQL("DROP TABLE curriculo");
-        db.execSQL("DROP TABLE empregador");
-        db.execSQL("DROP TABLE  vaga");
-        db.execSQL("DROP TABLE controlador_vaga");
-        db.execSQL("DROP TABLE  notificacoes");
+        db.execSQL("DROP TABLE IF EXISTS pessoa");
+        db.execSQL("DROP TABLE IF EXISTS estagiario");
+        db.execSQL("DROP TABLE IF EXISTS curriculo");
+        db.execSQL("DROP TABLE IF EXISTS empregador");
+        db.execSQL("DROP TABLE IF EXISTS vaga");
+        db.execSQL("DROP TABLE IF EXISTS controlador_vaga");
+        db.execSQL("DROP TABLE IF EXISTS notificacoes");
         onCreate(db);
     }
 

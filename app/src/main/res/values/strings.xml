@@ -36,6 +36,7 @@
     <string name="rotulo_requisitos_vaga">Requisitos</string>
     <string name="rotulo_observacoes_vaga">Observações</string>
     <string name="rotulo_horario">Horário</string>
+    <string name="rotulo_email_contato">Email</string>
 
     <string name="horario_as">às</string>
 

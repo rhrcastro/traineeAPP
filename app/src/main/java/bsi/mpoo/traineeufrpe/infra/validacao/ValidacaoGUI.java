@@ -13,7 +13,7 @@ public class ValidacaoGUI {
                 !Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    public static boolean isSenhasIguais(String senha1 , String senha2){
+    public boolean isSenhasIguais(String senha1 , String senha2){
         return senha1.equals(senha2);
     }
 

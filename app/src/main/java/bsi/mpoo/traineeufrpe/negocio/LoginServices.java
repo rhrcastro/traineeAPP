@@ -84,4 +84,7 @@ public class LoginServices {
         estagiarioDAO.mudarEmailEstagiario(pessoa.getEstagiario());
     }
 
+    public void alterarSenha(Estagiario estagiario){
+        estagiarioDAO.mudarSenhaEstagiario(estagiario);
+    }
 }
