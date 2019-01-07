@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
+import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActEsqueciSenhaEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
@@ -26,7 +27,7 @@ public class FragmentLoginEmpregador extends Fragment {
     private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     private EditText edtEmailEmpregador;
     private EditText edtSenhaEmpregador;
-    private TextView forgot;
+    private TextView forgot2;
 
     @SuppressLint("WrongViewCast")
     @Nullable
@@ -41,6 +42,13 @@ public class FragmentLoginEmpregador extends Fragment {
             @Override
             public void onClick(View v) {
                 logarEmpregador();
+            }
+        });
+        forgot2 = v.findViewById(R.id.forgot2);
+        forgot2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ActEsqueciSenhaEmpregador.class));
             }
         });
         return v;

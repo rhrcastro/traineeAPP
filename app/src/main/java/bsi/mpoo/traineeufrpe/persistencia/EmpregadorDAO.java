@@ -18,6 +18,33 @@ public class EmpregadorDAO {
         bancoDados = new Database(context);
     }
 
+    private Empregador criarEmpregador(Cursor cursor) {
+        int indexId = cursor.getColumnIndex("id");
+        long id = cursor.getLong(indexId);
+        int indexNome = cursor.getColumnIndex("nome");
+        String nome = cursor.getString(indexNome);
+        int indexEmail = cursor.getColumnIndex("email");
+        String email = cursor.getString(indexEmail);
+        int indexCnpj = cursor.getColumnIndex("cnpj");
+        String cnpj = cursor.getString(indexCnpj);
+        int indexSenha = cursor.getColumnIndex("senha");
+        String senha = cursor.getString(indexSenha);
+        int indexCidade = cursor.getColumnIndex("cidade");
+        String cidade = cursor.getString(indexCidade);
+        int indexFoto = cursor.getColumnIndex("fotoperfil");
+        byte[] fotoEmpregador  = cursor.getBlob(indexFoto);
+        Empregador empregador = new Empregador();
+        empregador.setId(id);
+        empregador.setNome(nome);
+        empregador.setEmail(email);
+        empregador.setCnpj(cnpj);
+        empregador.setSenha(senha);
+        empregador.setCidade(cidade);
+        empregador.setFoto(fotoEmpregador);
+        return empregador;
+    }
+
+
     public long inserirEmpregador(Empregador empregador) {
         SQLiteDatabase escritorBanco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -39,6 +66,24 @@ public class EmpregadorDAO {
         String[] args = {String.valueOf(id)};
         Cursor data = bancoLeitura.rawQuery(query, args);
         return data;
+    }
+
+    private Empregador load(String query, String[] args,Context context) {
+        SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Empregador empregador = null;
+        if (cursor.moveToNext()) {
+            empregador = criarEmpregador(cursor);
+        }
+        cursor.close();
+        leitorBanco.close();
+        return empregador;
+    }
+    public Empregador getEmpregadorByEmail(String email,Context context) {
+        String query = "SELECT * FROM empregador " +
+                "WHERE email = ?";
+        String[] args = {email};
+        return this.load(query, args, context);
     }
 
     public Cursor getEmpregadorByEmail(String email) {
@@ -102,6 +147,14 @@ public class EmpregadorDAO {
         SQLiteDatabase db = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("email", empregador.getEmail());
+        db.update("empregador", valores,"id = ?", new String[]{String.valueOf(empregador.getId())});
+        db.close();
+    }
+
+    public void mudarSenhaEmpregador(Empregador empregador) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("senha", empregador.getSenha());
         db.update("empregador", valores,"id = ?", new String[]{String.valueOf(empregador.getId())});
         db.close();
     }

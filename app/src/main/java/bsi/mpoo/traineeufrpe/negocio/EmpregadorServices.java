@@ -102,6 +102,14 @@ public class EmpregadorServices {
         return ((data != null) && (data.getCount() > 0));
     }
 
+    public Empregador isEmailCadastrado(String email, Context context) {
+        Empregador data = empregadorDAO.getEmpregadorByEmail(email, context);
+        if (data != null){
+            return data;
+        }
+        return null;
+    }
+
     public void alterarFotoEmpregador(Empregador empregador) {
         empregadorDAO.mudarFoto(empregador);
     }
@@ -109,5 +117,9 @@ public class EmpregadorServices {
     public void alterarDadosEmpregador(Empregador empregador){
         empregadorDAO.mudarNomeEmpregador(empregador);
         empregadorDAO.mudarEmailEmpregador(empregador);
+    }
+
+    public void alterarSenha(Empregador empregador){
+        empregadorDAO.mudarSenhaEmpregador(empregador);
     }
 }
