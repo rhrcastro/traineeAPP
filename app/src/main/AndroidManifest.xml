@@ -73,6 +73,7 @@
         <activity android:name=".gui.empregador.home.vaga.ActPerfilEstagiario4Empregador" />
         <activity android:name=".gui.empregador.acesso.ActEsqueciSenhaEmpregador" />
         <activity android:name=".gui.empregador.acesso.MudarSenhaEmpregador"></activity>
+        <activity android:name=".gui.estagiario.home.ActNotificacoesEstagiario"></activity>
     </application>
 
 </manifest>
