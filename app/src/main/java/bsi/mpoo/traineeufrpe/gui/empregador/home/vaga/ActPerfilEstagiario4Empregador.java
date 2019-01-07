@@ -23,6 +23,7 @@ import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
+import bsi.mpoo.traineeufrpe.persistencia.InscricaoDAO;
 
 public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
 
@@ -107,5 +108,4 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
         byte[] fotoEstagiario = pessoa.getEstagiario().getFoto();
         return BitmapFactory.decodeByteArray(fotoEstagiario, 0, fotoEstagiario.length);
     }
-
 }
