@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
@@ -23,6 +24,7 @@ import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
+import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
 import bsi.mpoo.traineeufrpe.persistencia.InscricaoDAO;
 
 public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
@@ -41,6 +43,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
     public static ControladorVaga controladorVaga;
     private Pessoa pessoa;
     private Vaga vaga;
+    NovaNotificacoesServices notificationServices;
 
     public ActPerfilEstagiario4Empregador(){
         pessoa = controladorVaga.getPessoa();
@@ -85,6 +88,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
                     inscricaoServices.setStatusInscricaoByEstagiarioAndVaga(controladorVaga);
                     lblNao.setBackgroundColor(Color.parseColor("#999999"));
                     txtStatus.setText("Candidato selecionado.");
+                    notificacaoSelecionadoEstagiario(controladorVaga);
                     txtStatus.setVisibility(View.VISIBLE);
                     selecionado = true;
             }
@@ -99,6 +103,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
                     lblSim.setBackgroundColor(Color.parseColor("#999999"));
                     txtStatus.setText("Candidato dispensado.");
                     txtStatus.setVisibility(View.VISIBLE);
+                    notificacaoEstagiarioNaoSelecionado(controladorVaga);
                     selecionado = true;
             }
         });
@@ -107,5 +112,23 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
     private Bitmap getImagem(){
         byte[] fotoEstagiario = pessoa.getEstagiario().getFoto();
         return BitmapFactory.decodeByteArray(fotoEstagiario, 0, fotoEstagiario.length);
+    }
+    private void notificacaoSelecionadoEstagiario(ControladorVaga inscricao){
+        NovaNofificacoes novaNofificacoes = new NovaNofificacoes();
+        novaNofificacoes.setEmpregadorEnvia(inscricao.getEmpregador());
+        novaNofificacoes.setPessoaRecebe(inscricao.getPessoa());
+        String nomeVaga = inscricao.getVaga().getNome();
+        novaNofificacoes.setMensagem("Você foi selecionado para a vaga " + nomeVaga + ".");
+        novaNofificacoes.setVagaRelacionada(inscricao.getVaga());
+        notificationServices.enviar4Estagiario(novaNofificacoes);
+    }
+    private void notificacaoEstagiarioNaoSelecionado(ControladorVaga inscricao) {
+        NovaNofificacoes novaNofificacoes = new NovaNofificacoes();
+        novaNofificacoes.setEmpregadorEnvia(inscricao.getEmpregador());
+        novaNofificacoes.setPessoaRecebe(inscricao.getPessoa());
+        String nomeVaga = inscricao.getVaga().getNome();
+        novaNofificacoes.setMensagem("Você não foi selecionado para a vaga " + nomeVaga + ".");
+        novaNofificacoes.setVagaRelacionada(inscricao.getVaga());
+        notificationServices.enviar4Estagiario(novaNofificacoes);
     }
 }

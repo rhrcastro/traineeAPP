@@ -72,9 +72,9 @@ public class AdapterNovasNotificacoes extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.adapter_notificacao, null);
-            holder.mNome = (TextView) view.findViewById(R.id.nomeEstagiario);
-            holder.mMensagem = (TextView) view.findViewById(R.id.mensagemEstagiario);
-            holder.mImagem = (CircleImageView) view.findViewById(R.id.fotoEstagiario);
+            holder.mNome = (TextView) view.findViewById(R.id.nomeEmpresanotif);
+            holder.mMensagem = (TextView) view.findViewById(R.id.mensagemEmpresa);
+            holder.mImagem = (CircleImageView) view.findViewById(R.id.fotoEmpresa);
             view.setTag(holder);
         } else {
             holder = (ViewHolder)view.getTag();

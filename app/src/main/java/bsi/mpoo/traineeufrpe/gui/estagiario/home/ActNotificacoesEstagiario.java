@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
+import bsi.mpoo.traineeufrpe.gui.extra.AdapterNotificacaoEstagiario;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterNovasNotificacoes;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
+import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
 
 public class ActNotificacoesEstagiario extends AppCompatActivity {
@@ -24,8 +25,8 @@ public class ActNotificacoesEstagiario extends AppCompatActivity {
     private void populate() {
         ArrayList<NovaNofificacoes> lista = new ArrayList<>();
         notificationServices = new NovaNotificacoesServices(this);
-        lista = notificationServices.exibirNotificacoes4Empregador(SessaoEmpregador.getInstance().getEmpregador());
-        final AdapterNovasNotificacoes adapter = new AdapterNovasNotificacoes(this, lista);
+        lista = notificationServices.exibirNotificacoes4Estagiario(SessaoEstagiario.getInstance().getPessoa().getEstagiario());
+        final AdapterNotificacaoEstagiario adapter = new AdapterNotificacaoEstagiario(this, lista);
         listaNotificacoesEstagiario.setAdapter(adapter);
     }
 }
