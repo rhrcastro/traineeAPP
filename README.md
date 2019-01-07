@@ -1,2 +1,1 @@
-# traineeAPP
-# agr-vai
+# Conheça o Trainee!
