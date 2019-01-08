@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterNotificacaoEstagiario;
-import bsi.mpoo.traineeufrpe.gui.extra.AdapterNovasNotificacoes;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
 
