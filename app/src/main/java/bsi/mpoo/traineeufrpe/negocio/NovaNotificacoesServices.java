@@ -76,7 +76,7 @@ public class NovaNotificacoesServices {
     public ArrayList<NovaNofificacoes> exibirNotificacoes4Estagiario(Estagiario estagiario){
         ArrayList<NovaNofificacoes> listagem = new ArrayList<>();
         NovaNofificacoes notificacao;
-        Cursor data = novaNotificacoesDAO.getNotificacoes4Empregador(estagiario.getId());
+        Cursor data = novaNotificacoesDAO.getNotificacoes4Estagiario(estagiario.getId());
         while (data.moveToNext()){
             notificacao = new NovaNofificacoes();
             notificacao.setEmpregadorEnvia(empregadorServices

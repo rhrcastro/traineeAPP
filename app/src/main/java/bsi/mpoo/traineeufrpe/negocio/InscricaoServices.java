@@ -73,7 +73,7 @@ public class InscricaoServices {
             }
             inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
             inscricao.setStatus(data.getString(COLUMN_STATUS));
-            if (!inscricao.getStatus().equals("dispensado")) {
+            if (!inscricao.getStatus().equals("dispensado") && !inscricao.getStatus().equals("selecionado")) {
                 inscricoes.add(inscricao);
             }
         } return inscricoes;

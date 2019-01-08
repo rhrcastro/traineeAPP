@@ -43,7 +43,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
     public static ControladorVaga controladorVaga;
     private Pessoa pessoa;
     private Vaga vaga;
-    NovaNotificacoesServices notificationServices;
+    NovaNotificacoesServices notificationServices = new NovaNotificacoesServices(this);
 
     public ActPerfilEstagiario4Empregador(){
         pessoa = controladorVaga.getPessoa();
