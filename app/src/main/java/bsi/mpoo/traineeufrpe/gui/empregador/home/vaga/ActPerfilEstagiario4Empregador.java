@@ -43,7 +43,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
     public static ControladorVaga controladorVaga;
     private Pessoa pessoa;
     private Vaga vaga;
-    NovaNotificacoesServices notificationServices;
+    NovaNotificacoesServices notificationServices = new NovaNotificacoesServices(this);
 
     public ActPerfilEstagiario4Empregador(){
         pessoa = controladorVaga.getPessoa();
@@ -120,6 +120,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
         String nomeVaga = inscricao.getVaga().getNome();
         novaNofificacoes.setMensagem("Você foi selecionado para a vaga " + nomeVaga + ".");
         novaNofificacoes.setVagaRelacionada(inscricao.getVaga());
+
         notificationServices.enviar4Estagiario(novaNofificacoes);
     }
     private void notificacaoEstagiarioNaoSelecionado(ControladorVaga inscricao) {
