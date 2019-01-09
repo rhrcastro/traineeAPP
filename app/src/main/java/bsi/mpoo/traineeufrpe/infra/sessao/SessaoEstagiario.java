@@ -35,4 +35,5 @@ public class SessaoEstagiario {
     public Curriculo getCurriculo() {
         return (Curriculo) values.get("sessao.Curriculo");
     }
+
 }

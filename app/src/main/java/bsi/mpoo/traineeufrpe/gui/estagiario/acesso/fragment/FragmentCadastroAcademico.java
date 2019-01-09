@@ -16,12 +16,12 @@ import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
-import bsi.mpoo.traineeufrpe.gui.estagiario.curriculo.ActCurriculo;
+import bsi.mpoo.traineeufrpe.gui.estagiario.curriculo.ActCadastroEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
-public class FragmentCadastroEstagiario extends Fragment implements AdapterView.OnItemSelectedListener{
+public class FragmentCadastroAcademico extends Fragment implements AdapterView.OnItemSelectedListener{
     EditText edtCurso;
     EditText edtInstituicao;
     Spinner edtSegmento;
@@ -31,7 +31,7 @@ public class FragmentCadastroEstagiario extends Fragment implements AdapterView.
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = Inflater.inflate(R.layout.fragment_cadastro_estagiario, container, false);
+        View v = Inflater.inflate(R.layout.fragment_cadastro_academico, container, false);
         this.edtCurso = v.findViewById(R.id.cursoCadastro);
         this.edtInstituicao = v.findViewById(R.id.instituicaoCadastro);
         edtSegmento = v.findViewById(R.id.Segmento);
@@ -74,7 +74,7 @@ public class FragmentCadastroEstagiario extends Fragment implements AdapterView.
         if (curriculo instanceof Curriculo) {
             SessaoEstagiario.instance.setCurriculo(curriculo);
             Toast.makeText(getContext(), "Curriculo cadastrado.", Toast.LENGTH_SHORT).show();
-            Intent abreTelaCadastroEstagiario = new Intent(getActivity(), ActCurriculo.class);
+            Intent abreTelaCadastroEstagiario = new Intent(getActivity(), ActCadastroEstagiario.class);
             startActivity(abreTelaCadastroEstagiario);
             finishActivity();
         }else{

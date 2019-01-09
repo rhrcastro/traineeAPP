@@ -25,6 +25,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.barteksc.pdfviewer.PDFView;
+
 import java.io.ByteArrayOutputStream;
 
 import bsi.mpoo.traineeufrpe.R;
@@ -92,5 +94,6 @@ public class PerfilEmp extends AppCompatActivity {
         startActivity(new Intent(this, ActEmpregadorPrincipal.class));
         finish();
     }
+
 }
 
