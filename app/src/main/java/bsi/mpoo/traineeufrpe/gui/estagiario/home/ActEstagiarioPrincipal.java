@@ -112,6 +112,7 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         if (id == R.id.nav_camera) {
             exibirPerfilEstagiario();
         } else if (id == R.id.nav_gallery) {
+            openNotificacoesEstagiario();
             return true;
         } else if (id == R.id.nav_slideshow) {
             openConfiguracoesEstagiario();
@@ -174,6 +175,10 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
     }
     private void openConfiguracoesEstagiario() {
         Intent intent = new Intent(this, EditarPerfilEstagiario.class);
+        startActivity(intent);
+    }
+    private void openNotificacoesEstagiario() {
+        Intent intent = new Intent(this, ActNotificacoesEstagiario.class);
         startActivity(intent);
     }
 }

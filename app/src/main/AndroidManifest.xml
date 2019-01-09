@@ -14,7 +14,7 @@
 
     <application
         android:allowBackup="true"
-        android:debuggable="true"
+        android:debuggable="false"
         android:icon="@mipmap/ic_launcher"
         android:label="Trainee"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -73,6 +73,7 @@
         <activity android:name=".gui.empregador.home.vaga.ActPerfilEstagiario4Empregador" />
         <activity android:name=".gui.empregador.acesso.ActEsqueciSenhaEmpregador" />
         <activity android:name=".gui.empregador.acesso.MudarSenhaEmpregador"></activity>
+        <activity android:name=".gui.estagiario.home.ActNotificacoesEstagiario"></activity>
     </application>
 
 </manifest>

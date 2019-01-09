@@ -56,7 +56,7 @@ public class NovaNotificacoesDAO {
     public Cursor getNotificacoes4Estagiario(long idEstagiarioRecebe){
         SQLiteDatabase db = bancoDados.getReadableDatabase();
         String query =  "SELECT * FROM notificacoes " +
-                "WHERE id_estagiario_recebe = ?";
+                "WHERE id_pessoa_recebe = ?";
         String[] args = {String.valueOf(idEstagiarioRecebe)};
         Cursor data = db.rawQuery(query, args);
         return data;

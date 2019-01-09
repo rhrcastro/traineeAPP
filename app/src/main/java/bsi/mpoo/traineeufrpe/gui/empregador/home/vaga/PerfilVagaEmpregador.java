@@ -88,7 +88,6 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
 
 
     }
-
     private void del(){
         ArrayList<ControladorVaga> inscritos = inscricaoServices.
                 getInscritosByVaga(SessaoEmpregador.instance.getVaga().getId(), this);
@@ -98,5 +97,4 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
         vagaServices.DelVaga(SessaoEmpregador.instance.getVaga().getId());
         Toast.makeText(this, "Deletado com sucesso.", Toast.LENGTH_SHORT).show();
     }
-
 }

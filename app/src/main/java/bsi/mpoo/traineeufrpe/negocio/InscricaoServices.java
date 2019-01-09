@@ -73,31 +73,9 @@ public class InscricaoServices {
             }
             inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
             inscricao.setStatus(data.getString(COLUMN_STATUS));
-            inscricoes.add(inscricao);
-        } return inscricoes;
-    }
-
-    public ArrayList<ControladorVaga> listarInscricoes(Estagiario estagiario, Context context){
-        ArrayList<ControladorVaga> inscricoes = new ArrayList<>();
-        Cursor data = inscricaoDAO.getInscricaoByEstagiario(estagiario.getId());
-        ControladorVaga inscricao;
-        while (data.moveToNext()){
-            inscricao = new ControladorVaga();
-            inscricao.setId(data.getLong(COLUMN_ID));
-            inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
-            inscricao.setEmpregador(empregadorServices
-                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
-            estagiario = estagiarioDAO
-                    .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
-            if (estagiario != null) {
-                Pessoa pessoa = pessoaDAO.getPessoaByIdEstagiario(estagiario.getId());
-                estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
-                pessoa.setEstagiario(estagiario);
-                inscricao.setPessoa(pessoa);
+            if (!inscricao.getStatus().equals("dispensado") && !inscricao.getStatus().equals("selecionado")) {
+                inscricoes.add(inscricao);
             }
-            inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
-            inscricao.setStatus(data.getString(COLUMN_STATUS));
-            inscricoes.add(inscricao);
         } return inscricoes;
     }
 
@@ -142,7 +120,9 @@ public class InscricaoServices {
             }
             inscricao.setHoraInscricao(data.getLong(COLUMN_DATA_INSCRICAO));
             inscricao.setStatus(data.getString(COLUMN_STATUS));
-            inscricoes.add(inscricao);
+            if (!inscricao.getStatus().equals("dispensado")) {
+                inscricoes.add(inscricao);
+            }
         } return inscricoes;
     }
 

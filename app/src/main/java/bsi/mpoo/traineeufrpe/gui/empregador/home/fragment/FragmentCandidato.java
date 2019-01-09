@@ -98,4 +98,9 @@ public class FragmentCandidato extends ListFragment
         return false;
     }
 
+    public void onStart() {
+        super.onStart();
+        populate();
+    }
+
 }
