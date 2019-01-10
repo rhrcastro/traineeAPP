@@ -242,20 +242,18 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/linha4"
                     android:background="#eeeeee">
 
                     <ImageView
                         android:id="@+id/ic_page"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_below="@id/linha4"
                         android:layout_gravity="center"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="12dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_import_contacts_white_24dp" />
+                        android:src="@drawable/ic_import_contacts_white" />
 
                     <TextView
                         android:id="@+id/campo_curriculo"
@@ -286,7 +284,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_gravity="start|center"
-                    android:src="@drawable/ic_import_contacts_white_24dp"
+                    android:src="@drawable/ic_import_contacts_white"
                     app:elevation="6dp"
                     app:layout_anchor="@id/cardView_2"
                     app:layout_anchorGravity="bottom|right|end"
