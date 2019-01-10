@@ -22,7 +22,7 @@ public class InscricaoDAO {
         ContentValues valores = new ContentValues();
         valores.put("id_vaga", inscricao.getVaga().getId());
         valores.put("id_empregador", inscricao.getEmpregador().getId());
-        valores.put("id_estagiario", inscricao.getPessoa().getId());
+        valores.put("id_pessoa", inscricao.getPessoa().getId());
         valores.put("data_inscricao", System.currentTimeMillis());
         valores.put("status", inscricao.getStatus());
         long resultado = escreverBranco.insert("controlador_vaga", null, valores);
@@ -40,10 +40,10 @@ public class InscricaoDAO {
         return data;
     }
 
-    public Cursor getInscricaoByEstagiario(long id){
+    public Cursor getInscricaoByPessoa(long id){
         SQLiteDatabase bancoLeitura = bancoDados.getReadableDatabase();
         String query =  "SELECT * FROM controlador_vaga " +
-                "WHERE id_estagiario = ?";
+                "WHERE id_pessoa = ?";
         String[] args = {String.valueOf(id)};
         Cursor data = bancoLeitura.rawQuery(query, args);
         return data;
@@ -60,11 +60,11 @@ public class InscricaoDAO {
 
 
 
-    public Cursor getInscricaoByEstagiarioAndVaga(long idEstagiario, long idVaga){
+    public Cursor getInscricaoByEstagiarioAndVaga(long idPessoa, long idVaga){
         SQLiteDatabase bancoLeitura = bancoDados.getReadableDatabase();
         String query =  "SELECT * FROM controlador_vaga " +
-                "WHERE id_estagiario = ? AND id_vaga = ?";
-        String[] args = {String.valueOf(idEstagiario), String.valueOf(idVaga)};
+                "WHERE id_pessoa = ? AND id_vaga = ?";
+        String[] args = {String.valueOf(idPessoa), String.valueOf(idVaga)};
         Cursor data = bancoLeitura.rawQuery(query, args);
         return data;
     }
@@ -72,7 +72,7 @@ public class InscricaoDAO {
     public void deletarInscricao(long idVaga, long idRemetente){
         SQLiteDatabase db =  bancoDados.getWritableDatabase();
         String query = "DELETE FROM controlador_vaga " +
-                "WHERE id_vaga = "+ String.valueOf(idVaga) + " AND id_estagiario = " + String.valueOf(idRemetente);
+                "WHERE id_vaga = "+ String.valueOf(idVaga) + " AND id_pessoa = " + String.valueOf(idRemetente);
         db.execSQL(query);
     }
 

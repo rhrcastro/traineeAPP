@@ -11,13 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
+import bsi.mpoo.traineeufrpe.dominio.Notificacao;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
-import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
+import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 
 public class PerfilVagaEstagiario extends AppCompatActivity {
 
@@ -33,7 +33,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     Button queroCandidatar;
 
     InscricaoServices inscricaoServices;
-    NovaNotificacoesServices notificationServices;
+    NotificacaoServices notificationServices;
 
     boolean isInscrito;
 
@@ -84,7 +84,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
 
     private void criarInscricao(){
         inscricaoServices = new InscricaoServices(this);
-        notificationServices = new NovaNotificacoesServices(this);
+        notificationServices = new NotificacaoServices(this);
         if (isInscrito) {
             Pessoa remetente = SessaoEstagiario.instance.getPessoa();
             inscricaoServices.delInscricao(vaga.getId(), remetente.getId());
@@ -104,13 +104,13 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     }
 
     private void enviarNotificacao4Empregador(ControladorVaga inscricao){
-        NovaNofificacoes novaNofificacoes = new NovaNofificacoes();
-        novaNofificacoes.setPessoaEnvia(inscricao.getPessoa());
-        novaNofificacoes.setEmpregadorRecebe(inscricao.getEmpregador());
+        Notificacao novaNotificacao = new Notificacao();
+        novaNotificacao.setPessoaEnvia(inscricao.getPessoa());
+        novaNotificacao.setEmpregadorRecebe(inscricao.getEmpregador());
         String nomeVaga = inscricao.getVaga().getNome();
-        novaNofificacoes.setMensagem("está inscrito em sua vaga " + nomeVaga + ".");
-        novaNofificacoes.setVagaRelacionada(inscricao.getVaga());
-        notificationServices.enviar4Empregador(novaNofificacoes);
+        novaNotificacao.setMensagem("está inscrito em sua vaga " + nomeVaga + ".");
+        novaNotificacao.setVagaRelacionada(inscricao.getVaga());
+        notificationServices.enviar4Empregador(novaNotificacao);
     }
 
 

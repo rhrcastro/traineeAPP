@@ -18,7 +18,8 @@ import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class AdapterNotificacaoEstagiario extends BaseAdapter {
+public class AdapterNotificacaoEmpregador extends BaseAdapter {
+
     Context mContext;
     LayoutInflater inflater;
     ArrayList<Notificacao> listaNotificacoes = new ArrayList<>();
@@ -27,7 +28,7 @@ public class AdapterNotificacaoEstagiario extends BaseAdapter {
     InscricaoServices inscricaoServices;
     Pessoa pessoa;
 
-    public AdapterNotificacaoEstagiario(Context context, ArrayList<Notificacao> arrayNotificacoes) {
+    public AdapterNotificacaoEmpregador(Context context, ArrayList<Notificacao> arrayNotificacoes) {
         mContext = context;
         inflater = LayoutInflater.from(mContext);
         this.arrayNotificacoes.addAll(arrayNotificacoes);
@@ -58,23 +59,22 @@ public class AdapterNotificacaoEstagiario extends BaseAdapter {
 
     @Override
     public View getView(final int position, View view, ViewGroup parent) {
-        AdapterNotificacaoEstagiario.ViewHolder holder;
+        ViewHolder holder;
         if (view == null) {
-            holder = new AdapterNotificacaoEstagiario.ViewHolder();
-            view = inflater.inflate(R.layout.adapter_notificacaoestagiario, null);
-            holder.mNome = (TextView) view.findViewById(R.id.nomeEmpresanotif);
-            holder.mMensagem = (TextView) view.findViewById(R.id.mensagemEmpresa);
-            holder.mImagem = (CircleImageView) view.findViewById(R.id.fotoEmpresa);
+            holder = new ViewHolder();
+            view = inflater.inflate(R.layout.adapter_notificacao, null);
+            holder.mNome = (TextView) view.findViewById(R.id.nomeEstagiario);
+            holder.mMensagem = (TextView) view.findViewById(R.id.mensagemEstagiario);
+            holder.mImagem = (CircleImageView) view.findViewById(R.id.fotoEstagiario);
             view.setTag(holder);
         } else {
-            holder = (AdapterNotificacaoEstagiario.ViewHolder)view.getTag();
+            holder = (ViewHolder)view.getTag();
         }
-        holder.mNome.setText(listaNotificacoes.get(position).getEmpregadorEnvia().getNome());
+        holder.mNome.setText(listaNotificacoes.get(position).getPessoaEnvia().getNome());
         holder.mMensagem.setText(listaNotificacoes.get(position).getMensagem());
-        byte[] fotoEmpregador = listaNotificacoes.get(position).getEmpregadorEnvia().getFoto();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(fotoEmpregador, 0, fotoEmpregador.length);
+        byte[] fotoEstagiario = listaNotificacoes.get(position).getPessoaEnvia().getEstagiario().getFoto();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(fotoEstagiario, 0, fotoEstagiario.length);
         holder.mImagem.setImageBitmap(bitmap);
         return view;
-
     }
 }

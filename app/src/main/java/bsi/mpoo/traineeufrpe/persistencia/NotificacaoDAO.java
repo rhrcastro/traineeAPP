@@ -5,18 +5,18 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
+import bsi.mpoo.traineeufrpe.dominio.Notificacao;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
-public class NovaNotificacoesDAO {
+public class NotificacaoDAO {
 
     private Database bancoDados;
 
-    public NovaNotificacoesDAO(Context context) {
+    public NotificacaoDAO(Context context) {
         bancoDados = new Database(context);
     }
 
-    public long enviarNotificacao4Empregador(NovaNofificacoes notificacao) {
+    public long enviarNotificacao4Empregador(Notificacao notificacao) {
         SQLiteDatabase escreverBranco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("mensagem", notificacao.getMensagem());
@@ -30,7 +30,7 @@ public class NovaNotificacoesDAO {
         return resultado;
     }
 
-    public long enviarNotificacao4Estagiario(NovaNofificacoes notificacao) {
+    public long enviarNotificacao4Estagiario(Notificacao notificacao) {
         SQLiteDatabase escreverBranco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("mensagem", notificacao.getMensagem());

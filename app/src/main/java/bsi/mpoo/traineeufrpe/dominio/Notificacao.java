@@ -4,7 +4,7 @@ import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 
-public class NovaNofificacoes {
+public class Notificacao {
 
     private long id;
     private Pessoa pessoaEnvia;

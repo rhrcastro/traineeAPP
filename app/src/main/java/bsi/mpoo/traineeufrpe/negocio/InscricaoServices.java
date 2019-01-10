@@ -12,7 +12,6 @@ import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.app.TraineeApp;
 import bsi.mpoo.traineeufrpe.persistencia.CurriculoDAO;
-import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.persistencia.InscricaoDAO;
 import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
@@ -30,7 +29,7 @@ public class InscricaoServices {
     private final int COLUMN_ID = 0;
     private final int COLUMN_ID_VAGA = 1;
     private final int COLUMN_ID_EMPREGADOR = 2;
-    private final int COLUMN_ID_ESTAGIARIO = 3;
+    private final int COLUMN_ID_PESSOA = 3;
     private final int COLUMN_DATA_INSCRICAO = 4;
     private final int COLUMN_STATUS = 5;
 
@@ -64,7 +63,7 @@ public class InscricaoServices {
             inscricao.setEmpregador(empregadorServices
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             estagiario = estagiarioDAO
-                    .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
+                    .getEstagiarioById(data.getLong(COLUMN_ID_PESSOA), context);
             if (estagiario != null) {
                 Pessoa pessoa = pessoaDAO.getPessoaByIdEstagiario(estagiario.getId());
                 estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
@@ -111,7 +110,7 @@ public class InscricaoServices {
             inscricao.setEmpregador(empregadorServices
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             estagiario = estagiarioDAO
-                    .getEstagiarioById(data.getLong(COLUMN_ID_ESTAGIARIO), context);
+                    .getEstagiarioById(data.getLong(COLUMN_ID_PESSOA), context);
             if (estagiario != null) {
                 Pessoa pessoa = pessoaDAO.getPessoaByIdEstagiario(estagiario.getId());
                 estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
@@ -155,7 +154,7 @@ public class InscricaoServices {
 
     public ArrayList<Empregador> getEmpresasByPessoa(Pessoa pessoa){
         ArrayList<Empregador> empresas = new ArrayList<>();
-        Cursor data = inscricaoDAO.getInscricaoByEstagiario(pessoa.getId());
+        Cursor data = inscricaoDAO.getInscricaoByPessoa(pessoa.getId());
         Empregador empregador;
         while (data.moveToNext()) {
             empregador = empregadorServices

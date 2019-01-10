@@ -7,15 +7,15 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
-import bsi.mpoo.traineeufrpe.gui.extra.AdapterNovasNotificacoes;
+import bsi.mpoo.traineeufrpe.dominio.Notificacao;
+import bsi.mpoo.traineeufrpe.gui.extra.AdapterNotificacaoEmpregador;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
-import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
+import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 
-public class ActNovasNotificacoes extends AppCompatActivity {
+public class ActNotificacoesEmpregador extends AppCompatActivity {
 
     ListView listaNotificacoes;
-    NovaNotificacoesServices notificationServices;
+    NotificacaoServices notificationServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +26,10 @@ public class ActNovasNotificacoes extends AppCompatActivity {
     }
 
     private void populate() {
-        ArrayList<NovaNofificacoes> lista = new ArrayList<>();
-        notificationServices = new NovaNotificacoesServices(this);
+        ArrayList<Notificacao> lista = new ArrayList<>();
+        notificationServices = new NotificacaoServices(this);
         lista = notificationServices.exibirNotificacoes4Empregador(SessaoEmpregador.getInstance().getEmpregador());
-        final AdapterNovasNotificacoes adapter = new AdapterNovasNotificacoes(this, lista);
+        final AdapterNotificacaoEmpregador adapter = new AdapterNotificacaoEmpregador(this, lista);
         listaNotificacoes.setAdapter(adapter);
     }
 

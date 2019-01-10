@@ -1,10 +1,8 @@
 package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -15,17 +13,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
+import bsi.mpoo.traineeufrpe.dominio.Notificacao;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
-import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
-import bsi.mpoo.traineeufrpe.negocio.LoginServices;
-import bsi.mpoo.traineeufrpe.negocio.NovaNotificacoesServices;
-import bsi.mpoo.traineeufrpe.persistencia.InscricaoDAO;
+import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 
 public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
 
@@ -43,7 +36,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
     public static ControladorVaga controladorVaga;
     private Pessoa pessoa;
     private Vaga vaga;
-    NovaNotificacoesServices notificationServices = new NovaNotificacoesServices(this);
+    NotificacaoServices notificationServices = new NotificacaoServices(this);
 
     public ActPerfilEstagiario4Empregador(){
         pessoa = controladorVaga.getPessoa();
@@ -114,22 +107,22 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
         return BitmapFactory.decodeByteArray(fotoEstagiario, 0, fotoEstagiario.length);
     }
     private void notificacaoSelecionadoEstagiario(ControladorVaga inscricao){
-        NovaNofificacoes novaNofificacoes = new NovaNofificacoes();
-        novaNofificacoes.setEmpregadorEnvia(inscricao.getEmpregador());
-        novaNofificacoes.setPessoaRecebe(inscricao.getPessoa());
+        Notificacao novaNotificacao = new Notificacao();
+        novaNotificacao.setEmpregadorEnvia(inscricao.getEmpregador());
+        novaNotificacao.setPessoaRecebe(inscricao.getPessoa());
         String nomeVaga = inscricao.getVaga().getNome();
-        novaNofificacoes.setMensagem("Você foi selecionado para a vaga " + nomeVaga + ".");
-        novaNofificacoes.setVagaRelacionada(inscricao.getVaga());
+        novaNotificacao.setMensagem("Você foi selecionado para a vaga " + nomeVaga + ".");
+        novaNotificacao.setVagaRelacionada(inscricao.getVaga());
 
-        notificationServices.enviar4Estagiario(novaNofificacoes);
+        notificationServices.enviar4Estagiario(novaNotificacao);
     }
     private void notificacaoEstagiarioNaoSelecionado(ControladorVaga inscricao) {
-        NovaNofificacoes novaNofificacoes = new NovaNofificacoes();
-        novaNofificacoes.setEmpregadorEnvia(inscricao.getEmpregador());
-        novaNofificacoes.setPessoaRecebe(inscricao.getPessoa());
+        Notificacao novaNotificacao = new Notificacao();
+        novaNotificacao.setEmpregadorEnvia(inscricao.getEmpregador());
+        novaNotificacao.setPessoaRecebe(inscricao.getPessoa());
         String nomeVaga = inscricao.getVaga().getNome();
-        novaNofificacoes.setMensagem("Você não foi selecionado para a vaga " + nomeVaga + ".");
-        novaNofificacoes.setVagaRelacionada(inscricao.getVaga());
-        notificationServices.enviar4Estagiario(novaNofificacoes);
+        novaNotificacao.setMensagem("Você não foi selecionado para a vaga " + nomeVaga + ".");
+        novaNotificacao.setVagaRelacionada(inscricao.getVaga());
+        notificationServices.enviar4Estagiario(novaNotificacao);
     }
 }

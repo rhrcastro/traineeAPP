@@ -18,10 +18,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.ActNovasNotificacoes;
+import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.ActNotificacoesEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.CadastrarVaga;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
@@ -175,7 +174,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
     }
 
     private void exibirNotificacoes() {
-        Intent intent = new Intent(getBaseContext(), ActNovasNotificacoes.class);
+        Intent intent = new Intent(getBaseContext(), ActNotificacoesEmpregador.class);
         startActivity(intent);
     }
 

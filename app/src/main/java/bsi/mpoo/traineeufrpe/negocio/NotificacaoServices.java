@@ -5,15 +5,13 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
-import bsi.mpoo.traineeufrpe.dominio.NovaNofificacoes;
+import bsi.mpoo.traineeufrpe.dominio.Notificacao;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
-import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
-import bsi.mpoo.traineeufrpe.persistencia.NovaNotificacoesDAO;
+import bsi.mpoo.traineeufrpe.persistencia.NotificacaoDAO;
 import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
-public class NovaNotificacoesServices {
+public class NotificacaoServices {
 
     private final int COLUMN_ID = 0;
     private final int COLUMN_MENSAGEM = 1;
@@ -24,43 +22,43 @@ public class NovaNotificacoesServices {
     private final int COLUMN_ID_VAGA = 6;
 
     private Context mContext;
-    private NovaNotificacoesDAO novaNotificacoesDAO;
+    private NotificacaoDAO notificacaoDAO;
     private VagaDAO vagaDAO;
     private EmpregadorServices empregadorServices;
     private EstagiarioServices estagiarioServices;
 
-    public NovaNotificacoesServices(Context context) {
+    public NotificacaoServices(Context context) {
         this.mContext = context;
-        this.novaNotificacoesDAO = new NovaNotificacoesDAO(context);
+        this.notificacaoDAO = new NotificacaoDAO(context);
         this.vagaDAO = new VagaDAO(context);
         this.empregadorServices = new EmpregadorServices(context);
         this.estagiarioServices = new EstagiarioServices(context);
     }
 
-    public boolean enviar4Empregador(NovaNofificacoes notificacao){
+    public boolean enviar4Empregador(Notificacao notificacao){
         if (notificacao.getMensagem() != null
                 && notificacao.getPessoaEnvia() != null
                 && notificacao.getEmpregadorRecebe() != null){
-            novaNotificacoesDAO.enviarNotificacao4Empregador(notificacao);
+            notificacaoDAO.enviarNotificacao4Empregador(notificacao);
             return true;
         } return false;
     }
 
-    public boolean enviar4Estagiario(NovaNofificacoes notificacao){
+    public boolean enviar4Estagiario(Notificacao notificacao){
         if (notificacao.getMensagem() != null
                 && notificacao.getEmpregadorEnvia() != null
                 && notificacao.getPessoaRecebe() != null){
-            novaNotificacoesDAO.enviarNotificacao4Estagiario(notificacao);
+            notificacaoDAO.enviarNotificacao4Estagiario(notificacao);
             return true;
         } return false;
     }
 
-    public ArrayList<NovaNofificacoes> exibirNotificacoes4Empregador(Empregador empregador){
-        ArrayList<NovaNofificacoes> listagem = new ArrayList<>();
-        NovaNofificacoes notificacao;
-        Cursor data = novaNotificacoesDAO.getNotificacoes4Empregador(empregador.getId());
+    public ArrayList<Notificacao> exibirNotificacoes4Empregador(Empregador empregador){
+        ArrayList<Notificacao> listagem = new ArrayList<>();
+        Notificacao notificacao;
+        Cursor data = notificacaoDAO.getNotificacoes4Empregador(empregador.getId());
         while (data.moveToNext()){
-            notificacao = new NovaNofificacoes();
+            notificacao = new Notificacao();
             notificacao.setPessoaEnvia(estagiarioServices
                     .getPessoaCompleta(data.getLong(COLUMN_ID_PESSOA_ENVIA)));
             notificacao.setEmpregadorRecebe(empregadorServices.
@@ -73,12 +71,12 @@ public class NovaNotificacoesServices {
         } return listagem;
     }
 
-    public ArrayList<NovaNofificacoes> exibirNotificacoes4Estagiario(Estagiario estagiario){
-        ArrayList<NovaNofificacoes> listagem = new ArrayList<>();
-        NovaNofificacoes notificacao;
-        Cursor data = novaNotificacoesDAO.getNotificacoes4Estagiario(estagiario.getId());
+    public ArrayList<Notificacao> exibirNotificacoes4Estagiario(Estagiario estagiario){
+        ArrayList<Notificacao> listagem = new ArrayList<>();
+        Notificacao notificacao;
+        Cursor data = notificacaoDAO.getNotificacoes4Estagiario(estagiario.getId());
         while (data.moveToNext()){
-            notificacao = new NovaNofificacoes();
+            notificacao = new Notificacao();
             notificacao.setEmpregadorEnvia(empregadorServices
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR_ENVIA)));
             notificacao.setPessoaRecebe(estagiarioServices
@@ -92,6 +90,6 @@ public class NovaNotificacoesServices {
     }
 
     public void delNotificacoesVagaParaEmpregador(long idVaga, long idEmpregador){
-        novaNotificacoesDAO.delNotificacaoVagaParaEmpregador(idEmpregador, idVaga);
+        notificacaoDAO.delNotificacaoVagaParaEmpregador(idEmpregador, idVaga);
     }
 }

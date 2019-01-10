@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 53;
+    private static final int DATABASE_VERSION = 54;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -53,7 +53,7 @@ public  class Database extends SQLiteOpenHelper {
                 "id integer PRIMARY KEY AUTOINCREMENT," +
                 "id_vaga integer NOT NULL," +
                 "id_empregador integer NOT NULL," +
-                "id_estagiario integer NOT NULL," +
+                "id_pessoa integer NOT NULL," +
                 "data_inscricao integer NOT NULL," +
                 "status text NOT NULL);");
 
