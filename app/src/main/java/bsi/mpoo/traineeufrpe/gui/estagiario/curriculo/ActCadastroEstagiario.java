@@ -21,7 +21,7 @@ import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
-public class ActCurriculo extends AppCompatActivity {
+public class ActCadastroEstagiario extends AppCompatActivity {
 
     private LoginServices loginServices = new LoginServices(this);
     private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
@@ -42,7 +42,7 @@ public class ActCurriculo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_curriculo);
+        setContentView(R.layout.activity_cadastro_estagiario);
         findEditTexts();
         this.cadastrar = findViewById(R.id.botCadastroPessoal);
         this.cadastrar.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +75,7 @@ public class ActCurriculo extends AppCompatActivity {
             Toast.makeText(this,"Conta Criada",Toast.LENGTH_SHORT).show();
             Intent abreTelaPrincipal =  new Intent(this, ActEstagiarioPrincipal.class);
             startActivity(abreTelaPrincipal);
-            ActCurriculo.this.finish();
+            ActCadastroEstagiario.this.finish();
         } else {
             Toast.makeText(this,"Já existe uma conta com este e-mail",Toast.LENGTH_SHORT).show();
         }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gui.estagiario.perfil.ActExibirPerfilEstagiario">
+    tools:context=".gui.empregador.perfil.PerfilEmp">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -73,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:id="@id/cardView_1"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true">
 
@@ -177,9 +178,13 @@
                         android:textColor="@color/Black"
                         android:textSize="16sp" />
 
+
+
                 </RelativeLayout>
 
+
             </android.support.v7.widget.CardView>
+
 
         </LinearLayout>
 
@@ -196,5 +201,8 @@
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
         app:pressedTranslationZ="12dp" />
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>

@@ -33,7 +33,7 @@
         <activity
             android:name=".gui.estagiario.acesso.ActCadastroLoginEstagiario"
             android:screenOrientation="portrait" />
-        <activity android:name=".gui.estagiario.curriculo.ActCurriculo" />
+        <activity android:name=".gui.estagiario.curriculo.ActCadastroEstagiario" />
         <activity android:name=".gui.empregador.acesso.ActCadastroLoginEmpregador" />
         <activity android:name=".gui.empregador.edit.ActEditarEmpregador" />
         <activity

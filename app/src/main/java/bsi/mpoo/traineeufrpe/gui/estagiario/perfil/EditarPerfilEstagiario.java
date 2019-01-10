@@ -17,6 +17,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,6 +53,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
     private EditText editNome;
     private EditText editCurso;
     private EditText editInstituicao;
+    private EditText editLink;
     private EditText editEmail;
     private String emailTemp;
     private LoginServices loginServices = new LoginServices(EditarPerfilEstagiario.this);
@@ -80,18 +82,20 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil_estagiario);
-        editNome = (EditText) findViewById(R.id.campo_nome);
-        editCurso = (EditText) findViewById(R.id.campo_curso);
-        editInstituicao = (EditText) findViewById(R.id.campo_instituicao);
-        editEmail = (EditText) findViewById(R.id.campo_email);
+        editNome = findViewById(R.id.campo_nome);
+        editLink = findViewById(R.id.campo_link);
+        editCurso =  findViewById(R.id.campo_curso);
+        editInstituicao =  findViewById(R.id.campo_instituicao);
+        editLink.setText(SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink());
+        editEmail = findViewById(R.id.campo_email);
         editNome.setText(this.nome);
         editCurso.setText(this.curso);
         editInstituicao.setText(this.instituicao);
         editEmail.setText(this.email);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar =  findViewById(R.id.toolbar);
         emailTemp = editEmail.getText().toString().trim();
         setSupportActionBar(toolbar);
-        imgPerfil = (ImageView) findViewById(R.id.photo_profile);
+        imgPerfil =  findViewById(R.id.photo_profile);
         byte[] imagemEmBits = pessoa.getEstagiario().getFoto();
         Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
         this.imgPerfil.setImageBitmap(bitmap);
@@ -184,10 +188,11 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
 
     private void abrirGaleriaIntent() {
         Intent intent = new Intent();
-        intent.setType("image/*");
+        intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Selecione a foto"), REQUEST_GALLERY);
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
@@ -269,6 +274,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
             pessoa.getEstagiario().setEmail(editEmail.getText().toString().trim());
             pessoa.getEstagiario().getCurriculo().setCurso(editCurso.getText().toString().trim());
             pessoa.getEstagiario().getCurriculo().setInstituicao(editInstituicao.getText().toString().trim());
+            pessoa.getEstagiario().getCurriculo().setLink(editLink.getText().toString().trim());
             loginServices.alterarDadosEstagiario(pessoa);
             enviarNotificacaoParaEmpregador(pessoa);
             Toast.makeText(this, "Dados alterados com sucesso", Toast.LENGTH_SHORT).show();

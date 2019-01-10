@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment.FragmentCadastroEstagiario;
+import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment.FragmentCadastroAcademico;
 import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment.FragmentLoginEstagiario;
 
 public class MyFragmentPagerAdapterFragMainActivity extends FragmentStatePagerAdapter {
@@ -23,7 +23,7 @@ public class MyFragmentPagerAdapterFragMainActivity extends FragmentStatePagerAd
             case 0:
                 return new FragmentLoginEstagiario();
             case 1:
-                return new FragmentCadastroEstagiario();
+                return new FragmentCadastroAcademico();
             default:
                 return null;
         }

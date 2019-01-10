@@ -89,7 +89,6 @@
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView11"
@@ -144,7 +143,6 @@
                 android:layout_marginBottom="24dp"
                 android:contentDescription="@string/acessibity_icone_email"
                 android:src="@drawable/ic_email_hint"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/campo_email"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -159,6 +157,36 @@
                 android:src="@drawable/ic_camera"
                 app:layout_constraintBottom_toBottomOf="@+id/photo_profile"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_curriculo"
+                android:tint="@color/colorHint"
+                app:layout_constraintTop_toBottomOf="@+id/campo_email"
+                />
+
+            <EditText
+                android:id="@+id/campo_link"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Cole seu link aqui"
+                android:linksClickable="true"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView12"
+                app:layout_constraintTop_toBottomOf="@+id/campo_email" />
 
 
         </android.support.constraint.ConstraintLayout>
