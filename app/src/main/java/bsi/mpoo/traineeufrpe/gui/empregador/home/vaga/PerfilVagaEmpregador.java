@@ -57,8 +57,7 @@ public class PerfilVagaEmpregador extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 del();
-                Intent volta = new Intent(PerfilVagaEmpregador.this, ActEmpregadorPrincipal.class);
-                startActivity(volta);
+                finish();
             }
         });
 

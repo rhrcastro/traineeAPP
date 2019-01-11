@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterVagasAbertas;
+import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
+import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class FragmentVagasEmAberto extends ListFragment
@@ -28,7 +30,7 @@ public class FragmentVagasEmAberto extends ListFragment
     ListView listaVagas;
     AdapterVagasAbertas adapter;
     ArrayList<Vaga> vagas;
-    VagaServices vagaServices = new VagaServices(getContext());
+    InscricaoServices inscricaoServices;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,8 @@ public class FragmentVagasEmAberto extends ListFragment
 
 
     private void populate() {
-        vagaServices = new VagaServices(getActivity());
-        vagas = vagaServices.getVagasPorNome(getActivity());
+        inscricaoServices = new InscricaoServices(getActivity());
+        vagas = inscricaoServices.getVagasByPessoa(SessaoEstagiario.instance.getPessoa());
         adapter = new AdapterVagasAbertas(getContext(), vagas);
         listaVagas.setAdapter(adapter);
     }

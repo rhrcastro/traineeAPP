@@ -163,6 +163,18 @@ public class InscricaoServices {
         } return empresas;
     }
 
+    public ArrayList<Vaga> getVagasByPessoa(Pessoa pessoa){
+        ArrayList<Vaga> vagas = new ArrayList<>();
+        Cursor data = inscricaoDAO.getInscricaoByPessoa(pessoa.getId());
+        Vaga vaga;
+        while (data.moveToNext()) {
+            vaga = vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), mContext);
+            vaga.setEmpregador(empregadorServices
+                    .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
+            vagas.add(vaga);
+        } return vagas;
+    }
+
     public void setStatusInscricaoByEstagiarioAndVaga(ControladorVaga controladorVaga){
         inscricaoDAO.mudarStatusInscricao(controladorVaga);
     }

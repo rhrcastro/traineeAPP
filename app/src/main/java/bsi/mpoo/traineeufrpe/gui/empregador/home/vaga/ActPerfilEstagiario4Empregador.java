@@ -3,6 +3,7 @@ package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -23,7 +24,8 @@ import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
 
     TextView curso, instituicao, area, email, cidade;
-    CardView cardView;
+    CardView cardViewSelecionar, cardViewInserirCurriculo;
+    FloatingActionButton fab_edit;
     LinearLayout lblSim;
     LinearLayout lblNao;
     TextView txtStatus;
@@ -67,8 +69,10 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
         imagem.setImageBitmap(bitmap);
         toolbar.setTitle(pessoa.getNome());
         setSupportActionBar(toolbar);
-        cardView = findViewById(R.id.cardViewEmpregador);
-        cardView.setVisibility(View.VISIBLE);
+        cardViewSelecionar = findViewById(R.id.cardViewEmpregador);
+        cardViewInserirCurriculo = findViewById(R.id.cardView_3);
+        cardViewSelecionar.setVisibility(View.VISIBLE);
+        cardViewInserirCurriculo.setVisibility(View.INVISIBLE);
         lblSim = findViewById(R.id.selectSim);
         lblNao = findViewById(R.id.selectNao);
         txtStatus = findViewById(R.id.txtStatus);

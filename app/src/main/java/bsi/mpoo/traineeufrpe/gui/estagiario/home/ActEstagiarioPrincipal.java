@@ -174,8 +174,7 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         finish();
     }
     private void openConfiguracoesEstagiario() {
-        Intent intent = new Intent(this, EditarPerfilEstagiario.class);
-        startActivity(intent);
+        return;
     }
     private void openNotificacoesEstagiario() {
         Intent intent = new Intent(this, ActNotificacoesEstagiario.class);

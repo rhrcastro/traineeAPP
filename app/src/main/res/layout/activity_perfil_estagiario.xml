@@ -409,6 +409,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="22dp"
         android:src="@drawable/ic_edit"
+        android:visibility="invisible"
         app:elevation="6dp"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"

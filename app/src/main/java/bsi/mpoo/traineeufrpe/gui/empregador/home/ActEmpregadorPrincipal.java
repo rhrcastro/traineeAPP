@@ -122,7 +122,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
         } else if (id == R.id.nav_share) {
-            exibirCadastroVagasTeste();
+            exibirCadastroVagas();
         } else if (id == R.id.nav_send) {
 
         }
@@ -178,7 +178,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         startActivity(intent);
     }
 
-    private void exibirCadastroVagasTeste() {
+    private void exibirCadastroVagas() {
         Intent intent = new Intent(getBaseContext(), CadastrarVaga.class);
         startActivity(intent);
     }
