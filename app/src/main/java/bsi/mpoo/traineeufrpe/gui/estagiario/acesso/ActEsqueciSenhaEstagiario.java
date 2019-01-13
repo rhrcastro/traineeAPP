@@ -25,6 +25,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
+import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
@@ -69,6 +72,9 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
             public void onClick(View v) {
                 String email = edtEmail.getText().toString().trim();
                 txtEmailOk.setVisibility(View.INVISIBLE);
+                Estagiario estagiario = loginServices.EstagiarioByEmail(email, ActEsqueciSenhaEstagiario.this);
+                Pessoa pessoa = new Pessoa();
+                pessoa.setEstagiario(estagiario);
                 if (ValidacaoGUI.isEmailInvalido(email)) {
                     edtEmail.setError("Digite um e-mail válido");
                 } else if (!loginServices.isEmailCadastrado(email, ActEsqueciSenhaEstagiario.this)) {
@@ -76,6 +82,7 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
                 } else {
                     emailInformado = edtEmail.getText().toString().trim();
                     codigo = codigoAleatorio();
+                    SessaoEstagiario.instance.setPessoa(pessoa);
                     if (isOnline(ActEsqueciSenhaEstagiario.this)) {
                         iniciarEnvioCodigo();
                     }

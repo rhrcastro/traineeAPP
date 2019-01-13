@@ -1,6 +1,7 @@
 package bsi.mpoo.traineeufrpe.negocio;
 import android.content.Context;
 
+import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActEsqueciSenhaEstagiario;
 import bsi.mpoo.traineeufrpe.persistencia.CurriculoDAO;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
@@ -86,5 +87,10 @@ public class LoginServices {
 
     public void alterarSenha(Estagiario estagiario){
         estagiarioDAO.mudarSenhaEstagiario(estagiario);
+    }
+
+    public Estagiario EstagiarioByEmail(String email, Context context) {
+        Estagiario estagiarioEmail = this.estagiarioDAO.getEstagiarioByEmail(email,context);
+        return estagiarioEmail;
     }
 }
