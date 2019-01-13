@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/titulo_vaga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@+id/status_vaga"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingLeft="16dp"
+        android:paddingTop="12dp"
+        android:text="Título da Vaga"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/campo_empresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titulo_vaga"
+        android:paddingLeft="16dp"
+        android:text="Nome da Empresa"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/horario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campo_empresa"
+        android:paddingLeft="16dp"
+        android:text="Horário:"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/campo_turno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campo_empresa"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="79dp"
+        android:text="Turno do Estágio"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/campo_bolsa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/campo_empresa"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="16dp"
+        android:paddingBottom="12dp"
+        android:text="A combinar"
+        android:textColor="#2ed573"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/status_vaga"
+        android:layout_width="86dp"
+        android:layout_height="31dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="12dp"
+        app:srcCompat="@drawable/aberta_v" />
+
+</RelativeLayout>
+

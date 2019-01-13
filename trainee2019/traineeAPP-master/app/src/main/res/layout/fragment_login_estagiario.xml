@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estagiário"
+                android:textStyle="italic"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:textSize="25dp"
+                />
+
+            <EditText
+                android:id="@+id/emailLogin"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittextform"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:textColor="@color/colorTextDark"
+                android:textColorHint="@color/colorHint" />
+
+            <EditText
+                android:id="@+id/senhaLogin"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittextform"
+                android:drawableLeft="@drawable/ic_key"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="@color/colorTextDark"
+                android:textColorHint="@color/colorHint" />
+            <Button
+                android:layout_width="250dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/roundbutton"
+                android:text="ENTRAR"
+                android:textColor="#fff"
+                android:id="@+id/botLog"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp">
+                <TextView
+                    android:id="@+id/forgot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Esqueceu sua senha?"
+                    android:textColor="@color/colorHint"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/forgot2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clique aqui."
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

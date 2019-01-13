@@ -1,0 +1,147 @@
+<resources>
+    <string name="app_name">TRAINEE</string>
+    <string name="estagiario">TRAINEE - ESTAGIÁRIO</string>
+    <string name="empregador">TRAINEE - EMPREGADOR</string>
+    <string name="contato">CONTATE-NOS</string>
+    <string name="REMETENTE_EMAIL">help.trainee.app@gmail.com</string>
+    <string name="PW_REMETENTE_EMAIL">traineeufrpe0</string>
+    <string name="CONTATO"><u>Problemas? Entre em contato conosco</u></string>
+    <string name="cadastroestagiario">INFORMAÇÕES PESSOAIS:</string>
+    <string name="cadastrocurriculo">INFORMAÇÕES ACADÊMICAS:</string>
+    <string name="cadastroempregador">INFORMAÇÕES EMPRESARIAIS:</string>
+    <string name="aberto">Aberto</string>
+    <string name="fechado">Fechado</string>
+    <string name="search_hint">Pesquisar</string>
+    <string name="candidatar">QUERO ME CANDIDATAR</string>
+    <string name="cancelar_inscricao">CANCELAR INSCRIÇÃO</string>
+
+    <string name="codigo_verif_enviado">O código de verificação foi enviado para o seu e-mail</string>
+    <string name="informe_codigo_verif">Informe o código de verificação:</string>
+    <string name="digite_email">"Digite o seu e-mail:</string>
+    <string name="enviar">"ENVIAR"</string>
+    <string name="prosseguir">"PROSSEGUIR"</string>
+
+    <string name="hint_nome_pessoa">Nome Completo</string>
+    <string name="hint_nome_empresa">Nome da Empresa</string>
+    <string name="hint_email">"Informe seu e-mail aqui"</string>
+    <string name="hint_curso">Curso</string>
+    <string name="hint_instituicao">Instituição de Ensino</string>
+    <string name="hint_titulo_vaga">Título da Vaga</string>
+    <string name="hint_area_vaga">Selecione a área da vaga</string>
+    <string name="hint_requisitos_vaga">Descreva aqui os requisitos da vaga.</string>
+    <string name="hint_observacoes_vaga">Forneça mais informações sobre esta vaga.</string>
+
+
+    <string name="rotulo_requisitos_vaga">Requisitos</string>
+    <string name="rotulo_observacoes_vaga">Observações</string>
+    <string name="rotulo_horario">Horário</string>
+    <string name="rotulo_email_contato">Email</string>
+
+    <string name="horario_as">às</string>
+
+
+    <string name="txt_ola">Olá,</string>
+    <string name="txt_quem">quem é você?</string>
+    <string name="txt_valor_bolsa">Valor da Bolsa</string>
+    <string name="txt_a_combinar">A combinar</string>
+    <string name="txt_simbolo_moeda">R$</string>
+    <string name="txt_valor_maximo">2000+</string>
+    <string name="txt_contato">Deseja falar conosco?</string>
+    <string name="txt_click">Clique aqui</string>
+    <string name="txt_pergunta_selecionar">Selecionar candidato?</string>
+    <string name="txt_status_indefinido">O candidato foi ..</string>
+    <string name="txt_example_email">email@trainee.com.br</string>
+    <string name="txt_example_cidade">Cidade Nome</string>
+    <string name="txt_example_curso">Nome do Curso</string>
+    <string name="txt_example_instituicao">Nome da Instiuição</string>
+    <string name="txt_example_area">Área de Atuação</string>
+
+    <string name="btn_divulgar_vaga">DIVULGAR VAGA</string>
+    <string name="btn_avancar">AVANÇAR</string>
+    <string name="btn_estagiario">ESTAGIÁRIO</string>
+    <string name="btn_empregador">EMPREGADOR</string>
+
+    <string name="rotulo_nome">Nome:</string>
+    <string name="rotulo_email">E-mail:</string>
+    <string name="rotulo_senha">Senha:</string>
+    <string name="rotulo_repita_senha">Repita a sua senha:</string>
+    <string name="rotulo_cidade_atual">Cidade atual:</string>
+    <string name="rotulo_cpf">CPF:</string>
+
+    <string name="acessibity_logo">Logo do Trainee</string>
+    <string name="acessibity_slide2">Encontre os melhores estágios</string>
+    <string name="acessibity_slide3">Divulgue a sua vaga</string>
+    <string name="acessibity_perfil_estagiario">Foto do perfil do estagiário</string>
+    <string name="acessibity_perfil_estagiario_edit">Editar foto do perfil do estagiário</string>
+    <string name="acessibity_perfil_empregador">Foto do perfil do empregador</string>
+    <string name="acessibity_perfil_empregador_edit">Editar foto do perfil do empregador</string>
+    <string name="acessibity_icone_endereço">Ícone do endereço</string>
+    <string name="acessibity_icone_pessoa">Ícone do estagiário</string>
+    <string name="acessibity_icone_empresa">Ícone da empresa</string>
+    <string name="acessibity_icone_editar">Ícone editar</string>
+    <string name="acessibity_icone_curso">Ícone do curso</string>
+    <string name="acessibity_icone_instituicao">Ícone da instituição</string>
+    <string name="acessibity_icone_cidade">Ícone da cidade</string>
+    <string name="acessibity_icone_email">Ícone do e-mail</string>
+    <string name="acessibity_selecionar">Selecionar</string>
+    <string name="acessibity_dispensar">Dispensar</string>
+
+
+    <string-array name="tabs">
+        <item>ENTRAR</item>
+        <item>CADASTRAR</item>
+
+    </string-array>
+
+
+    <string-array name="tabsPrincipal">
+        <item>Novas Vagas</item>
+        <item>Vagas em aberto</item>
+        <item>Vagas Recomendadas</item>
+
+    </string-array>
+
+    <string-array name="tabsPrincipalEmpregador">
+        <item>Minhas Vagas</item>
+        <item>Candidatos</item>
+    </string-array>
+
+    <string-array name="fields">
+        <item>Artes e Design</item>
+        <item>Ciências Biológicas</item>
+        <item>Ciências Humanas</item>
+        <item>Ciências Exatas</item>
+        <item>Comunicação</item>
+        <item>Negócios</item>
+        <item>Saúde</item>
+        <item>Tecnologia</item>
+    </string-array>
+
+    <string-array name="Bolsas">
+        <item>A combinar</item>
+        <item>300,00 ~ 400,00</item>
+        <item>400,00 ~ 500,00</item>
+        <item>500,00 ~ 600,00</item>
+        <item>600,00 ~ 700,00</item>
+        <item>700,00 ~ 800,00</item>
+        <item>800,00 ~ 900,00</item>
+        <item>900,00 ~ 1100,00</item>
+        <item>1100,00 ~ 1500,00</item>
+        <item>1500,00 ~ 1900,00</item>
+    </string-array>
+
+    <string name="title_activity_tela_principal_estagiario">Trainee</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_search">Pesquisar</string>
+    <string name="title_activity_tela_principal_empregador">TelaPrincipalEmpregador</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tela_estagiario_principal">Home</string>
+    <string name="title_activity_tela_empregador_principal">Home</string>
+    <string name="title_activity_perfil_empregador">PerfilEmpregador</string>
+    <string name="title_activity_perfilemp">Perfilemp</string>
+
+</resources>
