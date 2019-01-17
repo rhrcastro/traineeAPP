@@ -72,9 +72,9 @@ public  class Database extends SQLiteOpenHelper {
                 "id_empregador_recebe integer," +
                 "id_vaga integer);");
         db.execSQL("CREATE TABLE avaliacoesVagas(" +
-                "id integer PRIMARY KEY AUTOINCREMENT," +
-        "idestagiarioavaliador integer NOT NULL," + "" +
-                "idvagavaliada integer NOT NULL," + "notaAvaliacao integer NOT NULL);");
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+        "idestagiarioavaliador INTEGER NOT NULL," + "" +
+                "idvagavaliada INTEGER NOT NULL," + "notaAvaliacao DOUBLE NOT NULL);");
     }
 
     @Override

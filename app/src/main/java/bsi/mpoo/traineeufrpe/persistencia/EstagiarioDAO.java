@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
@@ -94,5 +97,22 @@ public class EstagiarioDAO {
         valores.put("senha", estagiario.getSenha());
         db.update("estagiario", valores,"id = ?", new String[]{String.valueOf(estagiario.getId())});
         db.close();
+    }
+    public ArrayList<Estagiario> carregarEstagiarios(){
+        String query = "SELECT * FROM estagiario";
+        return this.carregarEstagiarios(query, null);
+
+    }
+    private ArrayList<Estagiario> carregarEstagiarios(String query, String[] args) {
+        ArrayList<Estagiario> estagiarios = new ArrayList<>();
+        SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                estagiarios.add(this.criarEstagiario(cursor));
+            } while (cursor.moveToNext());
+        }
+        return estagiarios;
     }
 }
