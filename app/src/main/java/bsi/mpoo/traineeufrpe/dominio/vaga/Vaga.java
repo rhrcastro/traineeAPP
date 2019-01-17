@@ -15,6 +15,7 @@ public class Vaga {
     private String obs;
     private String horario;
     private long miliseconds;
+    private Double avaliacaoEstagiario;
     SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM");
 
     private String mascaraTempo(long miliseconds){
@@ -105,5 +106,11 @@ public class Vaga {
 
     public String getHorario() {
         return horario;
+    }
+    public Double getAvaliacaoEstagiario() {
+        return avaliacaoEstagiario;
+    }
+    public void setAvaliacaoEstagiario(Double nota) {
+        this.avaliacaoEstagiario = nota;
     }
 }
