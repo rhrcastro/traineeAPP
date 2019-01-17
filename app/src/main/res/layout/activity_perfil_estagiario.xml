@@ -73,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                android:id="@+id/cardViewInfo"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true">
 
@@ -227,54 +228,82 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView_2"
+                android:id="@+id/cardViewLink"
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cardView_1"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="80dp"
+                android:layout_below="@id/cardViewInfo"
                 app:cardElevation="5dp"
-                app:cardUseCompatPadding="true">
+                app:cardUseCompatPadding="true"
+                android:background="#eeeeee">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_verLink"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#eeeeee">
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="start|center"
+                    android:src="@drawable/ic_eye"
+                    android:tint="@color/White"
+                    app:elevation="6dp"
+                    app:layout_anchor="@id/cardView_2"
+                    app:layout_anchorGravity="bottom|right|end"
+                    app:pressedTranslationZ="12dp" />
 
-                    <ImageView
-                        android:id="@+id/ic_page"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginBottom="8dp"
-                        android:src="@drawable/ic_import_contacts_white" />
+                <TextView
+                    android:id="@+id/campo_curriculo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linha4"
+                    android:layout_marginStart="80dp"
+                    android:layout_gravity="center|start"
+                    android:text="Link para curriculo aqui."
+                    android:textColor="@color/colorPrimaryDark" />
 
-                    <TextView
-                        android:id="@+id/campo_curriculo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/linha4"
-                        android:layout_marginStart="23dp"
-                        android:paddingTop="12dp"
-                        android:paddingBottom="12dp"
-                        android:text="Aqui vem o seu curriculo."
-                        android:textColor="@color/colorPrimaryDark" />
-                </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardView_3"
+                android:id="@+id/cardViewCurriculo"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginBottom="16dp"
-                android:layout_below="@id/cardView_2"
+                android:layout_below="@id/cardViewLink"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_verCurriculo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="start|center"
+                    android:src="@drawable/ic_eye"
+                    android:tint="@color/White"
+                    app:elevation="6dp"
+                    app:layout_anchor="@id/cardView_3"
+                    app:layout_anchorGravity="bottom|right|end"
+                    app:pressedTranslationZ="12dp" />
+
+                <TextView
+                    android:id="@+id/campo_curriculo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linha4"
+                    android:layout_marginStart="80dp"
+                    android:layout_gravity="center|start"
+                    android:text="Curriculo aqui."
+                    android:textColor="@color/colorPrimaryDark" />
+
+            </android.support.v7.widget.CardView>
+
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewEdit"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                android:layout_below="@id/cardViewCurriculo"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true">
 
@@ -295,7 +324,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|start"
                     android:layout_marginStart="80dp"
-                    android:text="Clique no botão para inserir ou editar um curriculo."
+                    android:text="Clique aqui para inserir ou editar um curriculo."
 
                     />
 
@@ -414,5 +443,7 @@
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
         app:pressedTranslationZ="12dp" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>

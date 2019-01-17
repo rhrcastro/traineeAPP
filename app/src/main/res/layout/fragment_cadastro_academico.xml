@@ -29,6 +29,32 @@
                 android:textSize="22sp" />
 
             <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Área"
+                android:textColor="@color/colorHint"
+                android:textSize="15dp" />
+
+            <Spinner
+                android:id="@+id/Segmento"
+                style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edittextform"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/colorTextDark"
+                android:textSize="18dp" />
+
+            <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,18 +105,17 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/textViewLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:text="Área"
+                android:text="Link (Caso queira importar um curriculo)"
                 android:textColor="@color/colorHint"
                 android:textSize="15dp" />
 
-            <Spinner
-                android:id="@+id/Segmento"
-                style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
+            <EditText
+                android:id="@+id/linkCadastro"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"

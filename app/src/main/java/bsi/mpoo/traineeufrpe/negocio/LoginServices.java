@@ -82,6 +82,7 @@ public class LoginServices {
         pessoaDAO.mudarNome(pessoa);
         curriculoDAO.mudarCurso(pessoa.getEstagiario().getCurriculo());
         curriculoDAO.mudarInstituicao(pessoa.getEstagiario().getCurriculo());
+        curriculoDAO.mudarLink(pessoa.getEstagiario().getCurriculo());
         estagiarioDAO.mudarEmailEstagiario(pessoa.getEstagiario());
     }
 

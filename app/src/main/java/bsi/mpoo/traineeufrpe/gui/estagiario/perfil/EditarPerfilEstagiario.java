@@ -50,6 +50,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
     private String curso;
     private String instituicao;
     private String email;
+    private String link;
     private EditText editNome;
     private EditText editCurso;
     private EditText editInstituicao;
@@ -75,6 +76,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
         this.curso = pessoa.getEstagiario().getCurriculo().getCurso();
         this.instituicao = pessoa.getEstagiario().getCurriculo().getInstituicao();
         this.email = pessoa.getEstagiario().getEmail();
+        this.link = pessoa.getEstagiario().getCurriculo().getLink();
         this.id = pessoa.getId();
     }
 
@@ -82,23 +84,11 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_perfil_estagiario);
-        editNome = findViewById(R.id.campo_nome);
-        editLink = findViewById(R.id.campo_link);
-        editCurso =  findViewById(R.id.campo_curso);
-        editInstituicao =  findViewById(R.id.campo_instituicao);
-        editLink.setText(SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink());
-        editEmail = findViewById(R.id.campo_email);
-        editNome.setText(this.nome);
-        editCurso.setText(this.curso);
-        editInstituicao.setText(this.instituicao);
-        editEmail.setText(this.email);
-        toolbar =  findViewById(R.id.toolbar);
-        emailTemp = editEmail.getText().toString().trim();
-        setSupportActionBar(toolbar);
-        imgPerfil =  findViewById(R.id.photo_profile);
+        Constroi();
         byte[] imagemEmBits = pessoa.getEstagiario().getFoto();
         Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
-        this.imgPerfil.setImageBitmap(bitmap);
+        Set(bitmap);
+        emailTemp = editEmail.getText().toString().trim();
         this.imgPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,6 +111,25 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
         });
     }
 
+    private void Set(Bitmap bitmap) {
+        editLink.setText(this.link);
+        editNome.setText(this.nome);
+        editCurso.setText(this.curso);
+        editInstituicao.setText(this.instituicao);
+        editEmail.setText(this.email);
+        this.imgPerfil.setImageBitmap(bitmap);
+    }
+
+    private void Constroi() {
+        editNome = findViewById(R.id.campo_nome);
+        editLink = findViewById(R.id.campo_link);
+        editCurso =  findViewById(R.id.campo_curso);
+        editInstituicao =  findViewById(R.id.campo_instituicao);
+        editEmail = findViewById(R.id.campo_email);
+        toolbar =  findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        imgPerfil =  findViewById(R.id.photo_profile);
+    }
 
 
     @Override
@@ -188,7 +197,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
 
     private void abrirGaleriaIntent() {
         Intent intent = new Intent();
-        intent.setType("application/pdf");
+        intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Selecione a foto"), REQUEST_GALLERY);
     }
