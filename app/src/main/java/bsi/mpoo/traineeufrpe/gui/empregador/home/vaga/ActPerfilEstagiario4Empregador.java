@@ -1,8 +1,10 @@
 package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,9 +25,8 @@ import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 
 public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
 
-    TextView curso, instituicao, area, email, cidade;
+    TextView curso, instituicao, area, email, cidade, curriculo;
     CardView cardViewSelecionar, cardViewInserirCurriculo;
-    FloatingActionButton fab_edit;
     LinearLayout lblSim;
     LinearLayout lblNao;
     TextView txtStatus;
@@ -33,12 +34,11 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
     private InscricaoServices inscricaoServices = new InscricaoServices(this);
     Toolbar toolbar;
     boolean selecionado = false;
-    private String strCurso, strInstituicao, strArea, strEmail, strCidade;
-    private String strNome;
+    private String strCurso, strInstituicao, strArea;
     public static ControladorVaga controladorVaga;
     private Pessoa pessoa;
-    private Vaga vaga;
     NotificacaoServices notificationServices = new NotificacaoServices(this);
+    CardView cardView1, cardView2;
 
     public ActPerfilEstagiario4Empregador(){
         pessoa = controladorVaga.getPessoa();
@@ -51,15 +51,62 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_estagiario);
-        curso =  findViewById(R.id.campo_curso);
-        instituicao =  findViewById(R.id.campo_instituicao);
-        area =  findViewById(R.id.campo_area);
-        email = findViewById(R.id.campo_email);
-        cidade =  findViewById(R.id.campo_local);
-        imagem =  findViewById(R.id.campo_imagem);
-        toolbar =  findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        Constroi();
         Bitmap bitmap = getImagem();
+        Set(bitmap);
+        lblSim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!selecionado)
+                    sim();
+            }
+        });
+        lblNao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!selecionado)
+                    nao();
+            }
+        });
+        cardView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarUrl(pessoa.getEstagiario().getCurriculo().getLink());
+            }
+        });
+    }
+
+    private void mostrarUrl(String url) {
+        Intent site = new Intent(Intent.ACTION_VIEW);
+        site.setData(Uri.parse(url));
+        startActivity(site);
+    }
+
+    private void nao() {
+        inscricaoServices = new InscricaoServices(ActPerfilEstagiario4Empregador.this);
+        controladorVaga.setStatus("dispensado");
+        inscricaoServices.setStatusInscricaoByEstagiarioAndVaga(controladorVaga);
+        lblSim.setBackgroundColor(Color.parseColor("#999999"));
+        lblNao.setBackgroundColor(Color.parseColor("#ff0000"));
+        txtStatus.setText("Candidato dispensado.");
+        txtStatus.setVisibility(View.VISIBLE);
+        notificacaoEstagiarioNaoSelecionado(controladorVaga);
+        selecionado = true;
+    }
+
+    private void sim() {
+        inscricaoServices = new InscricaoServices(ActPerfilEstagiario4Empregador.this);
+        controladorVaga.setStatus("selecionado");
+        inscricaoServices.setStatusInscricaoByEstagiarioAndVaga(controladorVaga);
+        lblNao.setBackgroundColor(Color.parseColor("#999999"));
+        lblSim.setBackgroundColor(Color.parseColor("#228b22"));
+        txtStatus.setText("Candidato selecionado.");
+        notificacaoSelecionadoEstagiario(controladorVaga);
+        txtStatus.setVisibility(View.VISIBLE);
+        selecionado = true;
+    }
+
+    private void Set(Bitmap bitmap) {
         curso.setText(strCurso);
         instituicao.setText(strInstituicao);
         area.setText(strArea);
@@ -69,41 +116,29 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
         imagem.setImageBitmap(bitmap);
         toolbar.setTitle(pessoa.getNome());
         setSupportActionBar(toolbar);
-        cardViewSelecionar = findViewById(R.id.cardViewEmpregador);
-        cardViewInserirCurriculo = findViewById(R.id.cardView_3);
         cardViewSelecionar.setVisibility(View.VISIBLE);
         cardViewInserirCurriculo.setVisibility(View.INVISIBLE);
+        lblNao.setBackgroundColor(Color.parseColor("#ff0000"));
+        lblSim.setBackgroundColor(Color.parseColor("#228b22"));
+    }
+
+    private void Constroi() {
+        curso =  findViewById(R.id.campo_curso);
+        instituicao =  findViewById(R.id.campo_instituicao);
+        area =  findViewById(R.id.campo_area);
+        email = findViewById(R.id.campo_email);
+        cidade =  findViewById(R.id.campo_local);
+        imagem =  findViewById(R.id.campo_imagem);
+        toolbar =  findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        cardView1 = findViewById(R.id.cardViewLink);
+        cardView2 = findViewById(R.id.cardViewCurriculo);
+        cardViewSelecionar = findViewById(R.id.cardViewEmpregador);
+        cardViewInserirCurriculo = findViewById(R.id.cardViewEdit);
         lblSim = findViewById(R.id.selectSim);
         lblNao = findViewById(R.id.selectNao);
         txtStatus = findViewById(R.id.txtStatus);
-        lblSim.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!selecionado)
-                    inscricaoServices = new InscricaoServices(ActPerfilEstagiario4Empregador.this);
-                    controladorVaga.setStatus("selecionado");
-                    inscricaoServices.setStatusInscricaoByEstagiarioAndVaga(controladorVaga);
-                    lblNao.setBackgroundColor(Color.parseColor("#999999"));
-                    txtStatus.setText("Candidato selecionado.");
-                    notificacaoSelecionadoEstagiario(controladorVaga);
-                    txtStatus.setVisibility(View.VISIBLE);
-                    selecionado = true;
-            }
-        });
-        lblNao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!selecionado)
-                    inscricaoServices = new InscricaoServices(ActPerfilEstagiario4Empregador.this);
-                    controladorVaga.setStatus("dispensado");
-                    inscricaoServices.setStatusInscricaoByEstagiarioAndVaga(controladorVaga);
-                    lblSim.setBackgroundColor(Color.parseColor("#999999"));
-                    txtStatus.setText("Candidato dispensado.");
-                    txtStatus.setVisibility(View.VISIBLE);
-                    notificacaoEstagiarioNaoSelecionado(controladorVaga);
-                    selecionado = true;
-            }
-        });
+        curriculo = findViewById(R.id.campo_curriculo);
     }
 
     private Bitmap getImagem(){

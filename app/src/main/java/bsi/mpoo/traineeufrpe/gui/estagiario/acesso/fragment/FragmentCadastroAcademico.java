@@ -24,6 +24,7 @@ import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 public class FragmentCadastroAcademico extends Fragment implements AdapterView.OnItemSelectedListener{
     EditText edtCurso;
     EditText edtInstituicao;
+    EditText Hyperlink;
     Spinner edtSegmento;
     private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     Button cadastrar;
@@ -35,6 +36,7 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         this.edtCurso = v.findViewById(R.id.cursoCadastro);
         this.edtInstituicao = v.findViewById(R.id.instituicaoCadastro);
         edtSegmento = v.findViewById(R.id.Segmento);
+        Hyperlink = v.findViewById(R.id.linkCadastro);
         edtSegmento.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.fields, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -68,7 +70,7 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         if (!this.verificarCampos()) {
             return;
         }
-        Curriculo curriculo = new Curriculo();
+        Curriculo curriculo;
         LoginServices loginServices = new LoginServices(getContext());
         curriculo = loginServices.cadastrarCurriculoNoBanco(criarCurriculo());
         if (curriculo instanceof Curriculo) {
@@ -85,10 +87,14 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         String curso = edtCurso.getText().toString().trim();
         String instituicao = edtInstituicao.getText().toString().trim();
         String areaAtuacao = edtSegmento.getSelectedItem().toString();
+        String page = Hyperlink.getText().toString().trim();
         Curriculo curriculo = new Curriculo();
         curriculo.setCurso(curso);
         curriculo.setAreaAtuacao(areaAtuacao);
         curriculo.setInstituicao(instituicao);
+        if (!page.equals("")){
+            curriculo.setLink(page);
+        }
         return curriculo;
     }
 

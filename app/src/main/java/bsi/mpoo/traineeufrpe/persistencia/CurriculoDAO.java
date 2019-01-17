@@ -37,6 +37,7 @@ public class CurriculoDAO {
         valores.put("curso", curriculo.getCurso());
         valores.put("instituicao", curriculo.getInstituicao());
         valores.put("areaAtuacao", curriculo.getAreaAtuacao());
+        valores.put("link", curriculo.getLink());
         result = escritorBanco.insert("curriculo", null, valores);
         escritorBanco.close();
         return result;
@@ -82,6 +83,14 @@ public class CurriculoDAO {
         SQLiteDatabase db = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("areaAtuacao", curriculo.getAreaAtuacao());
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
+    public void mudarLink(Curriculo curriculo) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("link", curriculo.getLink());
         db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
         db.close();
     }
