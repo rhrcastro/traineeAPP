@@ -199,5 +199,9 @@ public class VagaServices {
     public void DelVaga(long id){
         vagaDAO.deletarVaga(id);
     }
+    public Vaga vagaById(String nomeVAGA, Context context){
+        VagaDAO vaga = new VagaDAO(context);
+        return vaga.getVagaById(Integer.parseInt(nomeVAGA));
+    }
 
 }
