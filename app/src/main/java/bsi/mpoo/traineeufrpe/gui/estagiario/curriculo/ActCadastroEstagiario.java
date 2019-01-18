@@ -19,6 +19,7 @@ import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
+import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class ActCadastroEstagiario extends AppCompatActivity {
@@ -38,6 +39,7 @@ public class ActCadastroEstagiario extends AppCompatActivity {
     private String senha2;
     private String cidade;
     Button cadastrar;
+    private Criptografia criptografia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +124,7 @@ public class ActCadastroEstagiario extends AppCompatActivity {
     private Estagiario criarEstagiario() {
         Estagiario estagiario = new Estagiario();
         estagiario.setEmail(email);
-        String senha = codificarBase64(senha1);
+        String senha = criptografia.criptografar(senha1);
         estagiario.setSenha(senha);
         estagiario.setCurriculo(SessaoEstagiario.instance.getCurriculo());
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile_empregador);
@@ -133,7 +135,5 @@ public class ActCadastroEstagiario extends AppCompatActivity {
         return estagiario;
     }
 
-    public static String codificarBase64 (String texto) {
-        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
-    }
+
 }

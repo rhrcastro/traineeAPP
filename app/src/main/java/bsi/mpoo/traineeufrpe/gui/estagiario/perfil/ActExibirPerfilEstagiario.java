@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.gui.VerCurriculo;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
@@ -47,14 +48,13 @@ public class ActExibirPerfilEstagiario extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), EditarPerfilEstagiario.class);
                 startActivity(intent);
-                finish();
             }
         });
 
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink() != null){
+                if (!SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink().equals("")){
                     MostrarUrl(SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink());
                 }else{
                     Snackbar snackbar;
@@ -71,6 +71,22 @@ public class ActExibirPerfilEstagiario extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), EditarPerfilEstagiario.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+
+        cardView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getExperiencia().equals("")){
+                    Intent intent = new Intent(getBaseContext(), VerCurriculo.class);
+                    startActivity(intent);
+                }else{
+                    Snackbar snackbar;
+                    snackbar = Snackbar.make(v, "Cadastre um curriculo para ser exibido.", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
+
             }
         });
 

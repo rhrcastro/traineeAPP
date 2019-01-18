@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import bsi.mpoo.traineeufrpe.gui.estagiario.curriculo.CadastrarCurriculo2;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.gui.estagiario.curriculo.ActCadastroEstagiario;
@@ -33,15 +34,11 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = Inflater.inflate(R.layout.fragment_cadastro_academico, container, false);
-        this.edtCurso = v.findViewById(R.id.cursoCadastro);
-        this.edtInstituicao = v.findViewById(R.id.instituicaoCadastro);
-        edtSegmento = v.findViewById(R.id.Segmento);
-        Hyperlink = v.findViewById(R.id.linkCadastro);
+        Constroi(v);
         edtSegmento.setOnItemSelectedListener(this);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.fields, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         edtSegmento.setAdapter(adapter);
-        cadastrar = v.findViewById(R.id.botCadastroCurriculo);
         cadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,9 +48,19 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
 
         return v;
     }
+
+    private void Constroi(View v) {
+        this.edtCurso = v.findViewById(R.id.cursoCadastro);
+        this.edtInstituicao = v.findViewById(R.id.instituicaoCadastro);
+        edtSegmento = v.findViewById(R.id.Segmento);
+        Hyperlink = v.findViewById(R.id.linkCadastro);
+        cadastrar = v.findViewById(R.id.botCadastroCurriculo);
+    }
+
     public boolean verificarCampos() {
         String curso = edtCurso.getText().toString().trim();
         String instituicao = edtInstituicao.getText().toString().trim();
+        String area = edtSegmento.getSelectedItem().toString();
         if (validacaoGUI.isCampoVazio(curso)) {
             this.edtCurso.setError("O campo curso não pode ficar vazio");
             return false;
@@ -61,7 +68,11 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         if (validacaoGUI.isCampoVazio(instituicao)) {
             this.edtInstituicao.setError("O campo instituição não pode ficar vazio");
             return false;
-        } else {
+        }
+        if (validacaoGUI.isAreaValida(area)) {
+            Toast.makeText(getContext(), "Escolha uma área", Toast.LENGTH_SHORT).show();
+            return false;
+        }else{
             return true;
         }
 
@@ -72,16 +83,31 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         }
         Curriculo curriculo;
         LoginServices loginServices = new LoginServices(getContext());
-        curriculo = loginServices.cadastrarCurriculoNoBanco(criarCurriculo());
-        if (curriculo instanceof Curriculo) {
-            SessaoEstagiario.instance.setCurriculo(curriculo);
-            Toast.makeText(getContext(), "Curriculo cadastrado.", Toast.LENGTH_SHORT).show();
+        curriculo = criarCurriculo();
+        if (!Hyperlink.getText().toString().trim().equals("")){
+            curriculo.setExperiencia("");
+            curriculo.setConhecimentos_especificos("");
+            curriculo.setConhcimentos_basicos("");
+            curriculo.setObjetivo("");
+            curriculo.setDisciplinas("");
+            curriculo.setRelacionamento("");
+            Curriculo curriculo1 = loginServices.cadastrarCurriculoNoBanco(curriculo);
+            SessaoEstagiario.instance.setCurriculo(curriculo1);
             Intent abreTelaCadastroEstagiario = new Intent(getActivity(), ActCadastroEstagiario.class);
             startActivity(abreTelaCadastroEstagiario);
-            finishActivity();
         }else{
-            Toast.makeText(getContext(), "Curriculo não cadastrado.", Toast.LENGTH_SHORT).show();
+            if (curriculo instanceof Curriculo) {
+                SessaoEstagiario.instance.setCurriculo(curriculo);
+                Intent abreTelaCadastroEstagiario = new Intent(getActivity(), CadastrarCurriculo2.class);
+                startActivity(abreTelaCadastroEstagiario);
+                finishActivity();
+            }else{
+                Toast.makeText(getContext(), "Erro de inserção do curriculo.", Toast.LENGTH_SHORT).show();
+            }
+
         }
+
+
     }
     private Curriculo criarCurriculo(){
         String curso = edtCurso.getText().toString().trim();
@@ -92,9 +118,7 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         curriculo.setCurso(curso);
         curriculo.setAreaAtuacao(areaAtuacao);
         curriculo.setInstituicao(instituicao);
-        if (!page.equals("")){
-            curriculo.setLink(page);
-        }
+        curriculo.setLink(page);
         return curriculo;
     }
 

@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +20,7 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
+import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentCadastroEmpregador extends Fragment {
@@ -33,20 +33,14 @@ public class FragmentCadastroEmpregador extends Fragment {
     private EditText editConfirmaSenhaEmpregador;
     private EditText editCidadeEmpregador;
     private Context context;
+    private Criptografia criptografia;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = Inflater.inflate(R.layout.fragment_cadastro_empregador, container, false);
-        context = v.getContext();
-        this.editNomeCadastroEmpregador = v.findViewById(R.id.editNomeCadastroEmpregador);
-        this.editEmailCadastroEmpregador = v.findViewById(R.id.editEmailCadastroEmpregador);
-        this.editCNPJ = v.findViewById(R.id.editCNPJ);
-        this.editSenhaCadastroEmpregador = v.findViewById(R.id.editSenhaCadastroEmpregador);
-        this.editConfirmaSenhaEmpregador = v.findViewById(R.id.editConfirmaSenhaEmpregador);
-        this.editCidadeEmpregador = v.findViewById(R.id.editCidadeEmpregador);
+        Constroi(v);
 
-        this.cadastrarEmpregador = v.findViewById(R.id.cadastrarEmpregador);
         this.cadastrarEmpregador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +49,18 @@ public class FragmentCadastroEmpregador extends Fragment {
         });
         return v;
     }
+
+    private void Constroi(View v) {
+        context = v.getContext();
+        this.editNomeCadastroEmpregador = v.findViewById(R.id.editNomeCadastroEmpregador);
+        this.editEmailCadastroEmpregador = v.findViewById(R.id.editEmailCadastroEmpregador);
+        this.editCNPJ = v.findViewById(R.id.editCNPJ);
+        this.editSenhaCadastroEmpregador = v.findViewById(R.id.editSenhaCadastroEmpregador);
+        this.editConfirmaSenhaEmpregador = v.findViewById(R.id.editConfirmaSenhaEmpregador);
+        this.editCidadeEmpregador = v.findViewById(R.id.editCidadeEmpregador);
+        this.cadastrarEmpregador = v.findViewById(R.id.cadastrarEmpregador);
+    }
+
     private boolean verificarCampos() {
         String nome = editNomeCadastroEmpregador.getText().toString().trim();
         String email = editEmailCadastroEmpregador.getText().toString().trim();
@@ -107,7 +113,7 @@ public class FragmentCadastroEmpregador extends Fragment {
         Empregador empregador = new Empregador();
         empregador.setNome(nome);
         empregador.setEmail(email);
-        String senhaCodificada = codificarBase64(senha);
+        String senhaCodificada = criptografia.criptografar(senha);
         empregador.setSenha(senhaCodificada);
         empregador.setCnpj(cnpj);
         empregador.setCidade(cidade);
@@ -124,7 +130,4 @@ public class FragmentCadastroEmpregador extends Fragment {
         }
     }
 
-    public static String codificarBase64 (String texto) {
-        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
-    }
 }
