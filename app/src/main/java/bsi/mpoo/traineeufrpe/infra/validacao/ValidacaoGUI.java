@@ -17,9 +17,5 @@ public class ValidacaoGUI {
         return senha1.equals(senha2);
     }
 
-    public boolean isAreaValida(String area){
-        return area.equals("Escolha uma área");
-    }
-
 
 }

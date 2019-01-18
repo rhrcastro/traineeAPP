@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -15,17 +16,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.gui.VerCurriculo;
 import bsi.mpoo.traineeufrpe.dominio.Notificacao;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
+import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 
 public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
 
-    TextView curso, instituicao, area, email, cidade, curriculo, arquivo;
+    TextView curso, instituicao, area, email, cidade, curriculo;
     CardView cardViewSelecionar, cardViewInserirCurriculo;
     LinearLayout lblSim;
     LinearLayout lblNao;
@@ -74,20 +74,6 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
                 mostrarUrl(pessoa.getEstagiario().getCurriculo().getLink());
             }
         });
-
-        cardView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mostrarCurriculo();
-            }
-        });
-    }
-
-    private void mostrarCurriculo() {
-        Intent intent = new Intent(ActPerfilEstagiario4Empregador.this, VerCurriculo.class);
-        SessaoEstagiario.instance.setPessoa(pessoa);
-        startActivity(intent);
-        finish();
     }
 
     private void mostrarUrl(String url) {
@@ -134,12 +120,6 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
         cardViewInserirCurriculo.setVisibility(View.INVISIBLE);
         lblNao.setBackgroundColor(Color.parseColor("#ff0000"));
         lblSim.setBackgroundColor(Color.parseColor("#228b22"));
-        if (pessoa.getEstagiario().getCurriculo().getLink().equals("")){
-            curriculo.setText("Link não cadastrado");
-        }
-        if (pessoa.getEstagiario().getCurriculo().getRelacionamento().equals("")){
-            arquivo.setText("Arquivo não cadastrado");
-        }
     }
 
     private void Constroi() {
@@ -159,7 +139,6 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
         lblNao = findViewById(R.id.selectNao);
         txtStatus = findViewById(R.id.txtStatus);
         curriculo = findViewById(R.id.campo_curriculo);
-        arquivo = findViewById(R.id.campo_curriculo2);
     }
 
     private Bitmap getImagem(){

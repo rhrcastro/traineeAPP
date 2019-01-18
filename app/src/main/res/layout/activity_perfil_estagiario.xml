@@ -256,7 +256,7 @@
                     android:layout_below="@id/linha4"
                     android:layout_marginStart="80dp"
                     android:layout_gravity="center|start"
-                    android:text="Link aqui."
+                    android:text="Link para curriculo aqui."
                     android:textColor="@color/colorPrimaryDark" />
 
 

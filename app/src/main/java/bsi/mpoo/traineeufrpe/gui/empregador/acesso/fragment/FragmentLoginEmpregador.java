@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,6 @@ import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActEsqueciSenhaEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
-import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentLoginEmpregador extends Fragment {
@@ -28,20 +28,23 @@ public class FragmentLoginEmpregador extends Fragment {
     private EditText edtEmailEmpregador;
     private EditText edtSenhaEmpregador;
     private TextView forgot2;
-    private Criptografia criptografia;
 
     @SuppressLint("WrongViewCast")
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = Inflater.inflate(R.layout.fragment_login_empregador, container, false);
-        Constroi(v);
+        this.edtEmailEmpregador = v.findViewById(R.id.edtEmailEmpregador);
+        this.edtSenhaEmpregador = v.findViewById(R.id.edtSenhaEmpregador);
+        this.edtEmailEmpregador.requestFocus();
+        loginEmpregador = v.findViewById(R.id.butlogin2);
         loginEmpregador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logarEmpregador();
             }
         });
+        forgot2 = v.findViewById(R.id.forgot2);
         forgot2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,15 +53,6 @@ public class FragmentLoginEmpregador extends Fragment {
         });
         return v;
     }
-
-    private void Constroi(View v) {
-        this.edtEmailEmpregador = v.findViewById(R.id.edtEmailEmpregador);
-        this.edtSenhaEmpregador = v.findViewById(R.id.edtSenhaEmpregador);
-        this.edtEmailEmpregador.requestFocus();
-        loginEmpregador = v.findViewById(R.id.butlogin2);
-        forgot2 = v.findViewById(R.id.forgot2);
-    }
-
     public void logarEmpregador() {
         if (!this.verificarCampos()) {
             return;
@@ -97,7 +91,7 @@ public class FragmentLoginEmpregador extends Fragment {
         String senha = this.edtSenhaEmpregador.getText().toString().trim();
         Empregador empregador = new Empregador();
         empregador.setEmail(email);
-        String senhaCodificada = criptografia.criptografar(senha);
+        String senhaCodificada = codificarBase64(senha);
         empregador.setSenha(senhaCodificada);
         return empregador;
     }
@@ -111,4 +105,7 @@ public class FragmentLoginEmpregador extends Fragment {
         }
     }
 
+    public static String codificarBase64 (String texto) {
+        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
+    }
 }

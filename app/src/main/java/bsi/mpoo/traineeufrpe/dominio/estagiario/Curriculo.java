@@ -6,7 +6,6 @@ public class Curriculo {
     private String areaAtuacao;
     private String experiencia;
     private String objetivo;
-    private String relacionamento;
     private String conhcimentos_basicos;
     private String conhecimentos_especificos;
     private String disciplinas;
@@ -38,8 +37,6 @@ public class Curriculo {
         this.instituicao = instituicao;
     }
 
-    public String getRelacionamento() { return relacionamento; }
-    public void setRelacionamento(String relacionamento) { this.relacionamento = relacionamento; }
     public String getExperiencia() { return experiencia; }
     public void setExperiencia(String experiencia) { this.experiencia = experiencia; }
     public String getObjetivo() { return objetivo; }

@@ -18,7 +18,6 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActEsqueciSenhaEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
-import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class FragmentLoginEstagiario extends Fragment {
@@ -30,19 +29,21 @@ public class FragmentLoginEstagiario extends Fragment {
     private String email;
     private String senha;
     Button btnLogin;
-    private Criptografia criptografia;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_login_estagiario, container, false);
-        Constroi(v);
+        edtEmail = v.findViewById(R.id.emailLogin);
+        edtSenha = v.findViewById(R.id.senhaLogin);
+        btnLogin = (Button)v.findViewById(R.id.botLog);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logar();
             }
         });
+        forgot = v.findViewById(R.id.forgot2);
         forgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,20 +53,13 @@ public class FragmentLoginEstagiario extends Fragment {
         return v;
     }
 
-    private void Constroi(View v) {
-        edtEmail = v.findViewById(R.id.emailLogin);
-        edtSenha = v.findViewById(R.id.senhaLogin);
-        btnLogin = v.findViewById(R.id.botLog);
-        forgot = v.findViewById(R.id.forgot2);
-    }
-
     public void logar() {
         capturaTextos();
         if (!isCamposValidos()) {
             return;
         }
         LoginServices loginServices = new LoginServices(getContext());
-        boolean taLogado = loginServices.fazerLogin(email, criptografia.criptografar(senha));
+        boolean taLogado = loginServices.fazerLogin(email, codificarBase64(senha));
         if (taLogado) {
             Toast.makeText(getContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             goHome();
@@ -100,5 +94,8 @@ public class FragmentLoginEstagiario extends Fragment {
         }
     }
 
+    public static String codificarBase64 (String texto) {
+        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
+    }
 }
 

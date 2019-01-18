@@ -134,11 +134,11 @@ public class VagaServices {
         return listaVaga;
     }
 
-    public ArrayList<Vaga> getObjetoVaga(ArrayList<String> listaId, Context context) {
+    public ArrayList<Vaga> getObjetoVaga(ArrayList<String> listaId) {
         ArrayList<Vaga> listaVaga = new ArrayList<Vaga>();
         for (int i = 0; i < listaId.size(); i++) {
             int id = Integer.parseInt(listaId.get(i));
-            Vaga vaga = vagaDAO.getVagaById(id, context);
+            Vaga vaga = vagaDAO.getVagaById(id);
             listaVaga.add(vaga);
         }
         return listaVaga;
@@ -211,7 +211,7 @@ public class VagaServices {
 
     public Vaga vagaById(String nomeVAGA, Context context) {
         VagaDAO vaga = new VagaDAO(context);
-        return vaga.getVagaById(Integer.parseInt(nomeVAGA), context);
+        return vaga.getVagaById(Integer.parseInt(nomeVAGA));
     }
 
     public ArrayList<Vaga> getRecomendacao(Context context) {

@@ -110,15 +110,15 @@ public class VagaDAO {
         return data;
     }
 
-    public Vaga getVagaById(long id, Context context) {
+    public Vaga getVagaById(int id) {
         String query = "SELECT * FROM vaga " +
                 "WHERE id = ?";
         String[] args = {String.valueOf(id)};
-        return this.carregarObjeto(query, args, context);
+        return this.carregarObjeto(query, args);
     }
 
-    private Vaga carregarObjeto(String query, String[] args, Context context) {
-        SQLiteDatabase leitorBanco = bancoDados.getBancoLeitura(context);
+    private Vaga carregarObjeto(String query, String[] args) {
+        SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Vaga vaga = null;
         if (cursor.moveToNext()) {
