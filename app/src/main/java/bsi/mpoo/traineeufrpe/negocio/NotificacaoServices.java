@@ -65,7 +65,7 @@ public class NotificacaoServices {
                     getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR_RECEBE)));
             notificacao.setMensagem(data.getString(COLUMN_MENSAGEM));
             if (!data.isNull(COLUMN_ID_VAGA)){
-                notificacao.setVagaRelacionada(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), mContext));
+                notificacao.setVagaRelacionada(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA)));
             }
             listagem.add(notificacao);
         } return listagem;
@@ -83,7 +83,7 @@ public class NotificacaoServices {
                     .getPessoaCompleta(data.getLong(COLUMN_ID_PESSOA_RECEBE)));
             notificacao.setMensagem(data.getString(COLUMN_MENSAGEM));
             if (!data.isNull(COLUMN_ID_VAGA)){
-                notificacao.setVagaRelacionada(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), mContext));
+                notificacao.setVagaRelacionada(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA)));
             }
             listagem.add(notificacao);
         } return listagem;

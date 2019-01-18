@@ -41,7 +41,7 @@ public class FragmentMinhaVaga extends Fragment {
         ArrayList<String> listVagas = new ArrayList<>();
         ArrayList<Vaga> listObjeto = new ArrayList<>();
         listVagas = vagaServices.getVagas();
-        listObjeto = vagaServices.getObjetoVaga(listVagas, getActivity());
+        listObjeto = vagaServices.getObjetoVaga(listVagas);
         final VagasListAdapter adapter = new VagasListAdapter(getActivity(), R.layout.lista_vaga_empresa, listObjeto);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

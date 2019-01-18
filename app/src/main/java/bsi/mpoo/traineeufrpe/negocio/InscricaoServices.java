@@ -59,7 +59,7 @@ public class InscricaoServices {
         while (data.moveToNext()){
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
-            inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
+            inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA)));
             inscricao.setEmpregador(empregadorServices
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             estagiario = estagiarioDAO
@@ -106,7 +106,7 @@ public class InscricaoServices {
         while (data.moveToNext()){
             inscricao = new ControladorVaga();
             inscricao.setId(data.getLong(COLUMN_ID));
-            inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), context));
+            inscricao.setVaga(vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA)));
             inscricao.setEmpregador(empregadorServices
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             estagiario = estagiarioDAO
@@ -168,7 +168,7 @@ public class InscricaoServices {
         Cursor data = inscricaoDAO.getInscricaoByPessoa(pessoa.getId());
         Vaga vaga;
         while (data.moveToNext()) {
-            vaga = vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA), mContext);
+            vaga = vagaDAO.getVagaById(data.getLong(COLUMN_ID_VAGA));
             vaga.setEmpregador(empregadorServices
                     .getEmpregadorById(data.getLong(COLUMN_ID_EMPREGADOR)));
             vagas.add(vaga);

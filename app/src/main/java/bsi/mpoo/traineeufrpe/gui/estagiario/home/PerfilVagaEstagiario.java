@@ -1,5 +1,6 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.home;
 
+import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,7 @@ import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
+import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class PerfilVagaEstagiario extends AppCompatActivity {
 
@@ -29,13 +32,18 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     private TextView txtObservacoes;
     private TextView txtValorBolsa;
     private TextView txtCampoTurno;
+    private TextView txtAvaliacao;
+    private TextView txtStatus;
+    private TextView txtAvalie;
     private ImageView imgEmpresa;
     Button queroCandidatar;
-
+    RatingBar ratingBar;
     InscricaoServices inscricaoServices;
     NotificacaoServices notificationServices;
+    VagaServices vagaServices = new VagaServices(this);
 
     boolean isInscrito;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,17 +56,64 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         txtObservacoes = findViewById(R.id.txtObservacoes);
         txtCampoTurno = findViewById(R.id.campo_turno);
         txtValorBolsa = findViewById(R.id.txtValorBolsa);
+        txtAvaliacao = findViewById(R.id.txtSuaAvaliacao);
+        txtStatus = findViewById(R.id.textStatus);
+        txtAvalie = findViewById(R.id.textAvalie);
         imgEmpresa = findViewById(R.id.imgEmpresa);
+        ratingBar = findViewById(R.id.ratingBar);
+        Double nota = vagaServices.avaliacaoVagaEstagiario(vaga, this);
+        if (nota != null) {
+            ratingBar.setRating(nota.floatValue());
+            mudarAvaliacao(nota.floatValue());
+        }
         queroCandidatar = findViewById(R.id.btnQueroCandidatar);
         popular();
         verificaStatus();
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                mudarAvaliacao(rating);
+            }
+        });
         queroCandidatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 criarInscricao();
-            }
+                }
         });
+    }
 
+    private void mudarAvaliacao(float rating) {
+        txtAvalie.setVisibility(View.INVISIBLE);
+        txtAvaliacao.setVisibility(View.VISIBLE);
+        switch (String.valueOf(rating)){
+            case "1.0":
+                txtStatus.setText("Péssima");
+                vagaServices.inserirNotaVaga(SessaoEstagiario.instance.getPessoa(),
+                        vaga, rating);
+                break;
+            case "2.0":
+                txtStatus.setText("Ruim");
+                vagaServices.inserirNotaVaga(SessaoEstagiario.instance.getPessoa(),
+                        vaga, rating);
+                break;
+            case "3.0":
+                txtStatus.setText("Razoável");
+                vagaServices.inserirNotaVaga(SessaoEstagiario.instance.getPessoa(),
+                        vaga, rating);
+                break;
+            case "4.0":
+                txtStatus.setText("Boa");
+                vagaServices.inserirNotaVaga(SessaoEstagiario.instance.getPessoa(),
+                        vaga, rating);
+                break;
+            case "5.0":
+                txtStatus.setText("Ótima");
+                vagaServices.inserirNotaVaga(SessaoEstagiario.instance.getPessoa(),
+                        vaga, rating);
+                break;
+        }
+        txtStatus.setVisibility(View.VISIBLE);
     }
 
     private void popular(){
