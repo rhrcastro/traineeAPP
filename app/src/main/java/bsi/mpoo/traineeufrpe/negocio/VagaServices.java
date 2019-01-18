@@ -11,10 +11,10 @@ import java.util.Map;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
-import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
@@ -30,7 +30,11 @@ public class VagaServices {
         long result = this.vagaDAO.inserirVaga(vaga);
         vaga.setId(result);
         return true;
+    }
 
+    public boolean inserirNotaVaga(Pessoa pessoa, Vaga vaga, float nota) {
+        this.vagaDAO.inserirNotaVaga(pessoa.getId(), vaga.getId(), nota);
+        return true;
     }
 
     public ArrayList<String> getListaNomeVagas() {
@@ -245,7 +249,7 @@ public class VagaServices {
     public Double avaliacaoVagaEstagiario(Vaga vaga, Context context){
         Estagiario estagiario = SessaoEstagiario.instance.getPessoa().getEstagiario();
         VagaDAO vagaDAO = new VagaDAO(context);
-        return vagaDAO.getNotaVaga(estagiario, vaga);
+        return vagaDAO.getNotaVaga(estagiario.getId(), vaga.getId());
     }
     private  Map<Estagiario, Map<String, Double>> getAvaliacoesEstagiario(Context context) {
         EstagiarioDAO estagiarioDAO = new EstagiarioDAO(context);

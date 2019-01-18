@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public  class Database extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 62;
+    private static final int DATABASE_VERSION = 63;
     private static final String DATABASE_NAME = "traineeapp.bd";
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -53,6 +53,7 @@ public  class Database extends SQLiteOpenHelper {
                 "obs text NOT NULL," +
                 "id_empregador integer NOT NULL," +
                 "avaliacao int," +
+                "data_criacao NOT NULL," +
                 "horario text NOT NULL);");
 
         db.execSQL("CREATE TABLE controlador_vaga(" +
@@ -71,10 +72,12 @@ public  class Database extends SQLiteOpenHelper {
                 "id_empregador_envia integer," +
                 "id_empregador_recebe integer," +
                 "id_vaga integer);");
+
         db.execSQL("CREATE TABLE avaliacoesVagas(" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-        "idestagiarioavaliador INTEGER NOT NULL," + "" +
-                "idvagavaliada INTEGER NOT NULL," + "notaAvaliacao DOUBLE NOT NULL);");
+                "idestagiarioavaliador INTEGER NOT NULL," + "" +
+                "idvagavaliada INTEGER NOT NULL," +
+                "notaAvaliacao DOUBLE NOT NULL);");
     }
 
     @Override
@@ -86,6 +89,7 @@ public  class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS vaga");
         db.execSQL("DROP TABLE IF EXISTS controlador_vaga");
         db.execSQL("DROP TABLE IF EXISTS notificacoes");
+        db.execSQL("DROP TABLE IF EXISTS avaliacoesVagas");
         onCreate(db);
     }
 

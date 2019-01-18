@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
+import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
@@ -69,6 +71,25 @@ public class VagaDAO {
         return resultado;
     }
 
+    public void inserirNotaVaga(long pessoa, long vaga, float nota) {
+        SQLiteDatabase escreverBanco = bancoDados.getWritableDatabase();
+        if (getNotaVaga(pessoa, vaga) == null){
+            ContentValues valores = new ContentValues();
+            valores.put("idestagiarioavaliador", pessoa);
+            valores.put("idvagavaliada", vaga);
+            valores.put("notaAvaliacao", nota);
+            long resultado = escreverBanco.insert("avaliacoesVagas", null, valores);
+            escreverBanco.close();
+        } else {
+            ContentValues values = new ContentValues();
+            values.put("idestagiarioavaliador", pessoa);
+            values.put("idvagavaliada", vaga);
+            values.put("notaAvaliacao", nota);
+            escreverBanco.update("avaliacoesVagas", values, "idestagiarioavaliador = ? AND idvagavaliada = ?",
+                    new String[]{String.valueOf(pessoa), String.valueOf(vaga)});
+        }
+    }
+
     public Cursor getDatabyEmpregador(long id) {
         SQLiteDatabase db = bancoDados.getReadableDatabase();
         String query = "SELECT * FROM vaga " +
@@ -110,7 +131,7 @@ public class VagaDAO {
         return data;
     }
 
-    public Vaga getVagaById(int id) {
+    public Vaga getVagaById(long id) {
         String query = "SELECT * FROM vaga " +
                 "WHERE id = ?";
         String[] args = {String.valueOf(id)};
@@ -183,12 +204,12 @@ public class VagaDAO {
 
     }
 
-    public Double getNotaVaga(Estagiario estagiario, Vaga vaga) {
+    public Double getNotaVaga(long estagiario, long vaga) {
         String query = "SELECT * FROM avaliacoesVagas " +
                 "WHERE idvagavaliada = ? " +
                 "AND idestagiarioavaliador = ? ";
-        String idEstagiario = String.valueOf(estagiario.getId());
-        String idVaga = String.valueOf(vaga.getId());
+        String idEstagiario = String.valueOf(estagiario);
+        String idVaga = String.valueOf(vaga);
         String[] args = {idVaga, idEstagiario};
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
