@@ -17,13 +17,16 @@ import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
+import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 import bsi.mpoo.traineeufrpe.negocio.SlopeOne;
 
 public class VagaDAO {
     private Database bancoDados;
+    private EmpregadorServices empregadorServices;
 
     public VagaDAO(Context context) {
         bancoDados = new Database(context);
+        empregadorServices = new EmpregadorServices(context);
     }
 
     private Vaga criarVaga(Cursor cursor) {
@@ -43,6 +46,8 @@ public class VagaDAO {
         long data = cursor.getLong(indexData);
         int indexHorario = cursor.getColumnIndex("horario");
         String horario = cursor.getString(indexHorario);
+        int indexEmpregador = cursor.getColumnIndex("id_empregador");
+        long idEmpregador = cursor.getLong(indexEmpregador);
         Vaga vaga = new Vaga();
         vaga.setId(id);
         vaga.setNome(nome);
@@ -52,6 +57,7 @@ public class VagaDAO {
         vaga.setObs(obs);
         vaga.setDataCriacao(data);
         vaga.setHorario(horario);
+        vaga.setEmpregador(empregadorServices.getEmpregadorById(idEmpregador));
         return vaga;
     }
 
@@ -66,6 +72,7 @@ public class VagaDAO {
         valores.put("id_empregador", vaga.getEmpregador().getId());
         valores.put("data_criacao", System.currentTimeMillis());
         valores.put("horario", vaga.getHorario());
+        valores.put("avaliacao", vaga.getAvaliacaoEstagiario());
         long resultado = escreverBanco.insert("vaga", null, valores);
         escreverBanco.close();
         return resultado;
@@ -222,25 +229,25 @@ public class VagaDAO {
         return nota;
     }
     public HashMap<String, Double> getAvaliacaoVaga(Estagiario estagiario) {
-        String query =  "SELECT * FROM avaliacoesVaga " +
+        String query =  "SELECT * FROM avaliacoesVagas " +
                 "WHERE idestagiarioavaliador = ?";
         String[] args = {String.valueOf(estagiario.getId())};
         return this.loadIdVagaAvaliada(query, args);
     }
     private  HashMap<String, Double> loadIdVagaAvaliada(String query, String[] args) {
-        HashMap<java.lang.String, java.lang.Double> avaliacaoUsuario = new HashMap<>();
+        HashMap<java.lang.String, java.lang.Double> avaliacaoEstagiario = new HashMap<>();
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {
                 int indexNota = cursor.getColumnIndex("notaAvaliacao");
-                java.lang.Double nota = cursor.getDouble(indexNota);
-                int indexIdVaga = cursor.getColumnIndex("idVagavaliada");
-                java.lang.String idVaga = cursor.getString(indexIdVaga);
-                avaliacaoUsuario.put(idVaga, nota);
+                Double nota = cursor.getDouble(indexNota);
+                int indexIdVaga = cursor.getColumnIndex("idvagavaliada");
+                String idVaga = cursor.getString(indexIdVaga);
+                avaliacaoEstagiario.put(idVaga, nota);
             } while (cursor.moveToNext());
         }
-        return avaliacaoUsuario;
+        return avaliacaoEstagiario;
     }
 }

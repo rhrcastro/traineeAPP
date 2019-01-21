@@ -214,7 +214,7 @@ public class CadastrarVaga extends AppCompatActivity {
     }
 
     private void cadastrar() {
-        vagaServices.cadastrarVaga(criarVaga(), this);
+        vagaServices.cadastrarVaga(criarVaga());
         Toast.makeText(this,"Vaga cadastrada", Toast.LENGTH_SHORT).show();
         volta();
     }

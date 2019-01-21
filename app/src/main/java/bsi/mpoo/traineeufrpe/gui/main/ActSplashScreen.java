@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.infra.database.PopularBanco;
 
 public class ActSplashScreen extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class ActSplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         loadGif();
+        PopularBanco popularBanco = new PopularBanco(this);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

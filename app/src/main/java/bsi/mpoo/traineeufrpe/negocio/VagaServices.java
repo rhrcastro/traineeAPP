@@ -26,7 +26,7 @@ public class VagaServices {
         vagaDAO = new VagaDAO(context);
     }
 
-    public boolean cadastrarVaga(Vaga vaga, Context context) {
+    public boolean cadastrarVaga(Vaga vaga) {
         long result = this.vagaDAO.inserirVaga(vaga);
         vaga.setId(result);
         return true;
