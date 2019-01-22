@@ -61,23 +61,23 @@ public class CadastrarCurriculo2 extends AppCompatActivity {
     }
 
     private boolean isCamposValidos(){
-        if (this.validacaoGUI.isEmailInvalido(Forte.getText().toString())) {
-            this.Forte.setError("Campo Inválido");
+        if (this.validacaoGUI.isCampoVazio(XP.getText().toString())) {
+            this.XP.setError("Campo Inválido");
             return false;
-        } else if (this.validacaoGUI.isCampoVazio(Basico.getText().toString())) {
-            this.Basico.setError("Campo Inválido");
+        } else if (this.validacaoGUI.isCampoVazio(Relacionamento.getText().toString())) {
+            this.Relacionamento.setError("Campo Inválido");
             return false;
         } else if (this.validacaoGUI.isCampoVazio(Objetivo.getText().toString())) {
             this.Objetivo.setError("Campo Inválido");
             return false;
-        } else if (this.validacaoGUI.isCampoVazio(XP.getText().toString())) {
-            this.XP.setError("Campo Inválido");
+        } else if (this.validacaoGUI.isCampoVazio(Basico.getText().toString())) {
+            this.Basico.setError("Campo Inválido");
+            return false;
+        } else if (this.validacaoGUI.isCampoVazio(Forte.getText().toString())) {
+            this.Forte.setError("Campo Inválido");
             return false;
         } else if (this.validacaoGUI.isCampoVazio(Disciplinas.getText().toString())) {
             this.Disciplinas.setError("Campo Inválido");
-            return false;
-        } else if (this.validacaoGUI.isCampoVazio(Relacionamento.getText().toString())) {
-            this.Relacionamento.setError("Campo Inválido");
             return false;
         } return true;
     }
@@ -115,7 +115,7 @@ public class CadastrarCurriculo2 extends AppCompatActivity {
         }else {
             curriculo.setConhcimentos_basicos(Basico.getText().toString().trim());
         }
-        if (this.validacaoGUI.isEmailInvalido(Forte.getText().toString())) {
+        if (this.validacaoGUI.isCampoVazio(Forte.getText().toString())) {
             this.Forte.setError("Campo Inválido");
             return null;
         }else {
@@ -133,7 +133,7 @@ public class CadastrarCurriculo2 extends AppCompatActivity {
 
     private Curriculo CriarCurriculo2() {
         Curriculo curriculo = new Curriculo();
-        if (this.validacaoGUI.isEmailInvalido(Forte.getText().toString())) {
+        if (this.validacaoGUI.isCampoVazio(Forte.getText().toString())) {
             curriculo.setConhecimentos_especificos("");
         }else {
             curriculo.setConhecimentos_especificos(Forte.getText().toString().trim());

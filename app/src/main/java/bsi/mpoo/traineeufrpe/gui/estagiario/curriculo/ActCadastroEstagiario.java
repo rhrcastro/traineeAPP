@@ -111,7 +111,10 @@ public class ActCadastroEstagiario extends AppCompatActivity {
         } else if (validacaoGUI.isCampoVazio(cidade)) {
             edtCidade.setError("Campo vazio");
             return false;
-        } return true;
+        } if(! validacaoGUI.isSenhasIguais(senha1, senha2) ){
+            Toast.makeText(this, "Senhas Devem ser iguais", Toast.LENGTH_SHORT).show();
+            return false;
+        }return true;
     }
 
     private Pessoa criarPessoa() {
