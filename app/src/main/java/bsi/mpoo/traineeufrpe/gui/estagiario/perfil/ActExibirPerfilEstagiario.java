@@ -73,7 +73,7 @@ public class ActExibirPerfilEstagiario extends AppCompatActivity {
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink().equals("")){
+                if (!SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink().equals("")){
                     MostrarUrl(SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink());
                 }else{
                     Snackbar snackbar;

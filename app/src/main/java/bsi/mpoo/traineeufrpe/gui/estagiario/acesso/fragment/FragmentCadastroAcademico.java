@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,7 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         String curso = edtCurso.getText().toString().trim();
         String instituicao = edtInstituicao.getText().toString().trim();
         String area = edtSegmento.getSelectedItem().toString();
+        String link = Hyperlink.getText().toString().trim();
         if (validacaoGUI.isCampoVazio(curso)) {
             this.edtCurso.setError("O campo curso não pode ficar vazio");
             return false;
@@ -68,11 +70,16 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         if (validacaoGUI.isAreaValida(area)) {
             Toast.makeText(getContext(), "Escolha uma área", Toast.LENGTH_SHORT).show();
             return false;
-        }else{
-            return true;
         }
-
+        if (!link.equals("") && !Patterns.WEB_URL.matcher(link).matches()){
+                Hyperlink.setError("Insira um link válido");
+                return false;
+            } if (!(link.startsWith("http://") || link.startsWith("https://"))){
+                Hyperlink.setText("http://" + link);
+            }
+        return true;
     }
+    
     public void cadastrarCurriculo() {
         if (!this.verificarCampos()) {
             return;

@@ -16,7 +16,7 @@ public class Vaga {
     private String horario;
     private long miliseconds;
     private Double avaliacaoEstagiario;
-    SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM");
+    private SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM");
 
     private String mascaraTempo(long miliseconds){
         Calendar dataAtual = Calendar.getInstance();
@@ -26,12 +26,12 @@ public class Vaga {
         int diaAtual = dataAtual.get(Calendar.DAY_OF_YEAR);
         int diaVaga = dataPublicada.get(Calendar.DAY_OF_YEAR);
         int anoAtual = dataAtual.get(Calendar.YEAR);
-        int anoVaga = dataAtual.get(Calendar.YEAR);
+        int anoVaga = dataPublicada.get(Calendar.YEAR);
         if (anoAtual == anoVaga){
             if (diaAtual == diaVaga){
                 return "Hoje";
             } else if ((diaAtual - diaVaga) == 1){
-            return "Ontem";
+                return "Ontem";
             }
         } return formatodata.format(miliseconds);
     }
@@ -107,9 +107,11 @@ public class Vaga {
     public String getHorario() {
         return horario;
     }
+
     public Double getAvaliacaoEstagiario() {
         return avaliacaoEstagiario;
     }
+
     public void setAvaliacaoEstagiario(Double nota) {
         this.avaliacaoEstagiario = nota;
     }

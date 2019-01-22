@@ -18,9 +18,11 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -335,6 +337,13 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
         } else if (!emailTemp.equals(email) && loginServices.isEmailCadastrado(email, this)){
             editEmail.setError("E-mail já cadastrado");
             return false;
+        } else if (!editLink.getText().toString().trim().equals("") &&
+                !Patterns.WEB_URL.matcher(editLink.getText().toString().trim()).matches()){
+            editLink.setError("Insira um link válido");
+            return false;
+        } if (!(editLink.getText().toString().trim().startsWith("http://") ||
+                editLink.getText().toString().trim().startsWith("https://"))){
+            editLink.setText("http://" + editLink.getText().toString().trim());
         }
         return true;
     }

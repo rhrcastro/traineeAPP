@@ -75,7 +75,7 @@ public class AdapterVagasAbertas extends BaseAdapter {
         holder.mTitulo.setText(listaVagas.get(position).getNome());
         holder.mNomeEmpresa.setText(listaVagas.get(position).getEmpregador().getNome());
         holder.mValorBolsa.setText(listaVagas.get(position).getBolsa());
-        holder.mTurno.setText(listaVagas.get(position).getHorario());
+        holder.mTurno.setText(listaVagas.get(position).getDataCriacao());
         String status = inscricaoServices.getStatusInscricaoByEstagiarioAndVaga(pessoa,
                 listaVagas.get(position));
         mudarFotoStatus(holder, status);

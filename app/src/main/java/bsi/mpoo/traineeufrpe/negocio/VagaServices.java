@@ -61,8 +61,8 @@ public class VagaServices {
             vaga.setBolsa(data.getString(3));
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
-            vaga.setDataCriacao(data.getLong(7));
-            vaga.setHorario(data.getString(8));
+            vaga.setDataCriacao(data.getLong(8));
+            vaga.setHorario(data.getString(9));
             empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
@@ -85,8 +85,8 @@ public class VagaServices {
             vaga.setBolsa(data.getString(3));
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
-            vaga.setDataCriacao(data.getLong(7));
-            vaga.setHorario(data.getString(8));
+            vaga.setDataCriacao(data.getLong(8));
+            vaga.setHorario(data.getString(9));
             empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
@@ -109,8 +109,8 @@ public class VagaServices {
             vaga.setBolsa(data.getString(3));
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
-            vaga.setDataCriacao(data.getLong(7));
-            vaga.setHorario(data.getString(8));
+            vaga.setDataCriacao(data.getLong(8));
+            vaga.setHorario(data.getString(9));
             empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
