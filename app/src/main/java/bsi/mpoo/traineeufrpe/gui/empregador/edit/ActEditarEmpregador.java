@@ -32,6 +32,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import bsi.mpoo.traineeufrpe.R;
+import bsi.mpoo.traineeufrpe.gui.empregador.acesso.MudarSenhaEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp;
 import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.ActExibirPerfilEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
@@ -59,6 +60,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static String mCurrentPhotoPath;
     Toolbar toolbar;
+    Button editSenhaPerfil;
 
     public ActEditarEmpregador() {
         this.empregador = SessaoEmpregador.getInstance().getEmpregador();
@@ -74,6 +76,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
         setContentView(R.layout.activity_editar_empresa);
         edtNomeEmpregador = findViewById(R.id.campo_nome);
         edtEmailEmpregador = findViewById(R.id.campo_email);
+        editSenhaPerfil = findViewById(R.id.editSenhaPerfilEmp);
         edtNomeEmpregador.setText(this.nomeEmpregador);
         edtEmailEmpregador.setText(this.emailEmpregador);
         toolbar = findViewById(R.id.toolbar);
@@ -100,6 +103,14 @@ public class ActEditarEmpregador extends AppCompatActivity {
                     }
                 });
                 builder.show();
+            }
+        });
+
+        editSenhaPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActEditarEmpregador.this, MudarSenhaEmpregador.class);
+                startActivity(intent);
             }
         });
     }

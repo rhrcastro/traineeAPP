@@ -37,9 +37,9 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:hint="@string/hint_nome_empresa"
+                android:inputType="textPersonName"
                 android:singleLine="true"
                 android:textSize="16sp"
-                android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView8"
@@ -54,16 +54,16 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:textSize="16sp"
-                android:inputType="textEmailAddress"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView11"
                 app:layout_constraintTop_toBottomOf="@+id/campo_nome"
 
-                />
+                app:layout_constraintVertical_bias="0.079" />
 
             <ImageView
                 android:id="@+id/imageView8"
@@ -90,7 +90,8 @@
                 android:src="@drawable/ic_email_hint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/campo_nome" />
+                app:layout_constraintTop_toBottomOf="@+id/campo_nome"
+                app:layout_constraintVertical_bias="0.163" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -101,6 +102,19 @@
                 android:src="@drawable/ic_camera"
                 app:layout_constraintBottom_toBottomOf="@+id/photo_profile"
                 app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/editSenhaPerfilEmp"
+                android:layout_width="299dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/roundbutton"
+                android:clickable="true"
+                android:text="Mudar Senha"
+                android:textColor="@color/White"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/campo_email" />
 
 
         </android.support.constraint.ConstraintLayout>

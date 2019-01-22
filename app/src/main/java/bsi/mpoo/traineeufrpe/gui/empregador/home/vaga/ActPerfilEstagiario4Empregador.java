@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -20,8 +21,10 @@ import bsi.mpoo.traineeufrpe.dominio.Notificacao;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
+import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
+import bsi.mpoo.traineeufrpe.negocio.PdfViewer;
 
 public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
 
@@ -39,6 +42,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
     private Pessoa pessoa;
     NotificacaoServices notificationServices = new NotificacaoServices(this);
     CardView cardView1, cardView2;
+    private PdfViewer pdfViewer;
 
     public ActPerfilEstagiario4Empregador(){
         pessoa = controladorVaga.getPessoa();
@@ -71,9 +75,55 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mostrarUrl(pessoa.getEstagiario().getCurriculo().getLink());
+                if (!pessoa.getEstagiario().getCurriculo().getLink().equals("")){
+                    mostrarUrl(SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink());
+                }else{
+                    Snackbar snackbar;
+                    snackbar = Snackbar.make(v, "Este usuário não cadastrou um link.", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
             }
         });
+
+        cardView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!pessoa.getEstagiario().getCurriculo().getExperiencia().equals("")){
+                    PreparaCurriculo();
+                    pdfViewer.ViewPdf();
+                }else{
+                    Snackbar snackbar;
+                    snackbar = Snackbar.make(v, "Este usuário não inseriu um curriculo.", Snackbar.LENGTH_SHORT);
+                    snackbar.show();
+                }
+
+            }
+        });
+    }
+
+
+
+    private void PreparaCurriculo() {
+        pdfViewer = new PdfViewer(this);
+        pdfViewer.open_document();
+        pdfViewer.addMetaData("Nome", "Vaga", "Eu");
+        pdfViewer.addTitle(pessoa.getNome(),
+                pessoa.getEstagiario().getCurriculo().getInstituicao()
+                        + " Sede em " + pessoa.getCidade(),
+                "Estágio na área de " + pessoa.getEstagiario().getCurriculo().getAreaAtuacao());
+        pdfViewer.addText("_________________________________________________________");
+        pdfViewer.addParagraph("Sumário");
+        pdfViewer.addText(pessoa.getEstagiario().getCurriculo().getExperiencia());
+        pdfViewer.addText(pessoa.getEstagiario().getCurriculo().getRelacionamento());
+        pdfViewer.addText(pessoa.getEstagiario().getCurriculo().getObjetivo());
+        pdfViewer.addText(pessoa.getEstagiario().getCurriculo().getConhcimentos_basicos());
+        pdfViewer.addParagraph("Experiência");
+        pdfViewer.addText("_________________________________________________________");
+        pdfViewer.addText(pessoa.getEstagiario().getCurriculo().getCurso());
+        pdfViewer.addText(pessoa.getEstagiario().getCurriculo().getConhecimentos_especificos());
+        pdfViewer.addText(pessoa.getEstagiario().getCurriculo().getDisciplinas());
+
+        pdfViewer.close_doc();
     }
 
     private void mostrarUrl(String url) {
