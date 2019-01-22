@@ -50,8 +50,7 @@ public class FragmentVagasRecomendadas extends ListFragment
 
     private void populate() {
         vagaServices = new VagaServices(getActivity());
-        vagas = vagaServices.getVagasPorArea(getActivity(),
-                SessaoEstagiario.instance.getCurriculo().getAreaAtuacao());
+        ArrayList<Vaga> vagas = vagaServices.getRecomendacao(getActivity());
         adapter = new AdapterVagasAbertas(getContext(), vagas);
         listaVagas.setAdapter(adapter);
     }

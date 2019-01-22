@@ -79,7 +79,7 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
             }
         return true;
     }
-    
+
     public void cadastrarCurriculo() {
         if (!this.verificarCampos()) {
             return;
