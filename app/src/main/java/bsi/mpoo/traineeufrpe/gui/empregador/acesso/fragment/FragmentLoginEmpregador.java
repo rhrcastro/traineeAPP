@@ -20,6 +20,7 @@ import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActEsqueciSenhaEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
+import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentLoginEmpregador extends Fragment {
@@ -28,6 +29,7 @@ public class FragmentLoginEmpregador extends Fragment {
     private EditText edtEmailEmpregador;
     private EditText edtSenhaEmpregador;
     private TextView forgot2;
+    private Criptografia criptografia;
 
     @SuppressLint("WrongViewCast")
     @Nullable
@@ -91,7 +93,7 @@ public class FragmentLoginEmpregador extends Fragment {
         String senha = this.edtSenhaEmpregador.getText().toString().trim();
         Empregador empregador = new Empregador();
         empregador.setEmail(email);
-        String senhaCodificada = codificarBase64(senha);
+        String senhaCodificada = criptografia.criptografar(senha);
         empregador.setSenha(senhaCodificada);
         return empregador;
     }
@@ -105,7 +107,4 @@ public class FragmentLoginEmpregador extends Fragment {
         }
     }
 
-    public static String codificarBase64 (String texto) {
-        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
-    }
 }

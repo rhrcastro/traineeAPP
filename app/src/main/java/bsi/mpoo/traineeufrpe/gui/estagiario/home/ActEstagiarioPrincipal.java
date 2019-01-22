@@ -114,17 +114,13 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             openNotificacoesEstagiario();
             return true;
-        } else if (id == R.id.nav_slideshow) {
-            openConfiguracoesEstagiario();
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
-        } else if (id == R.id.nav_share) {
-            openPerfilEstagiario();
         } else if (id == R.id.nav_send) {
             openContato();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -168,14 +164,7 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
         startActivity(intent);
         finish();
     }
-    public void openPerfilEstagiario() {
-        Intent intent = new Intent(this, ActExibirPerfilEstagiario.class);
-        startActivity(intent);
-        finish();
-    }
-    private void openConfiguracoesEstagiario() {
-        return;
-    }
+
     private void openNotificacoesEstagiario() {
         Intent intent = new Intent(this, ActNotificacoesEstagiario.class);
         startActivity(intent);

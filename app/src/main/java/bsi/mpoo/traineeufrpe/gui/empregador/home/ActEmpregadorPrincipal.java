@@ -27,6 +27,7 @@ import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEmpregadorPrincipal;
+import bsi.mpoo.traineeufrpe.gui.main.ActContato;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -115,21 +116,22 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             exibirPerfil();
-        } else if (id == R.id.nav_slideshow) {
-            exibirConfiguracoes();
         } else if (id == R.id.nav_gallery) {
             exibirNotificacoes();
         } else if (id == R.id.nav_manage) {
             exibirConfirmacaoSair();
-        } else if (id == R.id.nav_share) {
-            exibirCadastroVagas();
         } else if (id == R.id.nav_send) {
-
+            openContato();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void openContato() {
+        Intent intent = new Intent(this, ActContato.class);
+        startActivity(intent);
     }
     public void exibirConfirmacaoSair() {
         AlertDialog.Builder msgBox = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
@@ -167,10 +169,6 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         Intent intent = new Intent(getBaseContext(), PerfilEmp.class);
         startActivity(intent);
         finish();
-    }
-    private void exibirConfiguracoes() {
-        Intent intent = new Intent(getBaseContext(), ActEditarEmpregador.class);
-        startActivity(intent);
     }
 
     private void exibirNotificacoes() {

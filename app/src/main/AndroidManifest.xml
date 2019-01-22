@@ -74,7 +74,8 @@
         <activity android:name=".gui.empregador.acesso.ActEsqueciSenhaEmpregador" />
         <activity android:name=".gui.empregador.acesso.MudarSenhaEmpregador" />
         <activity android:name=".gui.estagiario.home.ActNotificacoesEstagiario" />
-        <activity android:name=".gui.estagiario.curriculo.VerCurriculo"></activity>
+        <activity android:name=".gui.estagiario.curriculo.VerCurriculo" />
+        <activity android:name=".gui.estagiario.curriculo.CadastrarCurriculo2"></activity>
     </application>
 
 </manifest>

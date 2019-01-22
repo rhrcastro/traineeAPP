@@ -21,6 +21,7 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
+import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentCadastroEmpregador extends Fragment {
@@ -33,6 +34,7 @@ public class FragmentCadastroEmpregador extends Fragment {
     private EditText editConfirmaSenhaEmpregador;
     private EditText editCidadeEmpregador;
     private Context context;
+    private Criptografia criptografia;
 
     @Nullable
     @Override
@@ -107,7 +109,7 @@ public class FragmentCadastroEmpregador extends Fragment {
         Empregador empregador = new Empregador();
         empregador.setNome(nome);
         empregador.setEmail(email);
-        String senhaCodificada = codificarBase64(senha);
+        String senhaCodificada = criptografia.criptografar(senha);
         empregador.setSenha(senhaCodificada);
         empregador.setCnpj(cnpj);
         empregador.setCidade(cidade);
@@ -124,7 +126,4 @@ public class FragmentCadastroEmpregador extends Fragment {
         }
     }
 
-    public static String codificarBase64 (String texto) {
-        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
-    }
 }

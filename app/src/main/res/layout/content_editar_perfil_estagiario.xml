@@ -37,9 +37,9 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:hint="@string/hint_nome_pessoa"
+                android:inputType="textPersonName"
                 android:singleLine="true"
                 android:textSize="16sp"
-                android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView8"
@@ -53,9 +53,9 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:hint="@string/hint_curso"
+                android:inputType="textCapWords"
                 android:singleLine="true"
                 android:textSize="16sp"
-                android:inputType="textCapWords"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView9"
@@ -69,9 +69,9 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="16dp"
                 android:hint="@string/hint_instituicao"
+                android:inputType="textCapWords"
                 android:singleLine="true"
                 android:textSize="16sp"
-                android:inputType="textCapWords"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView10"
@@ -162,13 +162,12 @@
                 android:id="@+id/imageView12"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_curriculo"
                 android:tint="@color/colorHint"
-                app:layout_constraintTop_toBottomOf="@+id/campo_email"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/campo_email" />
 
             <EditText
                 android:id="@+id/campo_link"
@@ -179,8 +178,8 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:hint="Cole seu link aqui"
-                android:linksClickable="true"
                 android:inputType="text"
+                android:linksClickable="true"
                 android:singleLine="true"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -188,8 +187,29 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView12"
                 app:layout_constraintTop_toBottomOf="@+id/campo_email" />
 
+            <Button
+                android:id="@+id/editSenhaPerfil"
+                android:layout_width="299dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/roundbutton"
+                android:clickable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toBottomOf="@+id/campo_link"
+                android:text="Mudar Senha"
+                android:textColor="@color/White"
+                tools:layout_editor_absoluteX="184dp"
+                tools:layout_editor_absoluteY="626dp" />
+
+
+
 
         </android.support.constraint.ConstraintLayout>
 
+
     </android.support.v4.widget.NestedScrollView>
+
+
 </LinearLayout>

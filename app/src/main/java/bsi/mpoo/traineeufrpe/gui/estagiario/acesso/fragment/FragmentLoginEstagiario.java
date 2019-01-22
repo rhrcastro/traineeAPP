@@ -18,6 +18,7 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActEsqueciSenhaEstagiario;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.ActEstagiarioPrincipal;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
+import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class FragmentLoginEstagiario extends Fragment {
@@ -29,6 +30,7 @@ public class FragmentLoginEstagiario extends Fragment {
     private String email;
     private String senha;
     Button btnLogin;
+    private Criptografia criptografia;
 
     @Nullable
     @Override
@@ -59,7 +61,7 @@ public class FragmentLoginEstagiario extends Fragment {
             return;
         }
         LoginServices loginServices = new LoginServices(getContext());
-        boolean taLogado = loginServices.fazerLogin(email, codificarBase64(senha));
+        boolean taLogado = loginServices.fazerLogin(email, criptografia.criptografar(senha));
         if (taLogado) {
             Toast.makeText(getContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             goHome();
@@ -94,8 +96,5 @@ public class FragmentLoginEstagiario extends Fragment {
         }
     }
 
-    public static String codificarBase64 (String texto) {
-        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
-    }
 }
 

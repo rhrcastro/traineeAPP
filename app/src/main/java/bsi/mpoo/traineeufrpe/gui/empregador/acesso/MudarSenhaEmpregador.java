@@ -12,6 +12,7 @@ import android.widget.Toast;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
+import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class MudarSenhaEmpregador extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class MudarSenhaEmpregador extends AppCompatActivity {
     private String senha1;
     private String senha2;
     Button AlteraSenha;
+    private Criptografia criptografia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class MudarSenhaEmpregador extends AppCompatActivity {
 
     private void MudaSenha() {
         if (isCamposValidos()){
-            SessaoEmpregador.instance.getEmpregador().setSenha(codificarBase64(senha1));
+            SessaoEmpregador.instance.getEmpregador().setSenha(criptografia.criptografar(senha1));
             empregadorServices.alterarSenha(SessaoEmpregador.instance.getEmpregador());
             Intent TelaPrincipal = new Intent(MudarSenhaEmpregador.this, ActCadastroLoginEmpregador.class);
             startActivity(TelaPrincipal);
@@ -74,8 +76,6 @@ public class MudarSenhaEmpregador extends AppCompatActivity {
         return true;
     }
 
-    public static String codificarBase64 (String texto) {
-        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
-    }
+
 }
 

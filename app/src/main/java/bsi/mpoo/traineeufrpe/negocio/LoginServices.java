@@ -47,6 +47,33 @@ public class LoginServices {
         } return false;
     }
 
+    public void SubstituirCurriculo(Estagiario estagiario, Curriculo curriculo){
+        if(!curriculo.getConhcimentos_basicos().equals("")){
+            this.curriculoDAO.mudarBasico(estagiario.getCurriculo(), curriculo.getConhcimentos_basicos());
+            estagiario.getCurriculo().setConhcimentos_basicos(curriculo.getConhcimentos_basicos());
+        }
+        if(!curriculo.getDisciplinas().equals("")){
+            this.curriculoDAO.mudarDisciplina(estagiario.getCurriculo(), curriculo.getDisciplinas());
+            estagiario.getCurriculo().setDisciplinas(curriculo.getDisciplinas());
+        }
+        if(!curriculo.getConhecimentos_especificos().equals("")) {
+            this.curriculoDAO.mudarEspecifico(estagiario.getCurriculo(), curriculo.getConhecimentos_especificos());
+            estagiario.getCurriculo().setConhecimentos_especificos(curriculo.getConhecimentos_especificos());
+        }
+        if(!curriculo.getObjetivo().equals("")) {
+            this.curriculoDAO.mudarObj(estagiario.getCurriculo(), curriculo.getObjetivo());
+            estagiario.getCurriculo().setObjetivo(curriculo.getObjetivo());
+        }
+        if(!curriculo.getRelacionamento().equals("")){
+            this.curriculoDAO.mudarRelacionamento(estagiario.getCurriculo(), curriculo.getRelacionamento());
+            estagiario.getCurriculo().setRelacionamento(curriculo.getRelacionamento());
+        }
+        if(!curriculo.getExperiencia().equals("")) {
+            this.curriculoDAO.mudarXp(estagiario.getCurriculo(), curriculo.getExperiencia());
+            estagiario.getCurriculo().setExperiencia(curriculo.getExperiencia());
+        }
+    }
+
     public Curriculo cadastrarCurriculoNoBanco(Curriculo curriculo) {
         long codigoCurriculo;
         codigoCurriculo = this.curriculoDAO.inserirCurriculo(curriculo);

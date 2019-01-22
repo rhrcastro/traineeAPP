@@ -17,11 +17,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -36,6 +36,7 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.Notificacao;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
+import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.MudarSenhaEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
@@ -68,6 +69,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static String mCurrentPhotoPath;
     Toolbar toolbar;
+    Button mudaSenha;
 
 
     public EditarPerfilEstagiario(){
@@ -109,6 +111,14 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
                 builder.show();
             }
         });
+
+        mudaSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditarPerfilEstagiario.this, MudarSenhaEstagiario.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void Set(Bitmap bitmap) {
@@ -129,6 +139,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         imgPerfil =  findViewById(R.id.photo_profile);
+        mudaSenha = findViewById(R.id.editSenhaPerfil);
     }
 
 
@@ -322,9 +333,9 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
             editEmail.setError("E-mail inválido");
             return false;
         } else if (!emailTemp.equals(email) && loginServices.isEmailCadastrado(email, this)){
-                editEmail.setError("E-mail já cadastrado");
-                return false;
-            }
+            editEmail.setError("E-mail já cadastrado");
+            return false;
+        }
         return true;
     }
 

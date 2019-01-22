@@ -29,6 +29,7 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
     private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     Button cadastrar;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {

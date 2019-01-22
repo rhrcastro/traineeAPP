@@ -14,6 +14,7 @@ import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
+import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class MudarSenhaEstagiario extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class MudarSenhaEstagiario extends AppCompatActivity {
     private String senha1;
     private String senha2;
     Button AlteraSenha;
+    private Criptografia criptografia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +44,7 @@ public class MudarSenhaEstagiario extends AppCompatActivity {
 
     private void MudaSenha() {
         if (isCamposValidos()){
-            SessaoEstagiario.instance.getPessoa().getEstagiario().setSenha(codificarBase64(senha1));
+            SessaoEstagiario.instance.getPessoa().getEstagiario().setSenha(criptografia.criptografar(senha1));
             loginServices.alterarSenha(SessaoEstagiario.instance.getPessoa().getEstagiario());
             Intent TelaPrincipal = new Intent(MudarSenhaEstagiario.this, ActCadastroLoginEstagiario.class);
             startActivity(TelaPrincipal);
@@ -81,7 +83,4 @@ public class MudarSenhaEstagiario extends AppCompatActivity {
         return true;
     }
 
-    public static String codificarBase64 (String texto) {
-        return Base64.encodeToString(texto.getBytes(), Base64.DEFAULT).replaceAll("(\\n|\\r)","");
-    }
 }

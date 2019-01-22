@@ -95,4 +95,52 @@ public class CurriculoDAO {
         db.close();
     }
 
+    public void mudarXp(Curriculo curriculo, String xp) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("experiencia", xp);
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
+    public void mudarObj(Curriculo curriculo, String obj) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("objetivo", obj);
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
+    public void mudarRelacionamento(Curriculo curriculo, String relacionamento) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("relacionamento", relacionamento);
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
+    public void mudarBasico(Curriculo curriculo, String basico) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("basico", basico);
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
+    public void mudarEspecifico(Curriculo curriculo, String especifico) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("especifico", especifico);
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
+    public void mudarDisciplina(Curriculo curriculo, String disciplina) {
+        SQLiteDatabase db = bancoDados.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("disciplina", disciplina);
+        db.update("curriculo", valores,"id = ?", new String[]{String.valueOf(curriculo.getId())});
+        db.close();
+    }
+
 }

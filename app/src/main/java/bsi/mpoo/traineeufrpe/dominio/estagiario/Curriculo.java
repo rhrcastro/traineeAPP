@@ -6,6 +6,7 @@ public class Curriculo {
     private String areaAtuacao;
     private String experiencia;
     private String objetivo;
+    private String relacionamento;
     private String conhcimentos_basicos;
     private String conhecimentos_especificos;
     private String disciplinas;
@@ -47,6 +48,8 @@ public class Curriculo {
     public void setConhecimentos_especificos(String conhecimentos_especificos) { this.conhecimentos_especificos = conhecimentos_especificos; }
     public String getDisciplinas() { return disciplinas; }
     public void setDisciplinas(String disciplinas) { this.disciplinas = disciplinas; }
+    public String getRelacionamento() { return relacionamento; }
+    public void setRelacionamento(String relacionamento) { this.relacionamento = relacionamento; }
 
     public String getLink() { return link; }
     public void setLink(String link) { this.link = link; }
