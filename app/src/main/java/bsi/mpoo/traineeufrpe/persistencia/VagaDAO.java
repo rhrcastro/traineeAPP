@@ -72,7 +72,6 @@ public class VagaDAO {
         valores.put("id_empregador", vaga.getEmpregador().getId());
         valores.put("data_criacao", System.currentTimeMillis());
         valores.put("horario", vaga.getHorario());
-        valores.put("avaliacao", vaga.getAvaliacaoEstagiario());
         long resultado = escreverBanco.insert("vaga", null, valores);
         escreverBanco.close();
         return resultado;

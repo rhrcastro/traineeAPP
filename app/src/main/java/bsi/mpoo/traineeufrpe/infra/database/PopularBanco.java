@@ -171,14 +171,14 @@ public class PopularBanco {
                 "Teste", "Android Studio", "Teste",
                 "http://www.traineeufrpe.github.io");
 
-        cadastrarPessoa("Ricardo Henrique", "thalesg88@gmail.com",
+        cadastrarPessoa("Ricardo Henrique", "rhcastro@outlook.com",
                 "122451234521", "123", "Recife",
                 "Sistemas de Informação", "UFRPE", "Tecnologia",
                 "Sem experiência", "Estágio na Área de TI", "Bom",
                 "Teste", "Android Studio", "Teste",
                 "http://www.traineeufrpe.github.io");
 
-        cadastrarPessoa("Thales Gabriel", "rhcastro@outlook.com",
+        cadastrarPessoa("Thales Gabriel", "thalesg88@gmail.com",
                 "1777754541121", "123", "Paulista",
                 "Sistemas de Informação", "UFRPE", "Tecnologia",
                 "Sem experiência", "Estágio na Área de TI", "Bom",

@@ -61,8 +61,8 @@ public class VagaServices {
             vaga.setBolsa(data.getString(3));
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
-            vaga.setDataCriacao(data.getLong(8));
-            vaga.setHorario(data.getString(9));
+            vaga.setDataCriacao(data.getLong(7));
+            vaga.setHorario(data.getString(8));
             empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
@@ -85,8 +85,8 @@ public class VagaServices {
             vaga.setBolsa(data.getString(3));
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
-            vaga.setDataCriacao(data.getLong(8));
-            vaga.setHorario(data.getString(9));
+            vaga.setDataCriacao(data.getLong(7));
+            vaga.setHorario(data.getString(8));
             empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
@@ -109,8 +109,8 @@ public class VagaServices {
             vaga.setBolsa(data.getString(3));
             vaga.setArea(data.getString(4));
             vaga.setObs(data.getString(5));
-            vaga.setDataCriacao(data.getLong(8));
-            vaga.setHorario(data.getString(9));
+            vaga.setDataCriacao(data.getLong(7));
+            vaga.setHorario(data.getString(8));
             empregador = empregadorServices.getEmpregadorById(data.getLong(6));
             vaga.setEmpregador(empregador);
             listaVagas.add(vaga);
@@ -234,14 +234,14 @@ public class VagaServices {
             Vaga vagaAtual = vagaById(vaga, context);
             vagaAtual.setAvaliacaoEstagiario(predicoes.get(vaga));
             Double notaVagaEstagiario = avaliacaoVagaEstagiario(vagaAtual, context);
-            if (notaVagaEstagiario == null) {
+            if (notaVagaEstagiario == null && (vagaAtual.getAvaliacaoEstagiario() >= 3.5)) {
                 recomendados.add(vagaAtual);
             }
         }
         Collections.sort(recomendados, new Comparator<Vaga>() {
             @Override
             public int compare(Vaga v1, Vaga v2) {
-                return v2.getAvaliacaoEstagiario().intValue() - v2.getAvaliacaoEstagiario().intValue();
+                return v2.getAvaliacaoEstagiario().intValue() - v1.getAvaliacaoEstagiario().intValue();
             }
         });
         return recomendados;
