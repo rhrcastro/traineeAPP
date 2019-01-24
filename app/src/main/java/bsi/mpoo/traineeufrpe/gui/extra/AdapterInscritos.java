@@ -14,17 +14,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
-import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.ActPerfilEstagiario4Empregador;
-import bsi.mpoo.traineeufrpe.gui.estagiario.home.PerfilVagaEstagiario;
 
 public class AdapterInscritos extends BaseAdapter {
 
-    Context mContext;
-    LayoutInflater inflater;
-    ArrayList<ControladorVaga> listaInscritos = new ArrayList<>();
+    private Context mContext;
+    private LayoutInflater inflater;
+    private ArrayList<ControladorVaga> listaInscritos = new ArrayList<>();
     private ArrayList<ControladorVaga> arrayVagas = new ArrayList<>();
 
     public AdapterInscritos(Context context, ArrayList<ControladorVaga> arrayControladorVagas) {
@@ -91,21 +88,5 @@ public class AdapterInscritos extends BaseAdapter {
         });
         return view;
     }
-
-    /*public void filtro(String chartext){
-        chartext = chartext.toLowerCase(Locale.getDefault());
-        listaInscritos.clear();
-        if (chartext.length() == 0){
-            listaInscritos.addAll(arrayVagas);
-        } else {
-            for (Vaga vaga : arrayVagas){
-                if (vaga.getNome().toLowerCase(Locale.getDefault()).contains(chartext)){
-                    listaInscritos.add(vaga);
-                } else if (vaga.getEmpregador().getNome().toLowerCase(Locale.getDefault()).contains(chartext)){
-                    listaInscritos.add(vaga);
-                }
-            }
-        } notifyDataSetChanged();
-    }*/
 }
 

@@ -2,10 +2,8 @@ package bsi.mpoo.traineeufrpe.gui.empregador.home.fragment;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,15 +16,10 @@ import android.widget.SearchView;
 import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
-import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterInscritos;
-import bsi.mpoo.traineeufrpe.gui.extra.AdapterVagasAbertas;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
-import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class FragmentCandidato extends ListFragment
         implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
@@ -63,7 +56,7 @@ public class FragmentCandidato extends ListFragment
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        /*inflater.inflate(R.menu.tela_estagiario_principal, menu);
+        /* TODO: 23/01/2019 inflater.inflate(R.menu.tela_estagiario_principal, menu);
         MenuItem myActionMenuItem = menu.findItem(R.id.action_settings);
         SearchView searchView = (SearchView) myActionMenuItem.getActionView();
         searchView.setOnQueryTextListener(this);
@@ -102,5 +95,4 @@ public class FragmentCandidato extends ListFragment
         super.onStart();
         populate();
     }
-
 }

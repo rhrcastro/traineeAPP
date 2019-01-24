@@ -34,19 +34,13 @@ import java.io.IOException;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.MudarSenhaEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp;
-import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.ActExibirPerfilEstagiario;
-import bsi.mpoo.traineeufrpe.gui.estagiario.perfil.EditarPerfilEstagiario;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
-import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.gui.main.ActHome;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 
 public class ActEditarEmpregador extends AppCompatActivity {
     private Empregador empregador;
-    private long id;
     private String nomeEmpregador;
     private String emailEmpregador;
     private EditText edtNomeEmpregador;
@@ -67,9 +61,8 @@ public class ActEditarEmpregador extends AppCompatActivity {
         this.nomeEmpregador = SessaoEmpregador.getInstance().getEmpregador().getNome();
         this.emailEmpregador = SessaoEmpregador.getInstance().getEmpregador().getEmail();
         this.emailTempEmpregador = emailEmpregador;
-        this.id = SessaoEmpregador.getInstance().getEmpregador().getId();
-
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,7 +98,6 @@ public class ActEditarEmpregador extends AppCompatActivity {
                 builder.show();
             }
         });
-
         editSenhaPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,6 +106,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
             }
         });
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_editar, menu);
         return super.onCreateOptionsMenu(menu);
@@ -153,7 +146,6 @@ public class ActEditarEmpregador extends AppCompatActivity {
         }
     }
 
-
     private void abrirCameraIntent() {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
@@ -186,20 +178,18 @@ public class ActEditarEmpregador extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case 1: {
+            case REQUEST_IMAGE_CAPTURE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     abrirCameraIntent();
                 } else {
                     Toast.makeText(this, "Erro: Permissão é necessária", Toast.LENGTH_LONG).show();
                 }
-                return;
             }
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         switch (requestCode) {
             case REQUEST_TAKE_PHOTO:
                 if (resultCode == RESULT_OK) {

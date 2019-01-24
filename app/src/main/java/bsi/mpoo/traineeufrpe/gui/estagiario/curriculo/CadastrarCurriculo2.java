@@ -1,6 +1,5 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.curriculo;
 
-
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,51 +37,47 @@ public class CadastrarCurriculo2 extends AppCompatActivity {
                 }else {
                     Curriculo curriculo = CriarCurriculo();
                     if (curriculo != null){
-                        Salvar(curriculo);
+                        salvar(curriculo);
                         SessaoEstagiario.instance.setCurriculo(curriculo);
-                        CadastrarUsuario();
+                        cadastrarUsuario();
                     }
-
                 }
             }
         });
     }
 
-    private void CadastrarUsuario() {
+    private void cadastrarUsuario() {
         Intent intent = new Intent(CadastrarCurriculo2.this, ActCadastroEstagiario.class);
         startActivity(intent);
         finish();
     }
 
-    private Curriculo Salvar(Curriculo curriculo) {
+    private void salvar(Curriculo curriculo) {
         LoginServices loginServices = new LoginServices(this);
-        Curriculo  curriculo1 = loginServices.cadastrarCurriculoNoBanco(curriculo);
-        return curriculo1;
+        loginServices.cadastrarCurriculoNoBanco(curriculo);
     }
 
     private boolean isCamposValidos(){
-        if (this.validacaoGUI.isCampoVazio(XP.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(XP.getText().toString())) {
             this.XP.setError("Campo Inválido");
             return false;
-        } else if (this.validacaoGUI.isCampoVazio(Relacionamento.getText().toString())) {
+        } else if (ValidacaoGUI.isCampoVazio(Relacionamento.getText().toString())) {
             this.Relacionamento.setError("Campo Inválido");
             return false;
-        } else if (this.validacaoGUI.isCampoVazio(Objetivo.getText().toString())) {
+        } else if (ValidacaoGUI.isCampoVazio(Objetivo.getText().toString())) {
             this.Objetivo.setError("Campo Inválido");
             return false;
-        } else if (this.validacaoGUI.isCampoVazio(Basico.getText().toString())) {
+        } else if (ValidacaoGUI.isCampoVazio(Basico.getText().toString())) {
             this.Basico.setError("Campo Inválido");
             return false;
-        } else if (this.validacaoGUI.isCampoVazio(Forte.getText().toString())) {
+        } else if (ValidacaoGUI.isCampoVazio(Forte.getText().toString())) {
             this.Forte.setError("Campo Inválido");
             return false;
-        } else if (this.validacaoGUI.isCampoVazio(Disciplinas.getText().toString())) {
+        } else if (ValidacaoGUI.isCampoVazio(Disciplinas.getText().toString())) {
             this.Disciplinas.setError("Campo Inválido");
             return false;
         } return true;
     }
-
-
 
     private Curriculo CriarCurriculo() {
         Curriculo curriculo = SessaoEstagiario.instance.getCurriculo();
@@ -91,83 +86,80 @@ public class CadastrarCurriculo2 extends AppCompatActivity {
         curriculo.setInstituicao(SessaoEstagiario.instance.getCurriculo().getInstituicao());
         curriculo.setCurso(SessaoEstagiario.instance.getCurriculo().getCurso());
 
-        if (this.validacaoGUI.isCampoVazio(XP.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(XP.getText().toString())) {
             this.XP.setError("Campo Inválido");
             return null;
         }else {
             curriculo.setExperiencia(XP.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Relacionamento.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Relacionamento.getText().toString())) {
             this.Relacionamento.setError("Campo Inválido");
             return null;
         }else {
             curriculo.setRelacionamento(Relacionamento.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Objetivo.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Objetivo.getText().toString())) {
             this.Objetivo.setError("Campo Inválido");
             return null;
         }else {
             curriculo.setObjetivo(Objetivo.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Basico.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Basico.getText().toString())) {
             this.Basico.setError("Campo Inválido");
             return null;
         }else {
             curriculo.setConhcimentos_basicos(Basico.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Forte.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Forte.getText().toString())) {
             this.Forte.setError("Campo Inválido");
             return null;
         }else {
             curriculo.setConhecimentos_especificos(Forte.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Disciplinas.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Disciplinas.getText().toString())) {
             this.Disciplinas.setError("Campo Inválido");
             return null;
         }else {
             curriculo.setDisciplinas(Disciplinas.getText().toString().trim());
         }
-
         return curriculo;
     }
 
     private Curriculo CriarCurriculo2() {
         Curriculo curriculo = new Curriculo();
-        if (this.validacaoGUI.isCampoVazio(Forte.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Forte.getText().toString())) {
             curriculo.setConhecimentos_especificos("");
         }else {
             curriculo.setConhecimentos_especificos(Forte.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Objetivo.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Objetivo.getText().toString())) {
             curriculo.setObjetivo("");
 
         }else {
             curriculo.setObjetivo(Objetivo.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Basico.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Basico.getText().toString())) {
             curriculo.setConhcimentos_basicos("");
         }else {
             curriculo.setConhcimentos_basicos(Basico.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(XP.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(XP.getText().toString())) {
             curriculo.setExperiencia("");
         }else {
             curriculo.setExperiencia(XP.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Disciplinas.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Disciplinas.getText().toString())) {
             curriculo.setDisciplinas("");
         }else {
             curriculo.setDisciplinas(Disciplinas.getText().toString().trim());
         }
-        if (this.validacaoGUI.isCampoVazio(Relacionamento.getText().toString())) {
+        if (ValidacaoGUI.isCampoVazio(Relacionamento.getText().toString())) {
             curriculo.setRelacionamento("");
         }else {
             curriculo.setRelacionamento(Relacionamento.getText().toString().trim());
         }
         return curriculo;
     }
-
-
 
     private void constroi() {
         XP = findViewById(R.id.editXP);
@@ -178,7 +170,5 @@ public class CadastrarCurriculo2 extends AppCompatActivity {
         Disciplinas = findViewById(R.id.editDisciplinas);
         cadastrar = findViewById(R.id.btnQueroCandidatar);
     }
-
-
 }
 

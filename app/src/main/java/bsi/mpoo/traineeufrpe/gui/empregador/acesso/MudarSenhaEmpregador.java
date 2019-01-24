@@ -3,7 +3,6 @@ package bsi.mpoo.traineeufrpe.gui.empregador.acesso;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +22,6 @@ public class MudarSenhaEmpregador extends AppCompatActivity {
     private String senha1;
     private String senha2;
     Button AlteraSenha;
-    private Criptografia criptografia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +41,7 @@ public class MudarSenhaEmpregador extends AppCompatActivity {
 
     private void MudaSenha() {
         if (isCamposValidos()){
-            SessaoEmpregador.instance.getEmpregador().setSenha(criptografia.criptografar(senha1));
+            SessaoEmpregador.instance.getEmpregador().setSenha(Criptografia.criptografar(senha1));
             empregadorServices.alterarSenha(SessaoEmpregador.instance.getEmpregador());
             Intent TelaPrincipal = new Intent(MudarSenhaEmpregador.this, ActCadastroLoginEmpregador.class);
             startActivity(TelaPrincipal);
@@ -62,10 +60,10 @@ public class MudarSenhaEmpregador extends AppCompatActivity {
 
     private boolean isCamposValidos() {
         capturarTextos();
-        if (validacaoGUI.isCampoVazio(senha1)) {
+        if (ValidacaoGUI.isCampoVazio(senha1)) {
             Senha.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isCampoVazio(senha2)) {
+        } else if (ValidacaoGUI.isCampoVazio(senha2)) {
             Confirma.setError("Campo vazio");
             return false;
         }

@@ -10,9 +10,7 @@ import java.io.File;
 import bsi.mpoo.traineeufrpe.R;
 
 public class VerCurriculo extends AppCompatActivity {
-
-
-    private PDFView pdfView;
+    PDFView pdfView;
     private File file;
 
     @Override
@@ -23,16 +21,12 @@ public class VerCurriculo extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         if(bundle!= null){
             file = new File(bundle.getString("path",""));
-
-
         }
-
         pdfView.fromFile(file)
                 .enableSwipe(true).
                 swipeHorizontal(false).
                 enableDoubletap(true).
                 enableAntialiasing(true).
                 load();
-
     }
 }

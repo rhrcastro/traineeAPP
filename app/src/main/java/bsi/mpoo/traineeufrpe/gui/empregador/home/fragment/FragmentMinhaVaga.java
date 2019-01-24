@@ -23,7 +23,7 @@ import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 public class FragmentMinhaVaga extends Fragment {
 
     private ListView listView;
-    private final String TAG = "listData";
+    final String TAG = "listData";
     VagaServices vagaServices = new VagaServices(getContext());
 
     @Nullable
@@ -53,6 +53,5 @@ public class FragmentMinhaVaga extends Fragment {
                 startActivity(EditVaga);
             }
         });
-
     }
 }

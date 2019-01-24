@@ -219,7 +219,6 @@ public class VagaServices {
     }
 
     public ArrayList<Vaga> getRecomendacao(Context context) {
-        EstagiarioDAO estagiarioDAO = new EstagiarioDAO(context);
         Estagiario estagiarioLogado = SessaoEstagiario.instance.getPessoa().getEstagiario();
         Map<Estagiario, Map<String, Double>> dados = getAvaliacoesEstagiario(context);
         HashMap<String, Double> avaliacoesUsuario = avaliacaoPorEstagiario(estagiarioLogado, context);
@@ -234,7 +233,7 @@ public class VagaServices {
             Vaga vagaAtual = vagaById(vaga, context);
             vagaAtual.setAvaliacaoEstagiario(predicoes.get(vaga));
             Double notaVagaEstagiario = avaliacaoVagaEstagiario(vagaAtual, context);
-            if (notaVagaEstagiario == null && (vagaAtual.getAvaliacaoEstagiario() >= 3.5)) {
+            if (notaVagaEstagiario == null) {
                 recomendados.add(vagaAtual);
             }
         }

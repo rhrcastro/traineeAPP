@@ -24,7 +24,6 @@ import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.ActNotificacoesEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.CadastrarVaga;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
-import bsi.mpoo.traineeufrpe.gui.empregador.edit.ActEditarEmpregador;
 import bsi.mpoo.traineeufrpe.gui.empregador.perfil.PerfilEmp;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterTelaEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.gui.main.ActContato;
@@ -33,8 +32,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ActEmpregadorPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
+    TabLayout mTabLayout;
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,8 +175,4 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         startActivity(intent);
     }
 
-    private void exibirCadastroVagas() {
-        Intent intent = new Intent(getBaseContext(), CadastrarVaga.class);
-        startActivity(intent);
-    }
 }

@@ -1,17 +1,14 @@
 package bsi.mpoo.traineeufrpe.gui.extra;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import bsi.mpoo.traineeufrpe.R;
@@ -19,10 +16,9 @@ import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.PerfilVagaEstagiario;
 
 public class AdapterNovasVagas extends BaseAdapter {
-
     Context mContext;
-    LayoutInflater inflater;
-    ArrayList<Vaga> listaVagas = new ArrayList<>();
+    private LayoutInflater inflater;
+    private ArrayList<Vaga> listaVagas = new ArrayList<>();
     private ArrayList<Vaga> arrayVagas = new ArrayList<>();
 
     public AdapterNovasVagas(Context context, ArrayList<Vaga> arrayVagas) {
