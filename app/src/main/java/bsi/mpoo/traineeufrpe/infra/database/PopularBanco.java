@@ -215,7 +215,7 @@ public class PopularBanco {
         criarAvaliacao(1,7, (float)1.0);
         criarAvaliacao(1,8, (float)1.0);
 
-        criarAvaliacao(2,1, (float)5.0);
+        criarAvaliacao(2,1, (float)3.0);
         criarAvaliacao(2,2, (float)5.0);
         criarAvaliacao(2,3, (float)5.0);
         criarAvaliacao(2,4, (float)5.0);
@@ -224,8 +224,8 @@ public class PopularBanco {
         criarAvaliacao(2,7, (float)1.0);
         criarAvaliacao(2,8, (float)2.0);
 
-        criarAvaliacao(3,1, (float)4.0);
-        criarAvaliacao(3,2, (float)5.0);
+        criarAvaliacao(3,1, (float)2.5);
+        criarAvaliacao(3,2, (float)3.0);
         criarAvaliacao(3,3, (float)4.0);
         criarAvaliacao(3,4, (float)4.0);
         criarAvaliacao(3,5, (float)1.0);
@@ -233,7 +233,7 @@ public class PopularBanco {
         criarAvaliacao(3,7, (float)1.0);
         criarAvaliacao(3,8, (float)2.0);
 
-        criarAvaliacao(4,1, (float)3.0);
+        criarAvaliacao(4,1, (float)2.0);
         criarAvaliacao(4,2, (float)5.0);
         criarAvaliacao(4,3, (float)5.0);
         criarAvaliacao(4,4, (float)4.0);
@@ -242,7 +242,7 @@ public class PopularBanco {
         criarAvaliacao(4,7, (float)2.0);
         criarAvaliacao(4,8, (float)1.0);
 
-        criarAvaliacao(5,1, (float)1.0);
+        criarAvaliacao(5,1, (float)2.5);
         criarAvaliacao(5,2, (float)2.0);
         criarAvaliacao(5,3, (float)2.0);
         criarAvaliacao(5,4, (float)1.0);
@@ -273,8 +273,8 @@ public class PopularBanco {
         criarAvaliacao(8,2, (float)1.0);
         criarAvaliacao(8,3, (float)2.0);
         criarAvaliacao(8,4, (float)1.0);
-        criarAvaliacao(8,5, (float)4.0);
-        criarAvaliacao(8,6, (float)5.0);
+        criarAvaliacao(8,5, (float)3.0);
+        criarAvaliacao(8,6, (float)3.0);
         criarAvaliacao(8,7, (float)3.0);
         criarAvaliacao(8,8, (float)5.0);
 

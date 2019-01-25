@@ -233,7 +233,7 @@ public class VagaServices {
             Vaga vagaAtual = vagaById(vaga, context);
             vagaAtual.setAvaliacaoEstagiario(predicoes.get(vaga));
             Double notaVagaEstagiario = avaliacaoVagaEstagiario(vagaAtual, context);
-            if (notaVagaEstagiario == null) {
+            if (notaVagaEstagiario == null && (vagaAtual.getAvaliacaoEstagiario() >= 3.0)) {
                 recomendados.add(vagaAtual);
             }
         }
