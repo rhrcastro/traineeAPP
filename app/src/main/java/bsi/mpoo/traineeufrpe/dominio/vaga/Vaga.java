@@ -16,7 +16,7 @@ public class Vaga {
     private String horario;
     private long miliseconds;
     private Double avaliacaoEstagiario;
-    private SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM");
+    private final SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM");
 
     private String mascaraTempo(long miliseconds){
         Calendar dataAtual = Calendar.getInstance();

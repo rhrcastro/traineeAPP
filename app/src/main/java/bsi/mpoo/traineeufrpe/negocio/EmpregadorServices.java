@@ -3,16 +3,14 @@ package bsi.mpoo.traineeufrpe.negocio;
 import android.content.Context;
 import android.database.Cursor;
 
-import java.util.ArrayList;
-
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.persistencia.EmpregadorDAO;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 
 public class EmpregadorServices {
 
-    Context mContext;
-    private EmpregadorDAO empregadorDAO;
+    private final Context mContext;
+    private final EmpregadorDAO empregadorDAO;
 
     private final int COLUMN_ID = 0;
     private final int COLUMN_NOME = 1;
@@ -27,7 +25,7 @@ public class EmpregadorServices {
         empregadorDAO = new EmpregadorDAO(context);
     }
 
-    public Empregador getEmpregadorByEmailAndSenha(String email, String senha) {
+    private Empregador getEmpregadorByEmailAndSenha(String email, String senha) {
         Cursor data = empregadorDAO.getEmpregadorByEmaileSenha(email, senha);
         if (data != null && data.moveToFirst()) {
             Empregador empregador = new Empregador();
@@ -93,7 +91,7 @@ public class EmpregadorServices {
         } return false;
     }
 
-    public void iniciarSessaoEmpregador(Empregador empregador) {
+    private void iniciarSessaoEmpregador(Empregador empregador) {
         SessaoEmpregador.instance.setEmpregador(empregador);
     }
 

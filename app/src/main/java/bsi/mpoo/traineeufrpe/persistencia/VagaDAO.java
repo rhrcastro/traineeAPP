@@ -5,24 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Map;
 
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
-import bsi.mpoo.traineeufrpe.negocio.SlopeOne;
 
 public class VagaDAO {
-    private Database bancoDados;
-    private EmpregadorServices empregadorServices;
+    private final Database bancoDados;
+    private final EmpregadorServices empregadorServices;
 
     public VagaDAO(Context context) {
         bancoDados = new Database(context);
@@ -101,22 +93,19 @@ public class VagaDAO {
         String query = "SELECT * FROM vaga " +
                 "WHERE id_empregador = ?";
         String[] args = {String.valueOf(id)};
-        Cursor data = db.rawQuery(query, args);
-        return data;
+        return db.rawQuery(query, args);
     }
 
     public Cursor getAllDataOrderByDate() {
         SQLiteDatabase db = bancoDados.getReadableDatabase();
         String query = "SELECT * FROM vaga ORDER BY data_criacao DESC";
-        Cursor data = db.rawQuery(query, null);
-        return data;
+        return db.rawQuery(query, null);
     }
 
     public Cursor getAllDataOrderByName() {
         SQLiteDatabase db = bancoDados.getReadableDatabase();
         String query = "SELECT * FROM vaga ORDER BY nome ASC";
-        Cursor data = db.rawQuery(query, null);
-        return data;
+        return db.rawQuery(query, null);
     }
 
     public Cursor getAllDataByArea(String area) {
@@ -124,8 +113,7 @@ public class VagaDAO {
         String query = "SELECT * FROM vaga" +
                 " WHERE area = ?";
         String[] args = {String.valueOf(area)};
-        Cursor data = db.rawQuery(query, args);
-        return data;
+        return db.rawQuery(query, args);
     }
 
     public Cursor getId(String name) {
@@ -133,8 +121,7 @@ public class VagaDAO {
         String query = "SELECT  id FROM vaga " +
                 "WHERE nome = ?";
         String[] args = {String.valueOf(name)};
-        Cursor data = db.rawQuery(query, args);
-        return data;
+        return db.rawQuery(query, args);
     }
 
     public Vaga getVagaById(long id) {

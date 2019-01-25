@@ -1,6 +1,7 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.gui.estagiario.curriculo.ActCadastroEstagiario;
@@ -24,24 +27,24 @@ import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class FragmentCadastroAcademico extends Fragment implements AdapterView.OnItemSelectedListener{
-    EditText edtCurso;
-    EditText edtInstituicao;
-    EditText Hyperlink;
-    Spinner edtSegmento;
-    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
-    Button cadastrar;
+    private EditText edtCurso;
+    private EditText edtInstituicao;
+    private EditText Hyperlink;
+    private Spinner edtSegmento;
+    private final ValidacaoGUI validacaoGUI = new ValidacaoGUI();
+    private Button cadastrar;
 
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = Inflater.inflate(R.layout.fragment_cadastro_academico, container, false);
         this.edtCurso = v.findViewById(R.id.cursoCadastro);
         this.edtInstituicao = v.findViewById(R.id.instituicaoCadastro);
         edtSegmento = v.findViewById(R.id.Segmento);
         Hyperlink = v.findViewById(R.id.linkCadastro);
         edtSegmento.setOnItemSelectedListener(this);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.fields, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getContext()), R.array.fields, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         edtSegmento.setAdapter(adapter);
         cadastrar = v.findViewById(R.id.botCadastroCurriculo);
@@ -54,16 +57,16 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
 
         return v;
     }
-    public boolean verificarCampos() {
+    private boolean verificarCampos() {
         String curso = edtCurso.getText().toString().trim();
         String instituicao = edtInstituicao.getText().toString().trim();
         String area = edtSegmento.getSelectedItem().toString();
         String link = Hyperlink.getText().toString().trim();
-        if (validacaoGUI.isCampoVazio(curso)) {
+        if (ValidacaoGUI.isCampoVazio(curso)) {
             this.edtCurso.setError("O campo curso não pode ficar vazio");
             return false;
         }
-        if (validacaoGUI.isCampoVazio(instituicao)) {
+        if (ValidacaoGUI.isCampoVazio(instituicao)) {
             this.edtInstituicao.setError("O campo instituição não pode ficar vazio");
             return false;
         }
@@ -80,7 +83,7 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
         return true;
     }
 
-    public void cadastrarCurriculo() {
+    private void cadastrarCurriculo() {
         if (!this.verificarCampos()) {
             return;
         }
@@ -99,7 +102,7 @@ public class FragmentCadastroAcademico extends Fragment implements AdapterView.O
             Intent abreTelaCadastroEstagiario = new Intent(getActivity(), ActCadastroEstagiario.class);
             startActivity(abreTelaCadastroEstagiario);
         }else{
-            if (curriculo instanceof Curriculo) {
+            if (curriculo != null) {
                 SessaoEstagiario.instance.setCurriculo(curriculo);
                 Intent abreTelaCadastroEstagiario = new Intent(getActivity(), CadastrarCurriculo2.class);
                 startActivity(abreTelaCadastroEstagiario);

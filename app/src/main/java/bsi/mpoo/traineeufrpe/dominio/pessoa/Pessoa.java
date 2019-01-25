@@ -1,5 +1,7 @@
 package bsi.mpoo.traineeufrpe.dominio.pessoa;
 
+import android.support.annotation.NonNull;
+
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 
 public class Pessoa {
@@ -35,6 +37,7 @@ public class Pessoa {
     }
     public String getCidade() { return cidade; }
     public void setCidade(String cidade) { this.cidade = cidade; }
+    @NonNull
     public String toString() {
         return this.nome;
     }

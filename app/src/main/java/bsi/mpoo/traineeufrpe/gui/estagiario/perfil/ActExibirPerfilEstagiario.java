@@ -27,10 +27,15 @@ import bsi.mpoo.traineeufrpe.negocio.PdfViewer;
 public class ActExibirPerfilEstagiario extends AppCompatActivity {
     private TextView curso, instituicao, area, email, cidade, curriculoperfil;
     private ImageView imagem;
-    Toolbar toolbar;
-    private String strCurso, strInstituicao, strArea;
-    CardView cardView1, cardView2, cardView3, cardView4;
-    FloatingActionButton fab_edit;
+    private Toolbar toolbar;
+    private final String strCurso;
+    private final String strInstituicao;
+    private final String strArea;
+    private CardView cardView1;
+    private CardView cardView2;
+    private CardView cardView3;
+    private CardView cardView4;
+    private FloatingActionButton fab_edit;
     private PdfViewer pdfViewer;
 
     public ActExibirPerfilEstagiario(){

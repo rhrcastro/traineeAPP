@@ -13,9 +13,10 @@ import bsi.mpoo.traineeufrpe.gui.empregador.acesso.ActCadastroLoginEmpregador;
 import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActCadastroLoginEstagiario;
 
 public class ActHome extends AppCompatActivity {
-    Button butest, butemp;
-    TextView contact;
-    ViewFlipper viewFlipper;
+    private Button butest;
+    private Button butemp;
+    private TextView contact;
+    private ViewFlipper viewFlipper;
 
 
     @Override
@@ -27,8 +28,8 @@ public class ActHome extends AppCompatActivity {
         viewFlipper.setFlipInterval(1500);
         viewFlipper.startFlipping();
 
-        butemp = (Button)findViewById(R.id.butEmpregador);
-        butest = (Button)findViewById(R.id.butEstagiario);
+        butemp = findViewById(R.id.butEmpregador);
+        butest = findViewById(R.id.butEstagiario);
 
         butest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +47,7 @@ public class ActHome extends AppCompatActivity {
             }
         });
 
-        contact = (TextView)findViewById(R.id.contato2);
+        contact = findViewById(R.id.contato2);
 
         contact.setOnClickListener(new View.OnClickListener() {
             @Override

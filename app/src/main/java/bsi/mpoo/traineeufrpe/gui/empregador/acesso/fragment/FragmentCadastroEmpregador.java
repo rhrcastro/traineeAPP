@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +25,8 @@ import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class FragmentCadastroEmpregador extends Fragment {
-    Button cadastrarEmpregador;
-    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
+    private Button cadastrarEmpregador;
+    private final ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     private EditText editNomeCadastroEmpregador;
     private EditText editEmailCadastroEmpregador;
     private EditText editCNPJ;
@@ -38,7 +38,7 @@ public class FragmentCadastroEmpregador extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = Inflater.inflate(R.layout.fragment_cadastro_empregador, container, false);
         context = v.getContext();
         this.editNomeCadastroEmpregador = v.findViewById(R.id.editNomeCadastroEmpregador);
@@ -64,29 +64,29 @@ public class FragmentCadastroEmpregador extends Fragment {
         String repetirSenha = editConfirmaSenhaEmpregador.getText().toString().trim();
         String cnpj = editCNPJ.getText().toString().trim();
         String cidade = editCidadeEmpregador.getText().toString().trim();
-        if (validacaoGUI.isCampoVazio(nome)){
+        if (ValidacaoGUI.isCampoVazio(nome)){
             this.editNomeCadastroEmpregador.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isEmailInvalido(email)) {
+        } else if (ValidacaoGUI.isEmailInvalido(email)) {
             this.editEmailCadastroEmpregador.setError("Formato de email inválido");
             return false;
-        } else if (validacaoGUI.isCampoVazio(senha)){
+        } else if (ValidacaoGUI.isCampoVazio(senha)){
             this.editSenhaCadastroEmpregador.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isCampoVazio(repetirSenha)) {
+        } else if (ValidacaoGUI.isCampoVazio(repetirSenha)) {
             this.editConfirmaSenhaEmpregador.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isCampoVazio(cnpj)){
+        } else if (ValidacaoGUI.isCampoVazio(cnpj)){
             this.editCNPJ.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isCampoVazio(cidade)){
+        } else if (ValidacaoGUI.isCampoVazio(cidade)){
             this.editCNPJ.setError("Campo vazio");
             return false;
         } else {
             return true;
         }
     }
-    public void cadastroEmpregador() {
+    private void cadastroEmpregador() {
         if (!this.verificarCampos()) {
             return;
         }
@@ -109,7 +109,7 @@ public class FragmentCadastroEmpregador extends Fragment {
         Empregador empregador = new Empregador();
         empregador.setNome(nome);
         empregador.setEmail(email);
-        String senhaCodificada = criptografia.criptografar(senha);
+        String senhaCodificada = Criptografia.criptografar(senha);
         empregador.setSenha(senhaCodificada);
         empregador.setCnpj(cnpj);
         empregador.setCidade(cidade);

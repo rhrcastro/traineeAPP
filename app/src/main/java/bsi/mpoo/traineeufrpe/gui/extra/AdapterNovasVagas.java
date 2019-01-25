@@ -16,10 +16,10 @@ import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.estagiario.home.PerfilVagaEstagiario;
 
 public class AdapterNovasVagas extends BaseAdapter {
-    Context mContext;
-    private LayoutInflater inflater;
-    private ArrayList<Vaga> listaVagas = new ArrayList<>();
-    private ArrayList<Vaga> arrayVagas = new ArrayList<>();
+    private final Context mContext;
+    private final LayoutInflater inflater;
+    private final ArrayList<Vaga> listaVagas = new ArrayList<>();
+    private final ArrayList<Vaga> arrayVagas = new ArrayList<>();
 
     public AdapterNovasVagas(Context context, ArrayList<Vaga> arrayVagas) {
         mContext = context;
@@ -28,7 +28,7 @@ public class AdapterNovasVagas extends BaseAdapter {
         this.listaVagas.addAll(arrayVagas);
     }
 
-    public class ViewHolder{
+    class ViewHolder{
         TextView mTitulo, mNomeEmpresa, mValorBolsa, mDataVaga;
     }
 
@@ -69,7 +69,7 @@ public class AdapterNovasVagas extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Vaga vaga = ((Vaga) listaVagas.get(position));
+                Vaga vaga = listaVagas.get(position);
                 Intent it = new Intent(mContext, PerfilVagaEstagiario.class);
                 PerfilVagaEstagiario.vaga = vaga;
                 mContext.startActivity(it);

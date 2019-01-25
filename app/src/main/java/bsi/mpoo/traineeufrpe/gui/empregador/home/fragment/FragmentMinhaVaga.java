@@ -1,6 +1,7 @@
 package bsi.mpoo.traineeufrpe.gui.empregador.home.fragment;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -23,12 +24,12 @@ import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 public class FragmentMinhaVaga extends Fragment {
 
     private ListView listView;
-    final String TAG = "listData";
-    VagaServices vagaServices = new VagaServices(getContext());
+    private final String TAG = "listData";
+    private VagaServices vagaServices = new VagaServices(getContext());
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater Inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = Inflater.inflate(R.layout.fragment_minha_vaga, container, false);
         listView = v.findViewById(R.id.lista);
         populate();

@@ -16,9 +16,14 @@ import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class CadastrarCurriculo2 extends AppCompatActivity {
 
-    EditText XP, Relacionamento, Objetivo, Basico, Forte, Disciplinas;
-    Button cadastrar;
-    LoginServices loginServices = new LoginServices(this);
+    private EditText XP;
+    private EditText Relacionamento;
+    private EditText Objetivo;
+    private EditText Basico;
+    private EditText Forte;
+    private EditText Disciplinas;
+    private Button cadastrar;
+    private final LoginServices loginServices = new LoginServices(this);
     private ValidacaoGUI validacaoGUI;
 
     @Override

@@ -14,8 +14,8 @@ import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 
 public class ActNotificacoesEmpregador extends AppCompatActivity {
 
-    ListView listaNotificacoes;
-    NotificacaoServices notificationServices;
+    private ListView listaNotificacoes;
+    private NotificacaoServices notificationServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

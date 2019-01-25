@@ -9,8 +9,8 @@ import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class PessoaDAO {
-    private Database bancoDados;
-    private EstagiarioDAO estagiarioDAO;
+    private final Database bancoDados;
+    private final EstagiarioDAO estagiarioDAO;
     public PessoaDAO(Context context) {
         bancoDados = new Database(context);
         estagiarioDAO = new EstagiarioDAO(context);
@@ -56,8 +56,7 @@ public class PessoaDAO {
         String query = "SELECT * FROM pessoa " +
                 "WHERE id = ?";
         String[] args = {String.valueOf(idPessoa)};
-        Cursor data = bancoLeitura.rawQuery(query, args);
-        return data;
+        return bancoLeitura.rawQuery(query, args);
     }
 
     private Pessoa criarPessoa(Cursor cursor) {

@@ -12,16 +12,16 @@ import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterFragMainActivity;
 
 public class ActCadastroLoginEstagiario extends AppCompatActivity {
 
-    TabLayout mTabLayout;
-    ViewPager mViewPager;
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acesso_estagiario);
 
-        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        mTabLayout = findViewById(R.id.tab_layout);
+        mViewPager = findViewById(R.id.view_pager);
 
         mViewPager.setAdapter(new MyFragmentPagerAdapterFragMainActivity(getSupportFragmentManager(), getResources().getStringArray(R.array.tabs)));
         mTabLayout.setupWithViewPager(mViewPager);

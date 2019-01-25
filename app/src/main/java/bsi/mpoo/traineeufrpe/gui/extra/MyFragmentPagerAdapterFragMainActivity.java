@@ -9,7 +9,7 @@ import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.fragment.FragmentLoginEstagia
 
 public class MyFragmentPagerAdapterFragMainActivity extends FragmentStatePagerAdapter {
 
-    private String[] mTabTitles;
+    private final String[] mTabTitles;
     public MyFragmentPagerAdapterFragMainActivity(FragmentManager fm, String[] TabTitles){
         super(fm);
         this.mTabTitles = TabTitles;

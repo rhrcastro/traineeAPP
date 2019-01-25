@@ -16,12 +16,13 @@ import bsi.mpoo.traineeufrpe.negocio.Criptografia;
 import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class MudarSenhaEstagiario extends AppCompatActivity {
-    private LoginServices loginServices = new LoginServices(this);
-    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
-    EditText Senha, Confirma;
+    private final LoginServices loginServices = new LoginServices(this);
+    private final ValidacaoGUI validacaoGUI = new ValidacaoGUI();
+    private EditText Senha;
+    private EditText Confirma;
     private String senha1;
     private String senha2;
-    Button AlteraSenha;
+    private Button AlteraSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

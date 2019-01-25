@@ -23,8 +23,8 @@ import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class ActCadastroEstagiario extends AppCompatActivity {
 
-    private LoginServices loginServices = new LoginServices(this);
-    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
+    private final LoginServices loginServices = new LoginServices(this);
+    private final ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     private EditText edtNome;
     private EditText edtEmail;
     private EditText edtCPF;
@@ -37,7 +37,7 @@ public class ActCadastroEstagiario extends AppCompatActivity {
     private String senha1;
     private String senha2;
     private String cidade;
-    Button cadastrar;
+    private Button cadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class ActCadastroEstagiario extends AppCompatActivity {
         edtCidade = findViewById(R.id.editCidade);
     }
 
-    public void cadastrar() {
+    private void cadastrar() {
         capturarTextos();
         if (!isCamposValidos()){
             return;

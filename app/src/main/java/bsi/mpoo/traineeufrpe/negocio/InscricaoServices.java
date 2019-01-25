@@ -18,13 +18,13 @@ import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
 import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
 public class InscricaoServices {
-    private InscricaoDAO inscricaoDAO;
-    private VagaDAO vagaDAO;
-    private EmpregadorServices empregadorServices;
-    private EstagiarioDAO estagiarioDAO;
-    private PessoaDAO pessoaDAO;
-    private CurriculoDAO curriculoDAO;
-    private Context mContext;
+    private final InscricaoDAO inscricaoDAO;
+    private final VagaDAO vagaDAO;
+    private final EmpregadorServices empregadorServices;
+    private final EstagiarioDAO estagiarioDAO;
+    private final PessoaDAO pessoaDAO;
+    private final CurriculoDAO curriculoDAO;
+    private final Context mContext;
 
     private final int COLUMN_ID = 0;
     private final int COLUMN_ID_VAGA = 1;
@@ -45,10 +45,9 @@ public class InscricaoServices {
 
     }
 
-    public boolean cadastrarInscricao(ControladorVaga inscricao, Context context) {
+    public void cadastrarInscricao(ControladorVaga inscricao) {
         long result = this.inscricaoDAO.inserirInscricao(inscricao);
         inscricao.setId(result);
-        return true;
     }
 
     public ArrayList<ControladorVaga> listarInscricoes(Empregador empregador, Context context){

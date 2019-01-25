@@ -11,14 +11,14 @@ import bsi.mpoo.traineeufrpe.persistencia.CurriculoDAO;
 import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
 
-public class EstagiarioServices {
+class EstagiarioServices {
 
     private final int COLUMN_ID_ESTAGIARIO = 4;
 
-    Context mContext;
-    private PessoaDAO pessoaDAO;
-    private EstagiarioDAO estagiarioDAO;
-    private CurriculoDAO curriculoDAO;
+    private final Context mContext;
+    private final PessoaDAO pessoaDAO;
+    private final EstagiarioDAO estagiarioDAO;
+    private final CurriculoDAO curriculoDAO;
 
     public EstagiarioServices(Context context) {
         mContext = context;
@@ -28,13 +28,11 @@ public class EstagiarioServices {
     }
 
     public static boolean isEmailValido(String email) {
-        boolean resultado = (Patterns.EMAIL_ADDRESS.matcher(email).matches());
-        return resultado;
+        return (Patterns.EMAIL_ADDRESS.matcher(email).matches());
     }
 
     public static boolean isSenhaIgual(String senha1, String senha2) {
-        boolean resultado = senha1.equals(senha2);
-        return resultado;
+        return senha1.equals(senha2);
     }
 
     public static boolean isCPF(String CPF) {
@@ -54,7 +52,7 @@ public class EstagiarioServices {
             sm = 0;
             peso = 10;
             for (i=0; i<9; i++) {
-                num = (int)(CPF.charAt(i) - 48);
+                num = CPF.charAt(i) - 48;
                 sm = sm + (num * peso);
                 peso = peso - 1;
             }
@@ -67,7 +65,7 @@ public class EstagiarioServices {
             sm = 0;
             peso = 11;
             for(i=0; i<10; i++) {
-                num = (int)(CPF.charAt(i) - 48);
+                num = CPF.charAt(i) - 48;
                 sm = sm + (num * peso);
                 peso = peso - 1;
             }

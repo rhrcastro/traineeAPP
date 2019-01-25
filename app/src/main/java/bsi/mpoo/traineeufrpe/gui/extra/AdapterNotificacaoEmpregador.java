@@ -17,10 +17,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterNotificacaoEmpregador extends BaseAdapter {
 
-    private Context mContext;
-    private LayoutInflater inflater;
-    private ArrayList<Notificacao> listaNotificacoes = new ArrayList<>();
-    private ArrayList<Notificacao> arrayNotificacoes = new ArrayList<>();
+    private final Context mContext;
+    private final LayoutInflater inflater;
+    private final ArrayList<Notificacao> listaNotificacoes = new ArrayList<>();
+    private final ArrayList<Notificacao> arrayNotificacoes = new ArrayList<>();
 
     public AdapterNotificacaoEmpregador(Context context, ArrayList<Notificacao> arrayNotificacoes) {
         mContext = context;
@@ -30,7 +30,7 @@ public class AdapterNotificacaoEmpregador extends BaseAdapter {
 
     }
 
-    public class ViewHolder{
+    class ViewHolder{
         TextView mNome, mMensagem;
         CircleImageView mImagem;
     }
@@ -56,9 +56,9 @@ public class AdapterNotificacaoEmpregador extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.adapter_notificacao, null);
-            holder.mNome = (TextView) view.findViewById(R.id.nomeEstagiario);
-            holder.mMensagem = (TextView) view.findViewById(R.id.mensagemEstagiario);
-            holder.mImagem = (CircleImageView) view.findViewById(R.id.fotoEstagiario);
+            holder.mNome = view.findViewById(R.id.nomeEstagiario);
+            holder.mMensagem = view.findViewById(R.id.mensagemEstagiario);
+            holder.mImagem = view.findViewById(R.id.fotoEstagiario);
             view.setTag(holder);
         } else {
             holder = (ViewHolder)view.getTag();

@@ -1,9 +1,5 @@
 package bsi.mpoo.traineeufrpe.dominio.estagiario;
 
-import android.graphics.pdf.PdfDocument;
-
-import java.io.File;
-
 public class Estagiario {
     private Curriculo curriculo;
     private String senha;

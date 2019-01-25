@@ -16,12 +16,13 @@ import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
 
 public class MudarSenhaEmpregador extends AppCompatActivity {
 
-    private EmpregadorServices empregadorServices = new EmpregadorServices(this);
-    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
-    EditText Senha, Confirma;
+    private final EmpregadorServices empregadorServices = new EmpregadorServices(this);
+    private final ValidacaoGUI validacaoGUI = new ValidacaoGUI();
+    private EditText Senha;
+    private EditText Confirma;
     private String senha1;
     private String senha2;
-    Button AlteraSenha;
+    private Button AlteraSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

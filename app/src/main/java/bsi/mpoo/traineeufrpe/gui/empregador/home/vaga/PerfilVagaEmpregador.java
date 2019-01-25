@@ -3,7 +3,6 @@ package bsi.mpoo.traineeufrpe.gui.empregador.home.vaga;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,18 +15,23 @@ import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
-import bsi.mpoo.traineeufrpe.gui.empregador.home.ActEmpregadorPrincipal;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class PerfilVagaEmpregador extends AppCompatActivity {
 
-    TextView NomeVagaPerfilEmp, CampoEmpresa, BolsaPerfilVagaEmp, AreaPerfilVagaEmp, ObsPerfilVagaEmp, ReqPerfilVagaEmp;
-    ImageView imgEmpresa;
-    Button ActionEdit, ActionDelete;
-    private VagaServices vagaServices = new VagaServices(this);
-    private InscricaoServices inscricaoServices = new InscricaoServices(this);
+    private TextView NomeVagaPerfilEmp;
+    private TextView CampoEmpresa;
+    private TextView BolsaPerfilVagaEmp;
+    private TextView AreaPerfilVagaEmp;
+    private TextView ObsPerfilVagaEmp;
+    private TextView ReqPerfilVagaEmp;
+    private ImageView imgEmpresa;
+    private Button ActionEdit;
+    private Button ActionDelete;
+    private final VagaServices vagaServices = new VagaServices(this);
+    private final InscricaoServices inscricaoServices = new InscricaoServices(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

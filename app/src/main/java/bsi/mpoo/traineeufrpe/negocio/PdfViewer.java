@@ -24,23 +24,23 @@ import bsi.mpoo.traineeufrpe.gui.estagiario.curriculo.VerCurriculo;
 
 
 public class PdfViewer {
-    Context Mcontext;
+    private final Context Mcontext;
     private File pdf;
     private Document document;
     private PdfWriter pdfWriter;
     private Paragraph paragraph;
-    private Font fTitle = new Font(Font.FontFamily.TIMES_ROMAN, 40, Font.BOLD);
-    private Font fSub = new Font(Font.FontFamily.TIMES_ROMAN, 38, Font.BOLD);
-    private Font fText = new Font(Font.FontFamily.TIMES_ROMAN, 32, Font.BOLD);
-    private Font fTextNormal = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
-    private Font fHighText = new Font(Font.FontFamily.TIMES_ROMAN, 35, Font.BOLD);
-    LoginServices loginServices = new LoginServices(Mcontext);
+    private final Font fTitle = new Font(Font.FontFamily.TIMES_ROMAN, 40, Font.BOLD);
+    private final Font fSub = new Font(Font.FontFamily.TIMES_ROMAN, 38, Font.BOLD);
+    private final Font fText = new Font(Font.FontFamily.TIMES_ROMAN, 32, Font.BOLD);
+    private final Font fTextNormal = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+    private final Font fHighText = new Font(Font.FontFamily.TIMES_ROMAN, 35, Font.BOLD);
+    LoginServices loginServices = new LoginServices(null);
 
     public PdfViewer(Context context){
         this.Mcontext = context;
     }
 
-    public File open_document(){
+    public void open_document(){
         File file = create_file();
         try{
             document = new Document(PageSize.A4);
@@ -50,7 +50,6 @@ public class PdfViewer {
         }catch (Exception e){
             Log.e("open_document", e.toString());
         }
-        return file;
     }
 
     public void close_doc(){
@@ -143,12 +142,11 @@ public class PdfViewer {
 
     }
 
-    public File ViewPdf(){
+    public void ViewPdf(){
         Intent intent = new Intent(Mcontext, VerCurriculo.class);
         intent.putExtra("path", pdf.getAbsolutePath());
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Mcontext.startActivity(intent);
-        return pdf;
     }
 
     public File ReturnPdf(){

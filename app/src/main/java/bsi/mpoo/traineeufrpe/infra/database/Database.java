@@ -93,13 +93,11 @@ public  class Database extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public SQLiteDatabase getBancoLeitura(Context context){
-        SQLiteDatabase bancoDados = this.getReadableDatabase();
-        return bancoDados;
+    public SQLiteDatabase getBancoLeitura(){
+        return this.getReadableDatabase();
     }
 
-    public SQLiteDatabase getBancoEscrita(Context context) {
-        SQLiteDatabase bancoDados = this.getWritableDatabase();
-        return bancoDados;
+    public SQLiteDatabase getBancoEscrita() {
+        return this.getWritableDatabase();
     }
 }

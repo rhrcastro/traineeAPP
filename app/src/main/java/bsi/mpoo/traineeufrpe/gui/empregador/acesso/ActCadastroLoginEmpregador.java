@@ -9,14 +9,14 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterMainActivityEmpregador;
 
 public class ActCadastroLoginEmpregador extends AppCompatActivity {
-    TabLayout mTabLayout;
-    ViewPager mViewPager;
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
 
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_acesso_empregador);
-        mTabLayout = (TabLayout) findViewById(R.id.tab_layoutCEMP);
-        mViewPager = (ViewPager) findViewById(R.id.view_pagerCEMP);
+        mTabLayout = findViewById(R.id.tab_layoutCEMP);
+        mViewPager = findViewById(R.id.view_pagerCEMP);
 
         mViewPager.setAdapter(new MyFragmentPagerAdapterMainActivityEmpregador(getSupportFragmentManager(), getResources().getStringArray(R.array.tabs)));
         mTabLayout.setupWithViewPager(mViewPager);

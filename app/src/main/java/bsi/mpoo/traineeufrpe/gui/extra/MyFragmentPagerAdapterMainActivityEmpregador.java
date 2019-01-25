@@ -8,7 +8,7 @@ import bsi.mpoo.traineeufrpe.gui.empregador.acesso.fragment.FragmentCadastroEmpr
 import bsi.mpoo.traineeufrpe.gui.empregador.acesso.fragment.FragmentLoginEmpregador;
 
 public class MyFragmentPagerAdapterMainActivityEmpregador extends FragmentStatePagerAdapter {
-    private String[] mTabTitles;
+    private final String[] mTabTitles;
     public MyFragmentPagerAdapterMainActivityEmpregador(FragmentManager fm, String[] TabTitles) {
         super(fm);
         this.mTabTitles = TabTitles;

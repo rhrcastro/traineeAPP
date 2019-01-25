@@ -31,7 +31,7 @@ import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class CadastrarVaga extends AppCompatActivity {
 
-    VagaServices vagaServices = new VagaServices(this);
+    private final VagaServices vagaServices = new VagaServices(this);
     private NestedScrollView nestedScrollView;
     private EditText editTitulo;
     private EditText editRequisitos;
@@ -44,10 +44,10 @@ public class CadastrarVaga extends AppCompatActivity {
     private TextView txtHoraInicio;
     private TextView txtHoraFim;
     private TextView txtAS;
-    CheckBox checkHorario;
-    SeekBar skbAjusteBolsa;
-    CardView menu_areas;
-    Button btnDivulgar;
+    private CheckBox checkHorario;
+    private SeekBar skbAjusteBolsa;
+    private CardView menu_areas;
+    private Button btnDivulgar;
     private String titulo;
     private String requisitos;
     private String observacoes;
@@ -59,18 +59,18 @@ public class CadastrarVaga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_vaga);
-        txtAreaVaga = (TextView) findViewById(R.id.txt_area_vaga);
-        menu_areas = (CardView) findViewById(R.id.cardView_2);
+        txtAreaVaga = findViewById(R.id.txt_area_vaga);
+        menu_areas = findViewById(R.id.cardView_2);
         menu_areas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showPopupMenu(v);
             }
         });
-        txtValorBolsa = (TextView) findViewById(R.id.txtValorBolsa);
-        txtACombinar = (TextView) findViewById(R.id.txtCombinar);
-        txtR$ = (TextView) findViewById(R.id.reais);
-        skbAjusteBolsa = (SeekBar) findViewById(R.id.seekbar_ajusta_bolsa);
+        txtValorBolsa = findViewById(R.id.txtValorBolsa);
+        txtACombinar = findViewById(R.id.txtCombinar);
+        txtR$ = findViewById(R.id.reais);
+        skbAjusteBolsa = findViewById(R.id.seekbar_ajusta_bolsa);
         skbAjusteBolsa.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -100,7 +100,7 @@ public class CadastrarVaga extends AppCompatActivity {
 
             }
         });
-        btnDivulgar = (Button) findViewById(R.id.btnQueroCandidatar);
+        btnDivulgar = findViewById(R.id.btnQueroCandidatar);
         btnDivulgar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,9 +159,9 @@ public class CadastrarVaga extends AppCompatActivity {
     }
 
     private void finderTextos(){
-        editTitulo = (EditText) findViewById(R.id.editTituloVaga);
-        editRequisitos = (EditText) findViewById(R.id.editRequisitos);
-        editObservacoes = (EditText) findViewById(R.id.editObservacoes);
+        editTitulo = findViewById(R.id.editTituloVaga);
+        editRequisitos = findViewById(R.id.editRequisitos);
+        editObservacoes = findViewById(R.id.editObservacoes);
         capturarTextos();
     }
 
@@ -219,7 +219,7 @@ public class CadastrarVaga extends AppCompatActivity {
         volta();
     }
 
-    public void volta(){
+    private void volta(){
         Intent volta = new Intent(CadastrarVaga.this, ActEmpregadorPrincipal.class);
         startActivity(volta);
         finish();
@@ -230,7 +230,7 @@ public class CadastrarVaga extends AppCompatActivity {
         exibirConfirmacaoSair();
     }
 
-    public void exibirConfirmacaoSair() {
+    private void exibirConfirmacaoSair() {
         AlertDialog.Builder msgBox = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
         msgBox.setIcon(android.R.drawable.ic_menu_delete);
         msgBox.setTitle("Deseja voltar?");
@@ -239,7 +239,7 @@ public class CadastrarVaga extends AppCompatActivity {
         setBtnNegativoSair(msgBox);
         msgBox.show();
     }
-    public void setBtnPositivoSair(AlertDialog.Builder msgBox){
+    private void setBtnPositivoSair(AlertDialog.Builder msgBox){
         msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -247,7 +247,7 @@ public class CadastrarVaga extends AppCompatActivity {
             }
         });
     }
-    public void setBtnNegativoSair(AlertDialog.Builder msgBox){
+    private void setBtnNegativoSair(AlertDialog.Builder msgBox){
         msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

@@ -8,7 +8,7 @@ import bsi.mpoo.traineeufrpe.gui.empregador.home.fragment.FragmentCandidato;
 import bsi.mpoo.traineeufrpe.gui.empregador.home.fragment.FragmentMinhaVaga;
 
 public class MyFragmentPagerAdapterTelaEmpregadorPrincipal extends FragmentStatePagerAdapter {
-    private String[] mTabTitles;
+    private final String[] mTabTitles;
     public MyFragmentPagerAdapterTelaEmpregadorPrincipal(FragmentManager fm, String[] TabTitles) {
         super(fm);
         this.mTabTitles = TabTitles;

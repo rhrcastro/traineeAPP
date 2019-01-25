@@ -21,11 +21,11 @@ public class NotificacaoServices {
     private final int COLUMN_ID_EMPREGADOR_RECEBE = 5;
     private final int COLUMN_ID_VAGA = 6;
 
-    private Context mContext;
-    private NotificacaoDAO notificacaoDAO;
-    private VagaDAO vagaDAO;
-    private EmpregadorServices empregadorServices;
-    private EstagiarioServices estagiarioServices;
+    private final Context mContext;
+    private final NotificacaoDAO notificacaoDAO;
+    private final VagaDAO vagaDAO;
+    private final EmpregadorServices empregadorServices;
+    private final EstagiarioServices estagiarioServices;
 
     public NotificacaoServices(Context context) {
         this.mContext = context;
@@ -35,22 +35,20 @@ public class NotificacaoServices {
         this.estagiarioServices = new EstagiarioServices(context);
     }
 
-    public boolean enviar4Empregador(Notificacao notificacao){
+    public void enviar4Empregador(Notificacao notificacao){
         if (notificacao.getMensagem() != null
                 && notificacao.getPessoaEnvia() != null
                 && notificacao.getEmpregadorRecebe() != null){
             notificacaoDAO.enviarNotificacao4Empregador(notificacao);
-            return true;
-        } return false;
+        }
     }
 
-    public boolean enviar4Estagiario(Notificacao notificacao){
+    public void enviar4Estagiario(Notificacao notificacao){
         if (notificacao.getMensagem() != null
                 && notificacao.getEmpregadorEnvia() != null
                 && notificacao.getPessoaRecebe() != null){
             notificacaoDAO.enviarNotificacao4Estagiario(notificacao);
-            return true;
-        } return false;
+        }
     }
 
     public ArrayList<Notificacao> exibirNotificacoes4Empregador(Empregador empregador){

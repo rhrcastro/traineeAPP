@@ -17,7 +17,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.PopupMenu;
-import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -32,7 +31,7 @@ import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class EditarVaga extends AppCompatActivity {
 
-    VagaServices vagaServices = new VagaServices(this);
+    private final VagaServices vagaServices = new VagaServices(this);
     private NestedScrollView nestedScrollView;
     private EditText editTitulo;
     private EditText editRequisitos;
@@ -44,11 +43,11 @@ public class EditarVaga extends AppCompatActivity {
     private TextView txtHoraInicio;
     private TextView txtHoraFim;
     private TextView txtAS;
-    CheckBox checkHorario;
+    private CheckBox checkHorario;
     Toolbar toolbar;
-    SeekBar skbAjusteBolsa;
-    CardView menu_areas;
-    Button btnDivulgar;
+    private SeekBar skbAjusteBolsa;
+    private CardView menu_areas;
+    private Button btnDivulgar;
     private String titulo;
     private String requisitos;
     private String observacoes;
@@ -56,7 +55,7 @@ public class EditarVaga extends AppCompatActivity {
     private String turno;
     private String valor = "A combinar";
     private String horario;
-    private Vaga vaga;
+    private final Vaga vaga;
 
     public EditarVaga(){
         vaga = SessaoEmpregador.instance.getVaga();
@@ -66,21 +65,21 @@ public class EditarVaga extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastrar_vaga);
-        editTitulo = (EditText) findViewById(R.id.editTituloVaga);
-        editRequisitos = (EditText) findViewById(R.id.editRequisitos);
-        editObservacoes = (EditText) findViewById(R.id.editObservacoes);
-        txtAreaVaga = (TextView) findViewById(R.id.txt_area_vaga);
-        menu_areas = (CardView) findViewById(R.id.cardView_2);
+        editTitulo = findViewById(R.id.editTituloVaga);
+        editRequisitos = findViewById(R.id.editRequisitos);
+        editObservacoes = findViewById(R.id.editObservacoes);
+        txtAreaVaga = findViewById(R.id.txt_area_vaga);
+        menu_areas = findViewById(R.id.cardView_2);
         menu_areas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showPopupMenu(v);
             }
         });
-        txtValorBolsa = (TextView) findViewById(R.id.txtValorBolsa);
-        txtACombinar = (TextView) findViewById(R.id.txtCombinar);
-        txtR$ = (TextView) findViewById(R.id.reais);
-        skbAjusteBolsa = (SeekBar) findViewById(R.id.seekbar_ajusta_bolsa);
+        txtValorBolsa = findViewById(R.id.txtValorBolsa);
+        txtACombinar = findViewById(R.id.txtCombinar);
+        txtR$ = findViewById(R.id.reais);
+        skbAjusteBolsa = findViewById(R.id.seekbar_ajusta_bolsa);
         skbAjusteBolsa.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -150,7 +149,7 @@ public class EditarVaga extends AppCompatActivity {
                 }
             }
         });
-        btnDivulgar = (Button) findViewById(R.id.btnQueroCandidatar);
+        btnDivulgar = findViewById(R.id.btnQueroCandidatar);
         btnDivulgar.setText("SALVAR ALTERAÇÕES");
         btnDivulgar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,7 +209,7 @@ public class EditarVaga extends AppCompatActivity {
         }
     }
 
-    public boolean verificarCampos() {
+    private boolean verificarCampos() {
         EditText[] campos = {editTitulo, editRequisitos, editObservacoes};
         for (EditText editText : campos) {
             String campoAtual = editText.getText().toString().trim();
@@ -245,7 +244,7 @@ public class EditarVaga extends AppCompatActivity {
         popup.show();
     }
 
-    public void volta(){
+    private void volta(){
         Intent volta = new Intent(EditarVaga.this, PerfilVagaEmpregador.class);
         startActivity(volta);
         finish();
@@ -256,7 +255,7 @@ public class EditarVaga extends AppCompatActivity {
         exibirConfirmacaoSair();
     }
 
-    public void exibirConfirmacaoSair() {
+    private void exibirConfirmacaoSair() {
         AlertDialog.Builder msgBox = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
         msgBox.setIcon(android.R.drawable.ic_menu_delete);
         msgBox.setTitle("Deseja voltar?");
@@ -265,7 +264,7 @@ public class EditarVaga extends AppCompatActivity {
         setBtnNegativoSair(msgBox);
         msgBox.show();
     }
-    public void setBtnPositivoSair(AlertDialog.Builder msgBox){
+    private void setBtnPositivoSair(AlertDialog.Builder msgBox){
         msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -273,7 +272,7 @@ public class EditarVaga extends AppCompatActivity {
             }
         });
     }
-    public void setBtnNegativoSair(AlertDialog.Builder msgBox){
+    private void setBtnNegativoSair(AlertDialog.Builder msgBox){
         msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

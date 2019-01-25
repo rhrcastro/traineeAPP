@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +22,13 @@ import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class FragmentLoginEstagiario extends Fragment {
 
-    private ValidacaoGUI validacaoGUI = new ValidacaoGUI();
+    private final ValidacaoGUI validacaoGUI = new ValidacaoGUI();
     private TextView forgot;
     private EditText edtEmail;
     private EditText edtSenha;
     private String email;
     private String senha;
-    Button btnLogin;
+    private Button btnLogin;
     private Criptografia criptografia;
 
     @Nullable
@@ -38,7 +37,7 @@ public class FragmentLoginEstagiario extends Fragment {
         View v = inflater.inflate(R.layout.fragment_login_estagiario, container, false);
         edtEmail = v.findViewById(R.id.emailLogin);
         edtSenha = v.findViewById(R.id.senhaLogin);
-        btnLogin = (Button)v.findViewById(R.id.botLog);
+        btnLogin = v.findViewById(R.id.botLog);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,13 +54,13 @@ public class FragmentLoginEstagiario extends Fragment {
         return v;
     }
 
-    public void logar() {
+    private void logar() {
         capturaTextos();
         if (!isCamposValidos()) {
             return;
         }
         LoginServices loginServices = new LoginServices(getContext());
-        boolean taLogado = loginServices.fazerLogin(email, criptografia.criptografar(senha));
+        boolean taLogado = loginServices.fazerLogin(email, Criptografia.criptografar(senha));
         if (taLogado) {
             Toast.makeText(getContext(),"Usuário logado com sucesso", Toast.LENGTH_SHORT).show();
             goHome();
@@ -71,10 +70,10 @@ public class FragmentLoginEstagiario extends Fragment {
     }
 
     private boolean isCamposValidos(){
-        if (this.validacaoGUI.isEmailInvalido(email)) {
+        if (ValidacaoGUI.isEmailInvalido(email)) {
             this.edtEmail.setError("Email Inválido");
             return false;
-        } else if (this.validacaoGUI.isCampoVazio(senha)) {
+        } else if (ValidacaoGUI.isCampoVazio(senha)) {
             this.edtSenha.setError("Senha Inválida");
             return false;
         } return true;

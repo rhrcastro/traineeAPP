@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -32,8 +33,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ActEmpregadorPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    TabLayout mTabLayout;
-    ViewPager mViewPager;
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +111,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
@@ -128,11 +129,11 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         return true;
     }
 
-    public void openContato() {
+    private void openContato() {
         Intent intent = new Intent(this, ActContato.class);
         startActivity(intent);
     }
-    public void exibirConfirmacaoSair() {
+    private void exibirConfirmacaoSair() {
         AlertDialog.Builder msgBox = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
         msgBox.setIcon(android.R.drawable.ic_menu_delete);
         msgBox.setTitle("Sair");
@@ -141,7 +142,7 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         setBtnNegativoSair(msgBox);
         msgBox.show();
     }
-    public void setBtnPositivoSair(AlertDialog.Builder msgBox){
+    private void setBtnPositivoSair(AlertDialog.Builder msgBox){
         msgBox.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -152,14 +153,14 @@ public class ActEmpregadorPrincipal extends AppCompatActivity
         });
 
     }
-    public void setBtnNegativoSair(AlertDialog.Builder msgBox){
+    private void setBtnNegativoSair(AlertDialog.Builder msgBox){
         msgBox.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }
         });
     }
-    public void exibirTelaLogin(){
+    private void exibirTelaLogin(){
         Intent intent = new Intent(this, ActCadastroLoginEmpregador.class);
         startActivity(intent);
     }

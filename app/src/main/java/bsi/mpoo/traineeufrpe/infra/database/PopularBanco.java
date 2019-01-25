@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
 
@@ -26,13 +25,13 @@ import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 public class PopularBanco {
 
 
-    PessoaDAO pessoaDAO;
-    EstagiarioDAO estagiarioDAO;
-    CurriculoDAO curriculoDAO;
-    VagaDAO vagaDAO;
-    EmpregadorServices empregadorServices;
-    VagaServices vagaServices;
-    Context mContext;
+    private final PessoaDAO pessoaDAO;
+    private final EstagiarioDAO estagiarioDAO;
+    private final CurriculoDAO curriculoDAO;
+    private final VagaDAO vagaDAO;
+    private final EmpregadorServices empregadorServices;
+    private final VagaServices vagaServices;
+    private final Context mContext;
 
 
     public PopularBanco(Context context) {
@@ -57,152 +56,136 @@ public class PopularBanco {
     }
 
     private void popularEmpregadores() {
-        criarEmpregador("Alphabet", "aaa@teste.com", "122333455", "123", "Recife");
-        criarEmpregador("Banco Pernambucano", "bbb@teste.com", "122343455", "123", "Olinda");
-        criarEmpregador("Carrefive", "ccc@teste.com", "122358455", "123", "Paulista");
-        criarEmpregador("Diamonds", "ddd@teste.com", "902333455", "123", "Abreu e Lima");
-        criarEmpregador("Estelitta", "eee@teste.com", "122333421", "123", "Jaboatão dos Guararapes");
-        criarEmpregador("Donimed", "fff@teste.com", "122312121", "123", "São Paulo");
-        criarEmpregador("Rádio CVM", "ggg@teste.com", "122100421", "123", "Salvador");
-        criarEmpregador("Consultoria AGP", "hhh@teste.com", "122333300", "123", "São Vicente");
+        criarEmpregador("Alphabet", "aaa@teste.com", "122333455", "Recife");
+        criarEmpregador("Banco Pernambucano", "bbb@teste.com", "122343455", "Olinda");
+        criarEmpregador("Carrefive", "ccc@teste.com", "122358455", "Paulista");
+        criarEmpregador("Diamonds", "ddd@teste.com", "902333455", "Abreu e Lima");
+        criarEmpregador("Estelitta", "eee@teste.com", "122333421", "Jaboatão dos Guararapes");
+        criarEmpregador("Donimed", "fff@teste.com", "122312121", "São Paulo");
+        criarEmpregador("Rádio CVM", "ggg@teste.com", "122100421", "Salvador");
+        criarEmpregador("Consultoria AGP", "hhh@teste.com", "122333300", "São Vicente");
 
     }
 
     private void popularVagas() {
         criarVaga("Analista de Sotware",
-                "Teste",
                 "R$ 1200",
                 "Tecnologia",
-                "Testando",
                 1,
                 "08:00 às 12:00");
 
         criarVaga("Cientista de Dados",
-                "Teste",
                 "R$ 1800",
                 "Tecnologia",
-                "Testando",
                 2,
                 "13:00 às 18:00");
 
         criarVaga("Desenvolvedor Python",
-                "Teste",
                 "R$ 1350",
                 "Tecnologia",
-                "Testando",
                 1,
                 "13:00 às 19:00");
 
         criarVaga("Desenvolvedor Front-End",
-                "Teste",
                 "R$ 800",
                 "Artes e Design",
-                "Testando",
                 2,
                 "08:00 às 12:00");
 
         criarVaga("Auxiliar Administrativo",
-                "Teste",
                 "R$ 650",
                 "Negócios",
-                "Testando",
                 6,
                 "Não especificado");
 
         criarVaga("Auxiliar em RH",
-                "Teste",
                 "R$ 900",
                 "Comunicação",
-                "Testando",
                 4,
                 "13:00 às 18:00");
 
         criarVaga("Estágio em Logística",
-                "Teste",
                 "R$ 1000",
                 "Comunicação",
-                "Testando",
                 3,
                 "13:00 às 18:00");
 
         criarVaga("Estágio em Contabilidade",
-                "Teste",
                 "R$ 1700",
                 "Saúde",
-                "Testando",
                 8,
                 "13:00 às 18:00");
     }
 
-    public void popularEstagiarios(){
+    private void popularEstagiarios(){
         cadastrarPessoa("Henrique César", "hcesarjs@gmail.com",
-                "122454541121", "123", "Paulista",
+                "122454541121", "Paulista",
                 "Sistemas de Informação", "UFRPE", "Tecnologia",
-                "Sem experiência", "Estágio na Área de TI", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio na Área de TI",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("Thales Gabriel", "thalesg88@gmail.com",
-                "1777754541121", "123", "Paulista",
+                "1777754541121", "Paulista",
                 "Sistemas de Informação", "UFRPE", "Tecnologia",
-                "Sem experiência", "Estágio na Área de TI", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio na Área de TI",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("Yasmmin Monteiro", "ymclaudino@gmail.com",
-                "122454599991", "123", "Olinda",
+                "122454599991", "Olinda",
                 "Sistemas de Informação", "UFRPE", "Tecnologia",
-                "Sem experiência", "Estágio na Área de TI", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio na Área de TI",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("André França", "est5@gmail.com",
-                "002454599991", "123", "Olinda",
+                "002454599991", "Olinda",
                 "Economia", "UFRPE", "Negocios",
-                "Sem experiência", "Estágio em Contabilidade", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio em Contabilidade",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("Willian Zonner", "est1@gmail.com",
-                "122450000091", "123", "São Paulo",
+                "122450000091", "São Paulo",
                 "Jornalismo", "USP", "Comunicação",
-                "Sem experiência", "Estágio em Rádio e Jornais", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio em Rádio e Jornais",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("Julia Servero", "est2@gmail.com",
-                "54575599991", "123", "Contagem",
+                "54575599991", "Contagem",
                 "Medicina", "UFMG", "Tecnologia",
-                "Sem experiência", "Estágio em clínicas", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio em clínicas",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("Laura Oliveira", "est3@gmail.com",
-                "111114599991", "123", "Belo Horizonte",
+                "111114599991", "Belo Horizonte",
                 "Gastronomia", "Faculdade Promove", "Ciências Humanas",
-                "Sem experiência", "Estágio em Bares e/ou Restaurantes", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio em Bares e/ou Restaurantes",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("Évilla Santos", "evilla@gmail.com",
-                "122454599991", "123", "São Luís",
+                "122454599991", "São Luís",
                 "Psicologia", "CEUMA", "Saúde",
-                "Sem experiência", "Estágio em Consultórios", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio em Consultórios",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("Vinicius Alves", "vinicius@gmail.com",
-                "888854541121", "123", "Recife",
+                "888854541121", "Recife",
                 "Sistemas de Informação", "UFRPE", "Tecnologia",
-                "Sem experiência", "Estágio na Área de TI", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio na Área de TI",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
         cadastrarPessoa("Ricardo Henrique", "rhcastro@outlook.com",
-                "122451234521", "123", "Recife",
+                "122451234521", "Recife",
                 "Sistemas de Informação", "UFRPE", "Tecnologia",
-                "Sem experiência", "Estágio na Área de TI", "Bom",
-                "Teste", "Android Studio", "Teste",
+                "Sem experiência", "Estágio na Área de TI",
+                "Android Studio",
                 "http://www.traineeufrpe.github.io");
 
 
@@ -304,17 +287,16 @@ public class PopularBanco {
         Database bancoDados;
         bancoDados = new Database(mContext);
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
-        Cursor cursor = leitorBanco.rawQuery(query, null);
-        return cursor;
+        return leitorBanco.rawQuery(query, null);
     }
 
 
-    private void criarEmpregador(String nome, String email, String cnpj, String senha, String cidade) {
+    private void criarEmpregador(String nome, String email, String cnpj, String cidade) {
         Empregador empregador = new Empregador();
         empregador.setNome(nome);
         empregador.setEmail(email);
         empregador.setCnpj(cnpj);
-        empregador.setSenha(Criptografia.criptografar(senha));
+        empregador.setSenha(Criptografia.criptografar("123"));
         empregador.setCidade(cidade);
         Bitmap bitmap = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.profile_empregador);
         ByteArrayOutputStream blob = new ByteArrayOutputStream();
@@ -324,14 +306,14 @@ public class PopularBanco {
         empregadorServices.cadastrarEmpregador(empregador);
     }
 
-    private void criarVaga(String nome, String requisito, String bolsa, String area, String obs,
+    private void criarVaga(String nome, String bolsa, String area,
                            long idEmpregador, String horario) {
         Vaga vaga = new Vaga();
         vaga.setNome(nome);
-        vaga.setRequisito(requisito);
+        vaga.setRequisito("Teste");
         vaga.setBolsa(bolsa);
         vaga.setArea(area);
-        vaga.setObs(obs);
+        vaga.setObs("Testando");
         vaga.setDataCriacao(System.currentTimeMillis());
         vaga.setHorario(horario);
         vaga.setEmpregador(empregadorServices.getEmpregadorById(idEmpregador));
@@ -379,13 +361,13 @@ public class PopularBanco {
         return curriculo;
     }
 
-    private void cadastrarPessoa(String nome, String email, String cpf, String senha, String cidade,
+    private void cadastrarPessoa(String nome, String email, String cpf, String cidade,
                                  String curso, String instituicao, String areaAtuacao,
-                                 String exp, String obj, String relacionamento,
-                                 String basico, String esp, String disciplina, String link) {
+                                 String exp, String obj,
+                                 String esp, String link) {
         Curriculo curriculo = this.criarCurriculo(curso, instituicao, areaAtuacao,
-                exp, obj, relacionamento, basico, esp, disciplina, link);
-        Estagiario estagiario = this.criarEstagiario(email, senha, curriculo);
+                exp, obj, "Bom", "Teste", esp, "Teste", link);
+        Estagiario estagiario = this.criarEstagiario(email, "123", curriculo);
         this.criarPessoa(nome, cpf, cidade, estagiario);
     }
 

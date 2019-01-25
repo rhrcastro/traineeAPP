@@ -19,10 +19,10 @@ import bsi.mpoo.traineeufrpe.gui.empregador.home.vaga.ActPerfilEstagiario4Empreg
 
 public class AdapterInscritos extends BaseAdapter {
 
-    private Context mContext;
-    private LayoutInflater inflater;
-    private ArrayList<ControladorVaga> listaInscritos = new ArrayList<>();
-    private ArrayList<ControladorVaga> arrayVagas = new ArrayList<>();
+    private final Context mContext;
+    private final LayoutInflater inflater;
+    private final ArrayList<ControladorVaga> listaInscritos = new ArrayList<>();
+    private final ArrayList<ControladorVaga> arrayVagas = new ArrayList<>();
 
     public AdapterInscritos(Context context, ArrayList<ControladorVaga> arrayControladorVagas) {
         mContext = context;
@@ -31,7 +31,7 @@ public class AdapterInscritos extends BaseAdapter {
         this.listaInscritos.addAll(arrayControladorVagas);
     }
 
-    public class ViewHolder{
+    class ViewHolder{
         TextView mVaga, mNome, mCurso, mInstituicao, mCidade;
         ImageView mImg;
     }

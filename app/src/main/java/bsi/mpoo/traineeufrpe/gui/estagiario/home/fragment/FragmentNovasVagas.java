@@ -23,11 +23,11 @@ import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 public class FragmentNovasVagas extends ListFragment
         implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
 
-    Context mContext;
-    ListView listaVagas;
-    AdapterNovasVagas adapter;
-    ArrayList<Vaga> vagas;
-    VagaServices vagaServices = new VagaServices(getContext());
+    private Context mContext;
+    private ListView listaVagas;
+    private AdapterNovasVagas adapter;
+    private ArrayList<Vaga> vagas;
+    private VagaServices vagaServices = new VagaServices(getContext());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class FragmentNovasVagas extends ListFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_novas_vagas, container, false);
-        listaVagas = (ListView) layout.findViewById(android.R.id.list);
+        listaVagas = layout.findViewById(android.R.id.list);
         populate();
         return layout;
     }

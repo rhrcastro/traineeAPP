@@ -21,12 +21,12 @@ import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 
 public class AdapterVagasAbertas extends BaseAdapter {
 
-    Context mContext;
-    LayoutInflater inflater;
-    ArrayList<Vaga> listaVagas = new ArrayList<>();
-    private ArrayList<Vaga> arrayVagas = new ArrayList<>();
-    InscricaoServices inscricaoServices;
-    Pessoa pessoa;
+    private final Context mContext;
+    private final LayoutInflater inflater;
+    private final ArrayList<Vaga> listaVagas = new ArrayList<>();
+    private final ArrayList<Vaga> arrayVagas = new ArrayList<>();
+    private final InscricaoServices inscricaoServices;
+    private final Pessoa pessoa;
 
     public AdapterVagasAbertas(Context context, ArrayList<Vaga> arrayVagas) {
         mContext = context;
@@ -37,7 +37,7 @@ public class AdapterVagasAbertas extends BaseAdapter {
         pessoa = SessaoEstagiario.instance.getPessoa();
     }
 
-    public class ViewHolder{
+    class ViewHolder{
         TextView mTitulo, mNomeEmpresa, mValorBolsa, mTurno;
         ImageView mImagem;
     }
@@ -63,11 +63,11 @@ public class AdapterVagasAbertas extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.adapter_vagas_card, null);
-            holder.mTitulo = (TextView) view.findViewById(R.id.titulo_vaga);
-            holder.mNomeEmpresa = (TextView) view.findViewById(R.id.campo_empresa);
-            holder.mValorBolsa = (TextView) view.findViewById(R.id.campo_bolsa);
-            holder.mTurno = (TextView) view.findViewById(R.id.campo_turno);
-            holder.mImagem = (ImageView) view.findViewById(R.id.status_vaga);
+            holder.mTitulo = view.findViewById(R.id.titulo_vaga);
+            holder.mNomeEmpresa = view.findViewById(R.id.campo_empresa);
+            holder.mValorBolsa = view.findViewById(R.id.campo_bolsa);
+            holder.mTurno = view.findViewById(R.id.campo_turno);
+            holder.mImagem = view.findViewById(R.id.status_vaga);
             view.setTag(holder);
         } else {
             holder = (ViewHolder)view.getTag();
@@ -82,7 +82,7 @@ public class AdapterVagasAbertas extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Vaga vaga = ((Vaga) listaVagas.get(position));
+                Vaga vaga = listaVagas.get(position);
                 Intent it = new Intent(mContext, PerfilVagaEstagiario.class);
                 PerfilVagaEstagiario.vaga = vaga;
                 mContext.startActivity(it);

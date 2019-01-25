@@ -10,13 +10,13 @@ import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class NotificacaoDAO {
 
-    private Database bancoDados;
+    private final Database bancoDados;
 
     public NotificacaoDAO(Context context) {
         bancoDados = new Database(context);
     }
 
-    public long enviarNotificacao4Empregador(Notificacao notificacao) {
+    public void enviarNotificacao4Empregador(Notificacao notificacao) {
         SQLiteDatabase escreverBranco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("mensagem", notificacao.getMensagem());
@@ -27,10 +27,9 @@ public class NotificacaoDAO {
         }
         long resultado = escreverBranco.insert("notificacoes", null, valores);
         escreverBranco.close();
-        return resultado;
     }
 
-    public long enviarNotificacao4Estagiario(Notificacao notificacao) {
+    public void enviarNotificacao4Estagiario(Notificacao notificacao) {
         SQLiteDatabase escreverBranco = bancoDados.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("mensagem", notificacao.getMensagem());
@@ -41,7 +40,6 @@ public class NotificacaoDAO {
         }
         long resultado = escreverBranco.insert("notificacoes", null, valores);
         escreverBranco.close();
-        return resultado;
     }
 
     public Cursor getNotificacoes4Empregador(long idEmpregadorRecebe){
@@ -49,8 +47,7 @@ public class NotificacaoDAO {
         String query =  "SELECT * FROM notificacoes " +
                 "WHERE id_empregador_recebe = ?";
         String[] args = {String.valueOf(idEmpregadorRecebe)};
-        Cursor data = db.rawQuery(query, args);
-        return data;
+        return db.rawQuery(query, args);
     }
 
     public Cursor getNotificacoes4Estagiario(long idEstagiarioRecebe){
@@ -58,8 +55,7 @@ public class NotificacaoDAO {
         String query =  "SELECT * FROM notificacoes " +
                 "WHERE id_pessoa_recebe = ?";
         String[] args = {String.valueOf(idEstagiarioRecebe)};
-        Cursor data = db.rawQuery(query, args);
-        return data;
+        return db.rawQuery(query, args);
     }
 
     public void deletarNotificacao(long id){

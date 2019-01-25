@@ -6,13 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class EmpregadorDAO {
 
-    private Database bancoDados;
+    private final Database bancoDados;
 
     public EmpregadorDAO(Context context) {
         bancoDados = new Database(context);
@@ -64,11 +62,10 @@ public class EmpregadorDAO {
         String query = "SELECT * FROM empregador " +
                 "WHERE id = ?";
         String[] args = {String.valueOf(id)};
-        Cursor data = bancoLeitura.rawQuery(query, args);
-        return data;
+        return bancoLeitura.rawQuery(query, args);
     }
 
-    private Empregador load(String query, String[] args,Context context) {
+    private Empregador load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Empregador empregador = null;
@@ -83,7 +80,7 @@ public class EmpregadorDAO {
         String query = "SELECT * FROM empregador " +
                 "WHERE email = ?";
         String[] args = {email};
-        return this.load(query, args, context);
+        return this.load(query, args);
     }
 
     public Cursor getEmpregadorByEmail(String email) {
@@ -91,8 +88,7 @@ public class EmpregadorDAO {
         String query =  "SELECT * FROM empregador " +
                 "WHERE email = ?";
         String[] args = {email};
-        Cursor data = bancoLeitura.rawQuery(query, args);
-        return data;
+        return bancoLeitura.rawQuery(query, args);
     }
 
     public Cursor getEmpregadorByEmaileSenha(String email, String senha) {
@@ -100,8 +96,7 @@ public class EmpregadorDAO {
         String query =  "SELECT * FROM empregador " +
                 "WHERE email = ? AND senha = ?";
         String[] args = {email, senha};
-        Cursor data = bancoLeitura.rawQuery(query, args);
-        return data;
+        return bancoLeitura.rawQuery(query, args);
     }
 
     public void deletarEmpregador(int id2){
@@ -114,8 +109,7 @@ public class EmpregadorDAO {
     public Cursor getAllEmpregador(){
         SQLiteDatabase db = bancoDados.getReadableDatabase();
         String query = "SELECT * FROM empregador";
-        Cursor data = db.rawQuery(query, null);
-        return data;
+        return db.rawQuery(query, null);
     }
 
     public Cursor getId(String name){
@@ -123,8 +117,7 @@ public class EmpregadorDAO {
         String query = "SELECT id FROM empregador " +
                 "WHERE nome = ?";
         String[] args = {String.valueOf(name)};
-        Cursor data = db.rawQuery(query, args);
-        return data;
+        return db.rawQuery(query, args);
     }
 
     public void mudarFoto(Empregador empregador) {

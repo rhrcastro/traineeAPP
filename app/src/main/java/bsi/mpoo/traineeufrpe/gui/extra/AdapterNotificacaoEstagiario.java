@@ -18,12 +18,12 @@ import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterNotificacaoEstagiario extends BaseAdapter {
-    Context mContext;
-    LayoutInflater inflater;
-    ArrayList<Notificacao> listaNotificacoes = new ArrayList<>();
-    private ArrayList<Notificacao> arrayNotificacoes = new ArrayList<>();
-    NotificacaoServices notificacaoServices;
-    InscricaoServices inscricaoServices;
+    private final Context mContext;
+    private final LayoutInflater inflater;
+    private final ArrayList<Notificacao> listaNotificacoes = new ArrayList<>();
+    private final ArrayList<Notificacao> arrayNotificacoes = new ArrayList<>();
+    private final NotificacaoServices notificacaoServices;
+    private final InscricaoServices inscricaoServices;
 
     public AdapterNotificacaoEstagiario(Context context, ArrayList<Notificacao> arrayNotificacoes) {
         mContext = context;
@@ -34,7 +34,7 @@ public class AdapterNotificacaoEstagiario extends BaseAdapter {
         inscricaoServices = new InscricaoServices(context);
     }
 
-    public class ViewHolder{
+    class ViewHolder{
         TextView mNome, mMensagem;
         CircleImageView mImagem;
     }
@@ -60,9 +60,9 @@ public class AdapterNotificacaoEstagiario extends BaseAdapter {
         if (view == null) {
             holder = new AdapterNotificacaoEstagiario.ViewHolder();
             view = inflater.inflate(R.layout.adapter_notificacaoestagiario, null);
-            holder.mNome = (TextView) view.findViewById(R.id.nomeEmpresanotif);
-            holder.mMensagem = (TextView) view.findViewById(R.id.mensagemEmpresa);
-            holder.mImagem = (CircleImageView) view.findViewById(R.id.fotoEmpresa);
+            holder.mNome = view.findViewById(R.id.nomeEmpresanotif);
+            holder.mMensagem = view.findViewById(R.id.mensagemEmpresa);
+            holder.mImagem = view.findViewById(R.id.fotoEmpresa);
             view.setTag(holder);
         } else {
             holder = (AdapterNotificacaoEstagiario.ViewHolder)view.getTag();

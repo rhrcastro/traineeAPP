@@ -6,13 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
-import java.util.EmptyStackException;
 
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class EstagiarioDAO {
-    private Database bancoDados ;
+    private final Database bancoDados ;
     public EstagiarioDAO(Context context) { bancoDados = new Database(context); }
     private Estagiario criarEstagiario(Cursor cursor) {
         int indexId = cursor.getColumnIndex("id");
@@ -41,7 +40,7 @@ public class EstagiarioDAO {
         escritorBanco.close();
         return id;
     }
-    private Estagiario load(String query, String[] args,Context context) {
+    private Estagiario load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Estagiario estagiario = null;
@@ -56,25 +55,25 @@ public class EstagiarioDAO {
         String query =  "SELECT * FROM estagiario " +
                 "WHERE email = ?";
         String[] args = {email};
-        return this.load(query, args, context);
+        return this.load(query, args);
     }
     public Estagiario getEstagiarioByEmaileSenha(String email, String senha,Context context) {
         String query =  "SELECT * FROM estagiario " +
                 "WHERE email = ? AND senha = ?";
         String[] args = {email, senha};
-        return this.load(query, args, context);
+        return this.load(query, args);
     }
     public Estagiario getEstagiarioById(long id, Context context) {
         String query =  "SELECT * FROM estagiario " +
                 "WHERE id = ?";
         String[] args = {String.valueOf(id)};
-        return this.load(query, args, context);
+        return this.load(query, args);
     }
     public Estagiario getIdCurriculo(long id, Context context) {
         String query = "SELECT * FROM curriculo " +
                 "WHERE id_estagiario = ?";
         String[] args = {String.valueOf(id)};
-        return this.load(query, args, context);
+        return this.load(query, args);
     }
     public void mudarFotoEstagiario(Estagiario estagiario) {
         SQLiteDatabase db = bancoDados.getWritableDatabase();
@@ -100,13 +99,13 @@ public class EstagiarioDAO {
     }
     public ArrayList<Estagiario> carregarEstagiarios(){
         String query = "SELECT * FROM estagiario";
-        return this.carregarEstagiarios(query, null);
+        return this.carregarEstagiarios(query);
 
     }
-    private ArrayList<Estagiario> carregarEstagiarios(String query, String[] args) {
+    private ArrayList<Estagiario> carregarEstagiarios(String query) {
         ArrayList<Estagiario> estagiarios = new ArrayList<>();
         SQLiteDatabase leitorBanco = bancoDados.getWritableDatabase();
-        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Cursor cursor = leitorBanco.rawQuery(query, null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
             do {

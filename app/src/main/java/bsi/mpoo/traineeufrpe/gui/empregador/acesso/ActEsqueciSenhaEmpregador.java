@@ -26,35 +26,30 @@ import javax.mail.internet.MimeMessage;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
-import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActEsqueciSenhaEstagiario;
-import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.MudarSenhaEstagiario;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 import bsi.mpoo.traineeufrpe.negocio.EmpregadorServices;
-import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class  ActEsqueciSenhaEmpregador extends AppCompatActivity {
 
-    android.support.v7.widget.Toolbar toolbar;
-    private static Random rand = new Random();
-    private static char[] letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
+    private android.support.v7.widget.Toolbar toolbar;
+    private static final Random rand = new Random();
+    private static final char[] letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
     private String codigo;
     private String codigoDigitado;
     private String emailInformado;
-    Button btnEnviar, btnOK;
+    private Button btnEnviar;
+    private Button btnOK;
     private EditText edtEmail;
     private EditText edtCodigo;
     private TextView txtEmailOk;
     private TextView txtInformeCod;
-    CardView cardView2;
-    javax.mail.Session session;
-    EmpregadorServices empregadorServices = new EmpregadorServices(this);
+    private CardView cardView2;
+    private javax.mail.Session session;
+    private final EmpregadorServices empregadorServices = new EmpregadorServices(this);
     private static String servidorEmail;
     private static String senhaEmail;
-    ProgressDialog progressoDialog;
+    private ProgressDialog progressoDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,7 +155,7 @@ public class  ActEsqueciSenhaEmpregador extends AppCompatActivity {
         }
     }
 
-    public boolean isOnline(Context context) {
+    private boolean isOnline(Context context) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -176,7 +171,7 @@ public class  ActEsqueciSenhaEmpregador extends AppCompatActivity {
         cardView2.setVisibility(View.VISIBLE);
     }
 
-    public static String codigoAleatorio() {
+    private static String codigoAleatorio() {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < 8; i++) {
             int X = rand.nextInt(letras.length);

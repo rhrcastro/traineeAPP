@@ -23,12 +23,13 @@ import bsi.mpoo.traineeufrpe.R;
 
 public class ActContato extends AppCompatActivity {
 
-    Button cancel, send;
+    private Button cancel;
+    private Button send;
     private EditText edtEmail;
     private EditText edtMensagem;
-    javax.mail.Session session;
-    String servidorEmail;
-    String senhaEmail;
+    private javax.mail.Session session;
+    private String servidorEmail;
+    private String senhaEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +103,7 @@ public class ActContato extends AppCompatActivity {
         }
     }
 
-    public boolean isOnline(Context context) {
+    private boolean isOnline(Context context) {
         ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         if (connectivity == null) {

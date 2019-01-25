@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -40,21 +41,21 @@ import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEmpregador;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
 
 public class ActEditarEmpregador extends AppCompatActivity {
-    private Empregador empregador;
-    private String nomeEmpregador;
-    private String emailEmpregador;
+    private final Empregador empregador;
+    private final String nomeEmpregador;
+    private final String emailEmpregador;
     private EditText edtNomeEmpregador;
     private EditText edtEmailEmpregador;
-    private String emailTempEmpregador;
-    private EmpregadorServices empregadorServices = new EmpregadorServices(ActEditarEmpregador.this);
+    private final String emailTempEmpregador;
+    private final EmpregadorServices empregadorServices = new EmpregadorServices(ActEditarEmpregador.this);
     private ImageView imgEmpregador;
     private static final int PERMISSION_REQUEST = 0;
     private static final int REQUEST_TAKE_PHOTO = 1;
     private static final int REQUEST_GALLERY = 2;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static String mCurrentPhotoPath;
-    Toolbar toolbar;
-    Button editSenhaPerfil;
+    private Toolbar toolbar;
+    private Button editSenhaPerfil;
 
     public ActEditarEmpregador() {
         this.empregador = SessaoEmpregador.getInstance().getEmpregador();
@@ -176,7 +177,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_IMAGE_CAPTURE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -219,7 +220,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
         }
     }
 
-    public void salvarFoto() {
+    private void salvarFoto() {
         byte[] foto = conveterImageViewToByte();
         SessaoEmpregador.getInstance().getEmpregador().setFoto(foto);
         empregadorServices.alterarFotoEmpregador(SessaoEmpregador.getInstance().getEmpregador());
@@ -263,7 +264,7 @@ public class ActEditarEmpregador extends AppCompatActivity {
         finish();
     }
 
-    public boolean verificarCampos() {
+    private boolean verificarCampos() {
         EditText[] campos = {edtNomeEmpregador, edtEmailEmpregador};
         for (EditText editText : campos) {
             String campoAtual = editText.getText().toString().trim();

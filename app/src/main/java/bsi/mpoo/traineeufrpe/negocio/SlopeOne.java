@@ -3,6 +3,7 @@ package bsi.mpoo.traineeufrpe.negocio;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 
@@ -11,10 +12,11 @@ import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
  * Site: https://www.programcreek.com/java-api-examples/index.php?source_dir=HappyResearch-master/happyresearch/src/main/java/happy/research/cf/SlopeOne.java
  */
 
-public class SlopeOne {
+@SuppressWarnings("ConstantConditions")
+class SlopeOne {
 
     private Map<Estagiario, Map<String, Double>> data = new HashMap<>();
-    private Map<Estagiario, Map<String, Double>> mData;
+    private final Map<Estagiario, Map<String, Double>> mData;
     private Map<String, HashMap<String, Double>> diffMatrix;
     private Map<String, HashMap<String, Integer>> freqMatrix;
 
@@ -38,22 +40,22 @@ public class SlopeOne {
                     String i2 = entry2.getKey();
                     double r2 = entry2.getValue();
                     int cnt = 0;
-                    if (freqMatrix.get(i1).containsKey(i2))
-                        cnt = freqMatrix.get(i1).get(i2);
+                    if (Objects.requireNonNull(freqMatrix.get(i1)).containsKey(i2))
+                        cnt = Objects.requireNonNull(freqMatrix.get(i1)).get(i2);
                     double diff = 0.0;
-                    if (diffMatrix.get(i1).containsKey(i2))
-                        diff = diffMatrix.get(i1).get(i2);
+                    if (Objects.requireNonNull(diffMatrix.get(i1)).containsKey(i2))
+                        diff = Objects.requireNonNull(diffMatrix.get(i1)).get(i2);
                     double new_diff = r1 - r2;
-                    freqMatrix.get(i1).put(i2, cnt + 1);
-                    diffMatrix.get(i1).put(i2, diff + new_diff);
+                    Objects.requireNonNull(freqMatrix.get(i1)).put(i2, cnt + 1);
+                    Objects.requireNonNull(diffMatrix.get(i1)).put(i2, diff + new_diff);
                 }
             }
         }
         for (String j : diffMatrix.keySet()) {
-            for (String i : diffMatrix.get(j).keySet()) {
-                Double oldvalue = diffMatrix.get(j).get(i);
-                int count = freqMatrix.get(j).get(i).intValue();
-                diffMatrix.get(j).put(i, oldvalue / count);
+            for (String i : Objects.requireNonNull(diffMatrix.get(j)).keySet()) {
+                Double oldvalue = Objects.requireNonNull(diffMatrix.get(j)).get(i);
+                int count = Objects.requireNonNull(freqMatrix.get(j).get(i)).intValue();
+                Objects.requireNonNull(diffMatrix.get(j)).put(i, oldvalue / count);
             }
         }
     }
@@ -67,9 +69,9 @@ public class SlopeOne {
         for (String j : user.keySet()) {
             for (String k : diffMatrix.keySet()) {
                 try {
-                    Double newval = (diffMatrix.get(k).get(j) + user.get(j)) * freqMatrix.get(k).get(j).intValue();
+                    Double newval = (Objects.requireNonNull(diffMatrix.get(k)).get(j) + user.get(j)) * Objects.requireNonNull(freqMatrix.get(k).get(j)).intValue();
                     predictions.put(k, predictions.get(k) + newval);
-                    frequencies.put(k, frequencies.get(k) + freqMatrix.get(k).get(j).intValue());
+                    frequencies.put(k, frequencies.get(k) + Objects.requireNonNull(freqMatrix.get(k).get(j)).intValue());
                 } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
@@ -78,7 +80,7 @@ public class SlopeOne {
         HashMap<String, Double> cleanpredictions = new HashMap<>();
         for (String j : predictions.keySet()) {
             if (frequencies.get(j) > 0) {
-                cleanpredictions.put(j, predictions.get(j) / frequencies.get(j).intValue());
+                cleanpredictions.put(j, predictions.get(j) / Objects.requireNonNull(frequencies.get(j)).intValue());
             }
         }
         for (String j : user.keySet()) {

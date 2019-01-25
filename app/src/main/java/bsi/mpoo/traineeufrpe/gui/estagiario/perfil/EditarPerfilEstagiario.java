@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -47,28 +48,28 @@ import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 public class EditarPerfilEstagiario extends AppCompatActivity {
 
     private Pessoa pessoa = new Pessoa();
-    private String nome;
-    private String curso;
-    private String instituicao;
-    private String email;
-    private String link;
+    private final String nome;
+    private final String curso;
+    private final String instituicao;
+    private final String email;
+    private final String link;
     private EditText editNome;
     private EditText editCurso;
     private EditText editInstituicao;
     private EditText editLink;
     private EditText editEmail;
     private String emailTemp;
-    private LoginServices loginServices = new LoginServices(EditarPerfilEstagiario.this);
-    private NotificacaoServices notificacaoServices = new NotificacaoServices(EditarPerfilEstagiario.this);
-    private InscricaoServices inscricaoServices = new InscricaoServices(EditarPerfilEstagiario.this);
+    private final LoginServices loginServices = new LoginServices(EditarPerfilEstagiario.this);
+    private final NotificacaoServices notificacaoServices = new NotificacaoServices(EditarPerfilEstagiario.this);
+    private final InscricaoServices inscricaoServices = new InscricaoServices(EditarPerfilEstagiario.this);
     private ImageView imgPerfil;
     private static final int PERMISSION_REQUEST = 0;
     private static final int REQUEST_TAKE_PHOTO = 1;
     private static final int REQUEST_GALLERY = 2;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static String mCurrentPhotoPath;
-    Toolbar toolbar;
-    Button mudaSenha;
+    private Toolbar toolbar;
+    private Button mudaSenha;
 
 
     public EditarPerfilEstagiario(){
@@ -213,7 +214,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
 
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_IMAGE_CAPTURE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -257,7 +258,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
         }
     }
 
-    public void salvarFoto() {
+    private void salvarFoto() {
         byte[] foto = conveterImageViewToByte();
         SessaoEstagiario.getInstance().getPessoa().getEstagiario().setFoto(foto);
         loginServices.alterarFotoEstagiario(SessaoEstagiario.getInstance().getPessoa().getEstagiario());
@@ -316,7 +317,7 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
         finish();
     }
 
-    public boolean verificarCampos() {
+    private boolean verificarCampos() {
         EditText[] campos = {editNome, editCurso, editInstituicao, editEmail};
         for (EditText editText : campos) {
             String campoAtual = editText.getText().toString().trim();

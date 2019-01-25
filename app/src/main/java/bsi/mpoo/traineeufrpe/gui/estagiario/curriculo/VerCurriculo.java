@@ -10,7 +10,7 @@ import java.io.File;
 import bsi.mpoo.traineeufrpe.R;
 
 public class VerCurriculo extends AppCompatActivity {
-    PDFView pdfView;
+    private PDFView pdfView;
     private File file;
 
     @Override

@@ -10,7 +10,7 @@ import bsi.mpoo.traineeufrpe.gui.estagiario.home.fragment.FragmentVagasEmAberto;
 
 public class MyFragmentPagerAdapterTelaEstagiarioPrincipal extends FragmentStatePagerAdapter {
 
-    private String[] mTabTitles;
+    private final String[] mTabTitles;
     public MyFragmentPagerAdapterTelaEstagiarioPrincipal(FragmentManager fm, String[] TabTitles){
         super(fm);
         this.mTabTitles = TabTitles;

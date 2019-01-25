@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
@@ -19,22 +20,20 @@ import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
 public class VagaServices {
-    private VagaDAO vagaDAO;
+    private final VagaDAO vagaDAO;
     private EmpregadorServices empregadorServices;
 
     public VagaServices(Context context) {
         vagaDAO = new VagaDAO(context);
     }
 
-    public boolean cadastrarVaga(Vaga vaga) {
+    public void cadastrarVaga(Vaga vaga) {
         long result = this.vagaDAO.inserirVaga(vaga);
         vaga.setId(result);
-        return true;
     }
 
-    public boolean inserirNotaVaga(Pessoa pessoa, Vaga vaga, float nota) {
+    public void inserirNotaVaga(Pessoa pessoa, Vaga vaga, float nota) {
         this.vagaDAO.inserirNotaVaga(pessoa.getId(), vaga.getId(), nota);
-        return true;
     }
 
     public ArrayList<String> getListaNomeVagas() {
@@ -158,62 +157,55 @@ public class VagaServices {
         return idempresa;
     }
 
-    public Vaga mudarNomeVaga(Vaga vaga, String nome) {
-        if (nome != "") {
+    public void mudarNomeVaga(Vaga vaga, String nome) {
+        if (!Objects.equals(nome, "")) {
             vaga.setNome(nome);
             vagaDAO.mudarNomeVaga(vaga);
         }
-        return vaga;
     }
 
-    public Vaga mudarAreaVaga(Vaga vaga, String area) {
-        if (area != "") {
+    public void mudarAreaVaga(Vaga vaga, String area) {
+        if (!Objects.equals(area, "")) {
             vaga.setArea(area);
             vagaDAO.mudarNomeVaga(vaga);
         }
-        return vaga;
     }
 
 
-    public Vaga mudarBolsaVaga(Vaga vaga, String bolsa) {
-        if (bolsa != "") {
+    public void mudarBolsaVaga(Vaga vaga, String bolsa) {
+        if (!Objects.equals(bolsa, "")) {
             vaga.setBolsa(bolsa);
             vagaDAO.mudarBolsaVaga(vaga);
         }
 
-        return vaga;
-
     }
 
-    public Vaga mudarRequisitoVaga(Vaga vaga, String req) {
-        if (req != "") {
+    public void mudarRequisitoVaga(Vaga vaga, String req) {
+        if (!Objects.equals(req, "")) {
             vaga.setRequisito(req);
             vagaDAO.mudarRequisitoVaga(vaga);
         }
-        return vaga;
     }
 
-    public Vaga mudarObsVaga(Vaga vaga, String obs) {
-        if (obs != "") {
+    public void mudarObsVaga(Vaga vaga, String obs) {
+        if (!Objects.equals(obs, "")) {
             vaga.setObs(obs);
             vagaDAO.mudarObsVaga(vaga);
         }
-        return vaga;
     }
 
-    public Vaga mudarHorarioVaga(Vaga vaga, String horario) {
-        if (horario != "") {
+    public void mudarHorarioVaga(Vaga vaga, String horario) {
+        if (!Objects.equals(horario, "")) {
             vaga.setHorario(horario);
             vagaDAO.mudarHorarioVaga(vaga);
         }
-        return vaga;
     }
 
     public void DelVaga(long id) {
         vagaDAO.deletarVaga(id);
     }
 
-    public Vaga vagaById(String nomeVAGA, Context context) {
+    private Vaga vagaById(String nomeVAGA, Context context) {
         VagaDAO vaga = new VagaDAO(context);
         return vaga.getVagaById(Integer.parseInt(nomeVAGA));
     }

@@ -9,7 +9,7 @@ import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class CurriculoDAO {
-    private Database bancoDados;
+    private final Database bancoDados;
 
     public CurriculoDAO(Context context) {
         bancoDados = new Database(context);
@@ -70,7 +70,7 @@ public class CurriculoDAO {
         return result;
     }
 
-    private Curriculo load(String query, String[] args,Context context) {
+    private Curriculo load(String query, String[] args) {
         SQLiteDatabase leitorBanco = bancoDados.getReadableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         Curriculo curriculo = null;
@@ -87,7 +87,7 @@ public class CurriculoDAO {
         String query = "SELECT * FROM curriculo " +
                 "WHERE id = ?";
         String[] args = {String.valueOf(id)};
-        return this.load(query, args, context);
+        return this.load(query, args);
     }
 
     public void mudarCurso(Curriculo curriculo) {

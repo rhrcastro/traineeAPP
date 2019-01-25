@@ -13,8 +13,8 @@ import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 
 public class ActNotificacoesEstagiario extends AppCompatActivity {
-    ListView listaNotificacoesEstagiario;
-    NotificacaoServices notificationServices;
+    private ListView listaNotificacoesEstagiario;
+    private NotificacaoServices notificationServices;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listview_notificacoes_estagiario);

@@ -3,7 +3,6 @@ package bsi.mpoo.traineeufrpe.dominio.vaga;
 import java.text.SimpleDateFormat;
 
 import bsi.mpoo.traineeufrpe.dominio.empregador.Empregador;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 
 public class ControladorVaga {
@@ -13,7 +12,7 @@ public class ControladorVaga {
     private Empregador empregador;
     private long horaInscricao;
     private String status;
-    SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM' às 'HH:mm");
+    private final SimpleDateFormat formatodata = new SimpleDateFormat("dd/MM' às 'HH:mm");
 
     public long getId() {
         return id;

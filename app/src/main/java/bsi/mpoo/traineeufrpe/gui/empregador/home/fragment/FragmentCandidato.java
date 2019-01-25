@@ -24,11 +24,11 @@ import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 public class FragmentCandidato extends ListFragment
         implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
 
-    Context mContext;
-    ListView listaVagas;
-    AdapterInscritos adapter;
-    ArrayList<ControladorVaga> inscritos;
-    InscricaoServices inscricaoServices = new InscricaoServices(getContext());
+    private Context mContext;
+    private ListView listaVagas;
+    private AdapterInscritos adapter;
+    private ArrayList<ControladorVaga> inscritos;
+    private InscricaoServices inscricaoServices = new InscricaoServices(getContext());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,17 +52,6 @@ public class FragmentCandidato extends ListFragment
         inscritos = inscricaoServices.listarInscricoes(SessaoEmpregador.getInstance().getEmpregador(), mContext);
         adapter = new AdapterInscritos(getContext(), inscritos);
         listaVagas.setAdapter(adapter);
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        /* TODO: 23/01/2019 inflater.inflate(R.menu.tela_estagiario_principal, menu);
-        MenuItem myActionMenuItem = menu.findItem(R.id.action_settings);
-        SearchView searchView = (SearchView) myActionMenuItem.getActionView();
-        searchView.setOnQueryTextListener(this);
-        searchView.setQueryHint("em vagas recomendadas");*/
-
-        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override

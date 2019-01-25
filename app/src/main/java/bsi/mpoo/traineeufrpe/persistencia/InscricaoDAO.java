@@ -5,13 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
 import bsi.mpoo.traineeufrpe.infra.database.Database;
 
 public class InscricaoDAO {
-    private Database bancoDados;
+    private final Database bancoDados;
 
     public InscricaoDAO(Context context){
         bancoDados = new Database(context);
@@ -36,8 +34,7 @@ public class InscricaoDAO {
                 "WHERE id_empregador = ?" +
                 " ORDER BY id_vaga ASC";
         String[] args = {String.valueOf(id)};
-        Cursor data = bancoLeitura.rawQuery(query, args);
-        return data;
+        return bancoLeitura.rawQuery(query, args);
     }
 
     public Cursor getInscricaoByPessoa(long id){
@@ -45,8 +42,7 @@ public class InscricaoDAO {
         String query =  "SELECT * FROM controlador_vaga " +
                 "WHERE id_pessoa = ?";
         String[] args = {String.valueOf(id)};
-        Cursor data = bancoLeitura.rawQuery(query, args);
-        return data;
+        return bancoLeitura.rawQuery(query, args);
     }
 
     public Cursor getInscricaoByVaga(long id){
@@ -54,8 +50,7 @@ public class InscricaoDAO {
         String query =  "SELECT * FROM controlador_vaga " +
                 "WHERE id_vaga = ?";
         String[] args = {String.valueOf(id)};
-        Cursor data = bancoLeitura.rawQuery(query, args);
-        return data;
+        return bancoLeitura.rawQuery(query, args);
     }
 
 
@@ -65,8 +60,7 @@ public class InscricaoDAO {
         String query =  "SELECT * FROM controlador_vaga " +
                 "WHERE id_pessoa = ? AND id_vaga = ?";
         String[] args = {String.valueOf(idPessoa), String.valueOf(idVaga)};
-        Cursor data = bancoLeitura.rawQuery(query, args);
-        return data;
+        return bancoLeitura.rawQuery(query, args);
     }
 
     public void deletarInscricao(long idVaga, long idRemetente){

@@ -24,11 +24,11 @@ import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 public class FragmentVagasRecomendadas extends ListFragment
         implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
 
-    Context mContext;
-    ListView listaVagas;
-    AdapterVagasAbertas adapter;
+    private Context mContext;
+    private ListView listaVagas;
+    private AdapterVagasAbertas adapter;
     ArrayList<Vaga> vagas;
-    VagaServices vagaServices = new VagaServices(getContext());
+    private VagaServices vagaServices = new VagaServices(getContext());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

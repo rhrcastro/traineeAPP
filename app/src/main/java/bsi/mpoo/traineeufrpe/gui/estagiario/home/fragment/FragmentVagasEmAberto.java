@@ -25,11 +25,11 @@ import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 public class FragmentVagasEmAberto extends ListFragment
         implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
 
-    Context mContext;
-    ListView listaVagas;
-    AdapterVagasAbertas adapter;
-    ArrayList<Vaga> vagas;
-    InscricaoServices inscricaoServices;
+    private Context mContext;
+    private ListView listaVagas;
+    private AdapterVagasAbertas adapter;
+    private ArrayList<Vaga> vagas;
+    private InscricaoServices inscricaoServices;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

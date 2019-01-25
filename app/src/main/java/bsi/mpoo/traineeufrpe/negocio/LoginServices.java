@@ -1,7 +1,6 @@
 package bsi.mpoo.traineeufrpe.negocio;
 import android.content.Context;
 
-import bsi.mpoo.traineeufrpe.gui.estagiario.acesso.ActEsqueciSenhaEstagiario;
 import bsi.mpoo.traineeufrpe.persistencia.CurriculoDAO;
 import bsi.mpoo.traineeufrpe.dominio.estagiario.Curriculo;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
@@ -14,9 +13,9 @@ import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 public class LoginServices {
 
     private static final int naoEncontrado = -1;
-    private PessoaDAO pessoaDAO;
-    private EstagiarioDAO estagiarioDAO;
-    private CurriculoDAO curriculoDAO;
+    private final PessoaDAO pessoaDAO;
+    private final EstagiarioDAO estagiarioDAO;
+    private final CurriculoDAO curriculoDAO;
     private TraineeApp trainee;
 
     public LoginServices(Context context) {
@@ -26,9 +25,9 @@ public class LoginServices {
     }
 
     public boolean fazerLogin(String email, String senha) {
-        Estagiario estagiario = this.estagiarioDAO.getEstagiarioByEmaileSenha(email, senha, trainee.getContext());
+        Estagiario estagiario = this.estagiarioDAO.getEstagiarioByEmaileSenha(email, senha, TraineeApp.getContext());
         if (estagiario != null) {
-            estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), trainee.getContext()));
+            estagiario.setCurriculo(this.curriculoDAO.getIdCurriculo(estagiario.getId(), TraineeApp.getContext()));
             Pessoa pessoa = this.pessoaDAO.getPessoaByIdEstagiario(estagiario.getId());
             pessoa.setEstagiario(estagiario);
             this.iniciarSessao(pessoa, estagiario.getCurriculo());
@@ -118,7 +117,6 @@ public class LoginServices {
     }
 
     public Estagiario EstagiarioByEmail(String email, Context context) {
-        Estagiario estagiarioEmail = this.estagiarioDAO.getEstagiarioByEmail(email,context);
-        return estagiarioEmail;
+        return this.estagiarioDAO.getEstagiarioByEmail(email,context);
     }
 }

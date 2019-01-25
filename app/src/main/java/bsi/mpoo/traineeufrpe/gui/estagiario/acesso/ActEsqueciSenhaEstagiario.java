@@ -33,23 +33,24 @@ import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
 
-    android.support.v7.widget.Toolbar toolbar;
-    private static Random rand = new Random();
-    private static char[] letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
+    private android.support.v7.widget.Toolbar toolbar;
+    private static final Random rand = new Random();
+    private static final char[] letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
     private String codigo;
     private String codigoDigitado;
     private String emailInformado;
-    Button btnEnviar, btnOK;
+    private Button btnEnviar;
+    private Button btnOK;
     private EditText edtEmail;
     private EditText edtCodigo;
     private TextView txtEmailOk;
     private TextView txtInformeCod;
-    CardView cardView2;
-    javax.mail.Session session;
-    LoginServices loginServices = new LoginServices(this);
+    private CardView cardView2;
+    private javax.mail.Session session;
+    private final LoginServices loginServices = new LoginServices(this);
     private static String servidorEmail;
     private static String senhaEmail;
-    ProgressDialog progressoDialog;
+    private ProgressDialog progressoDialog;
 
 
     @Override
@@ -156,7 +157,7 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
         }
     }
 
-    public boolean isOnline(Context context) {
+    private boolean isOnline(Context context) {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -172,7 +173,7 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
         cardView2.setVisibility(View.VISIBLE);
     }
 
-    public static String codigoAleatorio() {
+    private static String codigoAleatorio() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 8; i++) {
             int X = rand.nextInt(letras.length);

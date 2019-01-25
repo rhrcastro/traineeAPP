@@ -35,13 +35,13 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
     private TextView txtStatus;
     private TextView txtAvalie;
     private ImageView imgEmpresa;
-    Button queroCandidatar;
-    RatingBar ratingBar;
-    InscricaoServices inscricaoServices;
-    NotificacaoServices notificationServices;
-    VagaServices vagaServices = new VagaServices(this);
+    private Button queroCandidatar;
+    private RatingBar ratingBar;
+    private InscricaoServices inscricaoServices;
+    private NotificacaoServices notificationServices;
+    private final VagaServices vagaServices = new VagaServices(this);
 
-    boolean isInscrito;
+    private boolean isInscrito;
 
 
     @Override
@@ -151,7 +151,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
             inscricao.setEmpregador(vaga.getEmpregador());
             inscricao.setPessoa(SessaoEstagiario.instance.getPessoa());
             inscricao.setStatus("concorrendo");
-            inscricaoServices.cadastrarInscricao(inscricao, this);
+            inscricaoServices.cadastrarInscricao(inscricao);
             enviarNotificacao4Empregador(inscricao);
             this.isInscrito = mudaBotao(isInscrito);
         }
@@ -180,7 +180,7 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
         }
     }
 
-    private boolean verificaStatus() {
+    private void verificaStatus() {
         InscricaoServices inscricaoServices = new InscricaoServices(this);
         this.isInscrito = inscricaoServices.isInscrito(SessaoEstagiario.instance.getPessoa().getId(), vaga.getId());
         if (isInscrito){
@@ -191,7 +191,6 @@ public class PerfilVagaEstagiario extends AppCompatActivity {
                 queroCandidatar.setVisibility(View.INVISIBLE);
             }
         }
-        return isInscrito;
     }
 
 }

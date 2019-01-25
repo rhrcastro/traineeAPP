@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +19,6 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.Notificacao;
 import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.dominio.vaga.ControladorVaga;
-import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
@@ -28,20 +26,29 @@ import bsi.mpoo.traineeufrpe.negocio.PdfViewer;
 
 public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
 
-    TextView curso, instituicao, area, email, cidade, curriculo;
-    CardView cardViewSelecionar, cardViewInserirCurriculo;
-    LinearLayout lblSim;
-    LinearLayout lblNao;
-    TextView txtStatus;
-    ImageView imagem;
+    private TextView curso;
+    private TextView instituicao;
+    private TextView area;
+    private TextView email;
+    private TextView cidade;
+    private TextView curriculo;
+    private CardView cardViewSelecionar;
+    private CardView cardViewInserirCurriculo;
+    private LinearLayout lblSim;
+    private LinearLayout lblNao;
+    private TextView txtStatus;
+    private ImageView imagem;
     private InscricaoServices inscricaoServices = new InscricaoServices(this);
-    Toolbar toolbar;
-    boolean selecionado = false;
-    private String strCurso, strInstituicao, strArea;
+    private Toolbar toolbar;
+    private boolean selecionado = false;
+    private final String strCurso;
+    private final String strInstituicao;
+    private final String strArea;
     public static ControladorVaga controladorVaga;
-    private Pessoa pessoa;
-    NotificacaoServices notificationServices = new NotificacaoServices(this);
-    CardView cardView1, cardView2;
+    private final Pessoa pessoa;
+    private final NotificacaoServices notificationServices = new NotificacaoServices(this);
+    private CardView cardView1;
+    private CardView cardView2;
     private PdfViewer pdfViewer;
 
     public ActPerfilEstagiario4Empregador(){
@@ -76,7 +83,7 @@ public class ActPerfilEstagiario4Empregador extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!pessoa.getEstagiario().getCurriculo().getLink().equals("")){
-                    mostrarUrl(SessaoEstagiario.instance.getPessoa().getEstagiario().getCurriculo().getLink());
+                    mostrarUrl(pessoa.getEstagiario().getCurriculo().getLink());
                 }else{
                     Snackbar snackbar;
                     snackbar = Snackbar.make(v, "Este usuário não cadastrou um link.", Snackbar.LENGTH_SHORT);
