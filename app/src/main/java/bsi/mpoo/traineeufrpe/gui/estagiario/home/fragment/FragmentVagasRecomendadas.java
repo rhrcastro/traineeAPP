@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterVagasAbertas;
-import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class FragmentVagasRecomendadas extends ListFragment
@@ -97,5 +96,4 @@ public class FragmentVagasRecomendadas extends ListFragment
         super.onStart();
         populate();
     }
-
 }

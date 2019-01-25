@@ -9,8 +9,8 @@ import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterMainActivityEmpregador;
 
 public class ActCadastroLoginEmpregador extends AppCompatActivity {
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
+    TabLayout mTabLayout;
+    ViewPager mViewPager;
 
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
@@ -21,7 +21,5 @@ public class ActCadastroLoginEmpregador extends AppCompatActivity {
         mViewPager.setAdapter(new MyFragmentPagerAdapterMainActivityEmpregador(getSupportFragmentManager(), getResources().getStringArray(R.array.tabs)));
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.White));
-
-
     }
 }

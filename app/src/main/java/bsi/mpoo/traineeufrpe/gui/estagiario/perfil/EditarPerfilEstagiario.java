@@ -22,7 +22,6 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -48,7 +47,6 @@ import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 public class EditarPerfilEstagiario extends AppCompatActivity {
 
     private Pessoa pessoa = new Pessoa();
-    private long id;
     private String nome;
     private String curso;
     private String instituicao;
@@ -64,7 +62,6 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
     private NotificacaoServices notificacaoServices = new NotificacaoServices(EditarPerfilEstagiario.this);
     private InscricaoServices inscricaoServices = new InscricaoServices(EditarPerfilEstagiario.this);
     private ImageView imgPerfil;
-    private final int novaImagem = 1;
     private static final int PERMISSION_REQUEST = 0;
     private static final int REQUEST_TAKE_PHOTO = 1;
     private static final int REQUEST_GALLERY = 2;
@@ -81,7 +78,6 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
         this.instituicao = pessoa.getEstagiario().getCurriculo().getInstituicao();
         this.email = pessoa.getEstagiario().getEmail();
         this.link = pessoa.getEstagiario().getCurriculo().getLink();
-        this.id = pessoa.getId();
     }
 
     @Override
@@ -219,13 +215,12 @@ public class EditarPerfilEstagiario extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case 1: {
+            case REQUEST_IMAGE_CAPTURE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     abrirCameraIntent();
                 } else {
                     Toast.makeText(this, "Erro: Permissão é necessária", Toast.LENGTH_LONG).show();
                 }
-                return;
             }
         }
     }

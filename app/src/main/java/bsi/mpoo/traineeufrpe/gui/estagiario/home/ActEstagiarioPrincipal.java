@@ -37,8 +37,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ActEstagiarioPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
+    TabLayout mTabLayout;
+    ViewPager mViewPager;
     static int tabSelect = 1;
 
 
@@ -89,7 +89,7 @@ public class ActEstagiarioPrincipal extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //getMenuInflater().inflate(R.menu.tela_estagiario_principal, menu);
+        //TODO getMenuInflater().inflate(R.menu.tela_estagiario_principal, menu);
         return true;
     }
 

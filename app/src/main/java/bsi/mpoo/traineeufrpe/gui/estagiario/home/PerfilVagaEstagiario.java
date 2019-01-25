@@ -1,6 +1,5 @@
 package bsi.mpoo.traineeufrpe.gui.estagiario.home;
 
-import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;

@@ -21,6 +21,7 @@ import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 import bsi.mpoo.traineeufrpe.persistencia.CurriculoDAO;
 import bsi.mpoo.traineeufrpe.persistencia.EstagiarioDAO;
 import bsi.mpoo.traineeufrpe.persistencia.PessoaDAO;
+import bsi.mpoo.traineeufrpe.persistencia.VagaDAO;
 
 public class PopularBanco {
 
@@ -28,6 +29,7 @@ public class PopularBanco {
     PessoaDAO pessoaDAO;
     EstagiarioDAO estagiarioDAO;
     CurriculoDAO curriculoDAO;
+    VagaDAO vagaDAO;
     EmpregadorServices empregadorServices;
     VagaServices vagaServices;
     Context mContext;
@@ -37,6 +39,7 @@ public class PopularBanco {
         pessoaDAO = new PessoaDAO(context);
         estagiarioDAO = new EstagiarioDAO(context);
         curriculoDAO = new CurriculoDAO(context);
+        vagaDAO = new VagaDAO(context);
         empregadorServices = new EmpregadorServices(context);
         vagaServices = new VagaServices(context);
 
@@ -79,23 +82,23 @@ public class PopularBanco {
                 "R$ 1800",
                 "Tecnologia",
                 "Testando",
-                1,
+                2,
                 "13:00 às 18:00");
 
-        criarVaga("Contador",
+        criarVaga("Desenvolvedor Python",
                 "Teste",
                 "R$ 1350",
-                "Negócios",
+                "Tecnologia",
                 "Testando",
-                2,
+                1,
                 "13:00 às 19:00");
 
-        criarVaga("Designer Gráfico",
+        criarVaga("Desenvolvedor Front-End",
                 "Teste",
                 "R$ 800",
                 "Artes e Design",
                 "Testando",
-                3,
+                2,
                 "08:00 às 12:00");
 
         criarVaga("Auxiliar Administrativo",
@@ -103,10 +106,10 @@ public class PopularBanco {
                 "R$ 650",
                 "Negócios",
                 "Testando",
-                5,
+                6,
                 "Não especificado");
 
-        criarVaga("Auxiliar em Vendas",
+        criarVaga("Auxiliar em RH",
                 "Teste",
                 "R$ 900",
                 "Comunicação",
@@ -114,50 +117,18 @@ public class PopularBanco {
                 4,
                 "13:00 às 18:00");
 
-        criarVaga("Recepcionista",
+        criarVaga("Estágio em Logística",
                 "Teste",
                 "R$ 1000",
                 "Comunicação",
                 "Testando",
-                8,
+                3,
                 "13:00 às 18:00");
 
-        criarVaga("Consultório Odontológico",
+        criarVaga("Estágio em Contabilidade",
                 "Teste",
                 "R$ 1700",
                 "Saúde",
-                "Testando",
-                6,
-                "13:00 às 18:00");
-
-        criarVaga("Recepcionista",
-                "Teste",
-                "R$ 500",
-                "Comunicação",
-                "Testando",
-                4,
-                "13:00 às 18:00");
-
-        criarVaga("Reporter Jr.",
-                "Teste",
-                "R$ 2000+",
-                "Comunicação",
-                "Testando",
-                4,
-                "13:00 às 18:00");
-
-        criarVaga("Balconista",
-                "Teste",
-                "R$ 400",
-                "Negócios",
-                "Testando",
-                8,
-                "13:00 às 18:00");
-
-        criarVaga("Contador Jr.",
-                "Teste",
-                "R$ 1625",
-                "Negócios",
                 "Testando",
                 8,
                 "13:00 às 18:00");
@@ -166,13 +137,6 @@ public class PopularBanco {
     public void popularEstagiarios(){
         cadastrarPessoa("Henrique César", "hcesarjs@gmail.com",
                 "122454541121", "123", "Paulista",
-                "Sistemas de Informação", "UFRPE", "Tecnologia",
-                "Sem experiência", "Estágio na Área de TI", "Bom",
-                "Teste", "Android Studio", "Teste",
-                "http://www.traineeufrpe.github.io");
-
-        cadastrarPessoa("Ricardo Henrique", "rhcastro@outlook.com",
-                "122451234521", "123", "Recife",
                 "Sistemas de Informação", "UFRPE", "Tecnologia",
                 "Sem experiência", "Estágio na Área de TI", "Bom",
                 "Teste", "Android Studio", "Teste",
@@ -192,10 +156,10 @@ public class PopularBanco {
                 "Teste", "Android Studio", "Teste",
                 "http://www.traineeufrpe.github.io");
 
-        cadastrarPessoa("Vinicius Alves", "vinicius.ds.alves@gmail.com",
-                "888854541121", "123", "Recife",
-                "Sistemas de Informação", "UFRPE", "Tecnologia",
-                "Sem experiência", "Estágio na Área de TI", "Bom",
+        cadastrarPessoa("André França", "est5@gmail.com",
+                "002454599991", "123", "Olinda",
+                "Economia", "UFRPE", "Negocios",
+                "Sem experiência", "Estágio em Contabilidade", "Bom",
                 "Teste", "Android Studio", "Teste",
                 "http://www.traineeufrpe.github.io");
 
@@ -220,19 +184,100 @@ public class PopularBanco {
                 "Teste", "Android Studio", "Teste",
                 "http://www.traineeufrpe.github.io");
 
-        cadastrarPessoa("Évilla Santos", "est4@gmail.com",
+        cadastrarPessoa("Évilla Santos", "evilla@gmail.com",
                 "122454599991", "123", "São Luís",
                 "Psicologia", "CEUMA", "Saúde",
                 "Sem experiência", "Estágio em Consultórios", "Bom",
                 "Teste", "Android Studio", "Teste",
                 "http://www.traineeufrpe.github.io");
 
-        cadastrarPessoa("André França", "est5@gmail.com",
-                "002454599991", "123", "Olinda",
-                "Economia", "UFRPE", "Negocios",
-                "Sem experiência", "Estágio em Contabilidade", "Bom",
+        cadastrarPessoa("Vinicius Alves", "vinicius@gmail.com",
+                "888854541121", "123", "Recife",
+                "Sistemas de Informação", "UFRPE", "Tecnologia",
+                "Sem experiência", "Estágio na Área de TI", "Bom",
                 "Teste", "Android Studio", "Teste",
                 "http://www.traineeufrpe.github.io");
+
+        cadastrarPessoa("Ricardo Henrique", "rhcastro@outlook.com",
+                "122451234521", "123", "Recife",
+                "Sistemas de Informação", "UFRPE", "Tecnologia",
+                "Sem experiência", "Estágio na Área de TI", "Bom",
+                "Teste", "Android Studio", "Teste",
+                "http://www.traineeufrpe.github.io");
+
+
+        criarAvaliacao(1,1, (float)5.0);
+        criarAvaliacao(1,2, (float)4.0);
+        criarAvaliacao(1,3, (float)5.0);
+        criarAvaliacao(1,4, (float)5.0);
+        criarAvaliacao(1,5, (float)1.0);
+        criarAvaliacao(1,6, (float)2.0);
+        criarAvaliacao(1,7, (float)1.0);
+        criarAvaliacao(1,8, (float)1.0);
+
+        criarAvaliacao(2,1, (float)5.0);
+        criarAvaliacao(2,2, (float)5.0);
+        criarAvaliacao(2,3, (float)5.0);
+        criarAvaliacao(2,4, (float)5.0);
+        criarAvaliacao(2,5, (float)2.0);
+        criarAvaliacao(2,6, (float)1.0);
+        criarAvaliacao(2,7, (float)1.0);
+        criarAvaliacao(2,8, (float)2.0);
+
+        criarAvaliacao(3,1, (float)4.0);
+        criarAvaliacao(3,2, (float)5.0);
+        criarAvaliacao(3,3, (float)4.0);
+        criarAvaliacao(3,4, (float)4.0);
+        criarAvaliacao(3,5, (float)1.0);
+        criarAvaliacao(3,6, (float)2.0);
+        criarAvaliacao(3,7, (float)1.0);
+        criarAvaliacao(3,8, (float)2.0);
+
+        criarAvaliacao(4,1, (float)3.0);
+        criarAvaliacao(4,2, (float)5.0);
+        criarAvaliacao(4,3, (float)5.0);
+        criarAvaliacao(4,4, (float)4.0);
+        criarAvaliacao(4,5, (float)2.0);
+        criarAvaliacao(4,6, (float)1.0);
+        criarAvaliacao(4,7, (float)2.0);
+        criarAvaliacao(4,8, (float)1.0);
+
+        criarAvaliacao(5,1, (float)1.0);
+        criarAvaliacao(5,2, (float)2.0);
+        criarAvaliacao(5,3, (float)2.0);
+        criarAvaliacao(5,4, (float)1.0);
+        criarAvaliacao(5,5, (float)3.0);
+        criarAvaliacao(5,6, (float)5.0);
+        criarAvaliacao(5,7, (float)4.0);
+        criarAvaliacao(5,8, (float)5.0);
+
+        criarAvaliacao(6,1, (float)2.0);
+        criarAvaliacao(6,2, (float)1.0);
+        criarAvaliacao(6,3, (float)1.0);
+        criarAvaliacao(6,4, (float)1.0);
+        criarAvaliacao(6,5, (float)5.0);
+        criarAvaliacao(6,6, (float)4.0);
+        criarAvaliacao(6,7, (float)5.0);
+        criarAvaliacao(6,8, (float)4.0);
+
+        criarAvaliacao(7,1, (float)1.0);
+        criarAvaliacao(7,2, (float)1.0);
+        criarAvaliacao(7,3, (float)1.0);
+        criarAvaliacao(7,4, (float)2.0);
+        criarAvaliacao(7,5, (float)5.0);
+        criarAvaliacao(7,6, (float)5.0);
+        criarAvaliacao(7,7, (float)5.0);
+        criarAvaliacao(7,8, (float)5.0);
+
+        criarAvaliacao(8,1, (float)2.0);
+        criarAvaliacao(8,2, (float)1.0);
+        criarAvaliacao(8,3, (float)2.0);
+        criarAvaliacao(8,4, (float)1.0);
+        criarAvaliacao(8,5, (float)4.0);
+        criarAvaliacao(8,6, (float)5.0);
+        criarAvaliacao(8,7, (float)3.0);
+        criarAvaliacao(8,8, (float)5.0);
+
     }
 
     private boolean bancoIsPopulado() {
@@ -264,7 +309,7 @@ public class PopularBanco {
     }
 
 
-    public void criarEmpregador(String nome, String email, String cnpj, String senha, String cidade) {
+    private void criarEmpregador(String nome, String email, String cnpj, String senha, String cidade) {
         Empregador empregador = new Empregador();
         empregador.setNome(nome);
         empregador.setEmail(email);
@@ -279,8 +324,8 @@ public class PopularBanco {
         empregadorServices.cadastrarEmpregador(empregador);
     }
 
-    public void criarVaga(String nome, String requisito, String bolsa, String area, String obs,
-                          long idEmpregador, String horario) {
+    private void criarVaga(String nome, String requisito, String bolsa, String area, String obs,
+                           long idEmpregador, String horario) {
         Vaga vaga = new Vaga();
         vaga.setNome(nome);
         vaga.setRequisito(requisito);
@@ -293,7 +338,7 @@ public class PopularBanco {
         vagaServices.cadastrarVaga(vaga);
     }
 
-    public void criarPessoa(String nome, String cpf, String cidade, Estagiario estagiario) {
+    private void criarPessoa(String nome, String cpf, String cidade, Estagiario estagiario) {
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(nome);
         pessoa.setCpf(cpf);
@@ -302,7 +347,7 @@ public class PopularBanco {
         pessoaDAO.inserirPessoa(pessoa);
     }
 
-    public Estagiario criarEstagiario(String email, String senha, Curriculo curriculo) {
+    private Estagiario criarEstagiario(String email, String senha, Curriculo curriculo) {
         Estagiario estagiario = new Estagiario();
         estagiario.setEmail(email);
         estagiario.setSenha(Criptografia.criptografar(senha));
@@ -316,9 +361,9 @@ public class PopularBanco {
         return estagiario;
     }
 
-    public Curriculo criarCurriculo(String curso, String instituicao, String areaAtuacao,
-                                    String exp, String obj, String relacionamento,
-                                    String basico, String esp, String disciplina, String link) {
+    private Curriculo criarCurriculo(String curso, String instituicao, String areaAtuacao,
+                                     String exp, String obj, String relacionamento,
+                                     String basico, String esp, String disciplina, String link) {
         Curriculo curriculo = new Curriculo();
         curriculo.setCurso(curso);
         curriculo.setInstituicao(instituicao);
@@ -334,14 +379,18 @@ public class PopularBanco {
         return curriculo;
     }
 
-    public void cadastrarPessoa(String nome, String email, String cpf, String senha, String cidade,
-                                String curso, String instituicao, String areaAtuacao,
-                                String exp, String obj, String relacionamento,
-                                String basico, String esp, String disciplina, String link) {
+    private void cadastrarPessoa(String nome, String email, String cpf, String senha, String cidade,
+                                 String curso, String instituicao, String areaAtuacao,
+                                 String exp, String obj, String relacionamento,
+                                 String basico, String esp, String disciplina, String link) {
         Curriculo curriculo = this.criarCurriculo(curso, instituicao, areaAtuacao,
                 exp, obj, relacionamento, basico, esp, disciplina, link);
         Estagiario estagiario = this.criarEstagiario(email, senha, curriculo);
         this.criarPessoa(nome, cpf, cidade, estagiario);
+    }
+
+    private void criarAvaliacao(long idEstagiario, long idVaga, float notaAvaliacao){
+        vagaDAO.inserirNotaVaga(idEstagiario, idVaga, notaAvaliacao);
     }
 
 }

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.Notificacao;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
 import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -25,7 +24,6 @@ public class AdapterNotificacaoEstagiario extends BaseAdapter {
     private ArrayList<Notificacao> arrayNotificacoes = new ArrayList<>();
     NotificacaoServices notificacaoServices;
     InscricaoServices inscricaoServices;
-    Pessoa pessoa;
 
     public AdapterNotificacaoEstagiario(Context context, ArrayList<Notificacao> arrayNotificacoes) {
         mContext = context;

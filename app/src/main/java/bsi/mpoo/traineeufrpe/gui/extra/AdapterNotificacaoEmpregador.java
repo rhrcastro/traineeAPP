@@ -13,28 +13,21 @@ import java.util.ArrayList;
 
 import bsi.mpoo.traineeufrpe.R;
 import bsi.mpoo.traineeufrpe.dominio.Notificacao;
-import bsi.mpoo.traineeufrpe.dominio.pessoa.Pessoa;
-import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
-import bsi.mpoo.traineeufrpe.negocio.NotificacaoServices;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AdapterNotificacaoEmpregador extends BaseAdapter {
 
-    Context mContext;
-    LayoutInflater inflater;
-    ArrayList<Notificacao> listaNotificacoes = new ArrayList<>();
+    private Context mContext;
+    private LayoutInflater inflater;
+    private ArrayList<Notificacao> listaNotificacoes = new ArrayList<>();
     private ArrayList<Notificacao> arrayNotificacoes = new ArrayList<>();
-    NotificacaoServices notificacaoServices;
-    InscricaoServices inscricaoServices;
-    Pessoa pessoa;
 
     public AdapterNotificacaoEmpregador(Context context, ArrayList<Notificacao> arrayNotificacoes) {
         mContext = context;
         inflater = LayoutInflater.from(mContext);
         this.arrayNotificacoes.addAll(arrayNotificacoes);
         this.listaNotificacoes.addAll(arrayNotificacoes);
-        notificacaoServices = new NotificacaoServices(context);
-        inscricaoServices = new InscricaoServices(context);
+
     }
 
     public class ViewHolder{

@@ -12,8 +12,8 @@ import bsi.mpoo.traineeufrpe.gui.extra.MyFragmentPagerAdapterFragMainActivity;
 
 public class ActCadastroLoginEstagiario extends AppCompatActivity {
 
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
+    TabLayout mTabLayout;
+    ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

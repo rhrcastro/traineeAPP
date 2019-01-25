@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,7 +38,6 @@ public class ActCadastroEstagiario extends AppCompatActivity {
     private String senha2;
     private String cidade;
     Button cadastrar;
-    private Criptografia criptografia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,22 +91,22 @@ public class ActCadastroEstagiario extends AppCompatActivity {
     }
 
     private boolean isCamposValidos() {
-        if (validacaoGUI.isCampoVazio(nome)){
+        if (ValidacaoGUI.isCampoVazio(nome)){
             edtNome.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isEmailInvalido(email)) {
+        } else if (ValidacaoGUI.isEmailInvalido(email)) {
             edtEmail.setError("Email inválido");
             return false;
-        } else if (validacaoGUI.isCampoVazio(senha1)){
+        } else if (ValidacaoGUI.isCampoVazio(senha1)){
             edtSenha1.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isCampoVazio(senha2)) {
+        } else if (ValidacaoGUI.isCampoVazio(senha2)) {
             edtSenha2.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isCampoVazio(cpf)){
+        } else if (ValidacaoGUI.isCampoVazio(cpf)){
             edtCPF.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isCampoVazio(cidade)) {
+        } else if (ValidacaoGUI.isCampoVazio(cidade)) {
             edtCidade.setError("Campo vazio");
             return false;
         } if(! validacaoGUI.isSenhasIguais(senha1, senha2) ){
@@ -127,7 +125,7 @@ public class ActCadastroEstagiario extends AppCompatActivity {
     private Estagiario criarEstagiario() {
         Estagiario estagiario = new Estagiario();
         estagiario.setEmail(email);
-        String senha = criptografia.criptografar(senha1);
+        String senha = Criptografia.criptografar(senha1);
         estagiario.setSenha(senha);
         estagiario.setCurriculo(SessaoEstagiario.instance.getCurriculo());
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.profile_empregador);

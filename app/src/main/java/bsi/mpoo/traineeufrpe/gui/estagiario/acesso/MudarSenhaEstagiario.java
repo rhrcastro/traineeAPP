@@ -3,14 +3,12 @@ package bsi.mpoo.traineeufrpe.gui.estagiario.acesso;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import bsi.mpoo.traineeufrpe.R;
-import bsi.mpoo.traineeufrpe.dominio.estagiario.Estagiario;
 import bsi.mpoo.traineeufrpe.gui.main.ActHome;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.infra.validacao.ValidacaoGUI;
@@ -24,7 +22,6 @@ public class MudarSenhaEstagiario extends AppCompatActivity {
     private String senha1;
     private String senha2;
     Button AlteraSenha;
-    private Criptografia criptografia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +41,7 @@ public class MudarSenhaEstagiario extends AppCompatActivity {
 
     private void MudaSenha() {
         if (isCamposValidos()){
-            SessaoEstagiario.instance.getPessoa().getEstagiario().setSenha(criptografia.criptografar(senha1));
+            SessaoEstagiario.instance.getPessoa().getEstagiario().setSenha(Criptografia.criptografar(senha1));
             loginServices.alterarSenha(SessaoEstagiario.instance.getPessoa().getEstagiario());
             Intent TelaPrincipal = new Intent(MudarSenhaEstagiario.this, ActCadastroLoginEstagiario.class);
             startActivity(TelaPrincipal);
@@ -69,10 +66,10 @@ public class MudarSenhaEstagiario extends AppCompatActivity {
 
     private boolean isCamposValidos() {
         capturarTextos();
-        if (validacaoGUI.isCampoVazio(senha1)) {
+        if (ValidacaoGUI.isCampoVazio(senha1)) {
             Senha.setError("Campo vazio");
             return false;
-        } else if (validacaoGUI.isCampoVazio(senha2)) {
+        } else if (ValidacaoGUI.isCampoVazio(senha2)) {
             Confirma.setError("Campo vazio");
             return false;
         }

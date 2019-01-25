@@ -39,21 +39,17 @@ import bsi.mpoo.traineeufrpe.negocio.LoginServices;
 
 public class PerfilEmp extends AppCompatActivity {
 
-    private TextView Nome, email, cidade;
-    private ImageView imagem;
+    TextView Nome, email, cidade;
+    ImageView imagem;
     Toolbar toolbar;
     private String strNome, strEmail, strCidade;
     FloatingActionButton fab_edit;
-    private EmpregadorServices empregadorServices = new EmpregadorServices(this);
-
-
 
     public PerfilEmp() {
         this.strNome = SessaoEmpregador.instance.getEmpregador().getNome();
         this.strEmail = SessaoEmpregador.instance.getEmpregador().getEmail();
         this.strCidade = SessaoEmpregador.instance.getEmpregador().getCidade();
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +79,6 @@ public class PerfilEmp extends AppCompatActivity {
         });
     }
 
-
     private Bitmap getImagem(){
         byte[] fotoEmp = SessaoEmpregador.instance.getEmpregador().getFoto();
         return BitmapFactory.decodeByteArray(fotoEmp, 0, fotoEmp.length);
@@ -94,6 +89,5 @@ public class PerfilEmp extends AppCompatActivity {
         startActivity(new Intent(this, ActEmpregadorPrincipal.class));
         finish();
     }
-
 }
 

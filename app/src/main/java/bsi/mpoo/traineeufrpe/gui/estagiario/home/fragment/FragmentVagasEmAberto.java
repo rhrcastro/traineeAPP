@@ -21,7 +21,6 @@ import bsi.mpoo.traineeufrpe.dominio.vaga.Vaga;
 import bsi.mpoo.traineeufrpe.gui.extra.AdapterVagasAbertas;
 import bsi.mpoo.traineeufrpe.infra.sessao.SessaoEstagiario;
 import bsi.mpoo.traineeufrpe.negocio.InscricaoServices;
-import bsi.mpoo.traineeufrpe.negocio.VagaServices;
 
 public class FragmentVagasEmAberto extends ListFragment
         implements SearchView.OnQueryTextListener, MenuItem.OnActionExpandListener {
@@ -47,7 +46,6 @@ public class FragmentVagasEmAberto extends ListFragment
         populate();
         return v;
     }
-
 
     private void populate() {
         inscricaoServices = new InscricaoServices(getActivity());

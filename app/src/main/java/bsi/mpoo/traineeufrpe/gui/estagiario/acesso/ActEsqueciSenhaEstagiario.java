@@ -125,7 +125,6 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
     }
 
     class EnviarMensagem extends AsyncTask<String, String, Boolean> {
-
         @Override
         protected Boolean doInBackground(String... strings) {
             try {
@@ -174,7 +173,7 @@ public class ActEsqueciSenhaEstagiario extends AppCompatActivity {
     }
 
     public static String codigoAleatorio() {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 8; i++) {
             int X = rand.nextInt(letras.length);
             sb.append(letras[X]);
